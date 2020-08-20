@@ -1,0 +1,104 @@
+/* CSS Document */
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  transition: all 0.05s;
+}
+
+body#body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body#body main #app h1,
+body#body main #app h2,
+body#body main #app h3,
+body#body main #app h4,
+body#body main #app h5,
+body#body main #app h6 {
+  font-family: 'Roboto', serif;
+}
+
+
+body#body main #app a {
+  text-decoration: none;
+  color: inherit;
+  box-shadow: none;
+  background: inherit;
+}
+
+body#body main #app a,
+body#body main #app a:hover,
+body#body main #app a.active {
+  color: #000000;
+}
+
+body#body main #app a:hover,
+body#body main #app a.active {
+  font-weight: 600;
+}
+
+body#body main #app p {
+  margin: 0;
+}
+
+body#body main #app .pointer {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+body#body main #app .btn,
+body#body main #app button,
+body#body main #app .btn:focus,
+body#body main #app button:focus,
+body#body main #app .btn:hover,
+body#body main #app button:hover {
+  font-weight: 500;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+}
+
+body#body main #app .form-control,
+body#body main #app .form-control:-webkit-autofill,
+body#body main #app .form-control:-webkit-autofill:hover,
+body#body main #app .form-control:-webkit-autofill:focus,
+body#body main #app .form-control:-webkit-autofill:active {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 100 #fff inset;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body#body main #app .border-primary {
+  border-color: #000000;
+}
+
+body#body main #app .clear {
+  clear: both;
+}
+
+body#body main #app .v-parent {
+  position: relative;
+  width: 100%;
+}
+
+body#body main #app .v-child {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+}
+
+body#body main #app .d-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+body#body main #app .img-holder {
+  overflow: hidden;
+}

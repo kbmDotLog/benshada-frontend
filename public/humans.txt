@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jedidiah Amaraegbu -- Technical Design Lead  -- @am_jedidiah
+ <!-- TODO:Add your name here where necessary -->
+
+# THANKS
+
+    Jedidiah Amaraegbu
+ <!-- TODO:Add your name here where necessary -->
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, BootStrap, React

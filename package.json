@@ -1,0 +1,76 @@
+{
+  "name": "react_app",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "private": true,
+  "author": {
+    "name": "Amaraegbu Jedidiah",
+    "email": "imunacode@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://"
+  },
+  "directories": {
+    "test": "__tests__"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.9.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "cra-template": "1.0.3",
+    "cross-env": "^7.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "flow": "^0.2.3",
+    "pre-commit": "^1.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-form": "^8.3.6",
+    "redux-localstorage-simple": "^2.3.1",
+    "redux-multi": "^0.1.12",
+    "redux-promise-middleware": "^6.1.2",
+    "redux-thunk": "^2.3.0",
+    "serve": "^11.3.2"
+  },
+  "pre-commit": "check",
+  "scripts": {
+    "test": "cross-env CI=true react-scripts test --detectOpenHandles",
+    "test:watch": "react-scripts test --watch",
+    "test:cover": "react-scripts test --coverage",
+    "lint": "eslint \"src/**/*.js\" --fix || false",
+    "check": "npm run lint && npm test",
+    "build": "npm run check && react-scripts build",
+    "start": "serve -s build",
+    "dev": "npm run check && set PORT=3000 && react-scripts start",
+    "dev:secure": "npm run check && set PORT=3000 && cross-env HTTPS=true react-scripts start",
+    "prod": "npm run build && serve -s build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.20.0"
+  }
+}
