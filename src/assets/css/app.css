@@ -1,90 +1,73 @@
 /* CSS Document */
-* {
-  font-family: 'Montserrat', sans-serif;
+/*
+TODO: Obtain Color Palette from https://coolors.co/app
+* ! Use rem for responsive font-sizes
+* ! Replace all occurrences of #000000 with primary color
+*/
+
+body {
+  font-size: 16px;
   box-sizing: border-box;
-  word-wrap: break-word;
-  transition: all 0.05s;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body#body,
-html {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-body#body main #app h1,
-body#body main #app h2,
-body#body main #app h3,
-body#body main #app h4,
-body#body main #app h5,
-body#body main #app h6 {
-  font-family: 'Roboto', serif;
-}
-
-
-body#body main #app a {
+a {
   text-decoration: none;
-  color: inherit;
-  box-shadow: none;
-  background: inherit;
 }
 
-body#body main #app a,
-body#body main #app a:hover,
-body#body main #app a.active {
+a,
+a:hover,
+a.active {
   color: #000000;
 }
 
-body#body main #app a:hover,
-body#body main #app a.active {
-  font-weight: 600;
+a:hover,
+a.active {
+  font-weight: bold;
 }
 
-body#body main #app p {
+p {
   margin: 0;
 }
 
-body#body main #app .pointer {
-  box-shadow: none;
+.pointer {
   cursor: pointer;
 }
 
-body#body main #app .btn,
-body#body main #app button,
-body#body main #app .btn:focus,
-body#body main #app button:focus,
-body#body main #app .btn:hover,
-body#body main #app button:hover {
-  font-weight: 500;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  border: none;
-}
-
-body#body main #app .form-control,
-body#body main #app .form-control:-webkit-autofill,
-body#body main #app .form-control:-webkit-autofill:hover,
-body#body main #app .form-control:-webkit-autofill:focus,
-body#body main #app .form-control:-webkit-autofill:active {
+.form-control,
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
   box-shadow: none;
   -webkit-box-shadow: 0 0 0 100 #fff inset;
   font-family: 'Montserrat', sans-serif;
 }
 
-body#body main #app .border-primary {
+.border-primary {
   border-color: #000000;
 }
 
-body#body main #app .clear {
+.clear {
   clear: both;
 }
 
-body#body main #app .v-parent {
+.v-parent {
   position: relative;
   width: 100%;
 }
 
-body#body main #app .v-child {
+.v-child {
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -93,12 +76,12 @@ body#body main #app .v-child {
   width: 100%;
 }
 
-body#body main #app .d-fixed {
+.d-fixed {
   position: fixed;
   bottom: 0;
   right: 0;
 }
 
-body#body main #app .img-holder {
+.img-holder {
   overflow: hidden;
 }
