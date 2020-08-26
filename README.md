@@ -1,5 +1,7 @@
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f416d49bc47d4267900f101a949d35d7)](https://app.codacy.com/gh/BuildForSDGCohort2/benshada-frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDGCohort2/benshada-frontend&utm_campaign=Badge_Grade_Settings)
+
 <!-- TODO: Add Codacy badge here -->
 
 ## About
