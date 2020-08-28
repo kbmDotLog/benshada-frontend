@@ -5,5 +5,5 @@ import React from 'react';
 import 'assets/css/app.css';
 
 export default class App extends React.Component {
-  render = () => <div id="app">Learn React</div>
+  render = () => <>Learn React</>
 }
