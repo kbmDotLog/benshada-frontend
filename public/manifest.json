@@ -1,7 +1,7 @@
 {
-  "short_name": "amjedidiah",
-  "name": "amjedidiah",
-  "description": "amjedidiah",
+  "short_name": "benshada",
+  "name": "benshada",
+  "description": "benshada",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,18 +22,10 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/?source=pwa",
+  "start_url": "/",
   "display": "fullscreen",
   "scope": "/",
-  "theme_color": "#000000",
-  "background_color": "#ffffff", 
-  "shortcuts": [
-    {
-      "name": "amjedidiah",
-      "short_name": "amjedidiah",
-      "description": "amjedidiah",
-      "url": "/amjedidiah?source=pwa",
-      "icons": [{ "src": "/images/amjedidiah.png", "sizes": "192x192" }]
-    }
+  "theme_color": "#ef932e",
+  "background_color": "#FFF3EB"
   ]
 }

@@ -1,9 +1,11 @@
 /* CSS Document */
 /*
-TODO: Obtain Color Palette from https://coolors.co/app
-TODO: Replace all occurrences of #000000 with primary color
-TODO: Select font family for regular text
-TODO: Select font family for headings
+PALETTE
+#ef932e
+#59C9A5
+#D81E5B
+#23395B
+#FFF3EB
 * ! Use rem for responsive font-sizes
 */
 
@@ -11,16 +13,22 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Dosis', sans-serif;
 }
 
 a {
@@ -30,7 +38,7 @@ a {
 a,
 a:hover,
 a.active {
-  color: #000000;
+  color: #ef932e;
 }
 
 a:hover,
@@ -57,7 +65,7 @@ p {
 }
 
 .border-primary {
-  border-color: #000000;
+  border-color: #ef932e;
 }
 
 .clear {
