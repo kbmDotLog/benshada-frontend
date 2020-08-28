@@ -58,7 +58,9 @@
     "dev": "npm run check && set PORT=3000 && react-scripts start",
     "dev:secure": "npm run check && set PORT=3000 && cross-env HTTPS=true react-scripts start",
     "prod": "npm run build && serve -s build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -77,5 +79,6 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.20.0"
-  }
+  },
+  "homepage": "https://amjedidiah.github.io/react-app-template"
 }
