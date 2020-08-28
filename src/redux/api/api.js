@@ -1,6 +1,6 @@
 // axiosconfig.js
 import axios from 'axios';
-import store from '../store.js';
+import store from 'redux/store';
 
 // configure base url
 const api = axios.create({
