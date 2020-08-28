@@ -1,8 +1,10 @@
 /* CSS Document */
 /*
 TODO: Obtain Color Palette from https://coolors.co/app
+TODO: Replace all occurrences of #000000 with primary color
+TODO: Select font family for regular text
+TODO: Select font family for headings
 * ! Use rem for responsive font-sizes
-* ! Replace all occurrences of #000000 with primary color
 */
 
 body {

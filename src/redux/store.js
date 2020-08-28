@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import multi from 'redux-multi';
 
 // Root reducer
-import reducers from './reducers/rootReducer.js';
+import reducers from 'redux/reducers/rootReducer';
 
 // Middleware
 const createStoreWithMiddleware = composeWithDevTools(

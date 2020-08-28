@@ -7,13 +7,13 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // Redux store
-import store from 'redux/store.js';
+import store from 'redux/store';
 
 // Service worker
-import * as serviceWorker from 'serviceWorker.js';
+import * as serviceWorker from 'serviceWorker';
 
 // App component
-import App from './app.js';
+import App from 'app';
 
 // DOM render
 ReactDOM.render(

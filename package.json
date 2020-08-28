@@ -31,12 +31,14 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "flow": "^0.2.3",
     "pre-commit": "^1.2.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-select": "^3.1.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.3.6",
@@ -58,7 +60,9 @@
     "dev": "npm run check && set PORT=3000 && react-scripts start",
     "dev:secure": "npm run check && set PORT=3000 && cross-env HTTPS=true react-scripts start",
     "prod": "npm run build && serve -s build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -77,5 +81,6 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.20.0"
-  }
+  },
+  "homepage": "https://amjedidiah.github.io/react-app-template"
 }

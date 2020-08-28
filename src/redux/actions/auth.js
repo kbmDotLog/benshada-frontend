@@ -1,6 +1,6 @@
 // API & type imports
-import api from '../api/api.js';
-import { LOGIN, LOGOUT, REGISTER } from './types/authTypes.js';
+import api from 'redux/api/api';
+import { LOGIN, LOGOUT, REGISTER } from 'redux/actions/types/authTypes';
 
 // Login action
 
