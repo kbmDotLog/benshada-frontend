@@ -25,10 +25,10 @@ URL to deployed staging-app is below
 
 1. Clone repo `git clone https://github.com/BuildForSDGCohort2/benshada-frontend.git benshada`
 2. Verify npm global installation by running `npm install npm -g`
-3. Install dependencies by running `npm install` from the **benshada** directory/folder
-4. Start app locally by running `npm run dev` from the **benshada** directory/folder
+3.  Install dependencies by running `npm install` from the **benshada** directory/folder
+4.  Start app locally by running `npm run dev` from the **benshada** directory/folder
 
-#### Hints
+### Hints
 
 1. Get Started: `npm install`
 2. Install additional dependencies: `npm install <dependency-name>`
@@ -51,7 +51,7 @@ URL to deployed staging-app is below
 ## Contributing
 
 If this project sounds interesting to you and you'd like to contribute, thank you!
-First, you can send a mail to buildforsdg@andela.com copy imunacode@gmail.com to indicate your interest, why you'd like to support and what forms of support you can bring to the table
+First, you can send us an email
 
 ## Acknowledgements
 
