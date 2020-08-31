@@ -1,4 +1,3 @@
-// Auth action types
 export const LOGIN = 'LOGIN';
-export const REGISTER = 'REGISTER';
+export const SIGNUP = 'SIGNUP';
 export const LOGOUT = 'LOGOUT';

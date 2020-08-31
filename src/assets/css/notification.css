@@ -1,0 +1,38 @@
+#app .notification {
+  padding: 10px 20px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#app .notification .img-holder {
+  width: 110px;
+  margin-right: 10px;
+  font-size: 40px;
+}
+
+#app .notification .info {
+  flex-grow: 1;
+}
+
+#app .notification .info .action button.btn {
+  box-shadow: none;
+  border: none;
+}
+
+#app .notification .info .action button.btn:nth-child(1) {
+  margin-right: 10px;
+}
+
+@media (min-width: 992px) {
+  #app .notification .info {
+    display: flex;
+  }
+
+  #app .notification .info .action {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}

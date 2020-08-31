@@ -1,0 +1,114 @@
+.item-upload .preview-component {
+  min-width: 250px;
+  max-width: 250px;
+  width: 250px;
+  position: relative;
+  left: 10%;
+}
+
+.item-upload .preview-component form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 35px;
+  text-align: center;
+  z-index: 3;
+  top: 275px;
+  background: transparent !important
+}
+
+.item-upload.ticket-upload + form {
+  margin-top: 300px;
+}
+
+.item-upload .preview-component form input,
+.item-upload .preview-component form .btn {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.item-upload .preview-component form input {
+  z-index: 2;
+  padding: 5px 0;
+  opacity: 0;
+}
+
+.item-upload .preview-component form .btn,
+.item-upload .preview-component form input {
+  width: 100%;
+  bottom: -36px;
+  padding: 2px 0 8px 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.item-upload .preview-component .img-preview {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  bottom: 0px;
+  border-radius: 50%;
+  height: 100px;
+}
+
+.item-upload .preview-component .img-preview {
+  top: 100px;
+  height: 312.5px;
+  border-radius: 10px;
+  z-index: 2;
+  font-size: 2em;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.item-upload .preview-component .img-preview svg {
+  margin-top: 80px;
+}
+
+.item-upload .preview-component .img-preview img {
+  min-height: 312.5px;
+  max-height: 312.5px;
+  min-width: 250px;
+  max-width: 250px;
+  width: 250px;
+  height: 312.5px;
+}
+
+@media (max-width: 250px) {
+  .item-upload .preview-component {
+    left: 5%;
+    top: 70px;
+    min-width: 200px;
+    max-width: 200px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 356px) {
+  .item-upload .preview-component {
+    left: 20%;
+  }
+}
+
+@media (min-width: 400px) {
+  .item-upload .preview-component {
+    left: 28%;
+  }
+}
+
+@media (min-width: 476px) {
+  .item-upload .preview-component {
+    left: 47%;
+  }
+}
+
+@media (min-width: 992px) {
+  .item-upload .preview-component {
+    left: 95%;
+  }
+
+  .item-upload .preview-component form {
+    top: 375px;
+  }
+}

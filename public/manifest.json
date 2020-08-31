@@ -1,6 +1,6 @@
 {
-  "short_name": "benshada",
-  "name": "benshada",
+  "short_name": "Benshada",
+  "name": "Benshada Place",
   "description": "benshada",
   "icons": [
     {
@@ -10,13 +10,13 @@
       "purpose": "any maskable"
     },
     {
-      "src": "logo192.png",
+      "src": "icon192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "icon512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
@@ -26,6 +26,5 @@
   "display": "fullscreen",
   "scope": "/",
   "theme_color": "#ef932e",
-  "background_color": "#FFF3EB"
-  ]
+  "background_color": "#ffffff"
 }

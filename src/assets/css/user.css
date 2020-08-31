@@ -1,0 +1,140 @@
+#app #dashboardHeader {
+  width: 100%;
+  z-index: 4;
+}
+
+#app #userSide {
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+#app #userSide.user-side-main {
+  z-index: 3;
+}
+
+#app #userNav li a {
+  padding: 12px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#app #userNav li a:hover {
+  padding: 15px 15px 15px 25px;
+  border-radius: 22px 0 0 22px;
+  color: #fff;
+}
+
+#app #userNav li a.active {
+  padding: 15px 15px 15px 25px;
+  background: #fff;
+  color: #ef932e;
+  border-radius: 22px 0 0 22px;
+  font-weight: bolder;
+}
+
+#app #userSide .img-holder {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+}
+
+#app .user-side-main #userNav li a:hover,
+#app .user-side-main #userNav li a.active {
+  padding: 9.33px 35px;
+}
+
+#app #userNav li a:hover .img-holder,
+#app #userNav li a.active .img-holder {
+  transform: scale(1.1);
+  border: 2px solid #ef932e;
+}
+
+#app .user-notification {
+  position: relative;
+  top: 8px;
+  font-size: 40px;
+}
+
+#app .user-section {
+  padding: 40px 2.5%;
+  margin-top: 36px;
+}
+
+#app #pills-tabContent {
+  overflow: hidden;
+}
+
+#app small.message {
+  width: 30%;
+  display: block;
+}
+
+#app #messageFooter {
+  bottom: 0;
+  width: auto;
+}
+
+#app .message-div {
+  position: relative;
+  left: -2.5%;
+}
+
+#app .chat-form-holder {
+  bottom: 15px;
+  width: 100%;
+  left: -0.5%;
+}
+
+#app .chat-form-holder > div {
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  #app #dashboardHeader {
+    width: 75%;
+    z-index: 4;
+  }
+
+  #app #userNav li a:hover,
+  #app #userNav li a.active {
+    padding: 12px 45px;
+  }
+
+  #app .user-side-main #userNav li a.active {
+    background: #fff;
+  }
+
+  #app #userSide .img-holder {
+    position: relative;
+    float: left;
+    top: -3.5px;
+    width: 45px;
+    height: 45px;
+  }
+
+  #app #userNav li a:hover .img-holder,
+  #app #userNav li a.active .img-holder {
+    transform: scale(1);
+    border: 1px solid #ccc;
+  }
+
+  #app .message-div {
+    left: 2.5%;
+  }
+
+  #app .chat-form-holder {
+    padding: 0 30px;
+    left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  #app #dashboardHeader {
+    width: 83.33%;
+  }
+
+  #app .message-div {
+    left: 1%;
+  }
+}

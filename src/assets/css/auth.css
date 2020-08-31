@@ -1,0 +1,8 @@
+/*Login CSS*/
+#app .login-left {
+  background-image: url('../img/login.jpg');
+  background-attachment: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

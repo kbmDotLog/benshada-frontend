@@ -9,6 +9,11 @@ PALETTE
 * ! Use rem for responsive font-sizes
 */
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-size: 16px;
   box-sizing: border-box;
@@ -94,4 +99,449 @@ p {
 
 .img-holder {
   overflow: hidden;
+}
+
+/* OLD */
+#app #pills-tabContent footer {
+  position: fixed;
+  bottom: 0;
+  width: inherit;
+}
+
+#app .pointer {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#app .btn,
+#app button,
+#app .btn:focus,
+#app button:focus,
+#app .btn:hover,
+#app button:hover {
+  font-weight: 500;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+}
+
+#app .form-control,
+#app .form-control:-webkit-autofill,
+#app .form-control:-webkit-autofill:hover,
+#app .form-control:-webkit-autofill:focus,
+#app .form-control:-webkit-autofill:active {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 100 #fff inset;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#app .border-primary {
+  border-color: #ef932e;
+}
+
+#app .bg-primary,
+#app .btn-primary,
+.bg-primary-benshada,
+#app .bg-primary-benshada,
+#app .btn-primary-benshada {
+  background: #ef932e;
+}
+
+#app .btn-primary,
+#app .btn-primary-benshada {
+  color: #fff;
+}
+
+#app .btn-primary,
+#app .btn-primary:hover {
+  color: #fff;
+}
+
+#app .btn-outline-primary {
+  color: #ef932e;
+}
+
+#app .btn-outline-primary:hover {
+  color: #fff;
+  background: #ef932e;
+}
+
+#app .btn-link {
+  box-shadow: none;
+  color: #ef932e;
+  font-weight: bold;
+  padding-left: 0;
+  text-decoration: none;
+}
+
+#app .bg-transparent {
+  background: rgba(239, 147, 46, 0.7);
+}
+
+#app .bg-light,
+#app .bg-lg-light,
+#app .bg-light-benshada,
+#app .bg-lg-light-benshada {
+  background: #fffff0;
+}
+
+#app .bg-warning,
+#app .bg-warning-benshada {
+  background: #ffdcb0;
+}
+
+#app .text-primary-benshada {
+  color: #ef932e;
+}
+
+#app .border-primary-benshada {
+  border-color: #ef932e !important;
+}
+
+#app .text-ash {
+  color: #ccc;
+}
+
+#app .card-columns {
+  column-count: 2;
+}
+
+#app .card-columns.testimonials {
+  column-count: 1;
+}
+
+#app .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#app .cards .card {
+  background: transparent;
+}
+
+#app .cards .card:hover {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+#app .cards.products .card {
+  flex: 1 185px;
+}
+
+#app .cards.bank .card {
+  flex: 1 280px;
+  width: 280px;
+  height: 160px;
+  background: #23164a;
+  color: #fff;
+}
+
+#app #benshadaCard .cards.bank .card {
+  background: #ef932e;
+}
+
+#app .cards.bank .card .arc {
+  width: 180px;
+  height: 45px;
+
+  background: rgba(196, 196, 196, 0.54);
+  border-radius: 0px 0px 200px 100px;
+}
+
+#app .cards.bank .card .balance {
+  position: absolute;
+  right: 20px;
+  top: 2px;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+#app .cards.bank .card .gold {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 20px;
+  top: 22px;
+
+  background: #e3b43a;
+  border-radius: 12px;
+}
+
+#app .cards.bank .card .blank {
+  position: absolute;
+  width: 70px;
+  height: 40px;
+  right: 20px;
+  top: 50px;
+
+  background: #c4c4c4;
+}
+
+#app .cards.bank .card .number {
+  position: absolute;
+  height: 27px;
+  left: 20px;
+  right: 92px;
+  top: 75px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#app .cards.bank .card .date {
+  position: absolute;
+  right: 92px;
+  top: 107px;
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-end;
+}
+
+#app .cards.bank .card .date small {
+  width: 50px;
+  font-size: 6px;
+  padding-top: 3px;
+}
+
+#app .cards.bank .card .name {
+  position: absolute;
+  left: 20px;
+  right: 92px;
+  top: 135px;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#app .cards.bank .card .type {
+  position: absolute;
+  right: 20px;
+  top: 100px;
+}
+
+#app .cards.bank .card .type img {
+  width: 60px;
+}
+
+#app .cards.testimonials .card,
+#app .cards.stores .card,
+#app .cards.packages .card {
+  flex: 1 250px;
+}
+
+#app .cards.products.products-gallery .card {
+  margin: 0;
+}
+
+#app .cards.orders .card {
+  flex: 1 100%;
+}
+
+#app .cards.orders img {
+  min-height: 120px;
+  max-height: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  width: 120px;
+  height: 120px;
+  border-radius: 0;
+}
+
+#app .cards.products .card img {
+  min-height: 185px;
+  max-height: 185px;
+  min-width: 185px;
+  max-width: 185px;
+  width: 185px;
+  height: 185px;
+  border-radius: 0;
+}
+
+#app .cards.stores .card img {
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 0;
+}
+
+#app #checkOut .card-img {
+  min-height: 75px;
+  max-height: 75px;
+  min-width: 60px;
+  max-width: 60px;
+  width: 60px;
+  height: 75px;
+}
+
+#app .card-select {
+  cursor: pointer;
+}
+
+#app .clear {
+  clear: both;
+}
+
+#app .no-Link {
+  text-decoration: none;
+}
+
+#app .v-parent {
+  position: relative;
+  border: 1px solid red;
+  width: 100%;
+}
+
+#app .v-child {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  border: 1px solid red;
+}
+
+#app .d-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#app .v-assist {
+  z-index: 2;
+  bottom: 75px;
+  right: 30;
+  display: none;
+}
+
+#app .v-assist section {
+  min-height: 300;
+}
+
+#app .img-holder {
+  overflow: hidden;
+}
+
+#app .img-holder.img-holder-user {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+#newItems {
+  bottom: 80px;
+  right: 30px;
+  position: fixed;
+  background: #fffff0;
+  color: #ef932e;
+  text-align: center;
+  border-radius: 100px;
+  overflow: hidden;
+  display: block;
+
+  transition: display 2s, bottom 1s;
+}
+
+#newItems.hidden {
+  display: none;
+  bottom: 20px;
+}
+
+#newItems div div {
+  padding: 8px 12px;
+}
+
+#newItems div div:hover {
+  background: #fff;
+  font-size: 1.1em;
+}
+
+#addProductButton {
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  position: fixed;
+}
+
+#app #genderList .icon {
+  font-size: 2em;
+}
+
+@media (max-width: 250px) {
+  #app .cards.orders .card {
+    flex: 0 1 210px;
+  }
+
+  #app .cards.orders img {
+    min-height: 110px;
+    max-height: 110px;
+    min-width: 50px;
+    max-width: 50px;
+    width: 50px;
+    height: 110px;
+    border-radius: 0;
+  }
+
+  #app .cards.cards .card {
+    flex: 1 210px;
+    width: 210px;
+  }
+}
+
+@media (min-width: 576px) {
+  #app .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  #app .card-columns {
+    column-count: 3;
+  }
+
+  #app .cards.products .card {
+    flex: 0 1 185px;
+  }
+
+  #app .cards.testimonials .card,
+  #app .cards.stores .card,
+  #app .cards.packages .card {
+    flex: 0 1 270px;
+  }
+
+  #app .card-columns.testimonials {
+    column-count: 3;
+  }
+
+  #app .cards.packages .card {
+    flex: 0 1 px;
+    margin: 10px;
+    min-width: px;
+  }
+}
+
+@media (min-width: 992px) {
+  #app .card-columns {
+    column-count: 4;
+  }
+
+  #app #genderList .icon {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 1198px) {
+  #app .card-columns {
+    column-count: 6;
+  }
+
+  #app .cards.orders .card {
+    flex: 1 49%;
+  }
+
+  #app .cards.orders .card:nth-child(2n + 1) {
+    margin-right: 2%;
+  }
 }
