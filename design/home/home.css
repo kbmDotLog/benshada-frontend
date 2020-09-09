@@ -1,0 +1,466 @@
+/* CSS Document */
+.section {
+  margin: 50px 0;
+}
+
+.year::before {
+  position: absolute;
+  content: '';
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #000000;
+  left: calc((100% - 2rem) / 2);
+  top: 10vh;
+  display: none;
+}
+
+/* .div-side-nav {
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+
+.div-side-nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: fit-content;
+  transform: rotate(270deg);
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.div-side-nav ul li {
+  flex: 1 1 1;
+  padding: 10px;
+  margin-right: 8px;
+}
+
+.div-side-nav ul li:nth-of-type(3)::before {
+  position: absolute;
+  content: '';
+  width: 8rem;
+  height: 0.08rem;
+  background-color: #030303;
+  top: 20px;
+  right: -70%;
+} */
+
+/**************************************************************
+***************************************************************
+**************************** JUMBO ****************************
+***************************************************************
+***************************************************************/
+#jumbo {
+  height: 50vh;
+  width: 100%;
+}
+
+#jumbo .row {
+  position: relative;
+}
+
+#jumbo .row > div {
+  position: absolute;
+  height: 100%;
+}
+
+#jumbo .row > div:nth-child(1) {
+  z-index: 2;
+  /* background: rgba(0, 0, 0, 0.3); */
+  color: #fff;
+  padding-top: 10vh;
+}
+
+#jumbo .row > div:nth-child(1) .v-child {
+  text-align: center;
+  padding: 0 10%;
+}
+
+#jumbo .carousel-indicators,
+#jumbo .carousel-control-prev,
+#jumbo .carousel-control-next {
+  z-index: 3;
+}
+
+#jumbo .carousel-indicators li {
+  border-width: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #666;
+  position: relative;
+  top: 10px;
+}
+
+#jumbo .carousel-item {
+  background: url('../../src/assets/img/jumbotron/benshadawebbanners01.jpg') no-repeat top
+    right/cover;
+}
+
+#jumbo .carousel-item:nth-child(2) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners02.jpg');
+}
+
+#jumbo .carousel-item:nth-child(3) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners03.jpg');
+}
+
+#jumbo .carousel-item:nth-child(4) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners04.jpg');
+}
+
+/**************************************************************
+***************************************************************
+************************* CREATE SHOP *************************
+***************************************************************
+***************************************************************/
+#createShop {
+  background: rgba(0, 0, 0, 0.4);
+  height: 10vh;
+}
+
+#createShop .btn {
+  left: 15%;
+  right: 15%;
+  width: 70%;
+}
+
+/**************************************************************
+***************************************************************
+********************** PRODUCT SHOWCASE ***********************
+***************************************************************
+***************************************************************/
+.productShowcase > div {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  overflow-x: scroll;
+}
+
+.productShowcase > div::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.productShowcase > div::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.productShowcase .product {
+  flex: 0 0 160px;
+  margin: 10px;
+  height: fit-content;
+}
+
+.productShowcase .product .img-holder {
+  width: 100%;
+  padding-top: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.productShowcase .name::before {
+  position: absolute;
+  content: '';
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #000000;
+  left: calc((100% - 2rem) / 2);
+  top: 31px;
+}
+
+/**************************************************************
+***************************************************************
+*********************** PRODUCTS STRATA ***********************
+***************************************************************
+***************************************************************/
+.products-strata {
+  height: 50vh;
+}
+
+.products-strata .gender-rep {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.products-strata .year::before {
+  left: 0;
+  top: 60px;
+}
+
+.products-strata .v-parent {
+  height: 100%;
+}
+
+/**************************************************************
+***************************************************************
+************************* CATEGORIES **************************
+***************************************************************
+***************************************************************/
+#categories {
+  justify-content: center;
+  height: 50vh;
+}
+
+#categories .category {
+  margin: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  display: flex;
+  height: 50%;
+}
+
+#categories .category:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+#categories .category > div {
+  flex: 1 0 50%;
+}
+
+#categories .category > div.v-parent {
+  background: #fff;
+}
+
+#categories .category > div.v-parent h2 {
+  display: none;
+}
+
+#categories .category .flip::before {
+  top: 80px;
+  display: block;
+}
+
+/**************************************************************
+***************************************************************
+************************* TESTIMONIAL *************************
+***************************************************************
+***************************************************************/
+#testimonial .img-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  margin-right: 10px;
+}
+
+#testimonial .testimony {
+  flex: 1 0 100%;
+}
+
+/**************************************************************
+***************************************************************
+**************************** FOOTER ***************************
+***************************************************************
+***************************************************************/
+#footer {
+  color: #ffffff;
+}
+
+#footer nav {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#footer ul {
+  list-style: none;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+#footer nav ul {
+  flex: 1 1 50%;
+}
+
+#footer ul.social-list {
+  display: flex;
+}
+
+#footer ul.social-list li {
+  background: rgba(0, 0, 0, 0.4);
+  flex: 0 1 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/**************************************************************
+***************************************************************
+************************* MEDIA QUERY *************************
+***************************************************************
+***************************************************************/
+@media (min-width: 576px) {
+  .productShowcase .product {
+    flex-basis: 240px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* .productShowcase .product {
+    flex-basis: 320px;
+  } */
+
+  .products-strata .v-parent {
+    position: relative;
+    left: -15%;
+    height: 75%;
+  }
+
+  .products-strata .v-child {
+    position: absolute;
+    left: 30%;
+  }
+
+  .products-strata:nth-of-type(odd) article {
+    flex-direction: row-reverse;
+  }
+
+  .products-strata:nth-of-type(odd) .v-parent {
+    left: 15%;
+  }
+
+  .products-strata:nth-of-type(odd) .v-child {
+    left: 11.25%;
+  }
+
+  #testimonial .testimony {
+    flex: 1 0 50%;
+  }
+}
+
+@media (min-width: 1198px) {
+  .section {
+    margin-bottom: 80px;
+  }
+
+  .year::before {
+    top: 5vh;
+    display: block;
+    left: 18%;
+  }
+
+  #jumbo {
+    height: 75vh;
+  }
+
+  #jumbo .row > div {
+    position: unset;
+    height: fit-content;
+  }
+
+  #jumbo .row > div:nth-child(1) {
+    z-index: unset;
+    background: #fff;
+    color: unset;
+    padding-top: 0;
+  }
+
+  #jumbo .row > div:nth-child(1) .v-child {
+    text-align: unset;
+    padding: 0 18%;
+  }
+
+  #jumbo .carousel-indicators {
+    left: -10.5%;
+    bottom: 10%;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  #jumbo .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    top: 0;
+  }
+
+  #createShop {
+    background: rgba(0, 0, 0, 0.4);
+    height: 20vh;
+  }
+
+  .products-strata {
+    height: 75vh;
+  }
+
+  .products-strata .v-parent {
+    left: -25%;
+  }
+
+  .products-strata .v-child {
+    left: 50%;
+  }
+
+  .products-strata:nth-of-type(odd) .v-parent {
+    left: 25%;
+  }
+
+  #categories {
+    margin: 125px 0;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  #categories .category {
+    margin: 0 10px;
+    text-align: right;
+    display: block;
+    height: 100%;
+    position: relative;
+    flex: 1 0 26%;
+  }
+
+  #categories .category > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  #categories .category > div.v-parent {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+  }
+
+  #categories .category .no-flip {
+    position: relative;
+    top: -28vh;
+  }
+
+  #categories .category .flip {
+    transform: rotate(270deg);
+    position: relative;
+    top: 0vh;
+    right: -40%;
+  }
+
+  #categories .category .flip::before {
+    display: none;
+  }
+
+  #categories .category .flip:nth-of-type(1) {
+    font-weight: bold;
+    top: 40vh;
+    right: 40%;
+  }
+
+  #categories .category > div.v-parent h2 {
+    display: block;
+  }
+
+  #testimonial .testimony {
+    flex: 1 0 33%;
+  }
+
+  #footer .social-holder {
+    text-align: right;
+    padding: 0;
+  }
+
+  #footer ul.social-list {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}

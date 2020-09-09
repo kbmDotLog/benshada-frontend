@@ -12,19 +12,45 @@ PALETTE
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 body {
   font-size: 16px;
-  box-sizing: border-box;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 10px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+* {
+  --scrollbarBG: rgba(0, 0, 0, 0);
+  --thumbBG: #888;
+  font-size: 97.5%;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
 }
 
 h1,
@@ -53,6 +79,13 @@ a.active {
 
 p {
   margin: 0;
+}
+
+button,
+button.btn,
+.btn {
+  text-transform: uppercase;
+  border-radius: 0;
 }
 
 .pointer {
@@ -242,9 +275,8 @@ p {
 #app .cards.bank .card .arc {
   width: 180px;
   height: 45px;
-
   background: rgba(196, 196, 196, 0.54);
-  border-radius: 0px 0px 200px 100px;
+  border-radius: 0 0 200px 100px;
 }
 
 #app .cards.bank .card .balance {
@@ -261,7 +293,6 @@ p {
   height: 40px;
   left: 20px;
   top: 22px;
-
   background: #e3b43a;
   border-radius: 12px;
 }
@@ -272,7 +303,6 @@ p {
   height: 40px;
   right: 20px;
   top: 50px;
-
   background: #c4c4c4;
 }
 
