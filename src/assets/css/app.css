@@ -154,7 +154,7 @@ button.btn,
 #app button:hover {
   font-weight: 500;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  border: none;
+  /* border: none; */
 }
 
 #app .form-control,
@@ -180,17 +180,15 @@ button.btn,
 }
 
 #app .btn-primary,
-#app .btn-primary-benshada {
-  color: #fff;
-}
-
-#app .btn-primary,
+#app .btn-primary-benshada,
 #app .btn-primary:hover {
   color: #fff;
+  border-color: #ef932e
 }
 
 #app .btn-outline-primary {
   color: #ef932e;
+  border-color: #ef932e
 }
 
 #app .btn-outline-primary:hover {
@@ -418,7 +416,6 @@ button.btn,
 
 #app .v-parent {
   position: relative;
-  border: 1px solid red;
   width: 100%;
 }
 
@@ -429,7 +426,6 @@ button.btn,
   transform: translateY(-50%);
   left: 0;
   width: 100%;
-  border: 1px solid red;
 }
 
 #app .d-fixed {

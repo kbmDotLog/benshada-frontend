@@ -26,6 +26,9 @@
       rel="stylesheet"
     />
 
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/5de0804f0f.js"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../src/assets/css/app.css" />
 
@@ -33,7 +36,7 @@
     <link rel="stylesheet" href="home.css" />
   </head>
 
-  <body>
+  <body id="app">
     <!-- Document Header -->
     <header>
       <nav></nav>
@@ -42,16 +45,16 @@
     <!-- Document Main Content -->
     <main class="h-100">
       <!-- Document Main Article -->
-      <section id="jumbo">
+      <section id="jumbo" class="position-relative">
         <h2 class="d-none">Jumbo</h2>
         <article class="jumbotron jumbotron-fluid bg-white py-0 h-100">
           <div class="container-fluid h-100">
             <div class="row h-100 align-items-center">
               <div class="col-12 col-xl position-relative v-parent">
-                <div class="v-child d-flex justify-content-around">
-                  <div class="w-100 d-none d-lg-block">
+                <div class="v-child d-flex px-0">
+                  <div class="w-100 d-none d-xl-block text-right jumbo-text">
                     <h4 class="year text-uppercase">2020</h4>
-                    <h4 class="display-4 my-4 my-xl-5">Latest Collection</h4>
+                    <h4 class="display-4 my-4 my-xl-5">Latest<br />Collection</h4>
                     <p class="lead">
                       <a class="btn btn-primary d-xl-none rounded-0" href="#" role="button"
                         >See More</a
@@ -94,6 +97,14 @@
             </div>
           </div>
         </article>
+        <!-- random category display -->
+        <div class="div-side-nav d-none d-xl-block">
+          <ul class="v-child">
+            <li><a>accesories</a></li>
+            <li><a>bags</a></li>
+            <li><a>shoes</a></li>
+          </ul>
+        </div>
       </section>
 
       <section class="container-fluid text-center v-parent" id="createShop">
@@ -166,8 +177,8 @@
         </div>
       </section>
 
-      <section class="container-fluid products-strata section">
-        <h2 class="d-none">Featured Shops</h2>
+      <section class="container-fluid products-strata section position-relative">
+        <h2 class="d-none">Featured Shops base on paid ads</h2>
 
         <article class="row h-100 align-items-center">
           <div class="col-6 d-none d-lg-block h-100 gender-rep"></div>
@@ -188,6 +199,14 @@
             </div>
           </div>
         </article>
+
+        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+          <ul class="v-child">
+            <li><a>accesories</a></li>
+            <li><a>bags</a></li>
+            <li><a>shoes</a></li>
+          </ul>
+        </div>
       </section>
 
       <section class="productShowcase mt-4 section">
@@ -252,7 +271,7 @@
         </div>
       </section>
 
-      <section class="container-fluid products-strata section">
+      <section class="container-fluid products-strata section position-relative">
         <h2 class="d-none">Featured Products Based on Random Gender</h2>
 
         <article class="row h-100 align-items-center">
@@ -274,9 +293,19 @@
             </div>
           </div>
         </article>
+
+        <!-- random category display -->
+        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+          <ul class="v-child">
+            <li><a>accesories</a></li>
+            <li><a>bags</a></li>
+            <li><a>shoes</a></li>
+          </ul>
+        </div>
       </section>
 
       <section class="section" id="categories">
+        <h2 class="d-none">categories</h2>
         <article class="category">
           <div></div>
           <div class="v-parent">
@@ -319,7 +348,7 @@
         </article>
       </section>
 
-      <section class="container-fluid products-strata section">
+      <section class="container-fluid products-strata section position-relative">
         <h2 class="d-none">Discounted Proucts</h2>
 
         <article class="row h-100 align-items-center">
@@ -341,9 +370,223 @@
             </div>
           </div>
         </article>
+
+        <!-- random category display -->
+        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+          <ul class="v-child">
+            <li><a>10% & above</a></li>
+            <li><a>20% & above</a></li>
+            <li><a>30% & above</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- How It Works: buy or sell -->
+      <div class="container py-5" id="howItWorks">
+        <div class="row py-4">
+          <div class="col text-center">
+            <h5>Only 4 steps to get started!</h5>
+          </div>
+        </div>
+
+        <div
+          id="carouselExampleIndicators"
+          class="carousel carousel-steps slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators border border-light just-width center text-uppercase">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              class="active just-width m-0 pb-3 px-4 rounded-0 text-center just-height"
+            >
+              buy
+            </li>
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="1"
+              class="just-width m-0 pb-3 px-4 rounded-0 text-center just-height"
+            >
+              sell
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row py-4 justify-content-start">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col text-center">
+                      <i class="fas fa-bullhorn fa-5x text-primary-benshada"></i>
+                    </div>
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row">
+                        <h4 class="col-2 text-center">01.</h4>
+                        <h4 class="col">Step 1</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius esse facilis
+                        aut eos velit dolorem reiciendis iusto similique quae accusamus delectus,
+                        deleniti, ipsum fugiat voluptatem. Quas dicta aliquam cum. Magni!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 text-right justify-content-end">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row text-right">
+                        <h4 class="col-5 col-sm-7 col-lg-8 p-0">02.</h4>
+                        <h4 class="col">Step 2</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur autem
+                        iste, nisi sunt explicabo odit rem dolores nobis minima aliquid iusto
+                        distinctio quia itaque architecto ipsam, laborum animi ipsa fugiat.
+                      </p>
+                      <small>Don't worry, your idea is safe with us</small>
+                    </div>
+                    <div class="col text-center">
+                      <i class="far fa-lightbulb fa-5x text-primary-benshada"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 justify-content-start">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col text-center">
+                      <i class="fas fa-atom fa-5x text-primary-benshada"></i>
+                    </div>
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row">
+                        <h4 class="col-2 text-center">03.</h4>
+                        <h4 class="col">Step 3</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora omnis
+                        molestias at autem porro aspernatur dicta, fugiat id sit quas, saepe dolor
+                        laboriosam natus! Alias porro ex vitae ea nemo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 text-right justify-content-end">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col-7 col-lg-8 col-xl-9">
+                      <hgroup class="row text-right">
+                        <h4 class="col-4 col-sm-5 col-lg-7 col-xl-8 p-0">04.</h4>
+                        <h4 class="col">Step 4</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet obcaecati
+                        illum deleniti eius magni sit ex animi. Distinctio, vel quasi. Est ipsa
+                        vero, magni suscipit veritatis expedita saepe sapiente necessitatibus!
+                      </p>
+                    </div>
+                    <div class="col text-center">
+                      <i class="fas fa-users fa-5x text-primary-benshada"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row py-4 justify-content-start">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col text-center">
+                      <i class="fas fa-bullhorn fa-5x text-primary-benshada"></i>
+                    </div>
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row">
+                        <h4 class="col-2 text-center">01.</h4>
+                        <h4 class="col">Step 1</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius esse facilis
+                        aut eos velit dolorem reiciendis iusto similique quae accusamus delectus,
+                        deleniti, ipsum fugiat voluptatem. Quas dicta aliquam cum. Magni!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 text-right justify-content-end">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row text-right">
+                        <h4 class="col-5 col-sm-7 col-lg-8 p-0">02.</h4>
+                        <h4 class="col">Step 2</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi facere qui
+                        dolores nulla fuga tempora quo! Soluta magni inventore ratione dolor
+                        sapiente quibusdam ab, sed officia nulla sunt esse aperiam!
+                      </p>
+                    </div>
+                    <div class="col text-center">
+                      <!-- <i class="fas fa-cog fa-5x text-primary-benshada"></i> -->
+                      <i class="fas fa-hand-holding fa-5x text-primary-benshada"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 justify-content-start">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col text-center">
+                      <i class="fas fa-atom fa-5x text-primary-benshada"></i>
+                    </div>
+                    <div class="col-7 col-sm-8 col-lg-9">
+                      <hgroup class="row">
+                        <h4 class="col-2 text-center">03.</h4>
+                        <h4 class="col">Step 3</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora autem
+                        reprehenderit delectus minus quis optio porro officiis, magni recusandae
+                        ipsum labore quibusdam! Harum, magni. Mollitia facilis incidunt quaerat
+                        debitis dignissimos.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-4 text-right justify-content-end">
+                <div class="col-12 col-sm-8 col-md-6">
+                  <div class="row align-items-center">
+                    <div class="col-7 col-lg-8 col-xl-9">
+                      <hgroup class="row text-right">
+                        <h4 class="col-4 col-sm-5 col-lg-7 col-xl-8 p-0">04.</h4>
+                        <h4 class="col">Step 4</h4>
+                      </hgroup>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum eaque
+                        quasi sit quibusdam soluta aperiam nihil quam quia! Debitis eligendi tempore
+                        laudantium obcaecati est iste minima velit, inventore vel nisi!
+                      </p>
+                    </div>
+                    <div class="col text-center">
+                      <i class="fas fa-users fa-5x text-primary-benshada"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- <section class="section" id="testimonial">
         <article class="d-flex container px-0">
@@ -384,7 +627,7 @@
       </section> -->
 
       <!-- Document Footer -->
-      <footer class="bg-primary py-5" id="footer">
+      <footer class="bg-primary-benshada py-5" id="footer">
         <section class="container">
           <article class="row">
             <nav class="col-12 col-xl-6 d-flex">
