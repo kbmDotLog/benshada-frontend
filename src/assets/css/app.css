@@ -175,7 +175,7 @@ button.btn,
 #app .btn-primary,
 .bg-primary-benshada,
 #app .bg-primary-benshada,
-#app .btn-primary-benshada {
+#app .btn-primary-benshada, #app .badge-primary-benshada {
   background: #ef932e;
 }
 
