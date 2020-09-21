@@ -17,6 +17,18 @@ body {
   box-sizing: border-box;
 }
 
+.text-success {
+  color: #59c9a5 !important;
+}
+
+.text-danger {
+  color: #D81E5B !important;
+}
+
+.text-primary {
+  color: #23395B !important;
+}
+
 body {
   font-size: 16px;
   margin: 0;
@@ -175,7 +187,8 @@ button.btn,
 #app .btn-primary,
 .bg-primary-benshada,
 #app .bg-primary-benshada,
-#app .btn-primary-benshada, #app .badge-primary-benshada {
+#app .btn-primary-benshada,
+#app .badge-primary-benshada {
   background: #ef932e;
 }
 
@@ -183,12 +196,12 @@ button.btn,
 #app .btn-primary-benshada,
 #app .btn-primary:hover {
   color: #fff;
-  border-color: #ef932e
+  border-color: #ef932e;
 }
 
 #app .btn-outline-primary {
   color: #ef932e;
-  border-color: #ef932e
+  border-color: #ef932e;
 }
 
 #app .btn-outline-primary:hover {
