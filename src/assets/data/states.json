@@ -1,0 +1,214 @@
+[
+  {
+    "name": "Abia",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Adamawa",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Anambra",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Akwa Ibom",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Bauchi",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Bayelsa",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Benue",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Borno",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Cross River",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Delta",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Ebonyi",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Enugu",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Edo",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Ekiti",
+    "country": "Nigeria"
+  },
+  {
+    "name": "FCT - Abuja",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Gombe",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Imo",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Jigawa",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kaduna",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kano",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Katsina",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kebbi",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kogi",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kwara",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Lagos",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Nasarawa",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Niger",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Ogun",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Ondo",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Osun",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Oyo",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Plateau",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Rivers",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Sokoto",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Taraba",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Yobe",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Zamfara",
+    "country": "Nigeria"
+  },
+  {
+    "name": "Kumasi",
+    "country": "Ghana"
+  },
+  {
+    "name": "Sunyani",
+    "country": "Ghana"
+  },
+  {
+    "name": "Goaso",
+    "country": "Ghana"
+  },
+  {
+    "name": "Techiman",
+    "country": "Ghana"
+  },
+  {
+    "name": "Cape Coast",
+    "country": "Ghana"
+  },
+  {
+    "name": "Koforidua",
+    "country": "Ghana"
+  },
+  {
+    "name": "Accra",
+    "country": "Ghana"
+  },
+  {
+    "name": "Tamale",
+    "country": "Ghana"
+  },
+  {
+    "name": "Damongo",
+    "country": "Ghana"
+  },
+  {
+    "name": "Nalerigu",
+    "country": "Ghana"
+  },
+  {
+    "name": "Bolgatanga",
+    "country": "Ghana"
+  },
+  {
+    "name": "Wa",
+    "country": "Ghana"
+  },
+  {
+    "name": "Ho",
+    "country": "Ghana"
+  },
+  {
+    "name": "Dambai",
+    "country": "Ghana"
+  },
+  {
+    "name": "Sekondi-Takoradi",
+    "country": "Ghana"
+  },
+  {
+    "name": "Wiawso",
+    "country": "Ghana"
+  }
+]

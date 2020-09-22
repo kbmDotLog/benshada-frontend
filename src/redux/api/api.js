@@ -1,6 +1,6 @@
 // axiosconfig.js
 import axios from 'axios';
-import store from 'redux/store';
+import store from '../store.js';
 
 // configure base url
 const api = axios.create({
@@ -17,5 +17,4 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Export API object
 export default api;

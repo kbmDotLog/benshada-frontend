@@ -1,0 +1,152 @@
+#app #ticketTable > div {
+  /* box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.075) !important; */
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+#app #ticketTable .ticket-row {
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#app #ticketTable .ticket-row.active {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+#app #ticketTable .ticket-row .cell {
+  padding: 10px;
+  flex-grow: 1 !important;
+  /* min-width: fit-content; */
+  display: flex;
+  justify-content: flex-center;
+}
+
+#app #ticketTable .ticket-row .cell.header {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#app #ticketTable .ticket-row .cell.header #ticketID {
+  font-weight: 300;
+}
+
+#app #ticketTable .ticket-row .cell.header .ticket-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+#app #ticketTable .ticket-row .cell.title {
+  justify-content: flex-start;
+  font-weight: 500;
+  font-size: large;
+  min-width: 100px;
+  max-width: 150px;
+  padding-right: 20px;
+}
+
+#app #ticketTable .ticket-row .cell.status {
+  font-weight: 700;
+  font-size: smaller;
+  text-transform: uppercase;
+}
+
+#app #ticketTable .ticket-row .cell.createdAt {
+  justify-content: flex-end;
+}
+
+#app #ticketTable .ticket-row .ticket-actions {
+  justify-content: flex-end;
+}
+
+#app #ticketTable .ticket-row .ticket-actions .action {
+  margin: 0 5px;
+}
+
+#app #ticketTable .misc {
+  padding: 10px 2%;
+}
+
+#app #ticketTable .misc .img-holder,
+#app #ticketTable .misc .img-holder img {
+  width: 50px;
+  height: 50px;
+}
+
+#app #ticketTable .misc .img-holder {
+  border-radius: 50%;
+  margin-right: 2.5%;
+}
+
+#app #ticketTable .misc .info {
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+#app #ticketTable .misc .info .name {
+  font-weight: bold;
+}
+
+#app #ticketTable .misc .info img {
+  width: 150px;
+  height: 100px;
+  margin: 10px 0 0 0;
+  position: relative;
+  left: -5%;
+}
+
+#app #ticketTable .misc .info .form {
+  width: 100%;
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+#app #ticketTable .misc .info .form .form-row {
+  flex-grow: 1;
+}
+
+#app #ticketTable .misc .info .form .form-row label {
+  display: none;
+}
+
+#app #ticketTable .misc .info .form .form-row textarea {
+  border: none;
+  box-shadow: none;
+}
+
+#app #ticketTable .misc .info .form .form-row .form-validation-response {
+  display: none;
+}
+
+#app #ticketTable .misc .info .form .button-group {
+  display: flex;
+  padding: 12px 0
+}
+
+#app #ticketTable .misc .info .form .button-group button.btn {
+  font-size: x-large;
+  box-shadow: none;
+  border: none;
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+}
+
+@media (min-width: 992px) {
+  #app #ticketTable .ticket-row {
+    flex-wrap: nowrap;
+  }
+
+  #app #ticketTable .ticket-row .cell.header,
+  #app #ticketTable .ticket-row .cell.status,
+  #app #ticketTable .ticket-row .cell.createdAt {
+    justify-content: center;
+  }
+
+  #app #ticketTable .ticket-row .cell.header .ticket-actions.ticket-actions-small {
+    display: none;
+  }
+}

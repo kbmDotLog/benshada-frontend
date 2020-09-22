@@ -1,8 +1,9 @@
-// API & type imports
-import api from 'redux/api/api';
-import { LOGIN, LOGOUT, REGISTER } from 'redux/actions/types/authTypes';
-
-// Login action
+/* eslint-disable import/no-cycle */
+import api from '../api/api.js';
+import { LOGIN, LOGOUT, SIGNUP } from './types/authTypes.js';
+import { userOne, usersAll } from './users.js';
+import { shopsAll } from './stores.js';
+import { notificationsAll } from './notifications.js';
 
 export const authLogin = (payload) => (dispatch) => {
   const res = dispatch({
@@ -10,13 +11,16 @@ export const authLogin = (payload) => (dispatch) => {
     payload: api.post('/users/login', payload)
   });
 
-  return res;
+  return res.then(() => dispatch([
+    userOne(payload.email),
+    usersAll(),
+    shopsAll(),
+    notificationsAll()]));
 };
 
-// Register action
-export const authRegister = (payload) => (dispatch) => {
+export const authSignup = (payload) => (dispatch) => {
   const response = dispatch({
-    type: REGISTER,
+    type: SIGNUP,
     payload: api.post('/users/signup', payload)
   });
 
@@ -28,7 +32,6 @@ export const authRegister = (payload) => (dispatch) => {
   ));
 };
 
-// Logout action
 export const authLogout = () => ({
   type: LOGOUT
 });

@@ -1,0 +1,58 @@
+/*Header CSS*/
+#app #header {
+}
+
+#app #header ul li a,
+#app #header ul li a:hover,
+#app #header ul a li,
+#app #header ul a li:hover {
+  color: #ef932e;
+}
+
+#app #searchDropDown li:hover a,
+#app #searchDropDown li:hover link {
+  background: #fffff0;
+  text-decoration: none;
+}
+
+#app .cart-count {
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  color: #fff;
+  font-weight: 500;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+#app .cart-count.cart-count-user {
+  font-size: 2em;
+}
+
+#app .cart-count.cart-count-header {
+  left: 25px;
+  top: 14px;
+}
+
+#app .cart-count span {
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  background: #ef932e;
+  padding: 3px 6px;
+  position: relative;
+}
+
+#app .cart-count.cart-count-user span {
+  padding: 3px 16px;
+}
+
+@media (max-width: 768px) {
+  #app .search-bar {
+    visibility: visible;
+  }
+}
