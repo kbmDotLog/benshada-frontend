@@ -16,6 +16,7 @@ export default class Filter extends Component {
     category: PropTypes.string,
     discount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     gender: PropTypes.string,
+    isVisible: PropTypes.bool,
     onClick: PropTypes.func,
     price: PropTypes.object,
     prices: PropTypes.array,
@@ -28,7 +29,7 @@ export default class Filter extends Component {
 
   render() {
     const {
-      product, category, gender, size, discount, rating, price, prices
+      product, category, gender, size, discount, rating, price, prices, isVisible
     } = this.props;
     const ratings = filterJargon(
       unique(product.init.map(({ overallRating }) => Math.floor(overallRating)) || [])
@@ -50,7 +51,7 @@ export default class Filter extends Component {
     );
 
     return (
-      <div className="col-12 col-md-3 col-xl-2 py-4">
+      <div className={`col-12 col-md-3 col-xl-2 ${isVisible ? '' : 'd-none'} d-lg-block`} id="filter">
         <div className="row">
           <FilterList
             onClick={this.props.onClick}

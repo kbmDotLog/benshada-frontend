@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import qs from 'query-string';
 
 // Component imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HrFr from '../HrFr/HrFr.js';
 import ProductList from '../ProductList/ProductList.js';
 import Filter from './Filter/Filter.js';
@@ -23,6 +25,7 @@ class Catalog extends Component {
       category: '',
       discount: 0,
       gender: '',
+      isFilterVisible: false,
       price: { min: 0, max: 0 },
       products: [],
       q: '',
@@ -215,11 +218,23 @@ class Catalog extends Component {
       : products;
     const prices = unique(sortNumAsc(initProd.map((i) => i && i.price)));
 
-    return !(a === 'p') ? (
+    return a !== 'p' ? (
       <Redirect to="/" />
     ) : (
       <HrFr>
-        <div className="container mt-5 py-5">
+        <div className="container mt-5 py-5 position-relative">
+          <div
+            className="text-right d-lg-none" id="filterButton"
+            onClick={() => this.setState({ isFilterVisible: !this.state.isFilterVisible })}
+          >
+            <button className="btn btn-link">
+              {this.state.isFilterVisible ? 'Close' : 'Filter'}
+              <FontAwesomeIcon
+              className="ml-2"
+                icon={this.state.isFilterVisible ? faTimes : faCaretDown}
+              />
+            </button>
+          </div>
           <div className="row">
             <Filter
               category={category}
@@ -233,6 +248,7 @@ class Catalog extends Component {
               rating={rating}
               size={size}
               prices={prices}
+              isVisible={this.state.isFilterVisible}
             />
             <div className="col-12 col-md">
               <ProductList products={this.filterProducts(initProd)} title="Products" />
