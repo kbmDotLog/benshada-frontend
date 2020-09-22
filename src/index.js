@@ -3,8 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-// Bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
+// Import jQuery, BootStrap && popperJS
+import 'jquery/dist/jquery.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'popper.js/dist/popper.min';
 
 // Redux store
 import store from 'redux/store';
@@ -24,6 +27,6 @@ ReactDOM.render(
 );
 
 // Load service worker only in production environment
-if (process.env.NODE_ENV === 'production') {
-  serviceWorker.unregister();
+if (!window.location.host.includes('localhost')) {
+  serviceWorker.register();
 }

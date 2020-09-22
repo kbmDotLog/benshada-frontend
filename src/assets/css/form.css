@@ -1,0 +1,397 @@
+#app div#formContainer {
+  background: #ef932e;
+}
+
+#app div#formContainer.form-container,
+#app div#formContainer.form-container .form-container-holder,
+#app div#formContainer.form-container .form-container-holder form {
+  background: transparent;
+}
+
+#app div#formContainer .form-container-holder {
+  background: #ef932e;
+  padding: 0;
+}
+
+#app div#formContainer .form-container-holder form {
+  background: #ef932e;
+  padding: 90px 20px 10px 20px;
+  color: #fffff0;
+}
+
+#app div#formContainer.form-container .form-container-holder form {
+  padding: 0;
+}
+
+#app div#formContainer .form-container-holder form#productForm {
+  padding-top: 320px;
+}
+
+#app div#formContainer .form-container-holder form .form-row {
+  margin: 8px auto;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder {
+  background: transparent;
+  padding: 8px 0;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder:hover {
+  background: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transform: scale(1.02);
+  padding: 8px 20px;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder .form-icon {
+  font-size: 20px;
+  margin-right: 18px;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder .form-icon,
+#app div#formContainer .form-container-holder form .form-row .form-holder label,
+#app div#formContainer .form-container-holder form .section-header {
+  color: #333;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder label,
+#app div#formContainer .form-container-holder form .section-header {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  position: relative;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder .form-control {
+  border: none;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  position: relative;
+  top: -2px;
+  border-radius: 0;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder .form-control,
+#app div#formContainer .form-container-holder form .form-row .form-holder .form-control:focus,
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #ef932e inset;
+  box-shadow: 0 0 0 100px #ef932e inset;
+  border: none;
+  outline: none;
+  -webkit-text-fill-color: #fffff0;
+  background: #ef932e;
+}
+
+#app
+  div#formContainer.form-container
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  .form-control,
+#app
+  div#formContainer.form-container
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  .form-control:focus,
+#app
+  div#formContainer.form-container
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #fffff0 inset;
+  box-shadow: 0 0 0 100px #fffff0 inset;
+  border: none;
+  outline: none;
+  -webkit-text-fill-color: #333;
+  background: #fffff0;
+}
+
+#app
+  div#formContainer.form-container
+  .form-container-holder#formContainerHolder
+  form
+  .form-row
+  .form-holder
+  .form-control,
+#app
+  div#formContainer.form-container
+  .form-container-holder#formContainerHolder
+  form
+  .form-row
+  .form-holder
+  .form-control:focus,
+#app
+  div#formContainer.form-container
+  .form-container-holder#formContainerHolder
+  form
+  .form-row
+  .form-holder
+  .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #fff inset;
+  box-shadow: 0 0 0 100px #fff inset;
+  -webkit-text-fill-color: #333;
+  background: #fff;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control,
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder:hover
+  .form-control:focus,
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder:hover
+  .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #fff inset;
+  box-shadow: 0 0 0 100px #fff inset;
+  background: #fff;
+  outline: none;
+  -webkit-text-fill-color: #ef932e;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-validation-response {
+  padding: 18px 10px 0 10px;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder.form-holder-select {
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder.form-holder-select
+  label
+  .icon {
+  display: block;
+  font-size: 300%;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  input[type='radio']
+  + label {
+  background: #ef932e;
+  color: #333333;
+  box-shadow: none;
+}
+
+#app
+  div#formContainer.form-container
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  input[type='radio']
+  + label {
+  background: #fffff0;
+  color: #333333;
+  box-shadow: none;
+}
+
+#app
+  div#formContainer.form-container
+  .form-container-holder#formContainerHolder
+  form
+  .form-row
+  .form-holder
+  input[type='radio']
+  + label {
+  background: #fff;
+}
+
+#app
+  div#formContainer
+  .form-container-holder
+  form
+  .form-row
+  .form-holder
+  input[type='radio']:checked
+  + label {
+  color: #ef932e;
+  background: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+#app div#formContainer .form-container-holder form .button-group {
+  margin: 0.5rem 0;
+  position: relative;
+  top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app div#formContainer .form-container-holder form .button-group .btn {
+  margin: 0.5rem;
+}
+
+#app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
+  background: #fffff0;
+  color: #ef932e;
+}
+
+#app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
+  color: #fffff0;
+  background: #ef932e;
+}
+
+@media (min-width: 992px) {
+  #app div#formContainer,
+  #app div#formContainer .form-container-holder,
+  #app div#formContainer .form-container-holder form {
+    background: #fffff0;
+  }
+
+  #app div#formContainer..form-container,
+  #app div#formContainer..form-container .form-container-holder#formContainerHolder,
+  #app div#formContainer..form-container .form-container-holder#formContainerHolder form {
+    background: #fff;
+  }
+
+  #app div#formContainer {
+    padding: 25px 40px;
+  }
+
+  #app div#formContainer .form-container-holder form {
+    padding: 0;
+    color: #333333;
+  }
+
+  #app div#formContainer .form-container-holder form .button-group {
+    margin: 0.5rem 0;
+    position: static;
+    justify-content: flex-start;
+  }
+
+  #app div#formContainer .form-container-holder form .form-row .form-holder {
+    background: #fffff0;
+  }
+
+  #app
+    div#formContainer
+    .form-container-holder#formContainerHolder
+    form
+    .form-row
+    .form-holder {
+    background: #fff;
+  }
+
+  #app div#formContainer .form-container-holder form .form-row .form-holder:hover {
+    background: #fff;
+  }
+
+  #app div#formContainer .form-container-holder form .form-row .form-holder .form-control,
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder
+    .form-control:focus,
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder
+    .form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #fffff0 inset;
+    box-shadow: 0 0 0 100px #fffff0 inset;
+    border: none;
+    outline: none;
+    -webkit-text-fill-color: #ef932e;
+    background: #fffff0;
+  }
+
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder:hover
+    .form-control,
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder:hover
+    .form-control:focus,
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder:hover
+    .form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #fff inset;
+    box-shadow: 0 0 0 100px #fff inset;
+    background: #fff;
+    outline: none;
+    -webkit-text-fill-color: #ef932e;
+  }
+
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder
+    input[type='radio']
+    + label {
+    background: #fffff0;
+  }
+
+  #app
+    div#formContainer
+    .form-container-holder
+    form
+    .form-row
+    .form-holder
+    input[type='radio']:checked
+    + label {
+    background: #ef932e;
+    color: #fff;
+  }
+
+  #app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
+    color: #fffff0;
+    background: #ef932e;
+  }
+
+  #app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
+    background: #fffff0;
+    color: #ef932e;
+  }
+}

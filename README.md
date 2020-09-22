@@ -1,30 +1,32 @@
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f416d49bc47d4267900f101a949d35d7)](https://app.codacy.com/gh/BuildForSDGCohort2/benshada-frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDGCohort2/benshada-frontend&utm_campaign=Badge_Grade_Settings)
+<!-- TODO: Update our tagline -->
 
-<!-- TODO: Add Codacy badge here -->
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f416d49bc47d4267900f101a949d35d7)](https://app.codacy.com/gh/BuildForSDGCohort2/benshada-frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDGCohort2/benshada-frontend&utm_campaign=Badge_Grade_Settings)
 
 ## About
 
-<!-- TODO: App name here --> PWA
+The name of our solution is **benshada**.
+Our solution provides African fashion owners and retailers a continental platform to operate as well as manage some of their operations, particularly order and delivery, all in a bid to grow their business by improving sales
 
 ## Why
 
-<!-- TODO: Enter why here -->
+The problem we set out to solve is that of
+_**The need for African fashion to expand beyond the borders of just a single country or state or LGA**_.
 
 ## Usage
 
-URL to deployed staging-app is below:
+URL to deployed staging-app is below
+[Benshada Staging App]()
 
-<!-- TODO: [link](display_text). -->
-Visit the above link to view it in your browser.
+<!-- TODO: Add link to Heroku staging app -->
 
 ## Setup
 
-1. Clone repo `git clone <repo_link> <app_name>` <!-- TODO -->
+1. Clone repo `git clone https://github.com/BuildForSDGCohort2/benshada-frontend.git benshada`
 2. Verify npm global installation by running `npm install npm -g`
-3. Install dependencies by running `npm install` from the **<app_name>** directory/folder <!-- TODO -->
-4. Start app locally by running `npm run dev` from the **<app_name>** directory/folder <!-- TODO -->
+3.  Install dependencies by running `npm install` from the **benshada** directory/folder
+4.  Start app locally by running `npm run dev` from the **benshada** directory/folder
 
 ### Hints
 
@@ -43,8 +45,18 @@ Visit the above link to view it in your browser.
 
 ## Authors
 
-    Jedidiah Amaraegbu -- @amjedidiah -- <!-- TODO: Position on Project -->
-    <!-- TODO:Add your name here where necessary -->
+    Jedidiah Amaraegbu -- Technical Team Lead -- @amjedidiah
+    <!-- TODO: Add your name here where required -->
+
+## Contributing
+
+If this project sounds interesting to you and you'd like to contribute, thank you!
+First, you can send us an email
+
+## Acknowledgements
+
+    Jedidiah Amaraegbu -- Technical Team Lead -- @amjedidiah
+    <!-- TODO: Add your name here where required -->
 
 ## LICENSE
 

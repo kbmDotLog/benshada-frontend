@@ -1,7 +1,7 @@
 {
-  "short_name": "amjedidiah",
-  "name": "amjedidiah",
-  "description": "amjedidiah",
+  "short_name": "Benshada",
+  "name": "Benshada Place",
+  "description": "benshada",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,30 +10,21 @@
       "purpose": "any maskable"
     },
     {
-      "src": "logo192.png",
+      "src": "icon192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "icon512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/?source=pwa",
+  "start_url": "/",
   "display": "fullscreen",
   "scope": "/",
-  "theme_color": "#000000",
-  "background_color": "#ffffff", 
-  "shortcuts": [
-    {
-      "name": "amjedidiah",
-      "short_name": "amjedidiah",
-      "description": "amjedidiah",
-      "url": "/amjedidiah?source=pwa",
-      "icons": [{ "src": "/images/amjedidiah.png", "sizes": "192x192" }]
-    }
-  ]
+  "theme_color": "#ef932e",
+  "background_color": "#ffffff"
 }

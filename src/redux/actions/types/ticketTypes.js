@@ -1,0 +1,6 @@
+export const TICKET_ADD = 'TICKET_ADD';
+export const TICKETS_ALL = 'TICKETS_ALL';
+export const TICKET_UPDATE = 'TICKET_UPDATE';
+export const TICKET_DELETE = 'TICKET_DELETE';
+export const TICKETS_ONE = 'TICKETS_ONE';
+export const TICKETS_ONE_SELECTED = 'TICKETS_ONE_SELECTED';
