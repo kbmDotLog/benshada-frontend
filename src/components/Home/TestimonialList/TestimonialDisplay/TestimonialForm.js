@@ -34,12 +34,10 @@ class TestimonialForm extends Component {
   }
 
   static propTypes = {
-    buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     testimonial: PropTypes.object,
     testimonialAdd: PropTypes.func,
     testimonialUpdate: PropTypes.func,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func,
     user: PropTypes.object
   };
@@ -81,10 +79,6 @@ class TestimonialForm extends Component {
         discardModal();
       });
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:

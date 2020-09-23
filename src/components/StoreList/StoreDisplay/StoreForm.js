@@ -30,14 +30,9 @@ class StoreForm extends Component {
     handleSubmit: PropTypes.func,
     store: PropTypes.object,
     userStore: PropTypes.object,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func,
     type: PropTypes.string
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize: prvP.store && prvP.store._id !== this.props.store && this.props.store._id

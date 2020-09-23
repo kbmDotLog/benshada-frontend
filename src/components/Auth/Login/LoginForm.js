@@ -2,13 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  faLock,
-  faHome
-} from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { loginValidate as validate } from '../../../assets/js/validate.js';
 
 import '../../../assets/css/form.css';
@@ -28,10 +24,6 @@ class LoginForm extends Component {
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   render() {
     const { animationClass } = this.state;
 
@@ -41,14 +33,11 @@ class LoginForm extends Component {
         className={`animate__animated ${animationClass} m-0 px-lg-5`}
         autoComplete="off"
       >
-        <h2 className="mb-2 text-center">Login to Benshada Place</h2>
-      <p className="lead mb-4 text-center">
-        Or return{' '}
-        <Link to="/">
-          <span className="d-none d-lg-inline">home</span>
-          <span className="d-lg-none text-white"><FontAwesomeIcon icon={faHome} /></span>
+        <Link to="/" className="navbar-brand">
+          <i className="font-weight-bold">benshada</i>
         </Link>
-      </p>
+        <h2 className="mb-4">Login to Benshada Place</h2>
+
         <div className="form-row">
           <Field
             action="login"

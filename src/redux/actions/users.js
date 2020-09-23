@@ -27,7 +27,7 @@ export const usersAll = (isAuthed) => (dispatch) => {
     }
     : {};
 
-  console.log(headers);
+  // console.log(headers);
 
   return dispatch({
     type: USERS_ALL,

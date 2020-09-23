@@ -10,12 +10,10 @@ import {
   faCartArrowDown,
   faStoreAlt,
   faShoppingBasket,
-  faHome,
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { registerValidate as validate } from '../../../assets/js/validate.js';
 
 import '../../../assets/css/form.css';
@@ -35,10 +33,6 @@ class RegisterForm extends Component {
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   render() {
     return (
       <form
@@ -46,18 +40,11 @@ class RegisterForm extends Component {
         className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
         autoComplete="off"
       >
-        <h2 className="mb-2 text-center">
-          Register on Benshada Place
-        </h2>
-        <p className="lead mb-4 text-center">
-          Or return
-          <Link to="/">
-            <span className="d-none d-lg-inline">home</span>
-            <span className="d-lg-none text-white">
-              <FontAwesomeIcon icon={faHome} />
-            </span>
-          </Link>
-        </p>
+        <Link to="/" className="navbar-brand">
+          <i className="font-weight-bold">benshada</i>
+        </Link>
+        <h2 className="mb-4">Register on Benshada Place</h2>
+
         <div className="form-row">
           <Field
             action="register"

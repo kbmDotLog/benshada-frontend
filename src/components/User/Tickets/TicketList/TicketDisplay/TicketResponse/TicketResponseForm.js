@@ -27,7 +27,6 @@ class TicketResponseForm extends Component {
   }
 
   static propTypes = {
-    action: PropTypes.string,
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
@@ -35,10 +34,6 @@ class TicketResponseForm extends Component {
     onSubmit: PropTypes.func,
     initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:

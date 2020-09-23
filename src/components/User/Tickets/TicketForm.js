@@ -42,14 +42,8 @@ class TicketForm extends Component {
     ticket: PropTypes.object,
     tickets: PropTypes.array,
     onSubmit: PropTypes.func,
-    initialValues: PropTypes.object,
-    initialize: PropTypes.func,
-    selectedOrders: PropTypes.array
+    initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:
@@ -106,9 +100,10 @@ class TicketForm extends Component {
 
     Object.entries(ticketData).forEach(([key, value]) => (data.get(key) ? '' : data.append(key, value)));
 
-    if (this.ifTicketExists(ticketData)) {
-      return toast.warn('You have already created a similar ticket');
-    }
+    // const iTE = this.ifTicketExists(ticketData);
+    // if (iTE) {
+    //   return toast.warn('You have already created a similar ticket');
+    // }
 
     return this.ifWrongTypeIdentifier(type, orderNumber, shop, user)
       ? toast.warn(`This ${type} does not exist`)

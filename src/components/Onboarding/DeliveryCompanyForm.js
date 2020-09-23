@@ -32,10 +32,6 @@ class DeliveryCompanyForm extends Component {
     type: PropTypes.string
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   componentDidMount = () => this.props.initialize({
     ...this.props.deliveryCompany,
     states: this.props.deliveryCompany.states.map((value) => ({ value, label: value }))

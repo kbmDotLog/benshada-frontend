@@ -12,7 +12,7 @@ export const subscriptionsAll = (isAuthed) => () => {
     }
     : {};
 
-  console.log('Running subscriptions with these headers...', headers);
+  // console.log('Running subscriptions with these headers...', headers);
 
   return {
     type: SUBSCRIPTIONS_ALL,

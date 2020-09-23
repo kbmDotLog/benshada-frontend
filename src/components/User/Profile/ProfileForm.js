@@ -24,22 +24,17 @@ class ProfileForm extends Component {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
-    initialize: PropTypes.func,
-    initialValues: PropTypes.object
+    initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   componentDidMount() {
     const { user } = this.props;
 
     const initialUser = {
       ...user,
-      firstName: (user && user.name).split(' ')[0],
-      familyName: (user && user.name).split(' ')[1],
-      categories: (user && user.categories).map((value) => ({ label: value, value }))
+      firstName: ((user && user.name) || '').split(' ')[0],
+      familyName: ((user && user.name) || '').split(' ')[1],
+      categories: ((user && user.categories) || []).map((value) => ({ label: value, value }))
     };
 
     delete initialUser.name;

@@ -28,13 +28,8 @@ class UserForm extends Component {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   componentDidMount = () => this.props.initialize(this.props.user);
 

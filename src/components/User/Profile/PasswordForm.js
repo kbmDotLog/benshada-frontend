@@ -22,10 +22,6 @@ class PasswordForm extends Component {
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   render() {
     return (
       <form

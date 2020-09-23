@@ -39,10 +39,6 @@ class PackageForm extends Component {
     initialize: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:
       (prvP.package && prvP.package._id)

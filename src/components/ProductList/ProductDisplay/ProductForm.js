@@ -37,13 +37,8 @@ class ProductForm extends Component {
     user: PropTypes.object,
     product: PropTypes.object,
     onSubmit: PropTypes.func,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:
