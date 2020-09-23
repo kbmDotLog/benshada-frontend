@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Page Title -->
+    <title>Checkout</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/5de0804f0f.js"></script>
+
+    <!-- Vendor CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.5/css/intlTelInput.min.css"
+      integrity="sha512-yye/u0ehQsrVrfSd6biT17t39Rg9kNc+vENcCXZuMz2a+LWFGvXUnYuWUW6pbfYj1jcBb/C39UZw2ciQvwDDvg=="
+      crossorigin="anonymous"
+    />
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../../src/assets/css/app.css" />
+    <link rel="stylesheet" href="../../src/assets/css/form.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/product.min.css" />
+    <link rel="stylesheet" href="../assets/checkout.min.css" />
+  </head>
+
+  <body id="app">
+    <!-- Document Header -->
+    <header>
+      <nav></nav>
+    </header>
+
+    <!-- Document Main Content -->
+    <main class="h-100">
+      <!-- Document Main Article -->
+      <section class="container d-flex" id="checkoutMain">
+        <h1 class="d-none">Checkout</h1>
+        <article id="checkoutCarouselWrapper" class="flex-grow-1">
+          <p class="text-uppercase">
+            <i class="fa fa-caret-left" aria-hidden="true"></i> back to cart
+          </p>
+          <div id="checkoutCarousel" class="carousel slide pr-lg-5">
+            <ol class="carousel-indicators position-absolute m-0">
+              <li
+                data-target="#checkoutCarousel"
+                data-slide-to="0"
+                class="rounded-circle text-center position-relative active"
+              >
+                <span role="contentinfo" class="font-weight-bold text-uppercase position-relative"
+                  >Contact</span
+                >
+              </li>
+              <li
+                data-target="#checkoutCarousel"
+                data-slide-to="1"
+                class="rounded-circle text-center position-relative"
+              >
+                <span role="contentinfo" class="font-weight-bold text-uppercase position-relative"
+                  >Address</span
+                >
+              </li>
+              <li
+                data-target="#checkoutCarousel"
+                data-slide-to="2"
+                class="rounded-circle text-center position-relative"
+              >
+                <span role="contentinfo" class="font-weight-bold text-uppercase position-relative"
+                  >Delivery</span
+                >
+              </li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active" id="deliveryContact">
+                <h3 class="title my-4">Delivery Contact</h3>
+
+                <form class="form">
+                  <div class="d-flex">
+                    <div class="form-group">
+                      <label for="deliveryContactFirstName">First Name</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        id="deliveryContactFirstName"
+                        class="form-control"
+                        placeholder="First Name"
+                        aria-describedby="firstNameInfo"
+                      />
+                      <small id="firstNameInfo" class="text-muted d-none">Help text</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="deliveryContactFamilyName">Family Name</label>
+                      <input
+                        type="text"
+                        name="familyName"
+                        id="deliveryContactFamilyName"
+                        class="form-control"
+                        placeholder="Family Name"
+                        aria-describedby="familyNameInfo"
+                      />
+                      <small id="familyNameInfo" class="text-muted d-none">Help text</small>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="deliveryContactEmail">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="deliveryContactEmail"
+                      class="form-control"
+                      placeholder="john.doe@example.com"
+                      aria-describedby="emailInfo"
+                    />
+                    <small role="contentinfo" id="emailInfo" class="text-muted d-none"
+                      >Help text</small
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="deliveryContactPhone" class="d-block">Phone</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      id="deliveryContactPhone"
+                      class="form-control"
+                      aria-describedby="phoneInfo"
+                    />
+                    <small id="phoneInfo" class="text-muted d-none">Help text</small>
+                  </div>
+
+                  <button class="btn btn-outline-primary">Continue</button>
+                </form>
+              </div>
+              <div class="carousel-item" id="deliveryAddress">
+                <h3 class="title my-4">Delivery Address</h3>
+
+                <form class="form">
+                  <div class="form-group">
+                    <label for="deliveryAddressAddress">Address</label>
+                    <textarea
+                      name="address"
+                      id="deliveryAddressAddress"
+                      class="form-control"
+                      placeholder="Address"
+                      aria-describedby="deliveryAddressAddressHelp"
+                    ></textarea>
+                    <small id="deliveryAddressAddressHelp" class="text-muted d-none"
+                      >Help text</small
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="deliveryAddressCity">City</label>
+                    <select class="custom-select" name="city" id="deliveryAddressCity">
+                      <option selected disabled>Select one</option>
+                      <option value="City 1">City 1</option>
+                      <option value="City 2">City 2</option>
+                      <option value="City 3">City 3</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="deliveryAddressState">State</label>
+                    <select class="custom-select" name="state" id="deliveryAddressState">
+                      <option selected disabled>Select one</option>
+                      <option value="State 1">State 1</option>
+                      <option value="State 2">State 2</option>
+                      <option value="State 3">State 3</option>
+                    </select>
+                  </div>
+
+                  <button class="btn btn-outline-primary">Continue</button>
+                </form>
+              </div>
+              <div class="carousel-item" id="deliveryOptions">
+                <h3 class="title my-4">Delivery Options</h3>
+
+                <p class="mb-3">Delivery 1 of 2</p>
+                <div class="order-product-list mb-3">
+                  <div class="order-product d-flex mb-2">
+                    <div class="img-holder mr-2">
+                      <img src="#" alt="Product" />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="font-weight-bold text-truncate">Oxford Shoes</p>
+                      <p>Qty: 1</p>
+                    </div>
+                    <div class="product-price">
+                      <p><strong class="mr-2">&#8358; 20.00</strong></p>
+                      <small class="product-discount" role="contentinfo">&#8358; 15.00</small>
+                    </div>
+                  </div>
+                </div>
+                <form class="form mt-5">
+                  <div class="form-check my-4">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      Pickup @<br />
+                      <span>
+                        <span class="font-weight-bold" role="contentinfo">The Place</span>
+                        <br /><span role="contentinfo">GIG Logistics</span> <br /><span
+                          role="contentinfo"
+                          >40 Kilo Masha | +234 816 872 0917</span
+                        >
+                      </span>
+                    </label>
+                  </div>
+                  <div class="form-check my-4">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="exampleRadios2">
+                      Delivery in 12 days by<br />
+                      <span>
+                        <span role="contentinfo" class="font-weight-bold">GIG Logistics</span>
+                        <br /><span role="contentinfo">40 Kilo Masha | +234 816 872 0917</span>
+                      </span>
+                    </label>
+                  </div>
+
+                  <button class="btn btn-primary-benshada">Pay &#8358; 4000</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div id="orderSumary" class="shadow-sm p-4 mb-2">
+            <h5 class="text-center text-uppercase mb-4">Order Summary</h5>
+            <div class="order-product-list mb-3">
+              <div class="order-product d-flex mb-2">
+                <div class="img-holder mr-2">
+                  <img src="#" alt="Product" />
+                </div>
+                <div class="flex-grow-1">
+                  <p class="font-weight-bold text-truncate">Oxford Shoes</p>
+                  <p>Qty: 1</p>
+                </div>
+                <div class="product-price">
+                  <p><strong class="mr-2">&#8358; 1900.00</strong></p>
+                  <small class="product-discount" role="contentinfo">&#8358; 2000.00</small>
+                </div>
+              </div>
+              <div class="order-product d-flex mb-2">
+                <div class="img-holder mr-2">
+                  <img src="#" alt="Product" />
+                </div>
+                <div class="flex-grow-1">
+                  <p class="font-weight-bold text-truncate">Oxford Shoes</p>
+                  <p>Qty: 1</p>
+                </div>
+                <div class="product-price">
+                  <p><strong class="mr-2">&#8358; 1900.00</strong></p>
+                  <small class="product-discount" role="contentinfo">&#8358; 2000.00</small>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Subtotal</p>
+              <p class="text-right">&#8358; 3800.00</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Delivery fee</p>
+              <p class="text-right">&#8358; 200.00</p>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <p class="lead font-weight-bold"><strong>Total to pay</strong></p>
+              <p class="text-right lead font-weight-bold"><strong>&#8358; 4000.00</strong></p>
+            </div>
+          </div>
+          <p class="text-center"><button class="btn btn-link">Modify Cart</button></p>
+        </article>
+      </section>
+      <footer class="container px-0">
+        <article class="d-lg-flex justify-content-between">
+          <h2 class="d-none">Info</h2>
+          <div class="checkout-help d-flex p-4 shadow-sm mr-4">
+            <div><i class="fas fa-phone fa-2x mr-3"></i></div>
+            <div>
+              <h5>Help</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse tenetur, ad
+                quam aperiam, officiis veniam quis.
+              </p>
+            </div>
+          </div>
+          <div class="checkout-help d-flex p-4 shadow-sm mr-4">
+            <div><i class="fas fa-truck fa-2x mr-3"></i></div>
+            <div>
+              <h5>Delivery</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse tenetur, ad
+                quam aperiam, officiis veniam quis.
+              </p>
+            </div>
+          </div>
+          <div class="checkout-help d-flex p-4 shadow-sm">
+            <div><i class="fas fa-redo fa-2x mr-3"></i></div>
+            <div>
+              <h5>Returns</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse tenetur, ad
+                quam aperiam, officiis veniam quis.
+              </p>
+            </div>
+          </div>
+        </article>
+      </footer>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Vendor: intl-tel-input -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.5/js/intlTelInput.min.js"
+      integrity="sha512-P1duBYrnV48wVwdgs1SHIpqeFtNnez33h/bMdJOiAaK1A1Mu0NbgMtNm2AmDBh5PrkDiHoZ895B8aZsgnH894g=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var input = document.querySelector('#deliveryContactPhone');
+      window.intlTelInput(input, {
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.5/js/utils.min.js'
+      });
+    </script>
+  </body>
+</html>
+
+<!-- TODOs -->

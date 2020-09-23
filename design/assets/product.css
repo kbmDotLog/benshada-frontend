@@ -23,9 +23,10 @@
 
 #app .productShowcase .product {
   flex: 0 0 160px;
-  margin: 5px;
+  margin-right: 20px;
   height: fit-content;
   background: #fff;
+  border: 1px solid #ccc;
 }
 
 #app .productShowcase .product .img-holder {
@@ -73,6 +74,10 @@
 #app .product-discount {
   text-decoration: line-through;
   font-size: small;
+}
+
+#app .product-review {
+  border: 1px solid #ccc;
 }
 
 /**************************************************************
