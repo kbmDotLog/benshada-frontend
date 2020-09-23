@@ -19,16 +19,6 @@ import FormField from '../../form/formField.js';
 import states from '../../../assets/data/states.json';
 
 class PackageForm extends Component {
-  INIT = {
-    animationClass: 'animate__zoomIn'
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.state = this.INIT;
-  }
-
   static propTypes = {
     action: PropTypes.string,
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -76,7 +66,6 @@ class PackageForm extends Component {
   });
 
   render() {
-    const { animationClass } = this.state;
     const { formData } = this.props;
 
     return (
@@ -86,8 +75,9 @@ class PackageForm extends Component {
         </h2>
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
-          className={`animate__animated ${animationClass} m-0`}
-          autoComplete="off"
+          // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0"
+        autoComplete="off"
           id="packageForm"
         >
           <small className="section-header">Delivery Method</small>

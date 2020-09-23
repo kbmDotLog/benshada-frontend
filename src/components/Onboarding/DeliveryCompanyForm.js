@@ -15,14 +15,6 @@ import getDeliveryCompany from '../../assets/js/getDeliveryCompany.js';
 import states from '../../assets/data/states.json';
 
 class DeliveryCompanyForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
@@ -38,13 +30,12 @@ class DeliveryCompanyForm extends Component {
   });
 
   render() {
-    const { animationClass } = this.state;
     const { user, type } = this.props;
 
     return (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${animationClass} m-0 ${type ? '' : 'px-lg-5'}`}
+        className={`m-0 ${type ? '' : 'px-lg-5'}`}
         autoComplete="off"
       >
         {type ? (

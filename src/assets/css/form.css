@@ -258,6 +258,10 @@
   margin: 0.5rem;
 }
 
+#app div#formContainer .form-container-holder form .button-group .btn:nth-child(1) {
+  margin-left: 0;
+}
+
 #app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
   background: #fffff0;
   color: #ef932e;

@@ -17,14 +17,6 @@ import FormField from '../../form/formField.js';
 import states from '../../../assets/data/states.json';
 
 class StoreForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
@@ -45,13 +37,12 @@ class StoreForm extends Component {
   componentDidMount = () => (this.props.type === 'user' ? this.props.initialize(this.props.userStore) : '');
 
   render() {
-    const { animationClass } = this.state;
     const { type, store } = this.props;
 
     return (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${animationClass} m-0 ${
+        className={`m-0 ${
           this.props.type === 'user' ? '' : 'px-lg-5'
         }`}
         autoComplete="off"

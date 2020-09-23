@@ -14,7 +14,6 @@ import '../../../../../../assets/css/form.css';
 
 class TicketResponseForm extends Component {
   INIT = {
-    animationClass: 'animate__zoomIn',
     imageButtonValue: 'Select Image',
     data: null,
     buttonTicketResponse: 'respond'
@@ -51,13 +50,11 @@ class TicketResponseForm extends Component {
     description
   });
 
-  render() {
-    const { animationClass } = this.state;
-
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className={`animate__animated ${animationClass} m-0 form`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 form"
         autoComplete="off"
         id="ticketResponseForm"
       >
@@ -79,8 +76,7 @@ class TicketResponseForm extends Component {
           </button>
         </div>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

@@ -31,7 +31,8 @@ class TypeForm extends Component {
   render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 px-lg-5"
         autoComplete="off"
       >
         <Link to="/" className="navbar-brand">

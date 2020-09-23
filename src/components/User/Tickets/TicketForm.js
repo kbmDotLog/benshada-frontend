@@ -17,7 +17,6 @@ import ticketTypes from '../../../assets/js/ticketTypes.js';
 
 class TicketForm extends Component {
   INIT = {
-    animationClass: 'animate__zoomIn',
     imageButtonValue: 'Select Image',
     data: null,
     buttonTicket: 'Upload Ticket',
@@ -110,10 +109,7 @@ class TicketForm extends Component {
       : this.props.onSubmit(data);
   };
 
-  render() {
-    const { animationClass } = this.state;
-
-    return (
+  render = () => (
       <>
         <h2 className="mb-0 px-3 pt-4">{this.props.action ? 'Upload Ticket' : 'Edit Ticket'}</h2>
         <p className="px-3 pb-4 text-danger font-weight-bold lead">
@@ -134,7 +130,6 @@ class TicketForm extends Component {
         </div>
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
-          className={`animate__animated ${animationClass}`}
         >
           <div className="form-row">
             <Field
@@ -231,8 +226,7 @@ class TicketForm extends Component {
           </div>
         </form>
       </>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

@@ -20,24 +20,16 @@ import '../../../assets/css/form.css';
 import FormField from '../../form/formField.js';
 
 class RegisterForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func
   };
 
-  render() {
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 px-lg-5"
         autoComplete="off"
       >
         <Link to="/" className="navbar-brand">
@@ -167,8 +159,7 @@ class RegisterForm extends Component {
           </Link>
         </div>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

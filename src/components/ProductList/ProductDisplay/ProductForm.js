@@ -18,7 +18,6 @@ import ImageUpload from '../../Image/ImageUpload.js';
 
 class ProductForm extends Component {
   INIT = {
-    animationClass: 'animate__zoomIn',
     imageButtonValue: 'Select Image',
     data: null,
     buttonProduct: 'Upload Product'
@@ -100,10 +99,7 @@ class ProductForm extends Component {
     return this.props.onSubmit(data);
   };
 
-  render() {
-    const { animationClass } = this.state;
-
-    return (
+  render = () => (
       <>
         <h2 className="mb-0 px-3 pt-4">{this.props.action ? 'Upload Product' : 'Edit Product'}</h2>
         <p className="px-3 pb-4 text-danger font-weight-bold lead">
@@ -125,8 +121,9 @@ class ProductForm extends Component {
         </div>
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
-          className={`animate__animated ${animationClass} m-0`}
-          autoComplete="off"
+          // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0"
+        autoComplete="off"
           id="productForm"
         >
           <div className="form-row">
@@ -312,8 +309,7 @@ class ProductForm extends Component {
           </div>
         </form>
       </>
-    );
-  }
+  )
 }
 
 const warn = () => ({});
