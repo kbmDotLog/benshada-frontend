@@ -3,7 +3,7 @@
   margin: 50px 0;
 }
 
-.year::before {
+#app .year::before {
   position: absolute;
   content: '';
   width: 2rem;
@@ -12,104 +12,6 @@
   left: calc((100% - 2rem) / 2);
   top: 10vh;
   display: none;
-}
-
-#app .div-side-nav {
-  height: inherit;
-  position: absolute;
-  top: 0;
-  left: -50px;
-}
-
-#app .div-side-nav.div-side-nav-right {
-  left: unset;
-  right: 15%;
-  /* left: unset */
-}
-
-#app .div-side-nav ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  width: fit-content;
-  transform: rotate(270deg);
-  align-items: center;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#app .div-side-nav ul li {
-  flex: 1 0 fit-content;
-  padding: 10px;
-  margin-right: 8px;
-}
-
-.div-side-nav ul li:nth-of-type(3)::before {
-  position: absolute;
-  content: '';
-  width: 8rem;
-  height: 0.08rem;
-  background-color: #030303;
-  top: 22px;
-  right: -60%;
-}
-
-/**************************************************************
-***************************************************************
-**************************** JUMBO ****************************
-***************************************************************
-***************************************************************/
-#app #jumbo {
-  height: 50vh;
-  width: 100%;
-}
-
-#app #jumbo .row {
-  position: relative;
-}
-
-#app #jumbo .row > div {
-  position: absolute;
-  height: 100%;
-}
-
-#app #jumbo .row > div:nth-child(1) {
-  z-index: 2;
-  /* background: rgba(0, 0, 0, 0.3); */
-  color: #fff;
-  padding-top: 10vh;
-}
-
-#app #jumbo .row > div:nth-child(1) .v-child {
-  text-align: center;
-  padding: 0 10%;
-}
-
-#app #jumbo .carousel-indicators li {
-  border-width: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #666;
-  position: relative;
-  top: 10px;
-}
-
-#app #jumbo .carousel-item {
-  background: url('../../src/assets/img/jumbotron/benshadawebbanners01.jpg') no-repeat bottom
-    left/cover;
-}
-
-#app #jumbo .carousel-item:nth-child(2) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners02.jpg');
-}
-
-#app #jumbo .carousel-item:nth-child(3) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners03.jpg');
-}
-
-#app #jumbo .carousel-item:nth-child(4) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners04.jpg');
 }
 
 /**************************************************************
@@ -270,53 +172,6 @@
     top: 5vh;
     display: block;
     left: 18%;
-  }
-
-  #app #jumbo {
-    height: 75vh;
-  }
-
-  #app #jumbo .year::before {
-    right: 20px;
-    left: unset;
-  }
-
-  #app #jumbo .row > div {
-    position: unset;
-    height: fit-content;
-  }
-
-  #app #jumbo .row > div:nth-child(1) {
-    z-index: unset;
-    background: #fff;
-    color: unset;
-    padding-top: 0;
-  }
-
-  #app #jumbo .row > div:nth-child(1) .v-child {
-    text-align: unset;
-    padding: 0 18%;
-  }
-
-  #app #jumbo .jumbo-text {
-    padding-right: 5%;
-  }
-
-  #app #jumbo #carouselId {
-    position: relative;
-  }
-
-  #app #jumbo .carousel-indicators {
-    left: -24%;
-    bottom: 10%;
-    width: fit-content;
-    height: fit-content;
-  }
-
-  #app #jumbo .carousel-indicators li {
-    width: 15px;
-    height: 15px;
-    top: 0;
   }
 
   #app #createShop {

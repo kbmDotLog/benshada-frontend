@@ -15,19 +15,20 @@ body {
   overflow-x: hidden;
   width: 100%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.text-success {
+/* .text-success {
   color: #59c9a5 !important;
 }
 
 .text-danger {
-  color: #D81E5B !important;
+  color: #d81e5b !important;
 }
 
 .text-primary {
-  color: #23395B !important;
-}
+  color: #23395b !important;
+} */
 
 body {
   font-size: 16px;
@@ -98,6 +99,10 @@ button.btn,
 .btn {
   text-transform: uppercase;
   border-radius: 0;
+}
+
+.shadow-sm {
+  border: 1px solid #ccc;
 }
 
 .pointer {
@@ -445,6 +450,14 @@ button.btn,
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+#app .just-height {
+  height: fit-content;
+}
+
+#app .just-width {
+  width: fit-content;
 }
 
 #app .v-assist {

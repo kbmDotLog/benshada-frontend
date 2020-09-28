@@ -1,0 +1,154 @@
+#app #shopStats {
+  /* margin: 50px auto; */
+}
+
+#app #shopStats .stat {
+  flex: 1 1;
+}
+
+#app #shopStats .stat .fas {
+  font-size: larger;
+}
+
+#app #shopStats .stat .count {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+#app #shopShowcase {
+  flex-direction: column-reverse;
+}
+
+#app #shopShowcase aside {
+  background: #fff;
+}
+
+#app #shopShowcase li {
+  width: 50%;
+  padding: 0;
+  text-align: center;
+}
+
+#app #shopShowcase li a {
+  /* font-size: 1.4rem; */
+  /* text-transform: lowercase; */
+  text-transform: uppercase;
+  color: unset;
+  background: unset;
+  padding: 10px;
+  border-radius: 0;
+}
+
+#app #shopShowcase li a.active {
+  background: #ef932e;
+  color: #fff;
+}
+
+#app #shopShowcase li:nth-child(2) a.active {
+  background: rgb(0, 123, 255);
+}
+
+#app #shopShowcase li:nth-child(3) a.active {
+  background: rgb(40, 167, 69);
+}
+
+#app #shopShowcase li:nth-child(4) a.active {
+  background: rgb(220, 53, 69);
+}
+
+#app #shopShowcase .dropdown-menu {
+  border: none;
+  width: 100%;
+}
+
+#app #shopShowcase aside ul li .dropdown-menu a {
+  font-size: unset;
+}
+
+#app #shopShowcase .productShowcase .d-flex {
+  flex-wrap: wrap;
+  overflow: unset;
+  justify-content: space-between;
+}
+
+#app #shopShowcase .productShowcase .d-flex .product {
+  margin-bottom: 30px;
+}
+
+#app #shopStats .stat {
+  flex: 1 0 40%;
+}
+
+@media (max-width: 364px) {
+  #app #shopShowcase .productShowcase .d-flex .product {
+    flex-basis: 154px;
+    margin: 0px 0px 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  #app #shopShowcase {
+    flex-direction: row;
+  }
+
+  #app #shopShowcase aside {
+    width: 75%;
+  }
+
+  #app #shopShowcase aside ul {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #app #shopShowcase aside ul li {
+    width: 100%;
+  }
+
+  #app #shopShowcase aside ul li a {
+    text-align: right;
+    font-size: 1.5rem;
+  }
+
+  #app #shopShowcase li a {
+    text-transform: lowercase;
+  }
+
+  #app #shopShowcase li a.active {
+    color: #ef932e;
+    background: unset;
+    font-weight: bolder;
+  }
+
+  #app #shopShowcase li:nth-child(2) a.active {
+    color: rgb(0, 123, 255);
+    background: unset;
+  }
+
+  #app #shopShowcase li:nth-child(3) a.active {
+    color: rgb(40, 167, 69);
+    background: unset;
+  }
+
+  #app #shopShowcase li:nth-child(4) a.active {
+    color: rgb(220, 53, 69);
+    background: unset;
+  }
+
+  #app #shopShowcase .productShowcase .d-flex {
+    justify-content: flex-start;
+  }
+
+  #app #shopShowcase .productShowcase .product {
+    margin-left: 0;
+  }
+
+  #app #shopStats .stat {
+    flex: 0 1 24%;
+  }
+}
+
+@media (min-width: 1198px) {
+  #app #shopShowcase aside {
+    width: 20%;
+  }
+}
