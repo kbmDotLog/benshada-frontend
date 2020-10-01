@@ -47,7 +47,7 @@ class ButtonOrderOwner extends React.Component {
         <p>Online transaction</p>
         <h5 className="mt-3">Payment Details</h5>
         <p>
-          Items total: <Price price={(order && order.totalPrice) - deliveryCost} />
+          Items total: <Price price={(order.totalPrice) - deliveryCost} />
         </p>
         <p>
           Delivery fees: <Price price={deliveryCost} />
@@ -101,7 +101,7 @@ class ButtonOrderOwner extends React.Component {
         {order && order.status === 'unpaid' ? (
           <>
             <Rave
-              amount={((order && order.totalPrice) || '').toString()}
+              amount={((order.totalPrice) || '').toString()}
               callback={(res) => this.callback(res, order, {
                 amount: order && order.totalPrice,
                 trxnRef: order && order.orderNumber,
@@ -112,18 +112,18 @@ class ButtonOrderOwner extends React.Component {
               }
               class="btn btn-primary-benshada"
               custom_title="Pay for your order"
-              custom_description={`OrderNo:  ${order && order.orderNumber}`}
+              custom_description={`OrderNo:  ${order.orderNumber}`}
               custom_logo={`${window.location.origin}/icon.png`}
               customer_email={user && user.email}
-              customer_firstname={(user && user.name).split(' ')[0]}
-              customer_lastname={(user && user.name).split(' ')[1]}
+              customer_firstname={((user && user.name) || '').split(' ')[0]}
+              customer_lastname={((user && user.name) || '').split(' ')[1]}
               customer_phone={user && user.phone}
-              metadata={[{ metaname: 'Product', metavalue: order && order.product }]}
-              onclose={() => console.log('Payment closed')}
+              metadata={[{ metaname: 'Product', metavalue: order.product }]}
+              // onclose={() => console.log('Payment closed')}
               pay_button_text="Pay With FlutterWave"
               ravePubKey={process.env.REACT_APP_RAVE_TEST_PUBKEY}
               redirect_url=""
-              txref={((order && order.orderNumber) || '').toString()}
+              txref={((order.orderNumber) || '').toString()}
             />
             <span
               className="mx-2 px-2 pointer"

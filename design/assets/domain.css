@@ -25,7 +25,6 @@
 #app #productDomain .product-image-main .img-holder {
   width: 100%;
   height: 320px;
-  background: rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
@@ -38,7 +37,6 @@
 
 #app #productDomain .product-image-gallery .img-holder {
   flex: 0 1 100px;
-  background: rgba(0, 0, 0, 0.4);
   height: 100px;
 }
 
@@ -50,13 +48,13 @@
   text-transform: uppercase;
 }
 
-#app #productDomain .product-params > div ul {
+#app ul.params-list {
   list-style: none;
   justify-content: center;
   padding: 0;
 }
 
-#app #productDomain .product-params > div ul li {
+#app ul.params-list li {
   flex: 0 0 20px;
   margin: 0 5px;
   padding: 5px 8px;
@@ -64,29 +62,33 @@
   position: relative;
 }
 
-#app #productDomain .product-params > div.product-color ul li:nth-child(odd) {
+#app ul.params-list li:nth-child(1) {
+  margin-left: 0;
+}
+
+#app div.product-color ul li {
   border-radius: 50%;
   border: 0.5px solid #000;
   padding: 14px;
 }
 
-#app #productDomain .product-params > div.product-quantity ul li:nth-child(odd) {
+#app div.product-quantity ul li {
   border: 1px solid #000;
   font-weight: bold;
 }
 
-#app #productDomain .product-params > div ul li:hover {
+#app ul.params-list li:hover {
   opacity: 0.8;
   font-weight: bold;
 }
 
-#app #productDomain .product-params > div ul li.selected,
-#app #productDomain .product-params > div ul li.active {
+#app ul.params-list li.selected,
+#app ul.params-list li.active {
   opacity: 1;
   font-weight: bold;
 }
 
-#app #productDomain .product-params > div ul li.active::before {
+#app ul.params-list li.active::before {
   position: absolute;
   content: '';
   width: 50%;
@@ -102,7 +104,6 @@
 }
 
 #app #productDomain .product-review .img-holder {
-  background: rgba(0, 0, 0, 0.4);
   width: 50px;
   height: 50px;
 }
@@ -112,20 +113,12 @@
 ************************* MEDIA QUERY *************************
 ***************************************************************
 ***************************************************************/
-@media (min-width: 576px) {
-  #app #productDomain .product-image-main {
-    /* width: 240px; */
-  }
-}
-
 @media (min-width: 992px) {
   #app #productDomain .product-info {
     position: static;
     display: block;
     padding: 0;
-    background: #fff;
     box-shadow: none;
-    opacity: 1;
   }
 
   #app #productDomain .product-house {

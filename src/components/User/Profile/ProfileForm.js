@@ -12,45 +12,30 @@ import categories from '../../../assets/js/categories.js';
 import states from '../../../assets/data/states.json';
 
 class ProfileForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
-    initialize: PropTypes.func,
-    initialValues: PropTypes.object
+    initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   componentDidMount() {
     const { user } = this.props;
 
     const initialUser = {
       ...user,
-      firstName: (user && user.name).split(' ')[0],
-      familyName: (user && user.name).split(' ')[1],
-      categories: (user && user.categories).map((value) => ({ label: value, value }))
+      firstName: ((user && user.name) || '').split(' ')[0],
+      familyName: ((user && user.name) || '').split(' ')[1],
+      categories: ((user && user.categories) || []).map((value) => ({ label: value, value }))
     };
 
     delete initialUser.name;
     this.props.initialize(initialUser);
   }
 
-  render() {
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${this.state.animationClass}`}
         autoComplete="off"
       >
         <div className="form-row">
@@ -131,8 +116,7 @@ class ProfileForm extends Component {
           </button>
         </div>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

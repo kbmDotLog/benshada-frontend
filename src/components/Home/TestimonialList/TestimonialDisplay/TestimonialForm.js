@@ -34,12 +34,10 @@ class TestimonialForm extends Component {
   }
 
   static propTypes = {
-    buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     testimonial: PropTypes.object,
     testimonialAdd: PropTypes.func,
     testimonialUpdate: PropTypes.func,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func,
     user: PropTypes.object
   };
@@ -82,10 +80,6 @@ class TestimonialForm extends Component {
       });
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
   getSnapshotBeforeUpdate = (prvP) => ({
     shouldInitialize:
       (prvP.testimonial && prvP.testimonial._id)
@@ -102,13 +96,14 @@ class TestimonialForm extends Component {
   componentDidMount = () => this.setState({ buttonValue: 'Submit' });
 
   render() {
-    const { animationClass, buttonValue } = this.state;
+    const { buttonValue } = this.state;
     const { _id } = this.props.testimonial;
 
     return (
       <form
         onSubmit={this.props.handleSubmit(this.submit)}
-        className={`animate__animated ${animationClass} m-0`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0"
         autoComplete="off"
       >
         <h2 className="mb-0">{_id ? 'Edit' : 'New'} testimonial</h2>

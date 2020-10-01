@@ -9,28 +9,14 @@ import '../../../assets/css/form.css';
 import FormField from '../../form/formField.js';
 
 class PasswordForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
-  render() {
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${this.state.animationClass}`}
         autoComplete="off"
       >
         <div className="form-row">
@@ -62,8 +48,7 @@ class PasswordForm extends Component {
           </button>
         </div>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

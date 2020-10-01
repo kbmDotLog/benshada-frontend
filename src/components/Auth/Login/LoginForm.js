@@ -2,53 +2,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  faLock,
-  faHome
-} from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { loginValidate as validate } from '../../../assets/js/validate.js';
 
 import '../../../assets/css/form.css';
 import FormField from '../../form/formField.js';
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
-  render() {
-    const { animationClass } = this.state;
-
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${animationClass} m-0 px-lg-5`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 px-lg-5"
         autoComplete="off"
       >
-        <h2 className="mb-2 text-center">Login to Benshada Place</h2>
-      <p className="lead mb-4 text-center">
-        Or return{' '}
-        <Link to="/">
-          <span className="d-none d-lg-inline">home</span>
-          <span className="d-lg-none text-white"><FontAwesomeIcon icon={faHome} /></span>
+        <Link to="/" className="navbar-brand w-100 text-left">
+          <i className="font-weight-bold">benshada</i>
         </Link>
-      </p>
+        <h2 className="mb-4">Login to Benshada Place</h2>
+
         <div className="form-row">
           <Field
             action="login"
@@ -83,9 +62,10 @@ class LoginForm extends Component {
             Register
           </Link>
         </div>
+
+        <p>Forgot password?</p>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});

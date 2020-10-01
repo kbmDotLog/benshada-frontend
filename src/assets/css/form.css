@@ -1,5 +1,14 @@
 #app div#formContainer {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
+}
+
+#app form .navbar-brand {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 35px;
+  font-size: xx-large;
+  color: #fff;
 }
 
 #app div#formContainer.form-container,
@@ -10,11 +19,13 @@
 
 #app div#formContainer .form-container-holder {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   padding: 0;
 }
 
 #app div#formContainer .form-container-holder form {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   padding: 90px 20px 10px 20px;
   color: #fffff0;
 }
@@ -34,6 +45,14 @@
 #app div#formContainer .form-container-holder form .form-row .form-holder {
   background: transparent;
   padding: 8px 0;
+}
+
+#app div#formContainer .form-container-holder form .form-row .form-holder.col-12,
+#app div#formContainer .form-container-holder form .form-row .form-holder.col-sm-6 {
+  background: transparent;
+  padding: 8px 0;
+  margin-right: 35px;
+  max-width: 43%;
 }
 
 #app div#formContainer .form-container-holder form .form-row .form-holder:hover {
@@ -89,6 +108,7 @@
   outline: none;
   -webkit-text-fill-color: #fffff0;
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
 #app
@@ -148,13 +168,7 @@
 }
 
 #app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control,
-#app
-  div#formContainer
-  .form-container-holder
-  form
-  .form-row
-  .form-holder:hover
-  .form-control:focus,
+#app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control:focus,
 #app
   div#formContainer
   .form-container-holder
@@ -166,7 +180,7 @@
   box-shadow: 0 0 0 100px #fff inset;
   background: #fff;
   outline: none;
-  -webkit-text-fill-color: #ef932e;
+  -webkit-text-fill-color: unset;
 }
 
 #app div#formContainer .form-container-holder form .form-row .form-validation-response {
@@ -202,6 +216,7 @@
   input[type='radio']
   + label {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   color: #333333;
   box-shadow: none;
 }
@@ -256,6 +271,10 @@
   margin: 0.5rem;
 }
 
+#app div#formContainer .form-container-holder form .button-group .btn:nth-child(1) {
+  margin-left: 0;
+}
+
 #app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
   background: #fffff0;
   color: #ef932e;
@@ -264,19 +283,24 @@
 #app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
   color: #fffff0;
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
 @media (min-width: 992px) {
+  #app form .navbar-brand {
+    color: #ef932e;
+  }
+
   #app div#formContainer,
   #app div#formContainer .form-container-holder,
   #app div#formContainer .form-container-holder form {
     background: #fffff0;
   }
 
-  #app div#formContainer..form-container,
-  #app div#formContainer..form-container .form-container-holder#formContainerHolder,
-  #app div#formContainer..form-container .form-container-holder#formContainerHolder form {
-    background: #fff;
+  #app div#formContainer.form-container,
+  #app div#formContainer.form-container .form-container-holder#formContainerHolder,
+  #app div#formContainer.form-container .form-container-holder#formContainerHolder form {
+    background: #fffff0;
   }
 
   #app div#formContainer {
@@ -298,12 +322,7 @@
     background: #fffff0;
   }
 
-  #app
-    div#formContainer
-    .form-container-holder#formContainerHolder
-    form
-    .form-row
-    .form-holder {
+  #app div#formContainer .form-container-holder#formContainerHolder form .form-row .form-holder {
     background: #fff;
   }
 
@@ -312,13 +331,7 @@
   }
 
   #app div#formContainer .form-container-holder form .form-row .form-holder .form-control,
-  #app
-    div#formContainer
-    .form-container-holder
-    form
-    .form-row
-    .form-holder
-    .form-control:focus,
+  #app div#formContainer .form-container-holder form .form-row .form-holder .form-control:focus,
   #app
     div#formContainer
     .form-container-holder
@@ -330,17 +343,11 @@
     box-shadow: 0 0 0 100px #fffff0 inset;
     border: none;
     outline: none;
-    -webkit-text-fill-color: #ef932e;
+    -webkit-text-fill-color: unset;
     background: #fffff0;
   }
 
-  #app
-    div#formContainer
-    .form-container-holder
-    form
-    .form-row
-    .form-holder:hover
-    .form-control,
+  #app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control,
   #app
     div#formContainer
     .form-container-holder
@@ -359,7 +366,7 @@
     box-shadow: 0 0 0 100px #fff inset;
     background: #fff;
     outline: none;
-    -webkit-text-fill-color: #ef932e;
+    -webkit-text-fill-color: unset;
   }
 
   #app
@@ -382,16 +389,19 @@
     input[type='radio']:checked
     + label {
     background: #ef932e;
+    background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
     color: #fff;
   }
 
   #app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
     color: #fffff0;
     background: #ef932e;
+    background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   }
 
   #app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
     background: #fffff0;
-    color: #ef932e;
+    background: #ef932e;
+    background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   }
 }

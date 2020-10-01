@@ -14,7 +14,7 @@
   text-align: center;
   z-index: 3;
   top: 275px;
-  background: transparent !important
+  background: transparent !important;
 }
 
 .item-upload.ticket-upload + form {
@@ -40,6 +40,11 @@
   bottom: -36px;
   padding: 2px 0 8px 0;
   background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 50%
+  ) !important;
   color: #fff;
 }
 

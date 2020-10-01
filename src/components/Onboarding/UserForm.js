@@ -16,36 +16,23 @@ import categories from '../../assets/js/categories.js';
 import genders from '../../assets/js/genders.js';
 
 class UserForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      animationClass: 'animate__zoomIn'
-    };
-  }
-
   static propTypes = {
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
-    initialValues: PropTypes.object,
     initialize: PropTypes.func
   };
-
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
 
   componentDidMount = () => this.props.initialize(this.props.user);
 
   render() {
-    const { animationClass } = this.state;
     const { user } = this.props;
 
     return (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${animationClass} m-0 px-lg-5`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 px-lg-5"
         autoComplete="off"
       >
         <h2 className="mb-0">Hello {user && user.name}</h2>

@@ -1,0 +1,119 @@
+/**************************************************************
+***************************************************************
+**************************** JUMBO ****************************
+***************************************************************
+***************************************************************/
+#app #jumbo {
+  height: 50vh;
+}
+
+#app #jumbo .carousel-indicators li {
+  border-width: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000000;
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 50%
+  ) !important;
+  position: relative;
+  top: 10px;
+}
+
+#app #jumbo .carousel-indicators li.active {
+  width: 60px;
+  border-radius: 10px;
+}
+
+#app #jumbo.jumbo-home .carousel-item {
+  background: url('../../src/assets/img/jumbotron/benshadawebbanners01.jpg') no-repeat bottom
+    left/cover !important;
+}
+
+#app #jumbo.jumbo-home .carousel-item:nth-child(2) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners02.jpg') !important;
+}
+
+#app #jumbo.jumbo-home .carousel-item:nth-child(3) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners03.jpg') !important;
+}
+
+#app #jumbo.jumbo-home .carousel-item:nth-child(4) {
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners04.jpg') !important;
+}
+
+#app .jumbo .intro {
+  text-align: center;
+}
+
+#app .side-nav {
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: -50px;
+}
+
+#app .side-nav.side-nav-right {
+  left: unset;
+  right: 15%;
+}
+
+#app .side-nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: fit-content;
+  transform: rotate(270deg);
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#app .side-nav ul li {
+  flex: 1 0 fit-content;
+  padding: 10px;
+  margin-right: 8px;
+}
+
+#app .side-nav ul li:nth-last-child(1)::before {
+  position: absolute;
+  content: '';
+  width: 8rem;
+  height: 0.08rem;
+  background-color: #030303;
+  top: 22px;
+  right: -60%;
+}
+
+@media (min-width: 992px) {
+  #app #jumbo {
+    height: 650px;
+  }
+}
+
+@media (min-width: 1198px) {
+  #app .jumbo .year::before {
+    right: 0;
+    left: unset;
+  }
+
+  #app #jumbo .jumbo-text {
+    padding-right: 5%;
+  }
+
+  #app #jumbo .carousel-indicators {
+    height: fit-content;
+  }
+
+  #app #jumbo .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    top: 0;
+  }
+
+  #app .jumbo .intro {
+    text-align: right;
+  }
+}

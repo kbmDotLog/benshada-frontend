@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
   <head>
     <!-- Page Title -->
     <title>Home</title>
@@ -34,6 +34,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/product.min.css" />
+    <link rel="stylesheet" href="../assets/jumbo.min.css" />
     <link rel="stylesheet" href="../assets/home.min.css" />
   </head>
 
@@ -46,27 +47,32 @@
     <!-- Document Main Content -->
     <main class="h-100">
       <!-- Document Main Article -->
-      <section id="jumbo" class="position-relative">
+      <section id="jumbo" class="jumbo jumbo-home position-relative">
         <h2 class="d-none">Jumbo</h2>
         <article class="jumbotron jumbotron-fluid bg-white py-0 h-100">
           <div class="container-fluid h-100">
             <div class="row h-100 align-items-center">
-              <div class="col-12 col-xl position-relative v-parent">
-                <div class="v-child d-flex px-0">
-                  <div class="w-100 d-none d-xl-block text-right jumbo-text">
-                    <h4 class="year text-uppercase">2020</h4>
-                    <h4 class="display-4 my-4 my-xl-5">Latest<br />Collection</h4>
-                    <p class="lead">
-                      <a class="btn btn-primary d-xl-none rounded-0" href="#" role="button"
-                        >See More</a
-                      ><a
-                        class="btn btn-outline-primary d-none d-xl-inline-block rounded-0"
-                        href="#"
-                        role="button"
-                        >See More</a
-                      >
-                    </p>
-                  </div>
+              <div class="col-12 col-xl p-4 d-none d-xl-block">
+                <div class="intro">
+                  <h4 class="year text-uppercase position-relative">2020</h4>
+                  <hgroup class="my-4 my-xl-5 pl-xl-5">
+                    <h4 class="display-4">Latest<br />Collection</h4>
+                    <h6 class="d-none">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor quia
+                      laudantium culpa quam totam voluptas facere repudiandae nemo itaque libero
+                      numquam sit deserunt alias, doloribus inventore quod pariatur eveniet at!
+                    </h6>
+                  </hgroup>
+                  <p class="lead">
+                    <a class="btn btn-primary d-xl-none rounded-0" href="#" role="button"
+                      >See More</a
+                    ><a
+                      class="btn btn-primary d-none d-xl-inline-block rounded-0"
+                      href="#"
+                      role="button"
+                      >See More</a
+                    >
+                  </p>
                 </div>
               </div>
               <div
@@ -81,10 +87,10 @@
                   <li data-target="#carouselId" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner h-100" role="listbox">
-                  <div class="carousel-item h-100 active"></div>
-                  <div class="carousel-item h-100"></div>
-                  <div class="carousel-item h-100"></div>
-                  <div class="carousel-item h-100"></div>
+                  <div class="carousel-item bg-secondary-gradient h-100 active"></div>
+                  <div class="carousel-item bg-secondary-gradient h-100"></div>
+                  <div class="carousel-item bg-secondary-gradient h-100"></div>
+                  <div class="carousel-item bg-secondary-gradient h-100"></div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -99,16 +105,9 @@
           </div>
         </article>
         <!-- random category display -->
-        <div class="div-side-nav d-none d-xl-block">
-          <ul class="v-child">
-            <li><a>accesories</a></li>
-            <li><a>bags</a></li>
-            <li><a>shoes</a></li>
-          </ul>
-        </div>
       </section>
 
-      <section class="container-fluid text-center v-parent" id="createShop">
+      <section class="container-fluid text-center v-parent bg-secondary-gradient" id="createShop">
         <h2 class="d-none">Create Your Shop</h2>
         <button class="btn btn-link v-child d-xl-none">Create Your Shop</button>
         <button class="btn btn-outline-link v-child btn-xl d-none d-lg-inline-block">
@@ -146,8 +145,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -157,9 +160,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -183,8 +192,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -194,9 +207,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -220,8 +239,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -231,9 +254,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -257,8 +286,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -268,9 +301,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -294,8 +333,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -305,9 +348,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -331,8 +380,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -342,9 +395,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -368,8 +427,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -379,9 +442,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -405,8 +474,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -418,16 +491,16 @@
         <h2 class="d-none">Featured Shops base on paid ads</h2>
 
         <article class="row h-100 align-items-center">
-          <div class="col-6 d-none d-lg-block h-100 gender-rep"></div>
+          <div class="col-5 d-none d-lg-block gender-rep bg-secondary-gradient"></div>
           <div class="col v-parent position-relative px-0">
-            <div class="h-100 w-100 w-lg-50 gender-rep"></div>
+            <div class="w-100 gender-rep bg-secondary-gradient"></div>
             <div class="v-child px-4 px-lg-0">
               <h5 class="year text-uppercase">NEW<br />collection</h5>
               <h2 class="my-4 my-lg-5">Featured Shops</h2>
               <p class="lead">
                 <a class="btn btn-primary d-lg-none rounded-0" href="#" role="button">See More</a
                 ><a
-                  class="btn btn-outline-primary d-none d-lg-inline-block rounded-0"
+                  class="btn btn-primary d-none d-lg-inline-block rounded-0"
                   href="#"
                   role="button"
                   >See More</a
@@ -437,7 +510,7 @@
           </div>
         </article>
 
-        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+        <div class="side-nav side-nav-right d-none d-xl-block">
           <ul class="v-child">
             <li><a>accesories</a></li>
             <li><a>bags</a></li>
@@ -476,8 +549,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -487,9 +564,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -513,8 +596,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -524,9 +611,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -550,8 +643,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -561,9 +658,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -587,8 +690,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -598,9 +705,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -624,8 +737,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -635,9 +752,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -661,8 +784,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -672,9 +799,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -698,8 +831,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -709,9 +846,15 @@
               <div class="product-actions position-absolute p-3">
                 <button class="btn"><i class="fas fa-shopping-bag"></i></button>
                 <div>
-                  <p><button class="btn mb-3"><i class="fas fa-heart"></i></button></p>
-                  <p><button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button></p>
-                  <p><button class="btn"><i class="fas fa-trash"></i></button></p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
                 </div>
               </div>
               <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
@@ -735,8 +878,12 @@
                 <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
               </h4>
               <div class="product-actions justify-content-start">
-                <span class="mr-3" role="contentinfo"><i class="fas fa-star text-primary-benshada"></i> 5</span>
-                <span class="mr-3" role="contentinfo"><i class="fas fa-undo text-danger"></i> 20</span>
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
                 <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
               </div>
             </div>
@@ -748,16 +895,16 @@
         <h2 class="d-none">Featured Products Based on Random Gender</h2>
 
         <article class="row h-100 align-items-center">
-          <div class="col-6 d-none d-lg-block h-100 gender-rep"></div>
+          <div class="col-5 d-none d-lg-block gender-rep bg-secondary-gradient"></div>
           <div class="col v-parent position-relative px-0 px-lg-4">
-            <div class="h-100 w-100 w-lg-50 gender-rep"></div>
+            <div class="w-100 gender-rep bg-secondary-gradient"></div>
             <div class="v-child px-4 px-lg-0">
               <h5 class="year text-uppercase">NEW<br />collection</h5>
               <h2 class="my-4 my-lg-5">Men's Wear</h2>
               <p class="lead">
                 <a class="btn btn-primary d-lg-none rounded-0" href="#" role="button">See More</a
                 ><a
-                  class="btn btn-outline-primary d-none d-lg-inline-block rounded-0"
+                  class="btn btn-primary d-none d-lg-inline-block rounded-0"
                   href="#"
                   role="button"
                   >See More</a
@@ -768,7 +915,7 @@
         </article>
 
         <!-- random category display -->
-        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+        <div class="side-nav side-nav-right d-none d-xl-block">
           <ul class="v-child">
             <li><a>accesories</a></li>
             <li><a>bags</a></li>
@@ -779,9 +926,9 @@
 
       <section class="section" id="categories">
         <h2 class="d-none">categories</h2>
-        <article class="category">
+        <article class="category bg-secondary-gradient">
           <div></div>
-          <div class="v-parent">
+          <div class="v-parent bg-secondary-gradient">
             <hgroup class="v-child">
               <!-- <h2 class="flip">Category 1</h2> -->
               <h4 class="no-flip text-secondary">Accessories</h4>
@@ -789,9 +936,9 @@
             </hgroup>
           </div>
         </article>
-        <article class="category">
+        <article class="category bg-secondary-gradient">
           <div></div>
-          <div class="v-parent">
+          <div class="v-parent bg-secondary-gradient">
             <hgroup class="v-child">
               <!-- <h2 class="flip">Category 2</h2> -->
               <h4 class="no-flip text-secondary">Bags</h4>
@@ -799,9 +946,9 @@
             </hgroup>
           </div>
         </article>
-        <article class="category d-none d-xl-block">
+        <article class="category bg-secondary-gradient d-none d-xl-block">
           <div></div>
-          <div class="v-parent">
+          <div class="v-parent bg-secondary-gradient">
             <hgroup class="v-child">
               <!-- <h2 class="flip">Category 3</h2> -->
               <h4 class="no-flip text-secondary">Clothes</h4>
@@ -809,9 +956,19 @@
             </hgroup>
           </div>
         </article>
-        <article class="category d-none d-xl-block">
+        <article class="category bg-secondary-gradient d-none d-xl-block">
           <div></div>
-          <div class="v-parent">
+          <div class="v-parent bg-secondary-gradient">
+            <hgroup class="v-child">
+              <!-- <h2 class="flip">Category 4</h2> -->
+              <h4 class="no-flip text-secondary">Shoes</h4>
+              <h4 class="flip year">New collection</h4>
+            </hgroup>
+          </div>
+        </article>
+        <article class="category bg-secondary-gradient d-none d-xl-block">
+          <div></div>
+          <div class="v-parent bg-secondary-gradient">
             <hgroup class="v-child">
               <!-- <h2 class="flip">Category 4</h2> -->
               <h4 class="no-flip text-secondary">Shoes</h4>
@@ -825,16 +982,16 @@
         <h2 class="d-none">Discounted Proucts</h2>
 
         <article class="row h-100 align-items-center">
-          <div class="col-6 d-none d-lg-block h-100 gender-rep"></div>
+          <div class="col-5 d-none d-lg-block gender-rep bg-secondary-gradient"></div>
           <div class="col v-parent position-relative px-0 px-lg-4">
-            <div class="h-100 w-100 w-lg-50 gender-rep"></div>
+            <div class="w-100 gender-rep bg-secondary-gradient"></div>
             <div class="v-child px-4 px-lg-0">
               <h5 class="year text-uppercase">Just<br />now</h5>
               <h2 class="my-4 my-lg-5">Discounted<br />Products</h2>
               <p class="lead">
                 <a class="btn btn-primary d-lg-none rounded-0" href="#" role="button">See More</a
                 ><a
-                  class="btn btn-outline-primary d-none d-lg-inline-block rounded-0"
+                  class="btn btn-primary d-none d-lg-inline-block rounded-0"
                   href="#"
                   role="button"
                   >See More</a
@@ -845,7 +1002,7 @@
         </article>
 
         <!-- random category display -->
-        <div class="div-side-nav div-side-nav-right d-none d-xl-block">
+        <div class="side-nav side-nav-right d-none d-xl-block">
           <ul class="v-child">
             <li><a>10% & above</a></li>
             <li><a>20% & above</a></li>
@@ -892,7 +1049,7 @@
                     <div class="col text-center">
                       <i class="fas fa-bullhorn fa-5x text-primary-benshada"></i>
                     </div>
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row">
                         <h4 class="col-2 text-center">01.</h4>
                         <h4 class="col">Step 1</h4>
@@ -910,7 +1067,7 @@
               <div class="row py-4 text-right justify-content-end">
                 <div class="col-12 col-sm-8 col-md-6">
                   <div class="row align-items-center">
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row text-right">
                         <h4 class="col-5 col-sm-7 col-lg-8 p-0">02.</h4>
                         <h4 class="col">Step 2</h4>
@@ -935,7 +1092,7 @@
                     <div class="col text-center">
                       <i class="fas fa-atom fa-5x text-success"></i>
                     </div>
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row">
                         <h4 class="col-2 text-center">03.</h4>
                         <h4 class="col">Step 3</h4>
@@ -953,7 +1110,7 @@
               <div class="row py-4 text-right justify-content-end">
                 <div class="col-12 col-sm-8 col-md-6">
                   <div class="row align-items-center">
-                    <div class="col-7 col-lg-8 col-xl-9">
+                    <div class="col-12 my-3 col-lg-8 col-xl-9">
                       <hgroup class="row text-right">
                         <h4 class="col-4 col-sm-5 col-lg-7 col-xl-8 p-0">04.</h4>
                         <h4 class="col">Step 4</h4>
@@ -978,7 +1135,7 @@
                     <div class="col text-center">
                       <i class="fas fa-bullhorn fa-5x text-primary-benshada"></i>
                     </div>
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row">
                         <h4 class="col-2 text-center">01.</h4>
                         <h4 class="col">Step 1</h4>
@@ -996,7 +1153,7 @@
               <div class="row py-4 text-right justify-content-end">
                 <div class="col-12 col-sm-8 col-md-6">
                   <div class="row align-items-center">
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row text-right">
                         <h4 class="col-5 col-sm-7 col-lg-8 p-0">02.</h4>
                         <h4 class="col">Step 2</h4>
@@ -1021,7 +1178,7 @@
                     <div class="col text-center">
                       <i class="fas fa-atom fa-5x text-success"></i>
                     </div>
-                    <div class="col-7 col-sm-8 col-lg-9">
+                    <div class="col-12 my-3 col-sm-8 col-lg-9">
                       <hgroup class="row">
                         <h4 class="col-2 text-center">03.</h4>
                         <h4 class="col">Step 3</h4>
@@ -1040,7 +1197,7 @@
               <div class="row py-4 text-right justify-content-end">
                 <div class="col-12 col-sm-8 col-md-6">
                   <div class="row align-items-center">
-                    <div class="col-7 col-lg-8 col-xl-9">
+                    <div class="col-12 my-3 col-lg-8 col-xl-9">
                       <hgroup class="row text-right">
                         <h4 class="col-4 col-sm-5 col-lg-7 col-xl-8 p-0">04.</h4>
                         <h4 class="col">Step 4</h4>
@@ -1099,7 +1256,6 @@
           </div>
         </article>
       </section> -->
-
     </main>
 
     <!-- Optional JavaScript -->

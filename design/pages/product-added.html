@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
   <head>
     <!-- Page Title -->
-    <title>Home</title>
+    <title>Product</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -34,8 +34,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/product.min.css" />
-    <link rel="stylesheet" href="../assets/footer.min.css" />
-    <link rel="stylesheet" href="../assets/home.min.css" />
+    <link rel="stylesheet" href="../assets/modal.css" />
   </head>
 
   <body id="app">
@@ -46,52 +45,34 @@
 
     <!-- Document Main Content -->
     <main class="h-100">
-      <footer class="bg-primary-benshada py-5" id="footer">
-        <section class="container">
-          <h2 class="d-none">Footer</h2>
-          <article class="row">
-            <h3 class="d-none">Links</h3>
-            <nav class="col-12 col-xl-6 d-flex">
-              <ul>
-                <li>Men</li>
-                <li>Women</li>
-                <li>Other</li>
-              </ul>
-              <ul>
-                <li>Accessories</li>
-                <li>Bags</li>
-                <li>Clothes</li>
-                <li>Shoes</li>
-              </ul>
-              <ul class="d-none d-lg-block">
-                <li>Accessories</li>
-                <li>Bags</li>
-                <li>Clothes</li>
-                <li>Shoes</li>
-              </ul>
-            </nav>
-            <div class="col-12 col-xl-6 social-holder">
-              <ul class="social-list">
-                <li class="bg-secondary-gradient"></li>
-                <li class="bg-secondary-gradient"></li>
-                <li class="bg-secondary-gradient"></li>
-                <li class="bg-secondary-gradient"></li>
-                <li class="bg-secondary-gradient"></li>
-              </ul>
-              <p class="copy pr-3">&copy; Benshada 2020</p>
+      <section class="benshada-modal benshada-modal-transparent benshada-modal-right">
+        <h2 class="d-none">Modal</h2>
+        <article class="modal-content modal-content-white modal-content-vertical">
+          <h2 class="d-none">Modal Content</h2>
+          <div class="product-added">
+            <p><i class="fas fa-check mr-2"></i><span>Added to your bag</span></p>
+            <div class="d-flex align-items-center my-4">
+              <div class="img-holder mr-3">
+                <img src="#" alt="" class="img-fluid" />
+              </div>
+              <div>
+                <h6 class="mb-0">Red Backpack</h6>
+                <p>
+                  <strong class="mr-2">&#8358; 20.00</strong>
+                  <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                </p>
+              </div>
             </div>
-          </article>
-        </section>
-      </footer>
+
+            <p><button class="btn btn-primary-benshada w-100">View Basket</button></p>
+          </div>
+        </article>
+      </section>
     </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

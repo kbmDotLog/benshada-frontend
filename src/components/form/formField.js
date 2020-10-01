@@ -61,7 +61,7 @@ const FormField = ({
       />
     )}
     {touched
-      ? touched && error && <small className="form-info text-danger">{error}</small>
+      ? error && <small className="form-info text-danger">{error}</small>
       : warning && <small className="form-info text-info">{warning}</small>}
   </div>
 );

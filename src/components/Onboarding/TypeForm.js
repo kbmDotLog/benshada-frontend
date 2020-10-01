@@ -6,11 +6,9 @@ import {
   faCartArrowDown,
   faStoreAlt,
   faShoppingBasket,
-  faHome,
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { typeValidate as validate } from '../../assets/js/validate.js';
 
 import '../../assets/css/form.css';
@@ -30,29 +28,20 @@ class TypeForm extends Component {
     handleSubmit: PropTypes.func
   };
 
-  componentWillUnmount() {
-    this.setState({ animationClass: 'animate__slideOutLeft' });
-  }
-
-  render() {
-    return (
+  render = () => (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+        className="m-0 px-lg-5"
         autoComplete="off"
       >
-        <h2 className="mb-2 text-center">
+        <Link to="/" className="navbar-brand w-100 text-left">
+          <i className="font-weight-bold">benshada</i>
+        </Link>
+        <h2 className="mb-4">
           What do you want to do on Benshada Place?
         </h2>
-        <p className="lead mb-4 text-center">
-          Or return{' '}
-          <Link to="/">
-            <span className="d-none d-lg-inline">home</span>
-            <span className="d-lg-none text-white">
-              <FontAwesomeIcon icon={faHome} />
-            </span>
-          </Link>
-        </p>
+
         <small className="section-header">I want to</small>
         <div className="form-row align-items-center">
           <Field
@@ -106,8 +95,7 @@ class TypeForm extends Component {
           </Link>
         </div>
       </form>
-    );
-  }
+  )
 }
 
 const warn = () => ({});
