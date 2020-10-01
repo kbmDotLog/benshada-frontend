@@ -29,7 +29,6 @@
 }
 
 #app #footer ul.social-list li {
-  background: rgba(0, 0, 0, 0.4);
   flex: 0 1 40px;
   height: 40px;
   margin-right: 10px;

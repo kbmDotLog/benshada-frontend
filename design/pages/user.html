@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- Page Title -->
+    <title>User</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/5de0804f0f.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../src/assets/css/app.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/domain.min.css" />
+    <link rel="stylesheet" href="../assets/product.min.css" />
+    <link rel="stylesheet" href="../assets/user.min.css" />
+  </head>
+
+  <body id="app">
+    <!-- Document Header -->
+    <header>
+      <nav></nav>
+    </header>
+
+    <!-- Document Main Content -->
+    <main class="h-100">
+      <!-- Document Main Article -->
+
+      <section class="d-flex navbar-expand-lg" id="userWrapper">
+        <h1 class="d-none">User Section</h1>
+        <aside class="collapse navbar-collapse shadow-sm user-section" id="userSide">
+          <header class="d-flex align-items-center mb-2">
+            <h2 class="text-center flex-grow-1"><a href="#" class="navbar-brand">benshada</a></h2>
+            <p>
+              <button
+                class="navbar-toggler shadow-none btn text-danger"
+                type="button"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="fas fa-times navbar-toggler-icon" role="contentinfo"></span>
+              </button>
+            </p>
+          </header>
+          <nav id="userNav">
+            <ul
+              class="nav flex-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize active"
+                  id="v-pills-dashboard-tab"
+                  data-toggle="pill"
+                  href="#v-pills-dashboard"
+                  role="tab"
+                  aria-controls="v-pills-dashboard"
+                  aria-selected="true"
+                  >dashboard</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-profile-tab"
+                  data-toggle="pill"
+                  href="#v-pills-profile"
+                  role="tab"
+                  aria-controls="v-pills-profile"
+                  aria-selected="false"
+                  >Profile</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-store-tab"
+                  data-toggle="pill"
+                  href="#v-pills-store"
+                  role="tab"
+                  aria-controls="v-pills-store"
+                  aria-selected="false"
+                  >Store</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-products-tab"
+                  data-toggle="pill"
+                  href="#v-pills-products"
+                  role="tab"
+                  aria-controls="v-pills-products"
+                  aria-selected="false"
+                  >Products</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-saved-tab"
+                  data-toggle="pill"
+                  href="#v-pills-saved"
+                  role="tab"
+                  aria-controls="v-pills-saved"
+                  aria-selected="false"
+                  >saved</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-cart-tab"
+                  data-toggle="pill"
+                  href="#v-pills-cart"
+                  role="tab"
+                  aria-controls="v-pills-cart"
+                  aria-selected="false"
+                  >cart</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-orders-tab"
+                  data-toggle="pill"
+                  href="#v-pills-orders"
+                  role="tab"
+                  aria-controls="v-pills-orders"
+                  aria-selected="false"
+                  >orders</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-transactions-tab"
+                  data-toggle="pill"
+                  href="#v-pills-transactions"
+                  role="tab"
+                  aria-controls="v-pills-transactions"
+                  aria-selected="false"
+                  >transactions</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-notifications-tab"
+                  data-toggle="pill"
+                  href="#v-pills-notifications"
+                  role="tab"
+                  aria-controls="v-pills-notifications"
+                  aria-selected="false"
+                  >notifications</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-analytics-tab"
+                  data-toggle="pill"
+                  href="#v-pills-analytics"
+                  role="tab"
+                  aria-controls="v-pills-analytics"
+                  aria-selected="false"
+                  >analytics</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-tickets-tab"
+                  data-toggle="pill"
+                  href="#v-pills-tickets"
+                  role="tab"
+                  aria-controls="v-pills-tickets"
+                  aria-selected="false"
+                  >tickets</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                role="presentation"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-label="Toggle navigation"
+              >
+                <a href="#" class="text-capitalize">logout</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <article class="tab-content user-section" id="userMain">
+          <h2 class="d-none">User Tab Section</h2>
+          <header class="tab-header d-flex justify-content-end align-items-center" role="none">
+            <p class="mr-auto px-4">
+              <button
+                class="btn btn-outline-primary border-0 rounded-circle bg-white mr-2 navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#userSide"
+                aria-controls="userSide"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-stream"></i>
+              </button>
+            </p>
+            <p>
+              <button class="btn btn-outline-primary border-0 rounded-circle bg-white mr-2">
+                <i class="fas fa-bell"></i>
+              </button>
+            </p>
+            <div class="d-flex py-2 px-3 bg-white align-items-center shadow-sm user-card">
+              <div class="img-holder rounded-circle mr-2">
+                <img src="#" alt="User" class="img-fluid" />
+              </div>
+
+              <p class="mb-0">John Doe</p>
+            </div>
+          </header>
+          <div
+            class="tab-pane fade p-4 show active"
+            id="v-pills-dashboard"
+            role="tabpanel"
+            aria-labelledby="v-pills-dashboard-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Dashboard</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-profile"
+            role="tabpanel"
+            aria-labelledby="v-pills-profile-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Profile</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-store"
+            role="tabpanel"
+            aria-labelledby="v-pills-store-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Store</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-products"
+            role="tabpanel"
+            aria-labelledby="v-pills-products-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Products</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-saved"
+            role="tabpanel"
+            aria-labelledby="v-pills-saved-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Saved</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-cart"
+            role="tabpanel"
+            aria-labelledby="v-pills-cart-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Cart</h2>
+            <div class="user-cart-item-list">
+              <div class="d-flex user-cart-item mb-4 pb-3 d-none d-lg-block">
+                <div class="flex-grow-1 d-lg-flex align-items-center">
+                  <div class="flex-grow-1 user-cart-item-main">
+                    <h6 class="mb-0">Product</h6>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">Unit</h6>
+                  </div>
+                  <div role="contentinfo">
+                    <h6>Quantity</h6>
+                  </div>
+                  <div>
+                    <h6>Total</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex user-cart-item mb-4 pb-3">
+                <div class="img-holder mr-3"><img src="#" alt="Product" class="img-fluid" /></div>
+                <div class="flex-grow-1 d-lg-flex align-items-center">
+                  <div class="flex-grow-1 user-cart-item-main">
+                    <h6 class="mb-0">Red Backpack</h6>
+                    <p>Dispatched within 4 -6 weeks</p>
+                    <p class="product-price mb-3 d-lg-none">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </p>
+                    <div class="product-quantity d-lg-none" role="contentinfo">
+                      <h6 class="title d-none">Quantity</h6>
+                      <ul class="d-flex params-list px-0 mx-0 justify-content-start">
+                        <li>-</li>
+                        <li>1</li>
+                        <li>+</li>
+                      </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <p>
+                        <a href="#"><i class="fas fa-times mr-2 d-lg-none"></i> Remove</a>
+                      </p>
+                      <h6 class="product-price mb-0 d-lg-none">
+                        <strong class="mr-2">&#8358; 20.00</strong>
+                        <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                  <div class="product-quantity" role="contentinfo">
+                    <h6 class="title d-none">Quantity</h6>
+                    <ul class="d-flex params-list px-0 mx-0 mb-0 justify-content-start">
+                      <li>-</li>
+                      <li>1</li>
+                      <li>+</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex user-cart-item mb-4 pb-3">
+                <div class="img-holder mr-3"><img src="#" alt="Product" class="img-fluid" /></div>
+                <div class="flex-grow-1 d-lg-flex align-items-center">
+                  <div class="flex-grow-1 user-cart-item-main">
+                    <h6 class="mb-0">Red Backpack</h6>
+                    <p>Dispatched within 4 -6 weeks</p>
+                    <p class="product-price mb-3 d-lg-none">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </p>
+                    <div class="product-quantity d-lg-none" role="contentinfo">
+                      <h6 class="title d-none">Quantity</h6>
+                      <ul class="d-flex params-list px-0 mx-0 justify-content-start">
+                        <li>-</li>
+                        <li>1</li>
+                        <li>+</li>
+                      </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <p>
+                        <a href="#"><i class="fas fa-times mr-2 d-lg-none"></i> Remove</a>
+                      </p>
+                      <h6 class="product-price mb-0 d-lg-none">
+                        <strong class="mr-2">&#8358; 20.00</strong>
+                        <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                  <div class="product-quantity" role="contentinfo">
+                    <h6 class="title d-none">Quantity</h6>
+                    <ul class="d-flex params-list px-0 mx-0 mb-0 justify-content-start">
+                      <li>-</li>
+                      <li>1</li>
+                      <li>+</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Subtotal (2 items)</h5>
+              <h5 class="product-price mb-0">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span><br />
+                <small>(Excluding delivery)</small>
+              </h5>
+            </div>
+
+            <p class="mt-5 text-right">
+              <button class="btn btn-primary-benshada btn-checkout">Go To Checkout</button>
+            </p>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-orders"
+            role="tabpanel"
+            aria-labelledby="v-pills-orders-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Orders</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-transactions"
+            role="tabpanel"
+            aria-labelledby="v-pills-transactions-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Transactions</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-notifications"
+            role="tabpanel"
+            aria-labelledby="v-pills-notifications-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Notifications</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-analytics"
+            role="tabpanel"
+            aria-labelledby="v-pills-analytics-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Analytics</h2>
+          </div>
+          <div
+            class="tab-pane fade p-4"
+            id="v-pills-tickets"
+            role="tabpanel"
+            aria-labelledby="v-pills-tickets-tab"
+          >
+            <h2 class="title mb-5 mb-lg-0">Tickets</h2>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<!-- TODOs -->

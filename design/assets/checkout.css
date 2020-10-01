@@ -40,6 +40,7 @@
 #app #checkoutCarousel .carousel-indicators li.active {
   border: 4px solid #ef932e;
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
 #app #checkoutCarousel .carousel-indicators li span {
@@ -68,16 +69,14 @@
 #app #orderSumary .img-holder {
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.4);
 }
 
 #app #deliveryOptions .img-holder {
   width: 80px;
   height: 80px;
-  background: rgba(0, 0, 0, 0.4);
 }
 
-#app #deliveryOptions .product-price {
+#app .product-price {
   display: none;
 }
 

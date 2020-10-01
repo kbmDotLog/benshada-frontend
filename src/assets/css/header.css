@@ -43,6 +43,7 @@
   width: fit-content;
   height: fit-content;
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   padding: 3px 6px;
   position: relative;
 }

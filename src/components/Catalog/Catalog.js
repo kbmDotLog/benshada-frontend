@@ -228,7 +228,7 @@ class Catalog extends Component {
             onClick={() => this.setState({ isFilterVisible: !this.state.isFilterVisible })}
           >
             <button className="btn btn-link">
-              {this.state.isFilterVisible ? 'Close' : 'Filter'}
+              {this.state.isFilterVisible ? 'Apply' : 'Filter'}
               <FontAwesomeIcon
               className="ml-2"
                 icon={this.state.isFilterVisible ? faTimes : faCaretDown}

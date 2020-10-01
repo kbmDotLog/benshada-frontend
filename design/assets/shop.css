@@ -41,19 +41,23 @@
 
 #app #shopShowcase li a.active {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   color: #fff;
 }
 
 #app #shopShowcase li:nth-child(2) a.active {
-  background: rgb(0, 123, 255);
+  background: #007bff;
+  background: linear-gradient(to top right, #006fe6 0%, #007bff 50%);
 }
 
 #app #shopShowcase li:nth-child(3) a.active {
-  background: rgb(40, 167, 69);
+  background: #28a745;
+  background: linear-gradient(to top right, #23923d 0%, #28a745 50%);
 }
 
 #app #shopShowcase li:nth-child(4) a.active {
-  background: rgb(220, 53, 69);
+  background: #dc3545;
+  background: linear-gradient(to top right, #d32535 0%, #dc3545 50%);
 }
 
 #app #shopShowcase .dropdown-menu {

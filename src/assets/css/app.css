@@ -9,6 +9,14 @@ PALETTE
 * ! Use rem for responsive font-sizes
 */
 
+/* !Hero Images */
+/*
+  ? width:
+  ? height:
+*/
+
+/* !LookBook Images : 319px * 494px */
+
 html,
 body {
   height: 100%;
@@ -49,6 +57,7 @@ body::-webkit-scrollbar-thumb {
   --thumbBG: #888;
   font-size: 97.5%;
   box-sizing: border-box;
+  transition: all 0.5s;
 }
 
 *,
@@ -188,6 +197,36 @@ button.btn,
   border-color: #ef932e;
 }
 
+#app .bg-primary-benshada-gradient {
+  background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
+}
+
+#app .bg-secondary-gradient,
+#app .img-holder {
+  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 50%
+  ) !important;
+}
+
+#app .bg-primary-gradient {
+  background: #007bff;
+  background: linear-gradient(to top right, #006fe6 0%, #007bff 50%);
+}
+
+#app .bg-success-gradient {
+  background: #28a745;
+  background: linear-gradient(to top right, #23923d 0%, #28a745 50%);
+}
+
+#app .bg-danger-gradient {
+  background: #dc3545;
+  background: linear-gradient(to top right, #d32535 0%, #dc3545 50%);
+}
+
 #app .bg-primary,
 #app .btn-primary,
 .bg-primary-benshada,
@@ -212,6 +251,7 @@ button.btn,
 #app .btn-outline-primary:hover {
   color: #fff;
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
 #app .btn-link {
@@ -223,7 +263,7 @@ button.btn,
 }
 
 #app .bg-transparent {
-  background: rgba(239, 147, 46, 0.7);
+  background: transparent;
 }
 
 #app .bg-light,
@@ -231,11 +271,6 @@ button.btn,
 #app .bg-light-benshada,
 #app .bg-lg-light-benshada {
   background: #fffff0;
-}
-
-#app .bg-warning,
-#app .bg-warning-benshada {
-  background: #ffdcb0;
 }
 
 #app .text-primary-benshada {
@@ -286,6 +321,7 @@ button.btn,
 
 #app #benshadaCard .cards.bank .card {
   background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
 #app .cards.bank .card .arc {

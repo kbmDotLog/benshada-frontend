@@ -4,7 +4,7 @@
 ***************************************************************
 ***************************************************************/
 #app #jumbo {
-  height: fit-content;
+  height: 50vh;
 }
 
 #app #jumbo .carousel-indicators li {
@@ -12,30 +12,36 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #666;
+  background: #000000;
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 50%
+  ) !important;
   position: relative;
   top: 10px;
 }
 
-#app #jumbo .carousel-item {
-  background: rgba(0, 0, 0, 0.4);
+#app #jumbo .carousel-indicators li.active {
+  width: 60px;
+  border-radius: 10px;
 }
 
 #app #jumbo.jumbo-home .carousel-item {
   background: url('../../src/assets/img/jumbotron/benshadawebbanners01.jpg') no-repeat bottom
-    left/cover;
+    left/cover !important;
 }
 
 #app #jumbo.jumbo-home .carousel-item:nth-child(2) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners02.jpg');
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners02.jpg') !important;
 }
 
 #app #jumbo.jumbo-home .carousel-item:nth-child(3) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners03.jpg');
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners03.jpg') !important;
 }
 
 #app #jumbo.jumbo-home .carousel-item:nth-child(4) {
-  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners04.jpg');
+  background-image: url('../../src/assets/img/jumbotron/benshadawebbanners04.jpg') !important;
 }
 
 #app .jumbo .intro {
@@ -81,11 +87,13 @@
   right: -60%;
 }
 
-@media (min-width: 1198px) {
+@media (min-width: 992px) {
   #app #jumbo {
-    height: 75vh;
+    height: 650px;
   }
+}
 
+@media (min-width: 1198px) {
   #app .jumbo .year::before {
     right: 0;
     left: unset;
@@ -96,11 +104,6 @@
   }
 
   #app #jumbo .carousel-indicators {
-    left: -18.5em;
-    left: -18rem;
-    left: -25%;
-    bottom: 0.5vh;
-    width: fit-content;
     height: fit-content;
   }
 

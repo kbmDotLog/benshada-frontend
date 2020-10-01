@@ -32,7 +32,7 @@ class RegisterForm extends Component {
         className="m-0 px-lg-5"
         autoComplete="off"
       >
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand w-100 text-left">
           <i className="font-weight-bold">benshada</i>
         </Link>
         <h2 className="mb-4">Register on Benshada Place</h2>

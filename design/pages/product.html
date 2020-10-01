@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
   <head>
     <!-- Page Title -->
     <title>Product</title>
@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="../assets/product.min.css" />
     <link rel="stylesheet" href="../assets/domain.min.css" />
     <link rel="stylesheet" href="../assets/review.min.css" />
+    <link rel="stylesheet" href="../assets/modal.css" />
   </head>
 
   <body id="app">
@@ -90,7 +91,7 @@
             <div class="product-params" role="contentinfo">
               <div class="product-size" role="contentinfo">
                 <h6 class="title">Select Size</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li>40</li>
                   <li>42</li>
                   <li>44</li>
@@ -101,13 +102,17 @@
               </div>
               <div class="product-color" role="contentinfo">
                 <h6 class="title">Product Color</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li></li>
+                  <li class="bg-danger"></li>
+                  <li class="bg-primary"></li>
+                  <li class="bg-primary-benshada"></li>
+                  <li class="bg-success"></li>
                 </ul>
               </div>
               <div class="product-quantity" role="contentinfo">
                 <h6 class="title">Quantity</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li>-</li>
                   <li>1</li>
                   <li>+</li>
@@ -124,6 +129,15 @@
                   <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
                 </h4>
               </div>
+
+              <!-- <div class="d-lg-flex align-items-center justify-content-between">
+                <p class="my-3 my-lg-0 mr-lg-4">
+                  <button class="btn btn-outline-dark">Request for it</button>
+                </p>
+                <h4 class="product-price mb-lg-0">
+                  <span class="product-discount" role="contentinfo">Out of Stock</span>
+                </h4>
+              </div> -->
               <p class="my-2 my-lg-0 mr-lg-3 text-uppercase text-danger font-weight-bold">
                 Out of stock
               </p>
@@ -152,24 +166,30 @@
             <div class="product-params d-lg-flex justify-content-between" role="contentinfo">
               <div class="product-weight" role="contentinfo">
                 <h6 class="title">Weight</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li>100kg</li>
                 </ul>
               </div>
               <div class="product-country" role="contentinfo">
                 <h6 class="title">Made In</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li>Nigeria</li>
                 </ul>
               </div>
               <div class="product-country" role="contentinfo">
                 <h6 class="title">Seller Type</h6>
-                <ul class="d-flex">
+                <ul class="d-flex params-list">
                   <li>
                     <span class="badge badge-primary text-white font-weight-bold" role="contentinfo"
                       >Retailer</span
                     >
                   </li>
+                </ul>
+              </div>
+              <div class="product-country" role="contentinfo">
+                <h6 class="title">Main Material</h6>
+                <ul class="d-flex params-list">
+                  <li>Leather</li>
                 </ul>
               </div>
             </div>
@@ -261,8 +281,380 @@
         </article>
       </section>
 
-      <section class="productShowcase mt-4 section">
-        <h2 class="d-none">Top Rated/Visit/Patronized Shops</h2>
+      <section class="productShowcase section">
+        <h2 class="pl-3">Other Products From This Seller</h2>
+        <div class="d-flex">
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn btn-active"><i class="fas fa-shopping-bag"></i></button>
+                <button class="btn btn-active"><i class="fas fa-heart text-danger"></i></button>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary text-white font-weight-bold" role="contentinfo"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+          <article class="product shadow-sm">
+            <div class="img-holder position-relative text-center">
+              <div class="product-actions position-absolute p-3">
+                <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                <div>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                  </p>
+                  <p>
+                    <button class="btn"><i class="fas fa-trash"></i></button>
+                  </p>
+                </div>
+              </div>
+              <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque accusantium
+                  earum corporis adipisci tempora deleniti odio, provident praesentium deserunt
+                  perferendis. Doloribus ipsum rem maiores adipisci accusamus magni libero assumenda
+                  quam!
+                </p>
+              </div>
+            </div>
+            <div class="position-relative mb-3 product-info py-2 px-3">
+              <div class="product-type">
+                <span class="badge badge-primary-benshada text-white font-weight-bold"
+                  >Retailer</span
+                >
+              </div>
+              <p class="name text-capitalize">red Backpack</p>
+              <h4 class="product-price">
+                <strong class="mr-2">&#8358; 20.00</strong>
+                <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+              </h4>
+              <div class="product-actions justify-content-start">
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                >
+                <span class="mr-3" role="contentinfo"
+                  ><i class="fas fa-undo text-danger"></i> 20</span
+                >
+                <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="productShowcase section">
+        <h2 class="pl-3">Related Products</h2>
         <div class="d-flex">
           <article class="product shadow-sm">
             <div class="img-holder position-relative text-center">

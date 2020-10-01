@@ -3,6 +3,10 @@
 ********************** PRODUCT SHOWCASE ***********************
 ***************************************************************
 ***************************************************************/
+#app .productShowcase {
+  margin-top: 80px;
+}
+
 #app .productShowcase > div {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
@@ -33,7 +37,6 @@
 #app .productShowcase .product .img-holder {
   width: 100%;
   padding-top: 100%;
-  background: rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
@@ -42,8 +45,6 @@
   left: 0;
   top: 0;
   opacity: 0;
-
-  transition: all 0.5s;
 }
 
 #app .productShowcase .product .img-holder-cover:hover {
@@ -74,6 +75,11 @@
 #app .product-discount {
   text-decoration: line-through;
   font-size: small;
+}
+
+#app .product-added .img-holder {
+  width: 100px;
+  height: 100px;
 }
 
 /**************************************************************
