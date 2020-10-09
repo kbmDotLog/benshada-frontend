@@ -14,8 +14,8 @@ export const deliveryPackagesOneSelected = (payload) => ({
   payload
 });
 
-export const deliveryPackagesAll = (isAuthed) => {
-  const headers = isAuthed
+export const deliveryPackagesAll = (isAuthed) => (dispatch, getState) => {
+  const headers = isAuthed && !getState().auth.isSignedIn
     ? {
       Authorization: `Bearer ${process.env.REACT_APP_DEF_AUTH}`
     }
