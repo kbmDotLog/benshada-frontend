@@ -10,6 +10,7 @@ import { filterList } from '../../assets/js/filter.js';
 // Start Component
 export default class ProductList extends Component {
   static propTypes = {
+    isFlex: PropTypes.bool,
     products: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     type: PropTypes.object,
     count: PropTypes.number,
@@ -18,21 +19,14 @@ export default class ProductList extends Component {
   };
 
   renderProductList = (products, filterType, filterValue) => {
-    const filteredProducts = products
-      .filter((product) => filterList(product, filterType, filterValue));
+    const filteredProducts = products.filter((i) => filterList(i, filterType, filterValue));
 
     return filteredProducts.length > 0 ? (
-      <>
-        <div className="cards products">
-          {filteredProducts.slice(0, this.props.count).map((product, key) => (
-            <ProductDisplay
-              key={`productList${key}`}
-              product={product}
-              action={this.props.action}
-            />
-          ))}
-        </div>
-      </>
+      <div className={this.props.isFlex ? 'd-flex' : ''}>
+        {filteredProducts.slice(0, this.props.count).map((product, key) => (
+          <ProductDisplay key={`productList${key}`} product={product} action={this.props.action} />
+        ))}
+      </div>
     ) : (
       <NotFound type="product" action={this.props.action} />
     );
@@ -44,10 +38,10 @@ export default class ProductList extends Component {
     const filterValue = type && type.value;
 
     return (
-      <>
-        <h4 className="text-capitalize">{title}</h4>
+      <section className="productShowcase mt-4 section">
+        <h2 className="d-none">{title}</h2>
         {this.renderProductList(products, filterType, filterValue)}
-      </>
+      </section>
     );
   }
 }

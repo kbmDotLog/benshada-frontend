@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-cycle */
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   USER_ONE,
@@ -37,13 +38,26 @@ export const usersAll = (isAuthed) => (dispatch) => {
   });
 };
 
-export const userUpdate = (email, userData) => (dispatch) => {
+export const userUpdate = (email, userData, message) => (dispatch) => {
   const response = dispatch({
     type: USER_UPDATE,
     payload: api.put(`/users/${email}`, userData)
   });
+  const successMessage = message || 'Nice';
 
-  return response.then(() => dispatch([userOne(email), usersAll()]));
+  return response
+    .then(() => dispatch([userOne(email), usersAll()]))
+    .then(() => toast.success(successMessage))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };
 
 export const userChangePassword = (passwordData) => (dispatch) => {

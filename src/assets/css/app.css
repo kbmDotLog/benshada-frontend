@@ -57,7 +57,7 @@ body::-webkit-scrollbar-thumb {
   --thumbBG: #888;
   font-size: 97.5%;
   box-sizing: border-box;
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 
 *,
@@ -160,6 +160,49 @@ button.btn,
   overflow: hidden;
 }
 
+.rounded-benshada {
+  border-radius: 10px;
+}
+
+#app .side-nav {
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: -50px;
+}
+
+#app .side-nav.side-nav-right {
+  left: unset;
+  right: 15%;
+}
+
+#app .side-nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: fit-content;
+  transform: rotate(270deg);
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#app .side-nav ul li {
+  flex: 1 0 fit-content;
+  padding: 10px;
+  margin-right: 8px;
+}
+
+#app .side-nav ul li:nth-last-child(1)::before {
+  position: absolute;
+  content: '';
+  width: 8rem;
+  height: 0.08rem;
+  background-color: #030303;
+  top: 22px;
+  right: -60%;
+}
+
 /* OLD */
 #app #pills-tabContent footer {
   position: fixed;
@@ -204,12 +247,8 @@ button.btn,
 
 #app .bg-secondary-gradient,
 #app .img-holder {
-  background: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(
-    to top right,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.3) 50%
-  ) !important;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-color: linear-gradient(to top right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 50%);
 }
 
 #app .bg-primary-gradient {
@@ -274,7 +313,7 @@ button.btn,
 }
 
 #app .text-primary-benshada {
-  color: #ef932e;
+  color: #ef932e !important;
 }
 
 #app .border-primary-benshada {
@@ -529,7 +568,7 @@ button.btn,
   overflow: hidden;
   display: block;
 
-  transition: display 2s, bottom 1s;
+  transition: display 0.8s, bottom 0.4s;
 }
 
 #newItems.hidden {

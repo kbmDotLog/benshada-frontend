@@ -38,7 +38,6 @@ import { deliveryPackagesAll } from './redux/actions/deliveryPackages.js';
 class App extends React.Component {
   static propTypes = {
     deliveryCompaniesAll: PropTypes.func,
-    deliveryPackagesAll: PropTypes.func,
     email: PropTypes.string,
     isSignedIn: PropTypes.bool,
     loading: PropTypes.bool,
@@ -114,7 +113,7 @@ class App extends React.Component {
     ) : (
       <>
         <div id="app" className="h-100">
-          <Router>
+          <Router basename="/">
             <Switch>
               <Route path="/catalog" component={Catalog} />
               <Route
@@ -125,6 +124,7 @@ class App extends React.Component {
                     isSignedIn={isSignedIn}
                     products={products}
                     stores={stores}
+                    orders={orders}
                     testimonials={testimonials}
                     user={user}
                   />
@@ -189,7 +189,7 @@ class App extends React.Component {
 const mapStateToProps = ({
   auth, user, product, store, testimonial, loading, order
 }) => ({
-  isSignedIn: auth.isSignedIn,
+  isSignedIn: auth && auth.isSignedIn,
   loading: loading && loading.pending,
   orders: order.all,
   user: user.selected,

@@ -16,7 +16,7 @@ export default class TransactionList extends Component {
 
   renderTransactionList = (transactions) => (transactions.length > 0 ? (
       <div className="cards transactions" id="transactionTable">
-        {_.orderBy(transactions, ['createdAt', ['asc']]).map((transaction, key) => (
+        {_.orderBy(transactions, ['createdAt'], ['desc']).map((transaction, key) => (
           <TransactionDisplay key={`transactionList${key}`} transaction={transaction} />
         ))}
       </div>

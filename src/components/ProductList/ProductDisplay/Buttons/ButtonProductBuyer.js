@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+// Mosule imports
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBag, faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +7,11 @@ import { faHeart as faHeartAlt } from '@fortawesome/free-regular-svg-icons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
+// Asset imports
+import Loading from 'assets/js/loading.js';
+
+// Action imports
 import { userUpdate } from '../../../../redux/actions/users.js';
 
 const ButtonProductBuyer = (props) => {
@@ -14,9 +19,7 @@ const ButtonProductBuyer = (props) => {
   const ifInCart = (productID, cart) => cart.map(({ _id }) => _id).includes(productID);
 
   const INIT = {
-    save: ifSaved(props.product._id, (props.user && props.user.saved) || [])
-      ? faHeart
-      : faHeartAlt,
+    save: ifSaved(props.product._id, (props.user && props.user.saved) || []) ? faHeart : faHeartAlt,
     cart: ifInCart(props.product._id, (props.user && props.user.cart) || [])
       ? faShoppingBag
       : faCartPlus
@@ -29,59 +32,27 @@ const ButtonProductBuyer = (props) => {
     const newSaved = ifSaved(id, saved)
       ? saved.filter(({ _id }) => _id !== id)
       : [...saved, product];
+    const successMessage = ifSaved(id, saved)
+      ? 'Product removed from saved items'
+      : 'Product added to saved items';
 
-    setSaveIcon(
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
-    );
+    setSaveIcon(<Loading variant="primary-benshada" />);
 
     props
-      .userUpdate(email, { saved: newSaved })
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
+      .userUpdate(email, { saved: newSaved }, successMessage)
       .finally(() => setSaveIcon(INIT.save));
   };
 
   const shouldAddToCart = (id, product, cart, email) => {
     const newCart = ifInCart(id, cart) ? cart.filter(({ _id }) => _id !== id) : [...cart, product];
+    const successMessage = ifInCart(id, cart)
+      ? 'Product removed from cart'
+      : 'Product added to cart';
 
-    setCartIcon(
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
-    );
+    setCartIcon(<Loading variant="primary-benshada" />);
 
     props
-      .userUpdate(email, { cart: newCart })
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
+      .userUpdate(email, { cart: newCart }, successMessage)
       .finally(() => setCartIcon(INIT.cart));
   };
 
@@ -90,28 +61,32 @@ const ButtonProductBuyer = (props) => {
   const cart = (user && user.cart) || [];
   const email = user && user.email;
 
-  const { _id } = product;
+  const { _id, quantity } = product;
   const history = useHistory();
 
-  return (
+  return quantity > 0 ? (
     <>
-      {}
-      <span
-        className={`pointer ${ifSaved(_id, saved) ? 'text-primary-benshada' : ''}`}
-        onClick={() => (!isSignedIn ? history.push('/login') : shouldWishlist(_id, product, saved, email))
-        }
-      >
-        {saveIcon === INIT.save ? <FontAwesomeIcon icon={saveIcon} /> : saveIcon}
-      </span>
-
-      <span
-        className={`pointer ml-2 ${ifInCart(_id, cart) ? 'text-primary-benshada' : ''}`}
+      <button
+        className={`btn bg-white text-${
+          ifInCart(_id, cart) ? 'primary-benshada' : 'secondary'
+        } rounded-circle pointer`}
         onClick={() => (!isSignedIn ? history.push('/login') : shouldAddToCart(_id, product, cart, email))
         }
       >
         {cartIcon === INIT.cart ? <FontAwesomeIcon icon={cartIcon} /> : cartIcon}
-      </span>
+      </button>
+      <button
+        className={`btn bg-white text-${
+          ifSaved(_id, saved) ? 'danger' : 'secondary'
+        } rounded-circle pointer`}
+        onClick={() => (!isSignedIn ? history.push('/login') : shouldWishlist(_id, product, saved, email))
+        }
+      >
+        {saveIcon === INIT.save ? <FontAwesomeIcon icon={saveIcon} /> : saveIcon}
+      </button>
     </>
+  ) : (
+    ''
   );
 };
 

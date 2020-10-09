@@ -1,26 +1,30 @@
 /* eslint-disable no-underscore-dangle */
+// Module imports
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ContainerDimensions from 'react-container-dimensions';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
+import { faCheck, faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
+
+// Component imports
+import ifSeller from 'assets/js/ifSeller.js';
 import Price from './Price.js';
-import Image from '../../Image/Image.js';
-import Rating from '../../Rating/Rating.js';
-import Returns from '../../Returns/Returns.js';
+// import Rating from '../../Rating/Rating.js';
+// import Returns from '../../Returns/Returns.js';
 import ButtonProductBuyer from './Buttons/ButtonProductBuyer.js';
 import ButtonProductOwner from './Buttons/ButtonProductOwner.js';
-import { userUpdate } from '../../../redux/actions/users.js';
+
+// Asset imports
+import 'assets/css/product.min.css';
 
 class ProductDisplay extends Component {
   static propTypes = {
-    action: PropTypes.string,
     product: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    stores: PropTypes.array,
+    orders: PropTypes.array,
     user: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    userUpdate: PropTypes.func
+    users: PropTypes.array
   };
 
   renderActionButtons = (product) => {
@@ -35,152 +39,124 @@ class ProductDisplay extends Component {
       return <ButtonProductOwner product={product} user={user} />;
     }
 
-    if (isBatch && (user && user.type) === 'UB') {
-      return <ButtonProductBuyer product={product} user={user} />;
-    }
-
-    if (!isBatch && (user && user.type) === 'UC') {
-      return <ButtonProductBuyer product={product} user={user} />;
-    }
-
-    return user && user._id === undefined ? (
-      <ButtonProductBuyer product={product} user={user} />
-    ) : (
-      ''
-    );
-  };
-
-  helperCartCount = (cart, product, type) => {
     if (
-      type === 'increase'
-      && product.quantity > cart.filter(({ _id }) => _id === product.id).length
-    ) { return [...cart, product]; }
-
-    for (let i = 0; i < cart.length; i += 1) {
-      const element = cart[i];
-
-      if (element._id === product._id) {
-        cart.splice(i, 1);
-        break;
-      }
+      (isBatch && (user && user.type) === 'UB')
+      || (!isBatch && (user && user.type) === 'UC')
+      || (user && user._id === undefined)
+    ) {
+      return <ButtonProductBuyer product={product} user={user} />;
     }
 
-    return cart;
+    return false;
   };
 
-  updateCartCount = (user, product, type, initCount, count) => {
-    const { cart } = user;
-    const email = user && user.email;
-    let newCart = [];
+  shopType = ({ shop }) => {
+    const { users, stores } = this.props;
+    const shopID = shop && shop._id;
+    const shopFull = stores.filter(({ _id }) => _id === shopID)[0];
+    const shopOwner = shopFull && shopFull.user;
+    const shopOwnerID = shopOwner && shopOwner._id;
+    const shopOwnerFull = users.filter(({ _id }) => _id === shopOwnerID)[0];
+    const shopOwnerType = shopOwnerFull && shopOwnerFull.type;
 
-    if (initCount) {
-      for (let i = 0; i < Number(count); i += 1) {
-        if (product.quantity > cart.filter(({ _id }) => _id === product.id).length) {
-          newCart.push(product);
-        }
-      }
-    } else {
-      newCart = this.helperCartCount(cart, product, type);
-    }
-
-    this.props
-      .userUpdate(email, { cart: newCart })
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
-      .finally(() => {});
+    return ifSeller(shopOwnerType)[1];
   };
+
+  getSales = ({ _id }, orders) => orders.filter(({ product, status }) => product === _id && status === 'paid').length;
 
   render() {
-    const { product, user, action } = this.props;
+    const { product } = this.props;
     const {
-      _id, name, image, price, discountPercentage, overallRating, returns, quantity
+      _id,
+      name,
+      image,
+      price,
+      discountPercentage,
+      overallRating,
+      returns,
+      quantity,
+      longDescription
     } = product;
-    const cart = (user && user.cart) || [];
-    const cartCount = cart.filter((item) => item._id === _id).length;
+
+    const imgHolderStyle = image.length > 0
+      ? {
+        background: `url(${image[0]}) no-repeat bottom left/cover`
+      }
+      : {};
+
+    const shopType = this.shopType(product);
 
     return (
-      <div className="card mb-4 product rounded border-0" key={`product${_id}`}>
-        <div className="card-body p-0">
-          <Image name={name} image={image} type="product" size={6} id={_id} />
-
-          {action === 'cart' ? (
-            <div className="cart-count cart-count-user">
-              <ContainerDimensions>
-                {({ height, width }) => (
-                  <span className="" style={{ top: `-${height / 2}px`, left: `-${width / 2}px` }}>
-                    {cartCount}
-                  </span>
-                )}
-              </ContainerDimensions>
+      <>
+        {/* <div className="card mb-4 product rounded border-0" key={`product${_id}`}>
+      <div className="card-body p-0">
+        <div className="text-left p-3">
+          <div className="d-flex">
+            <div className="d-flex flex-grow-1 justify-content-start">
+              <Rating rating={overallRating} xtraClass="mr-2" />
+              <Returns returns={returns} />
             </div>
-          ) : (
-            ''
-          )}
-
-          <div className="text-left p-3">
-            <div className="d-flex">
-              <div className="d-flex flex-grow-1 justify-content-start">
-                <Rating rating={overallRating} xtraClass="mr-2" />
-                <Returns returns={returns} />
-              </div>
-              <div className="d-flex flex-grow-1 justify-content-end">
-                {this.renderActionButtons(product)}
-              </div>
-            </div>
-            <Link to={`/products/${_id}`}>{name}</Link>
-
-            <p className="">
-              {quantity > 0 ? <Price price={price} discount={discountPercentage} /> : <span className="bg-danger text-white px-2 py-1 d-inline-block rounded mt-1">Sold out</span>}
-            </p>
           </div>
-          {action === 'cart' ? (
-            <div className="float-right text-right p-3">
-              <p className="">
-                <FontAwesomeIcon
-                  icon={faMinusCircle}
-                  onClick={() => this.updateCartCount(user, product, 'decrease')}
-                  className="text-primary-benshada pointer"
-                />
-                <input
-                  className="p-2 mx-1 d-inline w-25 border-0 bg-light-benshada text-center"
-                  type="text"
-                  onChange={
-                    (e) => this
-                      .updateCartCount(
-                        user, product, null, cartCount, e.target.value
-                      )
-                  }
-                  defaultValue={cartCount}
-                />
-                <FontAwesomeIcon
-                  icon={faPlusCircle}
-                  onClick={() => this.updateCartCount(user, product, 'increase')}
-                  className="text-primary-benshada pointer"
-                />
-              </p>
-            </div>
-          ) : (
-            ''
-          )}
         </div>
       </div>
+    </div> */}
+        <article className="product shadow">
+          <div className="img-holder position-relative text-center" style={imgHolderStyle}>
+            <div className="product-actions position-absolute p-3">
+              {this.renderActionButtons(product)}
+            </div>
+            <div className="img-holder-cover bg-secondary-gradient position-absolute w-100 h-100 v-parent ">
+              <p className="v-child p-3 px-5 h-50 d-none d-lg-block product-description text-white">
+                {longDescription}
+              </p>
+            </div>
+          </div>
+          <div className="position-relative mb-3 product-info py-2 px-3">
+            <div className="product-type">
+              <span
+                className={`badge badge-${
+                  shopType === 'Manufacturer' ? 'primary-benshada' : 'primary'
+                } text-white font-weight-bold`}
+                role="contentinfo"
+              >
+                {shopType}
+              </span>
+            </div>
+            <Link to={`/products/${_id}`} className="name text-capitalize text-truncate">{name}</Link>
+            <h4 className="product-price">
+              <Price price={price} discount={discountPercentage} />
+            </h4>
+            <div className="product-actions justify-content-start">
+              <span className="mr-3" role="contentinfo">
+                <FontAwesomeIcon icon={faStar} className="text-primary-benshada" /> {overallRating}
+              </span>
+              <span className="mr-3" role="contentinfo">
+                <FontAwesomeIcon icon={faUndo} className="text-danger" /> {returns}
+              </span>
+              <span role="contentinfo">
+                <FontAwesomeIcon icon={faCheck} className="text-success" />{' '}
+                {this.getSales(product, this.props.orders)}
+              </span>
+            </div>
+            <p
+              className={`text-${
+                quantity > 0 ? 'success' : 'danger'
+              } text-uppercase mt-2 font-weight-bold`}
+            >
+              {quantity > 0 ? 'In Stock' : 'Out of Stock'}
+            </p>
+          </div>
+        </article>
+      </>
     );
   }
 }
 
-const mapStateToProps = ({ user }) => ({ user: user.selected });
+const mapStateToProps = ({ user, store, order }) => ({
+  user: user.selected,
+  stores: store.all,
+  orders: order.all,
+  users: user.all
+});
 
-export default connect(mapStateToProps, { userUpdate })(ProductDisplay);
+export default connect(mapStateToProps)(ProductDisplay);
