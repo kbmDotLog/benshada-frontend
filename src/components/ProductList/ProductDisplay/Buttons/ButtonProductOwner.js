@@ -1,18 +1,24 @@
 /* eslint-disable no-underscore-dangle */
+// Module imports
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
+
+// Component imports
+import ProductForm from '../ProductForm.js';
+
+// Asset imports
+import Loading from '../../../../assets/js/loading.js';
+
+// Action imports
 import {
   productDelete,
   productUpdate,
   productsOneSelected
 } from '../../../../redux/actions/products.js';
-import ProductForm from '../ProductForm.js';
-import Loading from '../../../../assets/js/loading.js';
 
 class ButtonProductOwner extends React.Component {
   INIT = {
@@ -25,10 +31,8 @@ class ButtonProductOwner extends React.Component {
   }
 
   static propTypes = {
-    action: PropTypes.string,
     product: PropTypes.object,
     selectedProduct: PropTypes.object,
-    user: PropTypes.object,
     productDelete: PropTypes.func,
     productsOneSelected: PropTypes.func,
     productUpdate: PropTypes.func
@@ -36,34 +40,15 @@ class ButtonProductOwner extends React.Component {
 
   submit = (product) => {
     this.setState({
-      buttonValue: (
-        <Loading />
-      )
+      buttonValue: <Loading />
     });
 
     const _id = product.get('_id');
 
-    this.props
-      .productUpdate(_id, product)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
-      .finally(() => {
-        this.setState(this.INIT);
-        $('.modal-backdrop').remove();
-      });
+    this.props.productUpdate(_id, product, 'Product updated successfully').finally(() => {
+      this.setState(this.INIT);
+      $('.modal-backdrop').remove();
+    });
   };
 
   render = () => {
@@ -72,15 +57,23 @@ class ButtonProductOwner extends React.Component {
 
     return (
       <>
-        <span className="pointer ml-2" data-toggle="modal" data-target="#productEdit">
+        <button
+          className="btn bg-white text-secondary rounded-circle pointer"
+          data-toggle="modal"
+          data-target="#productEdit"
+        >
           <FontAwesomeIcon
             icon={faPencilAlt}
             onClick={() => this.props.productsOneSelected(product)}
           />
-        </span>
-        <span className="pointer ml-2" data-toggle="modal" data-target="#productDelete">
+        </button>
+        <button
+          className="btn bg-white text-danger rounded-circle pointer"
+          data-toggle="modal"
+          data-target="#productDelete"
+        >
           <FontAwesomeIcon icon={faTrash} onClick={() => this.props.productsOneSelected(product)} />
-        </span>
+        </button>
 
         {/* Modal */}
         <div
@@ -126,30 +119,10 @@ class ButtonProductOwner extends React.Component {
                 <button
                   type="button"
                   className="btn btn-danger"
-                  onClick={() => this.props
-                    .productDelete(_id)
-                    .then((response) => toast.success(
-                      (response
-                            && response.value
-                            && response.value.data
-                            && response.value.data.message)
-                            || (response && response.statusText)
-                            || 'Success'
-                    ))
-                    .catch((err) => toast.error(
-                      (err && err.response && err.response.data && err.response.data.message)
-                            || (err
-                              && err.response
-                              && err.response.data
-                              && err.response.data.message
-                              && err.response.data.message.name)
-                            || (err && err.response && err.response.statusText)
-                            || 'Network error'
-                    ))
-                    .finally(() => {
-                      this.setState(this.INIT);
-                      $('.modal-backdrop').remove();
-                    })
+                  onClick={() => this.props.productDelete(_id, 'Product deleted successfully').finally(() => {
+                    this.setState(this.INIT);
+                    $('.modal-backdrop').remove();
+                  })
                   }
                 >
                   Delete

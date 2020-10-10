@@ -11,11 +11,9 @@ export const authLogin = (payload) => (dispatch) => {
     payload: api.post('/users/login', payload)
   });
 
-  return res.then(() => dispatch([
-    userOne(payload.email),
-    usersAll(),
-    shopsAll(),
-    notificationsAll()]));
+  return res
+    .then(() => dispatch([userOne(payload.email), usersAll(), shopsAll()]))
+    .then(() => notificationsAll());
 };
 
 export const authSignup = (payload) => (dispatch) => {

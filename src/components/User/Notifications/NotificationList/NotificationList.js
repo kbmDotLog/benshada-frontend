@@ -16,7 +16,7 @@ export default class NotificationList extends Component {
 
   renderNotificationList = (notifications) => (notifications.length > 0 ? (
       <div className="cards notifications" id="notificationTable">
-        {_.orderBy(notifications, ['read', ['asc']]).map((notification, key) => (
+        {_.orderBy(notifications, ['read'], ['desc']).map((notification, key) => (
           <NotificationDisplay key={`notificationList${key}`} notification={notification} />
         ))}
       </div>

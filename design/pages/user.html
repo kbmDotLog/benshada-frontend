@@ -90,7 +90,8 @@
                   role="tab"
                   aria-controls="v-pills-dashboard"
                   aria-selected="true"
-                  >dashboard</a
+                >
+                  <i class="fas fa-tachometer-alt mr-2" aria-hidden="true"></i> dashboard</a
                 >
               </li>
               <li
@@ -109,7 +110,7 @@
                   role="tab"
                   aria-controls="v-pills-profile"
                   aria-selected="false"
-                  >Profile</a
+                  ><i class="fas fa-user mr-2" aria-hidden="true"></i> Profile</a
                 >
               </li>
               <li
@@ -128,7 +129,7 @@
                   role="tab"
                   aria-controls="v-pills-store"
                   aria-selected="false"
-                  >Store</a
+                  ><i class="fas fa-store-alt mr-2"></i> Store</a
                 >
               </li>
               <li
@@ -147,7 +148,7 @@
                   role="tab"
                   aria-controls="v-pills-products"
                   aria-selected="false"
-                  >Products</a
+                  ><i class="fas fa-box mr-2"></i> Products</a
                 >
               </li>
               <li
@@ -166,7 +167,7 @@
                   role="tab"
                   aria-controls="v-pills-saved"
                   aria-selected="false"
-                  >saved</a
+                  ><i class="fas fa-heart mr-2"></i> saved</a
                 >
               </li>
               <li
@@ -185,7 +186,7 @@
                   role="tab"
                   aria-controls="v-pills-cart"
                   aria-selected="false"
-                  >cart</a
+                  ><i class="fas fa-shopping-cart mr-2"></i> cart</a
                 >
               </li>
               <li
@@ -204,7 +205,7 @@
                   role="tab"
                   aria-controls="v-pills-orders"
                   aria-selected="false"
-                  >orders</a
+                  ><i class="fas fa-shopping-bag mr-2"></i> orders</a
                 >
               </li>
               <li
@@ -223,7 +224,8 @@
                   role="tab"
                   aria-controls="v-pills-transactions"
                   aria-selected="false"
-                  >transactions</a
+                >
+                  <i class="fas fa-funnel-dollar mr-2"></i> transactions</a
                 >
               </li>
               <li
@@ -242,7 +244,7 @@
                   role="tab"
                   aria-controls="v-pills-notifications"
                   aria-selected="false"
-                  >notifications</a
+                  ><i class="fas fa-bell mr-2"></i> notifications</a
                 >
               </li>
               <li
@@ -261,7 +263,9 @@
                   role="tab"
                   aria-controls="v-pills-analytics"
                   aria-selected="false"
-                  >analytics</a
+                >
+                  <i class="fas fa-chart-pie mr-2"></i>
+                  analytics</a
                 >
               </li>
               <li
@@ -280,7 +284,7 @@
                   role="tab"
                   aria-controls="v-pills-tickets"
                   aria-selected="false"
-                  >tickets</a
+                  ><i class="fas fa-ticket-alt mr-2"></i> tickets</a
                 >
               </li>
               <li
@@ -291,7 +295,16 @@
                 aria-controls="userSide"
                 aria-label="Toggle navigation"
               >
-                <a href="#" class="text-capitalize">logout</a>
+                <a
+                  class="nav-link text-capitalize"
+                  id="v-pills-logout"
+                  href="#"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <i class="fas fa-sign-out-alt mr-2"></i>
+                  logout</a
+                >
               </li>
             </ul>
           </nav>
@@ -313,11 +326,30 @@
                 <i class="fas fa-stream"></i>
               </button>
             </p>
-            <p>
+            <!-- <p>
               <button class="btn btn-outline-primary border-0 rounded-circle bg-white mr-2">
                 <i class="fas fa-bell"></i>
               </button>
-            </p>
+            </p> -->
+            <ul
+              class="nav flex nav-pills"
+              id="v-pills-only-tab"
+              role="tablist"
+              aria-orientation="horizontal"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link text-capitalize btn btn-outline-primary border-0 rounded bg-white mr-2"
+                  id="v-pills-notifications-only-tab"
+                  data-toggle="pill"
+                  href="#v-pills-notifications"
+                  role="tab"
+                  aria-controls="v-pills-notifications"
+                  aria-selected="false"
+                  ><i class="fas fa-bell"></i
+                ></a>
+              </li>
+            </ul>
             <div class="d-flex py-2 px-3 bg-white align-items-center shadow-sm user-card">
               <div class="img-holder rounded-circle mr-2">
                 <img src="#" alt="User" class="img-fluid" />
@@ -333,6 +365,157 @@
             aria-labelledby="v-pills-dashboard-tab"
           >
             <h2 class="title mb-5 mb-lg-0">Dashboard</h2>
+            <section class="d-flex flex-wrap">
+              <h2 class="d-none">Dashboard Section</h2>
+              <article class="flex-grow-1 justify-content-between user-dashboard-article">
+                <h2 class="d-none">Dashboards Cards</h2>
+                <div class="d-flex flex-wrap">
+                  <div
+                    class="shadow-sm user-dashboard-stats user-dashboard-stats-products rounded-benshada"
+                  >
+                    <header class="d-flex px-4 align-items-center">
+                      <p><i class="header-icon fas fa-box fa-2x"></i></p>
+                      <div class="user-dashboard-header-text">
+                        <h6 class="mb-0">Products</h6>
+                        <small>No. of approved products</small>
+                      </div>
+                    </header>
+                    <h3 class="user-dashboard-stat-count px-4">30</h3>
+                  </div>
+                  <div
+                    class="shadow-sm user-dashboard-stats user-dashboard-stats-saved rounded-benshada"
+                  >
+                    <header class="d-flex px-4 align-items-center">
+                      <p><i class="header-icon fas fa-heart fa-2x"></i></p>
+                      <div class="user-dashboard-header-text">
+                        <h6 class="mb-0">Saved</h6>
+                        <small>No. of saved products</small>
+                      </div>
+                    </header>
+                    <h3 class="user-dashboard-stat-count px-4">30</h3>
+                  </div>
+                  <div
+                    class="shadow-sm user-dashboard-stats user-dashboard-stats-cart rounded-benshada"
+                  >
+                    <header class="d-flex px-4 align-items-center">
+                      <p><i class="header-icon fas fa-shopping-cart fa-2x"></i></p>
+                      <div class="user-dashboard-header-text">
+                        <h6 class="mb-0">Cart</h6>
+                        <small>No. of products in cart</small>
+                      </div>
+                    </header>
+                    <h3 class="user-dashboard-stat-count px-4">30</h3>
+                  </div>
+                  <div
+                    class="shadow-sm user-dashboard-stats user-dashboard-stats-orders rounded-benshada"
+                  >
+                    <header class="d-flex px-4 align-items-center">
+                      <p><i class="header-icon fas fa-shopping-bag fa-2x"></i></p>
+                      <div class="user-dashboard-header-text">
+                        <h6 class="mb-0">Orders</h6>
+                        <small>No. of pending orders</small>
+                      </div>
+                    </header>
+                    <h3 class="user-dashboard-stat-count px-4">30</h3>
+                  </div>
+                  <div
+                    class="shadow-sm user-dashboard-stats user-dashboard-stats-sales rounded-benshada"
+                  >
+                    <header class="d-flex px-4 align-items-center">
+                      <p><i class="header-icon fas fa-money-bill fa-2x"></i></p>
+                      <div class="user-dashboard-header-text">
+                        <h6 class="mb-0">Sales</h6>
+                        <small>No. of product sales</small>
+                      </div>
+                    </header>
+                    <h3 class="user-dashboard-stat-count px-4">30</h3>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h4>Transactions</h4>
+
+                  <div class="user-transactions-list flex-wrap d-flex justify-content-between">
+                    <div
+                      class="user-transaction flex-wrap d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                    >
+                      <p class="mr-3 user-transaction-icon"><i class="fas fa-plus"></i></p>
+                      <div class="user-transaction-description">
+                        <h6 class="mb-0">Paid for ABC</h6>
+                        <small>1 Aug</small>
+                      </div>
+                      <p class="user-transaction-code px-sm-5">Ref: 8972097189</p>
+                      <div
+                        class="user-transaction-amount user-transaction-amount-debit pr-5 mt-3 pr-sm-0 pl-sm-5 mt-sm-0"
+                      >
+                        <p class="product-price"><strong class="mr-2">&#8358; 20.00</strong></p>
+                      </div>
+                    </div>
+                    <div
+                      class="user-transaction flex-wrap user-transaction-debit d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                    >
+                      <p class="mr-3 user-transaction-icon"><i class="fas fa-minus"></i></p>
+                      <div class="user-transaction-description">
+                        <h6 class="mb-0">Paid for ABC</h6>
+                        <small>1 Aug</small>
+                      </div>
+                      <p class="user-transaction-code px-sm-5">Ref: 8972097189</p>
+                      <div
+                        class="user-transaction-amount user-transaction-amount-credit pr-5 mt-3 pr-sm-0 pl-sm-5 mt-sm-0"
+                      >
+                        <p class="product-price"><strong class="mr-2">&#8358; 20.00</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="user-dashboard-article rounded mt-5 mt-xl-0">
+                <h4>Notifications</h4>
+
+                <div class="user-notifications-list d-flex flex-wrap justify-content-between">
+                  <div
+                    class="user-notification user-notification-product d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                  >
+                    <p class="mr-3 user-notification-icon"><i class="fas fa-box"></i></p>
+                    <div class="user-notification-description">
+                      <h6 class="mb-0">Ankara Bag</h6>
+                      <p>was uploaded successfully</p>
+                      <small>1 Aug</small>
+                    </div>
+                  </div>
+                  <div
+                    class="user-notification user-notification-order d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                  >
+                    <p class="mr-3 user-notification-icon"><i class="fas fa-shopping-bag"></i></p>
+                    <div class="user-notification-description">
+                      <h6 class="mb-0">Ankara Bag</h6>
+                      <p>was ordered by Ameh Ani</p>
+                      <small>1 Aug</small>
+                    </div>
+                  </div>
+                  <div
+                    class="user-notification user-notification-saved d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                  >
+                    <p class="mr-3 user-notification-icon"><i class="fas fa-heart"></i></p>
+                    <div class="user-notification-description">
+                      <h6 class="mb-0">Ankara Bag</h6>
+                      <p>was saved by Ameh Ani</p>
+                      <small>1 Aug</small>
+                    </div>
+                  </div>
+                  <div
+                    class="user-notification user-notification-cart d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+                  >
+                    <p class="mr-3 user-notification-icon"><i class="fas fa-shopping-cart"></i></p>
+                    <div class="user-notification-description">
+                      <h6 class="mb-0">Ankara Bag</h6>
+                      <p>was added to cart by Ameh Ani</p>
+                      <small>1 Aug</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </section>
           </div>
           <div
             class="tab-pane fade p-4"
@@ -356,7 +539,382 @@
             role="tabpanel"
             aria-labelledby="v-pills-products-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Products</h2>
+            <h2 class="title mb-5 mb-lg-0">Products (<span>20</span>)</h2>
+            <section class="productShowcase mt-4 section">
+              <h2 class="d-none">Top Rated/Visit/Patronized Shops</h2>
+              <div class="d-flex">
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn btn-active"><i class="fas fa-shopping-bag"></i></button>
+                      <button class="btn btn-active">
+                        <i class="fas fa-heart text-danger"></i>
+                      </button>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span
+                        class="badge badge-primary text-white font-weight-bold"
+                        role="contentinfo"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="product shadow">
+                  <div class="img-holder position-relative text-center">
+                    <div class="product-actions position-absolute p-3">
+                      <button class="btn"><i class="fas fa-shopping-bag"></i></button>
+                      <div>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-heart"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn mb-3"><i class="fas fa-pencil-alt"></i></button>
+                        </p>
+                        <p>
+                          <button class="btn"><i class="fas fa-trash"></i></button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img-holder-cover position-absolute w-100 h-100 v-parent">
+                      <p class="v-child p-3 px-5 h-50 d-none d-lg-block product-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
+                        accusantium earum corporis adipisci tempora deleniti odio, provident
+                        praesentium deserunt perferendis. Doloribus ipsum rem maiores adipisci
+                        accusamus magni libero assumenda quam!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-3 product-info py-2 px-3">
+                    <div class="product-type">
+                      <span class="badge badge-primary-benshada text-white font-weight-bold"
+                        >Retailer</span
+                      >
+                    </div>
+                    <p class="name text-capitalize">red Backpack</p>
+                    <h4 class="product-price">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h4>
+                    <div class="product-actions justify-content-start">
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-star text-primary-benshada"></i> 5</span
+                      >
+                      <span class="mr-3" role="contentinfo"
+                        ><i class="fas fa-undo text-danger"></i> 20</span
+                      >
+                      <span role="contentinfo"><i class="fas fa-check text-success"></i> 20</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
           </div>
           <div
             class="tab-pane fade p-4"
@@ -364,7 +922,109 @@
             role="tabpanel"
             aria-labelledby="v-pills-saved-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Saved</h2>
+            <h2 class="title mb-5 mb-lg-0">Saved (<span>2</span>)</h2>
+            <div class="user-cart-item-list">
+              <div class="d-flex user-cart-item mb-4 pb-3">
+                <div class="img-holder mr-3"><img src="#" alt="Product" class="img-fluid" /></div>
+                <div class="flex-grow-1 d-lg-flex align-items-center">
+                  <div class="flex-grow-1 user-cart-item-main">
+                    <h6 class="mb-0">Red Backpack</h6>
+                    <p>Dispatched within 4 -6 weeks</p>
+                    <p class="product-price mb-3 d-lg-none">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </p>
+                    <div class="product-quantity d-lg-none" role="contentinfo">
+                      <h6 class="title d-none">Quantity</h6>
+                      <ul class="d-flex params-list px-0 mx-0 justify-content-start">
+                        <li>-</li>
+                        <li>1</li>
+                        <li>+</li>
+                      </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <p>
+                        <a href="#"><i class="fas fa-times mr-2 d-lg-none"></i> Remove</a>
+                      </p>
+                      <h6 class="product-price mb-0 d-lg-none">
+                        <strong class="mr-2">&#8358; 20.00</strong>
+                        <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                  <div class="product-quantity" role="contentinfo">
+                    <h6 class="title d-none">Quantity</h6>
+                    <ul class="d-flex params-list px-0 mx-0 mb-0 justify-content-start">
+                      <li>-</li>
+                      <li>1</li>
+                      <li>+</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex user-cart-item mb-4 pb-3">
+                <div class="img-holder mr-3"><img src="#" alt="Product" class="img-fluid" /></div>
+                <div class="flex-grow-1 d-lg-flex align-items-center">
+                  <div class="flex-grow-1 user-cart-item-main">
+                    <h6 class="mb-0">Red Backpack</h6>
+                    <p>Dispatched within 4 -6 weeks</p>
+                    <p class="product-price mb-3 d-lg-none">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </p>
+                    <div class="product-quantity d-lg-none" role="contentinfo">
+                      <h6 class="title d-none">Quantity</h6>
+                      <ul class="d-flex params-list px-0 mx-0 justify-content-start">
+                        <li>-</li>
+                        <li>1</li>
+                        <li>+</li>
+                      </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <p>
+                        <a href="#"><i class="fas fa-times mr-2 d-lg-none"></i> Remove</a>
+                      </p>
+                      <h6 class="product-price mb-0 d-lg-none">
+                        <strong class="mr-2">&#8358; 20.00</strong>
+                        <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                  <div class="product-quantity" role="contentinfo">
+                    <h6 class="title d-none">Quantity</h6>
+                    <ul class="d-flex params-list px-0 mx-0 mb-0 justify-content-start">
+                      <li>-</li>
+                      <li>1</li>
+                      <li>+</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="product-price mb-0">
+                      <strong class="mr-2">&#8358; 20.00</strong>
+                      <span class="product-discount" role="contentinfo">&#8358; 15.00</span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="tab-pane fade p-4"
@@ -372,7 +1032,7 @@
             role="tabpanel"
             aria-labelledby="v-pills-cart-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Cart</h2>
+            <h2 class="title mb-5 mb-lg-0">Cart (<span>2</span>)</h2>
             <div class="user-cart-item-list">
               <div class="d-flex user-cart-item mb-4 pb-3 d-none d-lg-block">
                 <div class="flex-grow-1 d-lg-flex align-items-center">
@@ -510,7 +1170,7 @@
             role="tabpanel"
             aria-labelledby="v-pills-orders-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Orders</h2>
+            <h2 class="title mb-5 mb-lg-0">Orders(<span>20</span>)</h2>
           </div>
           <div
             class="tab-pane fade p-4"
@@ -518,7 +1178,40 @@
             role="tabpanel"
             aria-labelledby="v-pills-transactions-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Transactions</h2>
+            <h2 class="title mb-5 mb-lg-0">Transactions (<span>20</span>)</h2>
+
+            <div class="user-transactions-list flex-wrap d-flex justify-content-between">
+              <div
+                class="user-transaction flex-wrap d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-transaction-icon"><i class="fas fa-plus"></i></p>
+                <div class="user-transaction-description">
+                  <h6 class="mb-0">Paid for ABC</h6>
+                  <small>1 Aug</small>
+                </div>
+                <p class="user-transaction-code px-sm-5">Ref: 8972097189</p>
+                <div
+                  class="user-transaction-amount user-transaction-amount-debit pr-5 mt-3 pr-sm-0 pl-sm-5 mt-sm-0"
+                >
+                  <p class="product-price"><strong class="mr-2">&#8358; 20.00</strong></p>
+                </div>
+              </div>
+              <div
+                class="user-transaction flex-wrap user-transaction-debit d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-transaction-icon"><i class="fas fa-minus"></i></p>
+                <div class="user-transaction-description">
+                  <h6 class="mb-0">Paid for ABC</h6>
+                  <small>1 Aug</small>
+                </div>
+                <p class="user-transaction-code px-sm-5">Ref: 8972097189</p>
+                <div
+                  class="user-transaction-amount user-transaction-amount-credit pr-5 mt-3 pr-sm-0 pl-sm-5 mt-sm-0"
+                >
+                  <p class="product-price"><strong class="mr-2">&#8358; 20.00</strong></p>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="tab-pane fade p-4"
@@ -526,7 +1219,50 @@
             role="tabpanel"
             aria-labelledby="v-pills-notifications-tab"
           >
-            <h2 class="title mb-5 mb-lg-0">Notifications</h2>
+            <h2 class="title mb-5 mb-lg-0">Notifications (<span>4</span>)</h2>
+
+            <div class="user-notifications-list d-flex flex-wrap justify-content-between">
+              <div
+                class="user-notification user-notification-product d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-notification-icon"><i class="fas fa-box"></i></p>
+                <div class="user-notification-description">
+                  <h6 class="mb-0">Ankara Bag</h6>
+                  <p>was uploaded successfully</p>
+                  <small>1 Aug</small>
+                </div>
+              </div>
+              <div
+                class="user-notification user-notification-order d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-notification-icon"><i class="fas fa-shopping-bag"></i></p>
+                <div class="user-notification-description">
+                  <h6 class="mb-0">Ankara Bag</h6>
+                  <p>was ordered by Ameh Ani</p>
+                  <small>1 Aug</small>
+                </div>
+              </div>
+              <div
+                class="user-notification user-notification-saved d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-notification-icon"><i class="fas fa-heart"></i></p>
+                <div class="user-notification-description">
+                  <h6 class="mb-0">Ankara Bag</h6>
+                  <p>was saved by Ameh Ani</p>
+                  <small>1 Aug</small>
+                </div>
+              </div>
+              <div
+                class="user-notification user-notification-cart d-flex align-items-center px-4 py-2 mb-3 shadow-sm bg-white"
+              >
+                <p class="mr-3 user-notification-icon"><i class="fas fa-shopping-cart"></i></p>
+                <div class="user-notification-description">
+                  <h6 class="mb-0">Ankara Bag</h6>
+                  <p>was added to cart by Ameh Ani</p>
+                  <small>1 Aug</small>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="tab-pane fade p-4"

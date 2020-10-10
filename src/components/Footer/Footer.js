@@ -114,7 +114,7 @@ class Footer extends Component {
               <Link
                 to={{
                   pathname: '/',
-                  hash: '#how-it-works'
+                  hash: 'howItWorks'
                 }}
               >
                 <p className="mb-1">How It Works</p>

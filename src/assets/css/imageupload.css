@@ -42,8 +42,8 @@
   background: rgba(0, 0, 0, 0.4);
   background: linear-gradient(
     to top right,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.3) 50%
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.6) 50%
   ) !important;
   color: #fff;
 }

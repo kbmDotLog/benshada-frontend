@@ -8,12 +8,11 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import Plus from '../Plus/Plus.js';
-import TestimonialForm from '../Home/TestimonialList/TestimonialDisplay/TestimonialForm.js';
 
 // Action imports
 import { testimonialsOneSelected, testimonialDelete } from '../../redux/actions/testimonials.js';
-import Loading from '../../assets/js/loading.js';
-import discardModal from '../../assets/js/discardModal.js';
+// import Loading from '../../assets/js/loading.js';
+// import discardModal from '../../assets/js/discardModal.js';
 
 // Start Component
 class HrFr extends Component {
@@ -30,8 +29,8 @@ class HrFr extends Component {
 
   static propTypes = {
     children: PropTypes.any,
-    selectedTestimonial: PropTypes.object,
-    testimonialDelete: PropTypes.func,
+    // selectedTestimonial: PropTypes.object,
+    // testimonialDelete: PropTypes.func,
     testimonialsOneSelected: PropTypes.func,
     user: PropTypes.object
   };
@@ -41,7 +40,7 @@ class HrFr extends Component {
   render() {
     return (
       <>
-        <div className="bg-light-benshada">
+        <div>
           <Header />
           <div className="" style={{ minHeight: '69vh' }}>
             {this.props.children}
@@ -59,7 +58,7 @@ class HrFr extends Component {
           />
           <Footer />
         </div>
-        <div>
+        {/* <div>
           <div
             className="modal fade"
             id="testimonialModal"
@@ -113,7 +112,7 @@ class HrFr extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </>
     );
   }

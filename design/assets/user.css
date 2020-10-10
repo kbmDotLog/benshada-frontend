@@ -11,7 +11,7 @@
   min-height: 100vh;
   padding: 20px 0;
   overflow-y: auto;
-  left: -200px;
+  left: -250px;
 }
 
 #app .user-section.show {
@@ -19,7 +19,7 @@
 }
 
 #app #userSide {
-  width: 200px;
+  width: 250px;
   background: #fff;
   height: 100vh;
   display: block !important;
@@ -57,11 +57,10 @@
   width: 100%;
 }
 
-#app #userMain header {
+#app #userMain header.tab-header {
   position: absolute;
   top: 20px;
   width: calc(100% - 10px);
-  right: 10px;
 }
 
 #app #userMain header button {
@@ -83,6 +82,121 @@
 
 #app #userMain .title {
   margin-top: 50px;
+}
+
+#app .user-dashboard-article {
+  flex: 1 0 100%;
+}
+
+#app .user-dashboard-stats {
+  flex: 0 0 100%;
+  margin-bottom: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+#app .user-dashboard-stats:nth-child(3n) {
+  background: #ef932e;
+  background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
+  color: #fff;
+  flex-direction: column-reverse;
+}
+
+#app .user-dashboard-stats header {
+  margin-top: 12px;
+}
+
+#app .user-dashboard-stats:nth-child(3n) header {
+  flex-direction: row-reverse;
+  margin: 20px 0;
+}
+
+#app .user-dashboard-stats header .user-dashboard-header-text {
+  margin-left: 15px;
+}
+
+#app .user-dashboard-stats:nth-child(3n) header .user-dashboard-header-text {
+  text-align: end;
+  margin-right: 15px;
+  margin-left: 0;
+}
+
+#app .user-dashboard-stats .header-icon,
+#app .user-notifications-list .user-notification .user-notification-icon {
+  color: #ef932e;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-products .header-icon,
+#app .user-notifications-list .user-notification.user-notification-product .user-notification-icon {
+  color: #007bff;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-orders .header-icon,
+#app .user-notifications-list .user-notification.user-notification-order .user-notification-icon,
+#app .user-transactions-list .user-transaction .user-transaction-icon {
+  color: #28a745;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-cart .header-icon {
+  color: #fff;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-saved .header-icon,
+#app .user-notifications-list .user-notification.user-notification-saved .user-notification-icon,
+#app .user-transactions-list .user-transaction-debit .user-transaction-icon {
+  color: #dc3545;
+}
+
+#app .user-dashboard-stats .user-dashboard-stat-count {
+  text-align: end;
+  margin: 20px 0;
+  border-right: 4px solid #ef932e;
+  width: 100%;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-sales .user-dashboard-stat-count {
+  border-color: #ef932e;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-products .user-dashboard-stat-count {
+  border-color: #007bff;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-orders .user-dashboard-stat-count {
+  border-color: #28a745;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-cart .user-dashboard-stat-count {
+  border-color: #fff;
+}
+
+#app .user-dashboard-stats.user-dashboard-stats-saved .user-dashboard-stat-count {
+  border-color: #dc3545;
+}
+
+#app .user-dashboard-stats:nth-child(3n) .user-dashboard-stat-count {
+  margin: 0;
+  text-align: left;
+}
+
+#app #v-pills-products {
+  /* padding-left: unset !important;
+  padding-right: unset !important; */
+}
+
+#app #v-pills-products .productShowcase .d-flex {
+  flex-wrap: wrap;
+  overflow: unset;
+  justify-content: space-between;
+}
+
+#app #v-pills-products .productShowcase .d-flex .product:nth-child(2n + 1) {
+  margin-left: 0;
+}
+
+#app #v-pills-products .productShowcase .d-flex .product:nth-child(2n) {
+  margin-right: 0;
 }
 
 #app .user-cart-item-list .img-holder {
@@ -110,28 +224,107 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+#app .user-transactions-list .user-transaction,
+#app .user-notifications-list .user-notification {
+  flex: 0 0 100%;
+}
+
+#app .user-transactions-list .user-transaction-description,
+#app .user-notifications-list .user-notification-description {
+  flex-grow: 1;
+}
+
+#app .user-transactions-list .user-transaction-amount {
+  font-size: 1.4rem;
+  color: #28a745;
+}
+
+#app .user-transactions-list .user-transaction-debit .user-transaction-amount {
+  color: #dc3545;
+}
+
+@media (min-width: 576px) {
   #app #v-pills-cart .btn.btn-checkout {
     width: fit-content;
+  }
+
+  #app .user-dashboard-stats {
+    flex-basis: 48%;
+    margin-right: 20px;
+  }
+
+  #app .user-dashboard-stats:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  #app #v-pills-products .productShowcase .d-flex {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+  #app .user-dashboard-stats {
+    flex-basis: 31.1%;
+  }
+
+  #app .user-dashboard-stats:nth-child(2n) {
+    margin-right: 20px;
+  }
+
+  #app .user-dashboard-stats:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  #app .user-notifications-list .user-notification {
+    flex-basis: 49%;
   }
 }
 
 @media (min-width: 992px) {
   #app #userSide {
-    position: unset;
+    left: 0;
   }
 
-  #app #userMain header {
+  #app #userMain {
+    margin-left: 250px;
+  }
+
+  #app #userMain header.tab-header {
     position: static;
+    margin-right: 0;
   }
 
   #app #userMain .title {
     position: relative;
     top: -65px;
     margin-top: 0;
+    width: fit-content;
   }
 
   .user-cart-item-main ~ div {
     display: flex;
+  }
+}
+
+@media (min-width: 1198px) {
+  #app .user-dashboard-article {
+    flex: 1 0;
+  }
+
+  #app .user-dashboard-article:nth-last-child(1) {
+    flex: 0 0 35%;
+    margin-left: 20px;
+  }
+
+  #app #v-pills-transactions .user-transactions-list .user-transaction {
+    flex-basis: 49%;
+  }
+
+  #app .user-notifications-list .user-notification {
+    flex-basis: 100%;
+  }
+
+  #app #v-pills-notifications .user-notifications-list .user-notification {
+    flex-basis: 32%;
   }
 }

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   PRODUCTS_ONE,
@@ -21,13 +22,25 @@ export const productsOneSelected = (payload) => ({
   payload
 });
 
-export const productUpdate = (id, productData) => (dispatch) => {
+export const productUpdate = (id, productData, message) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_UPDATE,
     payload: api.put(`/products/${id}`, productData)
   });
 
-  return response.then(() => dispatch([productsOne(id), productsAll()]));
+  return response
+    .then(() => dispatch([productsOne(id), productsAll()]))
+    .then(() => (message ? toast.success(message) : ''))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };
 
 export const productUpdateMultiple = (productRequests) => (dispatch) => {
@@ -50,11 +63,23 @@ export const productAdd = (data) => (dispatch) => {
   return response.then(() => dispatch(productsAll()));
 };
 
-export const productDelete = (id) => (dispatch) => {
+export const productDelete = (id, message) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_DELETE,
     payload: api.delete(`/products/${id}`)
   });
 
-  return response.then(() => dispatch(productsAll()));
+  return response
+    .then(() => dispatch(productsAll()))
+    .then(() => (message ? toast.success(message) : ''))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };

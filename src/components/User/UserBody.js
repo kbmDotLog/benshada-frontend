@@ -74,18 +74,13 @@ class UserBody extends Component {
     deliveryCompany: PropTypes.object,
     deliveryPackagesAdd: PropTypes.func,
     list: PropTypes.array,
-    orders: PropTypes.array,
     ordersMultipleSelected: PropTypes.func,
     productAdd: PropTypes.func,
     productsOneSelected: PropTypes.func,
-    shops: PropTypes.array,
     store: PropTypes.object,
     ticketAdd: PropTypes.func,
-    tickets: PropTypes.array,
     ticketsOneSelected: PropTypes.func,
     user: PropTypes.object,
-    users: PropTypes.array,
-    userUpdate: PropTypes.func,
     pathname: PropTypes.string
   };
 
@@ -94,8 +89,8 @@ class UserBody extends Component {
       buttonProduct: <Loading />
     });
 
-    if (!productData.get('shop')) productData.append('shop', this.props.store && this.props.store._id);
-    if (!productData.get('isBatch')) productData.append('isBatch', this.props.user && this.props.user.type === 'UA');
+    if (!productData.get('shop')) { productData.append('shop', this.props.store && this.props.store._id); }
+    if (!productData.get('isBatch')) { productData.append('isBatch', this.props.user && this.props.user.type === 'UA'); }
     productData.delete('_id');
 
     this.props
@@ -198,18 +193,18 @@ class UserBody extends Component {
       .ticketAdd(ticketData)
       .then((response) => toast.success(
         (response && response.value && response.value.data && response.value.data.message)
-                || (response && response.statusText)
-                || 'Success'
+            || (response && response.statusText)
+            || 'Success'
       ))
       .catch((err) => toast.error(
         (err && err.response && err.response.data && err.response.data.message)
-                || (err
-                  && err.response
-                  && err.response.data
-                  && err.response.data.message
-                  && err.response.data.message.name)
-                || (err && err.response && err.response.statusText)
-                || 'Network error'
+            || (err
+              && err.response
+              && err.response.data
+              && err.response.data.message
+              && err.response.data.message.name)
+            || (err && err.response && err.response.statusText)
+            || 'Network error'
       ))
       .finally(() => {
         this.setState(this.INIT);
@@ -226,7 +221,7 @@ class UserBody extends Component {
     const type = user && user.type;
     let all = '';
 
-    if (ifSeller(type)) {
+    if (ifSeller(type)[0]) {
       all = (
         <div
           className="modal fade"

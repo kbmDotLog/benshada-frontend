@@ -23,13 +23,27 @@
   height: 50vh;
 }
 
-#app .products-strata .year::before {
-  left: 0;
-  top: 60px;
+#app .products-strata .d-flex {
+  height: 100%;
 }
 
-#app .products-strata .v-parent {
+#app .products-strata .big ~ div {
+  width: 100%;
   height: 100%;
+}
+
+#app .products-strata .small,
+#app .products-strata .small-text-holder {
+  height: 100%;
+}
+
+#app .products-strata .small-text-holder {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  left: 50%;
+  width: 50%;
+  top: 0;
 }
 
 /**************************************************************
@@ -105,47 +119,80 @@
   flex: 1 0 100%;
 }
 
+@media (min-width: 768px) {
+  #app .products-strata,
+  #app .products-strata .d-flex,
+  #app #categories {
+    height: 35vh;
+  }
+}
+
 /**************************************************************
 ***************************************************************
 ************************* MEDIA QUERY *************************
 ***************************************************************
 ***************************************************************/
 @media (min-width: 992px) {
-  #app .products-strata .v-parent {
+  #app .products-strata,
+  #app .products-strata .d-flex {
+    height: unset;
+  }
+
+  #app .products-strata .big {
+    width: 55.92%;
+    padding-top: 55.57%;
+  }
+
+  #app .products-strata.products-strata-flipped .big {
     position: relative;
-    left: -15%;
-    height: 75%;
+    left: 44.08%;
   }
 
-  #app .products-strata .v-child {
+  #app .products-strata .big ~ div {
+    height: 100%;
+    top: 0;
     position: absolute;
-    left: 30%;
+    left: 55.92%;
+    width: 44.08%;
   }
 
-  #app .products-strata:nth-of-type(odd) article {
-    flex-direction: row-reverse;
+  #app .products-strata .small,
+  #app .products-strata .small-text-holder {
+    width: 66.15%;
+    height: 79.79%;
+    position: relative;
+    top: 10.895%;
+    left: -33.075%;
   }
 
-  #app .products-strata:nth-of-type(odd) .v-parent {
-    left: 15%;
+  #app .products-strata.products-strata-flipped .small,
+  #app .products-strata.products-strata-flipped .small-text-holder {
+    left: -59.075%;
   }
 
-  #app .products-strata:nth-of-type(odd) .v-child {
-    left: 11.25%;
+  #app .products-strata .small-text-holder {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 25%;
+    left: 19.5%;
+  }
+
+  #app .products-strata.products-strata-flipped .small-text-holder {
+    left: -72.575%;
+  }
+
+  #app .products-strata .year::before {
+    left: 0;
+    top: 60px;
+  }
+
+  #app .products-strata .side-nav {
+    top: 58%;
   }
 
   #app #testimonial .testimony {
     flex: 1 0 50%;
-  }
-
-  #app .products-strata .gender-rep {
-    height: 612px !important;
-    width: 612px !important;
-  }
-
-  #app .products-strata .gender-rep + .col .gender-rep {
-    height: 494px !important;
-    width: 319px !important;
   }
 }
 
@@ -164,27 +211,36 @@
     height: 20vh;
   }
 
-  #app .products-strata {
-    height: 100vh;
+  #app .products-strata .big {
+    width: calc(55.92% * 0.7);
+    padding-top: calc(55.57% * 0.7);
   }
 
-  #app .products-strata .v-parent {
-    left: -12%;
+  #app .products-strata.products-strata-flipped .big {
+    left: 60.856%;
   }
 
-  #app .products-strata .v-child {
-    left: 31%;
-    width: fit-content;
+  #app .products-strata .big ~ div {
+    left: calc(55.92% * 0.7);
+    width: calc(44.08% * 0.7);
   }
 
-  #app .products-strata:nth-of-type(odd) .v-parent {
-    left: 25%;
+  #app .products-strata.products-strata-flipped .small,
+  #app .products-strata.products-strata-flipped .small-text-holder {
+    left: unset;
+    right: -33.075%;
+  }
+
+  #app .products-strata.products-strata-flipped .small-text-holder {
+    left: unset;
+    right: 59.075%;
   }
 
   #app #categories {
     margin: 125px 0;
     display: flex;
     flex-direction: row-reverse;
+    height: 40vh
   }
 
   #app #categories .category {
@@ -202,6 +258,10 @@
     height: 100%;
   }
 
+  #app #categories .category .category-image {
+    z-index: 2;
+  }
+
   #app #categories .category > div.v-parent {
     height: 100%;
   }
@@ -209,6 +269,7 @@
   #app #categories .category .no-flip {
     position: relative;
     top: -25vh;
+    top: -20vh;
     left: -20%;
   }
 
@@ -217,6 +278,7 @@
     position: relative;
     top: 0;
     right: -25%;
+    visibility: hidden;
   }
 
   #app #categories .category .flip::before {
