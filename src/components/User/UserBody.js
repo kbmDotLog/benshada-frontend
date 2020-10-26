@@ -59,7 +59,7 @@ const Components = {
 };
 class UserBody extends Component {
   INIT = {
-    buttonProduct: 'Upload',
+    buttonProduct: 'Upload Now',
     buttonPackage: 'Add',
     buttonTicket: 'Add'
   };

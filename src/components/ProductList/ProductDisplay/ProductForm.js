@@ -30,9 +30,11 @@ class ProductForm extends Component {
   static propTypes = {
     action: PropTypes.string,
     buttonValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    formData: PropTypes.object,
     handleSubmit: PropTypes.func,
     user: PropTypes.object,
     product: PropTypes.object,
+    products: PropTypes.array,
     onSubmit: PropTypes.func,
     initialize: PropTypes.func
   };
@@ -92,28 +94,37 @@ class ProductForm extends Component {
     return this.props.onSubmit(data);
   };
 
-  render = () => (
-    <>
-      <h2 className="mb-0 px-3 pt-4">{this.props.action ? 'Upload Product' : 'Edit Product'}</h2>
-      <p className="px-3 pb-4 text-danger font-weight-bold lead">Image should be 680x850 pixels</p>
-      <div
-        className="position-absolute w-100 text-center item-upload product-upload"
-        style={{
-          top: '0'
-        }}
-      >
-        <ImageUpload
-          buttonValue={this.state.imageButtonValue}
-          object={this.props.product}
-          onImageChange={(data) => this.setState({ data })}
-          type="product"
-        />
-      </div>
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
-        className="m-0"
-        autoComplete="off"
+  getSizes = (sizesArray, category) => ({ shoes: sizesArray[1] }[category] || sizesArray[0]);
+
+  render = () => {
+    const {
+      action, buttonValue, formData, product, products, user
+    } = this.props;
+    const mainMaterials = products.map((item) => item && item.mainMaterial);
+
+    return (
+      <>
+        <h2 className="mb-0 px-3 pt-4">{action ? 'Upload Product' : 'Edit Product'}</h2>
+        <p className="px-3 pb-4 text-danger font-weight-bold lead">Image must be a square</p>
+        <div
+          className="position-absolute w-100 text-center item-upload"
+          id="productUpload"
+          style={{
+            top: '0'
+          }}
+        >
+          <ImageUpload
+            buttonValue={this.state.imageButtonValue}
+            object={product}
+            onImageChange={(data) => this.setState(() => ({ data }))}
+            type="product"
+          />
+        </div>
+        <form
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
+          // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+          className="m-0"
+          autoComplete="off"
           id="productForm"
       >
         <div className="form-row">
@@ -196,8 +207,9 @@ class ProductForm extends Component {
           {categories.map(({ name, icon }) => (
             <Field
               action="product"
-              name="category"
-              type="radio"
+              name="mainMaterial"
+              type="datalist"
+              options={mainMaterials.map((mainMaterial) => mainMaterial)}
               component={FormField}
               label={name}
               icon={icon}
@@ -205,6 +217,7 @@ class ProductForm extends Component {
               value={name}
               key={`product-category-${name}`}
             />
+
           ))}
         </div>
 
@@ -235,15 +248,16 @@ class ProductForm extends Component {
             className="col-12 col-md-6"
             placeholder="e.g: Leather"
           />
-          <Field
-            action="product"
-            name="productionCountry"
-            type="text"
-            component={FormField}
-            label="Made In"
-            placeholder="e.g: Nigeria"
-            className="col-12 col-md-6"
-          />
+
+<Field
+              action="product"
+              name="productionCountry"
+              type="datalist"
+              options={['Nigeria', 'Ghana']}
+              component={FormField}
+              label="Made In"
+              placeholder="e.g: Nigeria"
+              className="col-12 col-md-6" />
         </div>
 
         <div className="form-row">
@@ -256,51 +270,54 @@ class ProductForm extends Component {
             placeholder="e.g: 10"
             className="col-12 col-md-6"
           />
-          {(this.props.product && this.props.product.isBatch)
-          || (this.props.user && this.props.user.type === 'UA') ? (
-            <Field
-              action="product"
-              name="batchQuality"
-              type="number"
-              component={FormField}
-              label="Batch Quality"
-              placeholder="e.g: 30"
-              className="col-12 col-md-6"
-            />
+
+            {(product && product.isBatch) || (user && user.type === 'UA') ? (
+              <Field
+                action="product"
+                name="batchQuality"
+                type="number"
+                component={FormField}
+                label="Batch Quality"
+                placeholder="e.g: 30"
+                className="col-12 col-md-6"
+              />
             ) : (
               ''
             )}
-        </div>
+          </div>
 
-        <div className="form-row">
-          <Field
-            action="product"
-            name="sizes"
-            type="multi"
-            component={FormField}
-            label="Available Sizes"
-            className="col-12"
-            options={productSizes}
-          />
-        </div>
+          <div className="form-row">
+            <Field
+              action="product"
+              name="sizes"
+              type="multi"
+              component={FormField}
+              label="Available Sizes"
+              className="col-12"
+              options={this.getSizes(productSizes, formData.category)}
+            />
+          </div>
 
-        <div className="button-group">
-          <button className="btn btn-primary" type="submit">
-            {this.props.buttonValue}
-          </button>
-          <button type="button" className="btn btn-secondary" data-dismiss="modal">
-            Done
-          </button>
-        </div>
-      </form>
-    </>
-  );
+          <div className="button-group">
+            <button className="btn btn-primary" type="submit">
+              {buttonValue}
+            </button>
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </form>
+      </>
+    );
+  };
 }
 
 const warn = () => ({});
 
-const mapStateToProps = ({ product }) => ({
-  product: product.selected
+const mapStateToProps = ({ form, product }) => ({
+  formData: form.packageForm && form.packageForm.values,
+  product: product.selected,
+  products: product.all
 });
 
 export default reduxForm({
