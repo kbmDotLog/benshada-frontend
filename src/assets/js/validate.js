@@ -1,7 +1,6 @@
 // Asset imports
 import states from '../data/states.json';
 import types from '../data/types.json';
-import sizes from '../data/sizes.json';
 import categories from './categories.js';
 import genders from './genders.js';
 import ticketTypes from './ticketTypes.js';
@@ -247,13 +246,14 @@ export const productValidate = (productData) => {
 
   if (!productData.sizes) {
     errors.sizes = 'What sizes does your product exist in?';
-  } else if (
-    !productData.sizes
-      .map(({ value }) => value)
-      .every((val) => sizes.map(({ value }) => value).includes(val))
-  ) {
-    errors.categories = 'Do select at least one of our categories';
   }
+  // else if (
+  //   !productData.sizes
+  //     .map(({ value }) => value)
+  //     .every((val) => sizes.map(({ value }) => value).includes(val))
+  // ) {
+  //   errors.categories = 'Do select at least one of our categories';
+  // }
 
   return errors;
 };
