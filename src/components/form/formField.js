@@ -12,10 +12,8 @@ const FormField = ({
 }) => (
   <div className={`${className} form-holder`}>
     {{
-      radio: <Select icon={icon} action={action} input={input} label={label} type={type} />,
       datalist: (
         <DataList
-          icon={icon}
           action={action}
           input={input}
           label={label}
@@ -27,7 +25,6 @@ const FormField = ({
       ),
       multi: (
         <Multi
-          icon={icon}
           action={action}
           input={input}
           label={label}
@@ -36,8 +33,8 @@ const FormField = ({
           options={options}
         />
       ),
+      radio: <Select icon={icon} action={action} input={input} label={label} type={type} />,
       textarea: <TextArea
-        icon={icon}
         action={action}
         input={input}
         label={label}
@@ -47,7 +44,6 @@ const FormField = ({
       />
     }[type] || (
       <Input
-        icon={icon}
         action={action}
         input={input}
         label={label}

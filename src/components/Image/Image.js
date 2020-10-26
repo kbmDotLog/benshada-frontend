@@ -36,7 +36,7 @@ function Image({
             ticket: faTicketAlt,
             transaction: faFunnelDollar,
             notification: faBell
-          }[type]
+          }[type] || faUser
         }
         className={`fa-${size}x text-secondary`}
       />
@@ -48,7 +48,7 @@ function Image({
           {({ height, width }) => (
             <img
               className="card-img img-responsive"
-              src={image || (image && image[0])}
+              src={image && image[0]}
               style={{
                 minHeight: `${height * 1.15}px`,
                 minWidth: `${width}px`
@@ -58,7 +58,7 @@ function Image({
           )}
         </ContainerDimensions>
       ) : (
-        <img className="card-img img-responsive" src={image || (image && image[0])} alt={name} />
+        <img className="card-img img-responsive" src={image && image[0]} alt={name} />
       )}
     </div>
   );

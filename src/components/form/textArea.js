@@ -22,14 +22,11 @@ export default class TextArea extends Component {
 
     return (
       <div className="d-flex align-items-center">
-        {/* <FormIcon icon={icon} /> */}
         <div className="flex-grow-1">
           <label htmlFor={id}>{label}</label>
           <textarea
             {...input}
-            component="textarea"
             className="form-control"
-            id={id}
             placeholder={placeholder}
             autoComplete="off"
             rows={3}

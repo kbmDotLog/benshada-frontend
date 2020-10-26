@@ -141,11 +141,9 @@ class Catalog extends Component {
     // Reset all params already in qO
     Object.entries(qO).forEach((i) => {
       if (!['min', 'max'].includes(i[0])) {
-        this.setState(() => (i[0] === 'size'
+        this.setState(({ size }) => (i[0] === 'size'
           ? {
-            [i[0]]: this.state.size.concat(
-              (typeof i[1] === 'string' ? i[1] : i[1].join(',')).split(',')
-            )
+            [i[0]]: size.concat((typeof i[1] === 'string' ? i[1] : i[1].join(',')).split(','))
           }
           : { [i[0]]: i[1] }));
       }
@@ -225,12 +223,16 @@ class Catalog extends Component {
         <div className="container mt-5 py-5 position-relative">
           <div
             className="text-right d-lg-none" id="filterButton"
-            onClick={() => this.setState({ isFilterVisible: !this.state.isFilterVisible })}
+            onClick={() => this
+              .setState(
+                ({ isFilterVisible }) => ({ isFilterVisible: !isFilterVisible })
+              )
+            }
           >
             <button className="btn btn-link">
               {this.state.isFilterVisible ? 'Apply' : 'Filter'}
               <FontAwesomeIcon
-              className="ml-2"
+                className="ml-2"
                 icon={this.state.isFilterVisible ? faTimes : faCaretDown}
               />
             </button>

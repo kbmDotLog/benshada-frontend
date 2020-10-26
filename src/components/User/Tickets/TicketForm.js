@@ -162,9 +162,9 @@ class TicketForm extends Component {
                 action="ticket"
                 name="type"
                 type="radio"
+                icon={icon}
                 component={FormField}
                 label={name}
-                icon={icon}
                 className="col form-holder-select"
                 value={name}
                 key={`product-ticket-${name}`}

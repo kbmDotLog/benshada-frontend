@@ -24,10 +24,10 @@ export default class Plus extends Component {
   };
 
   handleNewItems = (name) => {
-    this.setState({
-      plusButtonIcon: this.state.plusButtonIcon === 'plus' ? 'times' : 'plus',
-      newItemsClass: this.state.newItemsClass === 'hidden' ? '' : 'hidden'
-    });
+    this.setState(({ plusButtonIcon, newItemsClass }) => ({
+      plusButtonIcon: plusButtonIcon === 'plus' ? 'times' : 'plus',
+      newItemsClass: newItemsClass === 'hidden' ? '' : 'hidden'
+    }));
 
     this.props.handleNewItems(name);
   };
