@@ -76,7 +76,7 @@ class PackageForm extends Component {
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
           // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
-        className="m-0"
+          className="m-0"
         autoComplete="off"
           id="packageForm"
         >

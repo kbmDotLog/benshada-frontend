@@ -1,4 +1,4 @@
-#app div#formContainer {
+#app div.form-container {
   background: #ef932e;
   background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
@@ -11,70 +11,70 @@
   color: #fff;
 }
 
-#app div#formContainer.form-container,
-#app div#formContainer.form-container .form-container-holder,
-#app div#formContainer.form-container .form-container-holder form {
+#app div.form-container,
+#app div.form-container .form-container-holder,
+#app div.form-container .form-container-holder form {
   background: transparent;
 }
 
-#app div#formContainer .form-container-holder {
+#app div.form-container.form-container-holder {
   background: #ef932e;
   background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   padding: 0;
 }
 
-#app div#formContainer .form-container-holder form {
+#app div.form-container.form-container-holder form {
   background: #ef932e;
   background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   padding: 90px 20px 10px 20px;
   color: #fffff0;
 }
 
-#app div#formContainer.form-container .form-container-holder form {
+#app div.form-container .form-container-holder form {
   padding: 0;
 }
 
-#app div#formContainer .form-container-holder form#productForm {
+#app div.form-container.form-container-holder form#productForm {
   padding-top: 320px;
 }
 
-#app div#formContainer .form-container-holder form .form-row {
+#app div.form-container.form-container-holder form .form-row {
   margin: 8px auto;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder {
+#app div.form-container.form-container-holder form .form-row .form-holder {
   background: transparent;
   padding: 8px 0;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder.col-12,
-#app div#formContainer .form-container-holder form .form-row .form-holder.col-sm-6 {
+#app div.form-container.form-container-holder form .form-row .form-holder.col-12,
+#app div.form-container.form-container-holder form .form-row .form-holder.col-sm-6 {
   background: transparent;
   padding: 8px 0;
   margin-right: 35px;
   max-width: 43%;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder:hover {
+#app div.form-container.form-container-holder form .form-row .form-holder:hover {
   background: #fff;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   transform: scale(1.02);
   padding: 8px 20px;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder .form-icon {
+#app div.form-container.form-container-holder form .form-row .form-holder .form-icon {
   font-size: 20px;
   margin-right: 18px;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder .form-icon,
-#app div#formContainer .form-container-holder form .form-row .form-holder label,
-#app div#formContainer .form-container-holder form .section-header {
+#app div.form-container.form-container-holder form .form-row .form-holder .form-icon,
+#app div.form-container.form-container-holder form .form-row .form-holder label,
+#app div.form-container.form-container-holder form .section-header {
   color: #333;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder label,
-#app div#formContainer .form-container-holder form .section-header {
+#app div.form-container.form-container-holder form .form-row .form-holder label,
+#app div.form-container.form-container-holder form .section-header {
   margin: 0;
   padding: 0;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
   position: relative;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder .form-control {
+#app div.form-container.form-container-holder form .form-row .form-holder .form-control {
   border: none;
   padding: 0;
   margin: 0;
@@ -93,8 +93,8 @@
   border-radius: 0;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder .form-control,
-#app div#formContainer .form-container-holder form .form-row .form-holder .form-control:focus,
+#app div.form-container.form-container-holder form .form-row .form-holder .form-control,
+#app div.form-container.form-container-holder form .form-row .form-holder .form-control:focus,
 #app
   div#formContainer
   .form-container-holder
@@ -111,22 +111,10 @@
   background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
 }
 
+#app div.form-container .form-container-holder form .form-row .form-holder .form-control,
+#app div.form-container .form-container-holder form .form-row .form-holder .form-control:focus,
 #app
-  div#formContainer.form-container
-  .form-container-holder
-  form
-  .form-row
-  .form-holder
-  .form-control,
-#app
-  div#formContainer.form-container
-  .form-container-holder
-  form
-  .form-row
-  .form-holder
-  .form-control:focus,
-#app
-  div#formContainer.form-container
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -141,22 +129,22 @@
 }
 
 #app
-  div#formContainer.form-container
-  .form-container-holder#formContainerHolder
+  div.form-container
+  .form-container-holder.form-container-holder
   form
   .form-row
   .form-holder
   .form-control,
 #app
-  div#formContainer.form-container
-  .form-container-holder#formContainerHolder
+  div.form-container
+  .form-container-holder.form-container-holder
   form
   .form-row
   .form-holder
   .form-control:focus,
 #app
-  div#formContainer.form-container
-  .form-container-holder#formContainerHolder
+  div.form-container
+  .form-container-holder.form-container-holder
   form
   .form-row
   .form-holder
@@ -167,8 +155,8 @@
   background: #fff;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control,
-#app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control:focus,
+#app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control,
+#app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control:focus,
 #app
   div#formContainer
   .form-container-holder
@@ -183,11 +171,11 @@
   -webkit-text-fill-color: unset;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-validation-response {
+#app div.form-container.form-container-holder form .form-row .form-validation-response {
   padding: 18px 10px 0 10px;
 }
 
-#app div#formContainer .form-container-holder form .form-row .form-holder.form-holder-select {
+#app div.form-container.form-container-holder form .form-row .form-holder.form-holder-select {
   padding: 0;
   overflow: hidden;
   text-align: center;
@@ -222,7 +210,7 @@
 }
 
 #app
-  div#formContainer.form-container
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -235,8 +223,8 @@
 }
 
 #app
-  div#formContainer.form-container
-  .form-container-holder#formContainerHolder
+  div.form-container
+  .form-container-holder.form-container-holder
   form
   .form-row
   .form-holder
@@ -258,7 +246,7 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-#app div#formContainer .form-container-holder form .button-group {
+#app div.form-container.form-container-holder form .button-group {
   margin: 0.5rem 0;
   position: relative;
   top: 45px;
@@ -267,20 +255,20 @@
   align-items: center;
 }
 
-#app div#formContainer .form-container-holder form .button-group .btn {
+#app div.form-container.form-container-holder form .button-group .btn {
   margin: 0.5rem;
 }
 
-#app div#formContainer .form-container-holder form .button-group .btn:nth-child(1) {
+#app div.form-container.form-container-holder form .button-group .btn:nth-child(1) {
   margin-left: 0;
 }
 
-#app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
+#app div.form-container.form-container-holder form .button-group .btn[type='submit'] {
   background: #fffff0;
   color: #ef932e;
 }
 
-#app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
+#app div.form-container.form-container-holder form .button-group .btn[type='button'] {
   color: #fffff0;
   background: #ef932e;
   background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
@@ -292,46 +280,46 @@
   }
 
   #app div#formContainer,
-  #app div#formContainer .form-container-holder,
-  #app div#formContainer .form-container-holder form {
+  #app div.form-container.form-container-holder,
+  #app div.form-container.form-container-holder form {
     background: #fffff0;
   }
 
-  #app div#formContainer.form-container,
-  #app div#formContainer.form-container .form-container-holder#formContainerHolder,
-  #app div#formContainer.form-container .form-container-holder#formContainerHolder form {
+  #app div.form-container,
+  #app div.form-container .form-container-holder.form-container-holder,
+  #app div.form-container .form-container-holder.form-container-holder form {
     background: #fffff0;
   }
 
-  #app div#formContainer {
+  #app div.form-container {
     padding: 25px 40px;
   }
 
-  #app div#formContainer .form-container-holder form {
+  #app div.form-container.form-container-holder form {
     padding: 0;
     color: #333333;
   }
 
-  #app div#formContainer .form-container-holder form .button-group {
+  #app div.form-container.form-container-holder form .button-group {
     margin: 0.5rem 0;
     position: static;
     justify-content: flex-start;
   }
 
-  #app div#formContainer .form-container-holder form .form-row .form-holder {
+  #app div.form-container.form-container-holder form .form-row .form-holder {
     background: #fffff0;
   }
 
-  #app div#formContainer .form-container-holder#formContainerHolder form .form-row .form-holder {
+  #app div.form-container.form-container-holder.form-container-holder form .form-row .form-holder {
     background: #fff;
   }
 
-  #app div#formContainer .form-container-holder form .form-row .form-holder:hover {
+  #app div.form-container.form-container-holder form .form-row .form-holder:hover {
     background: #fff;
   }
 
-  #app div#formContainer .form-container-holder form .form-row .form-holder .form-control,
-  #app div#formContainer .form-container-holder form .form-row .form-holder .form-control:focus,
+  #app div.form-container.form-container-holder form .form-row .form-holder .form-control,
+  #app div.form-container.form-container-holder form .form-row .form-holder .form-control:focus,
   #app
     div#formContainer
     .form-container-holder
@@ -347,7 +335,7 @@
     background: #fffff0;
   }
 
-  #app div#formContainer .form-container-holder form .form-row .form-holder:hover .form-control,
+  #app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control,
   #app
     div#formContainer
     .form-container-holder
@@ -393,13 +381,13 @@
     color: #fff;
   }
 
-  #app div#formContainer .form-container-holder form .button-group .btn[type='submit'] {
+  #app div.form-container.form-container-holder form .button-group .btn[type='submit'] {
     color: #fffff0;
     background: #ef932e;
     background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);
   }
 
-  #app div#formContainer .form-container-holder form .button-group .btn[type='button'] {
+  #app div.form-container.form-container-holder form .button-group .btn[type='button'] {
     background: #fffff0;
     background: #ef932e;
     background: linear-gradient(to top right, #ed8716 0%, #ef932e 50%);

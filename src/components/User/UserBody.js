@@ -232,7 +232,7 @@ class UserBody extends Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content" id="formContainer">
+          <div className="modal-content form-container">
               <div className="modal-body form-container-holder">
                 <ProductForm
                   action="create"
@@ -258,7 +258,7 @@ class UserBody extends Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-md" role="document">
-            <div className="modal-content" id="formContainer">
+          <div className="modal-content form-container">
               <div className="modal-body form-container-holder">
                 <PackageForm
                   action="create"
@@ -285,7 +285,7 @@ class UserBody extends Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content" id="formContainer">
+          <div className="modal-content form-container">
               <div className="modal-body form-container-holder">
                 <TicketForm
                   action="create"

@@ -2,12 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  faStoreAlt, faMapPin, faTrademark, faMobileAlt
-} from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { storeValidate as validate } from '../../../assets/js/validate.js';
@@ -50,7 +45,6 @@ class StoreForm extends Component {
         <h2 className="mb-0">{type === 'create' ? 'New store' : `Edit ${store && store.name}`}</h2>
         <p>
           {type === 'create' ? 'Create a new store' : 'Make changes to your store'}
-          <FontAwesomeIcon icon={faStoreAlt} className="ml-2" />
         </p>
         <div className="form-row">
           <Field
@@ -83,7 +77,6 @@ class StoreForm extends Component {
             type="textarea"
             component={FormField}
             label="Address"
-            icon={faMapPin}
             className="col-12 col-md-6"
             placeholder="e.g: 3 Pound Road"
           />
@@ -94,7 +87,6 @@ class StoreForm extends Component {
             options={states.map(({ name }) => name)}
             component={FormField}
             label="State"
-            icon={faFlag}
             className="col-12 col-md-6"
             placeholder="e.g: Anambra"
           />
@@ -107,7 +99,6 @@ class StoreForm extends Component {
             type="text"
             component={FormField}
             label="CAC Number"
-            icon={faTrademark}
             className="col-12 col-md-6"
             placeholder="Type here..."
           />
@@ -118,7 +109,6 @@ class StoreForm extends Component {
             type="tel"
             component={FormField}
             label="Store Contact Number"
-            icon={faMobileAlt}
             className="col-12 col-md-6"
             placeholder="e.g: 2348124971450"
           />

@@ -74,7 +74,7 @@ class CheckOut extends Component {
         <p>+{phone}</p>
       </div>
     ) : (
-      <div className="form-container-holder" id="formContainerHolder">
+      <div className="form-container-holder">
         <AddressForm buttonValue="Continue" onSubmit={this.submitAddress} />
       </div>
     );
@@ -144,11 +144,11 @@ class CheckOut extends Component {
   };
 
   updateDeliveryPackage = ({ _id, cost }, productID) => {
-    this.setState({
-      order: this.state.order.map((item) => (item.product && item.product._id === productID
+    this.setState(({ order }) => ({
+      order: order.map((item) => (item.product && item.product._id === productID
         ? { ...item, deliveryPackage: _id, totalPrice: item.totalPrice + cost }
         : item))
-    });
+    }));
   };
 
   renderOrderButton = (l1, l2) => (l1 === l2 ? (
@@ -184,9 +184,8 @@ class CheckOut extends Component {
             <div className="row">
               <div className="col-12 col-lg">
                 <div className="row">
-                  <div
+                <div
                     className="col-12 bg-sm-white shadow-sm p-0 mb-4 form-container"
-                    id="formContainer"
                   >
                     <div className="d-flex text-uppercase font-weight-bold lead border border-secondary border-left-0 border-right-0 border-top-0 p-3">
                       <div className="flex-grow-1 text-left">
@@ -230,8 +229,8 @@ class CheckOut extends Component {
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
-                                <div className="modal-body p-0 form-container" id="formContainer">
-                                  <div className="form-container-holder" id="formContainerHolder">
+                                <div className="modal-body p-0 form-container">
+                                  <div className="form-container-holder">
                                     <AddressForm buttonValue="Save" onSubmit={this.submitAddress} />
                                   </div>
                                 </div>

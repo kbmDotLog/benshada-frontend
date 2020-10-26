@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Field, reduxForm } from 'redux-form';
 import { loginValidate as validate } from '../../../assets/js/validate.js';
 
@@ -17,55 +15,53 @@ class LoginForm extends Component {
   };
 
   render = () => (
-      <form
-        onSubmit={this.props.handleSubmit}
-        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
-        className="m-0 px-lg-5"
-        autoComplete="off"
-      >
-        <Link to="/" className="navbar-brand w-100 text-left">
-          <i className="font-weight-bold">benshada</i>
+    <form
+      onSubmit={this.props.handleSubmit}
+      // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+      className="m-0 px-lg-5"
+      autoComplete="off"
+    >
+      <Link to="/" className="navbar-brand w-100 text-left">
+        <i className="font-weight-bold">benshada</i>
+      </Link>
+      <h2 className="mb-4">Login to Benshada Place</h2>
+
+      <div className="form-row">
+        <Field
+          action="login"
+          name="email"
+          type="email"
+          component={FormField}
+          label="Email Address"
+          className="col-12"
+          placeholder="e.g john.doe@example.com"
+        />
+      </div>
+
+      <div className="form-row">
+        <Field
+          action="login"
+          name="password"
+          type="password"
+          component={FormField}
+          label="Password"
+          className="col-12"
+          placeholder="Type here"
+        />
+      </div>
+
+      <div className="button-group">
+        <button className="btn btn-primary" type="submit">
+          {this.props.buttonValue}
+        </button>
+        <Link to="/register" type="button" className="btn">
+          Register
         </Link>
-        <h2 className="mb-4">Login to Benshada Place</h2>
+      </div>
 
-        <div className="form-row">
-          <Field
-            action="login"
-            name="email"
-            type="email"
-            component={FormField}
-            label="Email Address"
-            icon={faEnvelope}
-            className="col-12"
-            placeholder="e.g john.doe@example.com"
-          />
-        </div>
-
-        <div className="form-row">
-          <Field
-            action="login"
-            name="password"
-            type="password"
-            component={FormField}
-            label="Password"
-            icon={faLock}
-            className="col-12"
-            placeholder="Type here"
-          />
-        </div>
-
-        <div className="button-group">
-          <button className="btn btn-primary" type="submit">
-            {this.props.buttonValue}
-          </button>
-          <Link to="/register" type="button" className="btn">
-            Register
-          </Link>
-        </div>
-
-        <p>Forgot password?</p>
-      </form>
-  )
+      <p>Forgot password?</p>
+    </form>
+  );
 }
 
 const warn = () => ({});
