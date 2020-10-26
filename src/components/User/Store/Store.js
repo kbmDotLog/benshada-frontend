@@ -106,7 +106,7 @@ class Store extends Component {
 
   render = () => (
     <div className="tab-content" id="profileTabContent">
-      <div className="px-4 mb-4 text-center text-lg-left form-container" id="formContainer">
+      <div className="px-4 mb-4 text-center text-lg-left form-container">
         <div
           className="float-lg-left text-left rounded-circle position-relative"
           style={{

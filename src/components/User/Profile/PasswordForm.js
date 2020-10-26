@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { faLock, faUserLock } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
 import { passwordValidate as validate } from '../../../assets/js/validate.js';
 
@@ -15,40 +14,35 @@ class PasswordForm extends Component {
   };
 
   render = () => (
-      <form
-        onSubmit={this.props.handleSubmit}
-        autoComplete="off"
-      >
-        <div className="form-row">
-          <Field
-            action="password"
-            name="oldPassword"
-            type="password"
-            component={FormField}
-            label="Old Password"
-            icon={faLock}
-            className="col-12 col-sm-6"
-            placeholder="Enter old password here.."
-          />
-          <Field
-            action="password"
-            name="password"
-            type="text"
-            component={FormField}
-            label="New Password"
-            icon={faUserLock}
-            className="col-12 col-sm-6"
-            placeholder="Enter New Password here..."
-          />
-        </div>
+    <form onSubmit={this.props.handleSubmit} autoComplete="off">
+      <div className="form-row">
+        <Field
+          action="password"
+          name="oldPassword"
+          type="password"
+          component={FormField}
+          label="Old Password"
+          className="col-12 col-sm-6"
+          placeholder="Enter old password here.."
+        />
+        <Field
+          action="password"
+          name="password"
+          type="text"
+          component={FormField}
+          label="New Password"
+          className="col-12 col-sm-6"
+          placeholder="Enter New Password here..."
+        />
+      </div>
 
-        <div className="button-group">
-          <button className="btn btn-primary" type="submit">
-            {this.props.buttonValue}
-          </button>
-        </div>
-      </form>
-  )
+      <div className="button-group">
+        <button className="btn btn-primary" type="submit">
+          {this.props.buttonValue}
+        </button>
+      </div>
+    </form>
+  );
 }
 
 const warn = () => ({});

@@ -16,21 +16,22 @@ export default class Select extends Component {
       icon, action, input, label, type
     } = this.props;
 
+    const newID = `${action}${input.name}${Math.random() * 1099511627776}`;
+
     return (
       <>
-      <input
-        {...input}
-        component="input"
-        type={type}
-        id={`${action}${input.name}${label}`}
-        name={`${action}${input.name}`}
-        className="custom-control-input"
-        value={input.value}
-      />
-      <label className="custom-control-label py-3" htmlFor={`${action}${input.name}${label}`}>
-        <FontAwesomeIcon icon={icon} className="icon" /> {label}
-      </label>
-    </>
+        <input
+          {...input}
+          type={type}
+          id={newID}
+          name={`${action}${input.name}`}
+          className="custom-control-input"
+          value={input.value}
+        />
+        <label className="custom-control-label py-3" htmlFor={newID}>
+          <FontAwesomeIcon icon={icon} className="icon" /> {label}
+        </label>
+      </>
     );
-  }
+  };
 }

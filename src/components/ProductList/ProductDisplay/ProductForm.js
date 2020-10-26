@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { faDollarSign, faPercentage, faPaintBrush } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -80,21 +79,17 @@ class ProductForm extends Component {
       price,
       discountPercentage,
       quantity,
-      color,
+      color: color.hex,
       category,
       gender,
       mainMaterial,
       productionCountry,
       guarantee,
-      sizes,
+      sizes: sizes.map((size) => size.value),
       batchQuality: batchQuality || 0
     };
 
-    Object.entries(productData).forEach(([key, value]) => {
-      const v = key === 'sizes' ? value.map((size) => size.value) : value;
-
-      return data.get(key) ? '' : data.append(key, v);
-    });
+    Object.entries(productData).forEach(([key, value]) => (data.get(key) ? '' : data.append(key, value)));
 
     return this.props.onSubmit(data);
   };
@@ -131,133 +126,132 @@ class ProductForm extends Component {
           className="m-0"
           autoComplete="off"
           id="productForm"
-        >
-          <div className="form-row">
-            <Field
-              action="product"
-              name="name"
-              type="text"
-              component={FormField}
-              label="Product Name"
-              className="col-12"
-              placeholder="e.g Oxford Shoes"
-            />
-          </div>
+      >
+        <div className="form-row">
+          <Field
+            action="product"
+            name="name"
+            type="text"
+            component={FormField}
+            label="Product Name"
+            className="col-12"
+            placeholder="e.g Oxford Shoes"
+          />
+        </div>
 
-          <div className="form-row">
-            <Field
-              action="product"
-              name="shortDescription"
-              type="textarea"
-              component={FormField}
-              label="Short Description"
-              className="col-12 col-md-6"
-              placeholder="e.g: Cooperate unisex shoes"
-            />
-            <Field
-              action="product"
-              name="longDescription"
-              type="textarea"
-              component={FormField}
-              label="Long Description"
-              className="col-12 col-md-6"
-              placeholder="e.g: Cooperate unisex shoes for men to go for weddings"
-            />
-          </div>
+        <div className="form-row">
+          <Field
+            action="product"
+            name="shortDescription"
+            type="textarea"
+            component={FormField}
+            label="Short Description"
+            className="col-12 col-md-6"
+            placeholder="e.g: Cooperate unisex shoes"
+          />
+          <Field
+            action="product"
+            name="longDescription"
+            type="textarea"
+            component={FormField}
+            label="Long Description"
+            className="col-12 col-md-6"
+            placeholder="e.g: Cooperate unisex shoes for men to go for weddings"
+          />
+        </div>
 
-          <div className="form-row">
-            <Field
-              action="product"
-              name="price"
-              type="number"
-              component={FormField}
-              label="Price"
-              icon={faDollarSign}
-              className="col-12 col-md-6"
-              placeholder="e.g: 50000"
-            />
-            <Field
-              action="product"
-              name="discountPercentage"
-              type="number"
-              component={FormField}
-              label="Discount"
-              icon={faPercentage}
-              className="col-12 col-md-6"
-              placeholder="e.g: 10"
-            />
-          </div>
+        <div className="form-row">
+          <Field
+            action="product"
+            name="price"
+            type="number"
+            component={FormField}
+            label="Price"
+            className="col-12 col-md-6"
+            placeholder="e.g: 50000"
+          />
+          <Field
+            action="product"
+            name="discountPercentage"
+            type="number"
+            component={FormField}
+            label="Discount"
+            className="col-12 col-md-6"
+            placeholder="e.g: 10"
+          />
+        </div>
 
-          <div className="form-row">
-            <Field
-              action="product"
-              name="quantity"
-              type="number"
-              component={FormField}
-              label="Quantity"
-              className="col-12 col-md-6"
-              placeholder="e.g: 100"
-            />
+        <div className="form-row">
+          <Field
+            action="product"
+            name="quantity"
+            type="number"
+            component={FormField}
+            label="Quantity"
+            className="col-12 col-md-6"
+            placeholder="e.g: 100"
+          />
 
-            <Field
-              action="product"
-              name="color"
-              type="color"
-              component={FormField}
-              label="Color"
-              icon={faPaintBrush}
-              className="col-12 col-md-6"
-              placeholder="#000000"
-            />
-          </div>
+          <Field
+            action="product"
+            name="color"
+            type="color"
+            component={FormField}
+            label="Color"
+            className="col-12 col-md-6"
+          />
+        </div>
 
-          <small className="section-header">Category</small>
-          <div className="form-row align-items-center">
-            {categories.map(({ name, icon }) => (
-              <Field
-                action="product"
-                name="category"
-                type="radio"
-                component={FormField}
-                label={name}
-                icon={icon}
-                className="col form-holder-select"
-                value={name}
-                key={`product-category-${name}`}
-              />
-            ))}
-          </div>
-
-          <small className="section-header">Gender</small>
-          <div className="form-row align-items-center">
-            {genders.map(({ name, icon }) => (
-              <Field
-                action="product"
-                name="gender"
-                type="radio"
-                component={FormField}
-                label={name}
-                icon={icon}
-                className="col form-holder-select"
-                value={name}
-                key={`product-gender-${name}`}
-              />
-            ))}
-          </div>
-
-          <div className="form-row">
+        <small className="section-header">Category</small>
+        <div className="form-row align-items-center">
+          {categories.map(({ name, icon }) => (
             <Field
               action="product"
               name="mainMaterial"
               type="datalist"
               options={mainMaterials.map((mainMaterial) => mainMaterial)}
               component={FormField}
-              label="Main Material"
-              className="col-12 col-md-6"
-              placeholder="e.g: Leather"
+              label={name}
+              icon={icon}
+              className="col form-holder-select"
+              value={name}
+              key={`product-category-${name}`}
             />
 
+
+          ))}
+        </div>
+
+        <small className="section-header">Gender</small>
+        <div className="form-row align-items-center">
+          {genders.map(({ name, icon }) => (
             <Field
+              action="product"
+              name="gender"
+              type="radio"
+              component={FormField}
+              label={name}
+              icon={icon}
+              className="col form-holder-select"
+              value={name}
+              key={`product-gender-${name}`}
+            />
+          ))}
+        </div>
+
+        <div className="form-row">
+          <Field
+            action="product"
+            name="mainMaterial"
+            type="text"
+            component={FormField}
+            label="Main Material"
+            className="col-12 col-md-6"
+            placeholder="e.g: Leather"
+          />
+          
+
+<Field
               action="product"
               name="productionCountry"
               type="datalist"
@@ -265,20 +259,20 @@ class ProductForm extends Component {
               component={FormField}
               label="Made In"
               placeholder="e.g: Nigeria"
-              className="col-12 col-md-6"
-            />
-          </div>
+              className="col-12 col-md-6" />
+        </div>
 
-          <div className="form-row">
-            <Field
-              action="product"
-              name="guarantee"
-              type="number"
-              component={FormField}
-              label="Days of Warranty"
-              placeholder="e.g: 10"
-              className="col-12 col-md-6"
-            />
+        <div className="form-row">
+          <Field
+            action="product"
+            name="guarantee"
+            type="number"
+            component={FormField}
+            label="Days of Warranty"
+            placeholder="e.g: 10"
+            className="col-12 col-md-6"
+          />
+
             {(product && product.isBatch) || (user && user.type === 'UA') ? (
               <Field
                 action="product"

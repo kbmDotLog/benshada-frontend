@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { faMapPin, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { faBuilding, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deliveryCompanyValidate as validate } from '../../assets/js/validate.js';
@@ -53,7 +51,6 @@ class DeliveryCompanyForm extends Component {
             type="text"
             component={FormField}
             label="Compnay Name"
-            icon={faBuilding}
             className="col-12 col-md-6"
             placeholder="e.g: Peace Motors"
           />
@@ -63,7 +60,6 @@ class DeliveryCompanyForm extends Component {
             type="email"
             component={FormField}
             label="Company Email"
-            icon={faEnvelope}
             className="col-12 col-md-6"
             placeholder="e.g: peace.motors@gmail.com"
           />
@@ -76,7 +72,6 @@ class DeliveryCompanyForm extends Component {
             type="tel"
             component={FormField}
             label="Compnay Phone Number"
-            icon={faMobileAlt}
             className="col-12 col-md-6"
             placeholder="e.g: 2348086140953"
           />
@@ -86,7 +81,6 @@ class DeliveryCompanyForm extends Component {
             type="multi"
             component={FormField}
             label="States Active In"
-            icon={faMapPin}
             className="col-12 col-md-6"
             options={states.map(({ name }) => ({ value: name, label: name }))}
           />

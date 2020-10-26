@@ -119,7 +119,7 @@ class ButtonOrderOwner extends React.Component {
               customer_lastname={((user && user.name) || '').split(' ')[1]}
               customer_phone={user && user.phone}
               metadata={[{ metaname: 'Product', metavalue: order.product }]}
-              // onclose={() => console.log('Payment closed')}
+              onclose={() => console.log('Payment closed')}
               pay_button_text="Pay With FlutterWave"
               ravePubKey={process.env.REACT_APP_RAVE_TEST_PUBKEY}
               redirect_url=""

@@ -39,6 +39,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
+    "react-color": "^2.18.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "^16.13.1",
     "react-flutterwave-rave": "^1.0.4",
@@ -62,14 +63,14 @@
     "test:watch": "react-scripts test --watch",
     "test:cover": "react-scripts test --coverage",
     "lint": "eslint \"src/**/*.js\" --fix || false",
-    "check": "npm run lint && npm test",
-    "build": "npm run check && react-scripts build",
+    "check": "yarn lint && yarn test",
+    "build": "yarn run check && react-scripts build",
     "start": "serve -s build",
-    "dev": "npm run check && set PORT=3000 && react-scripts start",
-    "dev:secure": "npm run check && set PORT=3000 && cross-env HTTPS=true react-scripts start",
-    "prod": "npm run build && serve -s build",
+    "dev": "yarn run check && react-scripts start",
+    "dev:secure": "yarn run check && cross-env HTTPS=true react-scripts start",
+    "prod": "yarn build && serve -s build",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
@@ -89,6 +90,5 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.20.0"
-  },
-  "homepage": "https://buildforsdgcohort2.github.io/benshada-frontend"
+  }
 }

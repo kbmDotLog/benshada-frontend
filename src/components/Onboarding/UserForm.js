@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { faMapPin } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userValidate as validate } from '../../assets/js/validate.js';
@@ -49,7 +47,6 @@ class UserForm extends Component {
             type="textarea"
             component={FormField}
             label="Address"
-            icon={faMapPin}
             className="col-12 col-md-6"
             placeholder="e.g: 3 Pound Road"
           />
@@ -60,7 +57,6 @@ class UserForm extends Component {
             options={states.map(({ name }) => name)}
             component={FormField}
             label="State"
-            icon={faFlag}
             className="col-12 col-md-6"
             placeholder="e.g: Anambra"
           />

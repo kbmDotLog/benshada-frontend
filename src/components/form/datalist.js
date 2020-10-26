@@ -25,7 +25,6 @@ export default class DataList extends Component {
 
     return (
       <div className="d-flex align-items-center">
-        {/* <FormIcon icon={icon} /> */}
         <div className="flex-grow-1">
           <label htmlFor={`${id}`}>{label}</label>
           <input

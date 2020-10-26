@@ -99,7 +99,7 @@ class ButtonPackageOwner extends React.Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-md" role="document">
-            <div className="modal-content" id="formContainer">
+          <div className="modal-content form-container">
               <div className="modal-body form-container-holder">
                 <PackageForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
               </div>
