@@ -218,7 +218,6 @@ class ProductForm extends Component {
               key={`product-category-${name}`}
             />
 
-
           ))}
         </div>
 
@@ -249,7 +248,6 @@ class ProductForm extends Component {
             className="col-12 col-md-6"
             placeholder="e.g: Leather"
           />
-          
 
 <Field
               action="product"
