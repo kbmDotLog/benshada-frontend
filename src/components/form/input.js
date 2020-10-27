@@ -45,10 +45,7 @@ export default class Input extends Component {
 
   renderInput = ({
     type, input, id, placeholder, disabled, val, maxLength
-  }) => {
-    if (type === 'color') console.log(val);
-
-    return type === 'color' ? (
+  }) => (type === 'color' ? (
       <BlockPicker
         {...input}
         className="w-100"
@@ -56,7 +53,7 @@ export default class Input extends Component {
         triangle="hide"
         color={val || input.value}
       />
-    ) : (
+  ) : (
       <input
         {...input}
         component="input"
@@ -68,8 +65,7 @@ export default class Input extends Component {
         value={val || input.value}
         maxLength={maxLength}
       />
-    );
-  };
+  ));
 
   render = () => {
     const {
@@ -84,7 +80,7 @@ export default class Input extends Component {
           <label htmlFor={id}>{label}</label>
           {this.renderInput({ ...this.props, id })}
         </div>
-        {input.name === 'password' ? this.renderEye() : ''}
+        {input.name === 'password' && this.renderEye()}
         <div className="form-validation-response">
           <ValidateIcon touched={touched} error={error} />
         </div>

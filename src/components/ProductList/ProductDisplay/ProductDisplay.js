@@ -78,12 +78,11 @@ class ProductDisplay extends Component {
       longDescription
     } = product;
 
-    const imgHolderStyle = image.length > 0
+    const imgHolderStyle = (image && image.length) > 0
       ? {
         background: `url(${image[0]}) no-repeat bottom left/cover`
       }
       : {};
-
     const shopType = this.shopType(product);
 
     return (
@@ -122,7 +121,9 @@ class ProductDisplay extends Component {
                 {shopType}
               </span>
             </div>
-            <Link to={`/products/${_id}`} className="name text-capitalize text-truncate">{name}</Link>
+            <Link to={`/products/${_id}`} className="name text-capitalize text-truncate">
+              {name}
+            </Link>
             <h4 className="product-price">
               <Price price={price} discount={discountPercentage} />
             </h4>

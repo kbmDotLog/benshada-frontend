@@ -21,15 +21,15 @@ class StoreForm extends Component {
     type: PropTypes.string
   };
 
-  getSnapshotBeforeUpdate = (prvP) => ({
-    shouldInitialize: prvP.store && prvP.store._id !== this.props.store && this.props.store._id
+  getSnapshotBeforeUpdate = (pP) => ({
+    shouldInitialize: pP.store && pP.store._id !== this.props.store && this.props.store._id
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => (snapshot.shouldInitialize && this.props.type !== 'create' && this.props.type !== 'user'
-    ? this.props.initialize(this.props.store)
-    : '');
+  componentDidUpdate = (pP, pS, snapshot) => (snapshot.shouldInitialize && this.props.type !== 'create' && this.props.type !== 'user'
+    && this.props.initialize(this.props.store)
+  );
 
-  componentDidMount = () => (this.props.type === 'user' ? this.props.initialize(this.props.userStore) : '');
+  componentDidMount = () => (this.props.type === 'user' && this.props.initialize(this.props.userStore));
 
   render() {
     const { type, store } = this.props;

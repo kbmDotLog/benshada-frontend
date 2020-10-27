@@ -30,7 +30,7 @@ export const productUpdate = (id, productData, message) => (dispatch) => {
 
   return response
     .then(() => dispatch([productsOne(id), productsAll()]))
-    .then(() => (message ? toast.success(message) : ''))
+    .then(() => message && toast.success(message))
     .catch((err) => toast.error(
       (err && err.response && err.response.data && err.response.data.message)
           || (err
@@ -71,7 +71,7 @@ export const productDelete = (id, message) => (dispatch) => {
 
   return response
     .then(() => dispatch(productsAll()))
-    .then(() => (message ? toast.success(message) : ''))
+    .then(() => message && toast.success(message))
     .catch((err) => toast.error(
       (err && err.response && err.response.data && err.response.data.message)
           || (err

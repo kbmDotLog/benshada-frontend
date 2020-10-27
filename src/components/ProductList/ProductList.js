@@ -22,7 +22,7 @@ export default class ProductList extends Component {
     const filteredProducts = products.filter((i) => filterList(i, filterType, filterValue));
 
     return filteredProducts.length > 0 ? (
-      <div className={this.props.isFlex ? 'd-flex' : ''}>
+      <div className={this.props.isFlex && 'd-flex'}>
         {filteredProducts.slice(0, this.props.count).map((product, key) => (
           <ProductDisplay key={`productList${key}`} product={product} action={this.props.action} />
         ))}

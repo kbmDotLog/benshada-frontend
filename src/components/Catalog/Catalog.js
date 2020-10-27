@@ -197,11 +197,11 @@ class Catalog extends Component {
     this.setState({ [type]: newValue });
   };
 
-  getSnapshotBeforeUpdate = (prvP, prvS) => ({
-    shouldInitialize: prvS.q !== qs.parse(window.location.search).q
+  getSnapshotBeforeUpdate = (pP, pS) => ({
+    shouldInitialize: pS.q !== qs.parse(window.location.search).q
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => (snapshot.shouldInitialize ? this.setOldOnes() : '');
+  componentDidUpdate = (pP, pS, snapshot) => snapshot.shouldInitialize && this.setOldOnes();
 
   componentDidMount = () => this.setOldOnes();
 
@@ -222,11 +222,10 @@ class Catalog extends Component {
       <HrFr>
         <div className="container mt-5 py-5 position-relative">
           <div
-            className="text-right d-lg-none" id="filterButton"
+            className="text-right d-lg-none"
+            id="filterButton"
             onClick={() => this
-              .setState(
-                ({ isFilterVisible }) => ({ isFilterVisible: !isFilterVisible })
-              )
+              .setState(({ isFilterVisible }) => ({ isFilterVisible: !isFilterVisible }))
             }
           >
             <button className="btn btn-link">

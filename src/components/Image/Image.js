@@ -48,7 +48,7 @@ function Image({
           {({ height, width }) => (
             <img
               className="card-img img-responsive"
-              src={image && image[0]}
+              src={image}
               style={{
                 minHeight: `${height * 1.15}px`,
                 minWidth: `${width}px`
@@ -58,7 +58,7 @@ function Image({
           )}
         </ContainerDimensions>
       ) : (
-        <img className="card-img img-responsive" src={image && image[0]} alt={name} />
+        <img className="card-img img-responsive" src={image} alt={name} />
       )}
     </div>
   );

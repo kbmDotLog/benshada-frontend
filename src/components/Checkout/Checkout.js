@@ -240,7 +240,7 @@ class CheckOut extends Component {
                 <div className="row">
                   <div className="col-12 shadow-sm bg-sm-white border border-light p-0">
                     <div className="lead text-uppercase font-weight-bold border border-secondary border-left-0 border-right-0 border-top-0 p-3">
-                      Your Order{cart.length > 1 ? 's' : ''}
+                      Your Order{cart.length > 1 && 's'}
                     </div>
                     <CheckoutProductList orders={this.state.order} />
                     <div className="d-flex p-3 font-weight-bold lead">

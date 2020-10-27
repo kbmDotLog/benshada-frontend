@@ -20,22 +20,24 @@ class ImageUpload extends React.Component {
   handleImageChange = (e) => {
     e.preventDefault();
 
-    const reader = new FileReader();
     const file = e.target.files[0];
+    const reader = new FileReader();
 
-    reader.onloadend = () => {
-      this.setState({
+    if (file) {
+      reader.onloadend = () => this.setState(() => ({
         file,
         imagePreviewUrl: reader.result
-      });
-    };
+      }));
 
-    reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
 
-    const fd = new FormData();
-    fd.append('image', file);
+      const fd = new FormData();
+      fd.append('image', file);
 
-    return this.props.onImageChange(fd);
+      return this.props.onImageChange(fd);
+    }
+
+    return false;
   };
 
   render() {

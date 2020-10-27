@@ -39,7 +39,7 @@ class User extends Component {
     return (
       <>
         <AuthRedirect type="user" />
-        {!this.ifPathNameInList(list, location) ? <Redirect to="/login" /> : ''}
+        {!this.ifPathNameInList(list, location) && <Redirect to="/login" />}
         <div className="container-fluid h-100">
           <div className="row h-100">
             <UserNav

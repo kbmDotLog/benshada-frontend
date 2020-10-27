@@ -14,7 +14,7 @@ export default class NumberCardDisplay extends Component {
       <div className="card-body">
         <p className="card-title text-uppercase">{this.props.title}</p>
         <h1 className="display-4 text-center">
-          {this.props.isNaira ? <span>&#x20A6;</span> : ''}
+          {this.props.isNaira && <span>&#x20A6;</span>}
           {this.props.value}
         </h1>
       </div>

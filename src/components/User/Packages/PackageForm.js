@@ -29,13 +29,14 @@ class PackageForm extends Component {
     initialize: PropTypes.func
   };
 
-  getSnapshotBeforeUpdate = (prvP) => ({
+  getSnapshotBeforeUpdate = (pP) => ({
     shouldInitialize:
-      (prvP.package && prvP.package._id)
+      (pP.package && pP.package._id)
       !== (this.props.package && this.props.package._id)
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => (snapshot.shouldInitialize ? this.props.initialize(this.props.package) : '')
+  componentDidUpdate = (pP, pS, snapshot) => (snapshot
+    .shouldInitialize && this.props.initialize(this.props.package))
 
   componentDidMount = () => this.props.initialize(this.props.package);
 

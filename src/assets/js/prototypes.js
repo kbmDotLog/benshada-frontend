@@ -34,7 +34,7 @@ export const randWord = (length) => {
     const randConsonant = consonants[rand(consonants.length)];
     const randVowel = vowels[rand(vowels.length)];
     word += i === 0 ? randConsonant.toUpperCase() : randConsonant;
-    word += i * 2 < newLength - 1 ? randVowel : '';
+    word += i * 2 < newLength - 1 && randVowel;
   }
   return word;
 };

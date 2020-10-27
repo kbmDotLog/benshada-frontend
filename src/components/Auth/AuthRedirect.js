@@ -45,11 +45,9 @@ class AuthRedirect extends Component {
       if ((user && user.type === 'UA') || (user && user.type === 'UB')) {
         return ((user && user.shops) || []).filter(
           (shop) => shop !== null && shop !== undefined && shop !== ''
-        ).length > 0 ? (
+        ).length > 0 && (
           <Redirect to="/user/profile" />
-          ) : (
-            ''
-          );
+        );
       }
 
       if (user && user.type === 'UC') {
@@ -124,7 +122,7 @@ class AuthRedirect extends Component {
       return <Redirect to="/onboarding" />;
     }
 
-    return auth.isSignedIn ? <Redirect to="/onboarding" /> : '';
+    return auth.isSignedIn && <Redirect to="/onboarding" />;
   };
 }
 

@@ -31,7 +31,7 @@ export default class Cart extends Component {
               discount={((cartTotal - cartTotalDiscount) / cartTotal) * 100}
             />
           </h4>
-          {((cartTotal - cartTotalDiscount) / cartTotal) * 100 > 0 ? <Link to="/checkout" className="btn btn-primary pt-4 mb-4">Checkout</Link> : ''}
+          {((cartTotal - cartTotalDiscount) / cartTotal) * 100 > 0 && <Link to="/checkout" className="btn btn-primary pt-4 mb-4">Checkout</Link>}
         </div>
         <ProductList products={_.uniqBy(cart, '_id')} action="cart" />
       </div>

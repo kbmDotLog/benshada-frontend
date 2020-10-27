@@ -41,7 +41,7 @@ class OrderDisplay extends Component {
       <div className="card mb-4 rounded shadow-sm border-0">
         <div
           className={`card-body d-flex p-0 ${
-            order.user && order.user._id === user._id ? 'bg-dark text-white' : ''
+            order.user && order.user._id === user._id && 'bg-dark text-white'
           }`}
         >
           <Image

@@ -38,7 +38,7 @@ export default class NotFound extends React.Component {
       {({ height, width }) => (
         <div className="text-center pt-4 pb-4 v-align" style={{ height: height * 0.8, width }}>
           <Image type={this.props.type} size={6} />
-          <p className="mb-2 lead">No {this.props.type === 'package' ? 'delivery ' : ''}{this.props.type}s found</p>
+          <p className="mb-2 lead">No {this.props.type === 'package' && 'delivery '}{this.props.type}s found</p>
           {this.renderHelper()}
         </div>
       )}
