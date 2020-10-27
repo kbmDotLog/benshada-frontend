@@ -25,11 +25,10 @@ export default class FilterList extends Component {
     let active = '';
 
     if (type !== 'size') {
-      active = item === this.props.active
-        || item === Number(this.props.active)
-        || (item && item.name) === this.props.active
-        ? 'filter-active'
-        : '';
+      active = item
+          === (this.props.active
+            || item === Number(this.props.active)
+            || (item && item.name) === this.props.active) && 'filter-active';
     }
     return active;
   };
@@ -42,7 +41,7 @@ export default class FilterList extends Component {
         onClick={() => (type === 'size'
           ? ''
           : this.props.onClick(
-            (['category', 'gender'].includes(type) ? item && item.name : item),
+            ['category', 'gender'].includes(type) ? item && item.name : item,
             type
           ))
         }
@@ -67,7 +66,7 @@ export default class FilterList extends Component {
                     className="form-check-input pointer"
                     type="checkbox"
                     value={item}
-                    checked={(type === 'size' ? this.props.active : '').includes(item)}
+                    checked={(type === 'size' && this.props.active).includes(item)}
                     id={`product-${type}-${i}`}
                     onChange={() => this.props.onClick(item, type)}
                   />
@@ -80,12 +79,13 @@ export default class FilterList extends Component {
           <>
             <FontAwesomeIcon icon={item.icon} className="mr-2" />
             {item.name}{' '}
-            {type === 'gender' ? '' : <span className="badge badge-primary bg-warning float-right mt-1">
-              {
-                products
-                  .filter((product) => filterList(product, type, item.name)).length
-              }
-            </span>}
+            {type === 'gender' ? (
+              ''
+            ) : (
+              <span className="badge badge-primary bg-warning float-right mt-1">
+                {products.filter((product) => filterList(product, type, item.name)).length}
+              </span>
+            )}
           </>
         )}
       </li>

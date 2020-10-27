@@ -14,7 +14,7 @@ export default class TabList extends Component {
 
   render = () => this.props.list.map((item, i) => (
       <TabBody
-        active={`show ${i === 0 ? 'active' : ''}`}
+        active={`show ${i === 0 && 'active'}`}
         name={`analytics-${item}`}
         key={`analytics-${item}`}
       >

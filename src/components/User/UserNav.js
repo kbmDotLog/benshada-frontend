@@ -18,7 +18,7 @@ class UserNav extends React.Component {
   componentDidMount = () => headerMenuAnimation();
 
   renderList = (list) => list.map((item, index) => {
-    const active = this.props.pathname.includes(item.Title.toLowerCase()) ? 'active' : '';
+    const active = this.props.pathname.includes(item.Title.toLowerCase()) && 'active';
     // const selected = this.props.pathname.includes(item.Title.toLowerCase()) ? 'selected' : '';
 
     const notificationLength = this.props.notifications.filter(({ read }) => !read).length;
@@ -37,9 +37,9 @@ class UserNav extends React.Component {
           >
             <FontAwesomeIcon icon={item.icon} />
             <span className="ml-2">{item.Title}</span>
-            {item.Title === 'Notifications' && notificationLength > 0
-              ? <span className="badge badge-success mt-1 float-right">{notificationLength}</span>
-              : ''}
+            {item.Title === 'Notifications' && notificationLength > 0 && (
+              <span className="badge badge-success mt-1 float-right">{notificationLength}</span>
+            )}
           </Link>
         </li>
     );

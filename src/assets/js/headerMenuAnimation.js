@@ -2,10 +2,7 @@
 import $ from 'jquery';
 
 export default () => {
-  $('#dashboardMenuToggle')
-    .click(() => $('#userSide')
-      .toggle());
+  $('#dashboardMenuToggle').click(() => $('#userSide').toggle());
 
-  $(window)
-    .resize(() => ($(window).innerWidth() >= 768 ? $('#userSide').show() : ''));
+  $(window).resize(() => $(window).innerWidth() >= 768 && $('#userSide').show());
 };

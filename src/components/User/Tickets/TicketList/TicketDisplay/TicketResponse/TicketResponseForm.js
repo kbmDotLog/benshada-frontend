@@ -34,13 +34,14 @@ class TicketResponseForm extends Component {
     initialize: PropTypes.func
   };
 
-  getSnapshotBeforeUpdate = (prvP) => ({
+  getSnapshotBeforeUpdate = (pP) => ({
     shouldInitialize:
-      (prvP.ticketResponse && prvP.ticketResponse._id)
+      (pP.ticketResponse && pP.ticketResponse._id)
       !== (this.props.ticketResponse && this.props.ticketResponse._id)
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => (snapshot.shouldInitialize ? this.props.initialize(this.props.ticketResponse) : '');
+  componentDidUpdate = (pP, pS, snapshot) => snapshot
+    .shouldInitialize && this.props.initialize(this.props.ticketResponse);
 
   componentDidMount = () => this.props.initialize(this.props.ticketResponse);
 
@@ -51,32 +52,32 @@ class TicketResponseForm extends Component {
   });
 
   render = () => (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
-        className="m-0 form"
-        autoComplete="off"
-        id="ticketResponseForm"
-      >
-        <div className="form-row">
-          <Field
-            action="ticketResponse"
-            name="description"
-            type="textarea"
-            component={FormField}
-            label=""
-            className="col-12"
-            placeholder="Enter response here"
-          />
-        </div>
+    <form
+      onSubmit={this.props.handleSubmit(this.onSubmit)}
+      // className={`animate__animated ${this.state.animationClass} m-0 px-lg-5`}
+      className="m-0 form"
+      autoComplete="off"
+      id="ticketResponseForm"
+    >
+      <div className="form-row">
+        <Field
+          action="ticketResponse"
+          name="description"
+          type="textarea"
+          component={FormField}
+          label=""
+          className="col-12"
+          placeholder="Enter response here"
+        />
+      </div>
 
-        <div className="button-group">
-          <button className="btn btn-link v-align" type="submit">
-            <FontAwesomeIcon className="text-primary-benshada" icon={this.props.buttonValue} />
-          </button>
-        </div>
-      </form>
-  )
+      <div className="button-group">
+        <button className="btn btn-link v-align" type="submit">
+          <FontAwesomeIcon className="text-primary-benshada" icon={this.props.buttonValue} />
+        </button>
+      </div>
+    </form>
+  );
 }
 
 const warn = () => ({});

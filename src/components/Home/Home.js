@@ -122,10 +122,10 @@ class Home extends React.Component {
     return (
         <article
           key={`home-category-${i}`}
-          className={`shadow-sm category bg-secondary-gradient ${i > 1 ? 'd-none d-xl-block' : ''}`}
+          className={`shadow-sm category bg-secondary-gradient ${i > 1 && 'd-none d-xl-block'}`}
         >
           <div
-            style={{ background: image ? `url(${image}) no-repeat bottom left/cover` : '' }}
+            style={{ background: image && `url(${image}) no-repeat bottom left/cover` }}
             className="category-image bg-secondary-gradient"
           ></div>
           <div className="v-parent bg-secondary-gradient">

@@ -17,7 +17,7 @@ export default class Lookbook extends Component {
   render = () => (
     <section
       className={`products-strata ${
-        this.props.flipped ? 'products-strata-flipped' : ''
+        this.props.flipped && 'products-strata-flipped'
       } section position-relative`}
     >
       <h2 className="d-none">Featured Shops base on paid ads</h2>

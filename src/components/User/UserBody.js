@@ -275,7 +275,7 @@ class UserBody extends Component {
     return (
         <div
           className={`h-100 tab-pane fade user-section px-0 ${
-            this.props.pathname.includes(Title.toLowerCase()) ? 'show active' : ''
+            this.props.pathname.includes(Title.toLowerCase()) && 'show active'
           }`}
           id={`pills-${Title}`}
           role="tabpanel"

@@ -96,7 +96,7 @@
 #app div.form-container.form-container-holder form .form-row .form-holder .form-control,
 #app div.form-container.form-container-holder form .form-row .form-holder .form-control:focus,
 #app
-  div#formContainer
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -158,7 +158,7 @@
 #app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control,
 #app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control:focus,
 #app
-  div#formContainer
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -182,7 +182,7 @@
 }
 
 #app
-  div#formContainer
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -196,7 +196,7 @@
 }
 
 #app
-  div#formContainer
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -234,7 +234,7 @@
 }
 
 #app
-  div#formContainer
+  div.form-container
   .form-container-holder
   form
   .form-row
@@ -279,7 +279,7 @@
     color: #ef932e;
   }
 
-  #app div#formContainer,
+  #app div.form-container,
   #app div.form-container.form-container-holder,
   #app div.form-container.form-container-holder form {
     background: #fffff0;
@@ -321,7 +321,7 @@
   #app div.form-container.form-container-holder form .form-row .form-holder .form-control,
   #app div.form-container.form-container-holder form .form-row .form-holder .form-control:focus,
   #app
-    div#formContainer
+    div.form-container
     .form-container-holder
     form
     .form-row
@@ -337,14 +337,14 @@
 
   #app div.form-container.form-container-holder form .form-row .form-holder:hover .form-control,
   #app
-    div#formContainer
+    div.form-container
     .form-container-holder
     form
     .form-row
     .form-holder:hover
     .form-control:focus,
   #app
-    div#formContainer
+    div.form-container
     .form-container-holder
     form
     .form-row
@@ -358,7 +358,7 @@
   }
 
   #app
-    div#formContainer
+    div.form-container
     .form-container-holder
     form
     .form-row
@@ -369,7 +369,7 @@
   }
 
   #app
-    div#formContainer
+    div.form-container
     .form-container-holder
     form
     .form-row

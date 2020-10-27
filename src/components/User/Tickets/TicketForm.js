@@ -44,16 +44,15 @@ class TicketForm extends Component {
     initialize: PropTypes.func
   };
 
-  getSnapshotBeforeUpdate = (prvP) => ({
+  getSnapshotBeforeUpdate = (pP) => ({
     shouldInitialize:
-      (prvP.ticket && prvP.ticket._id) !== (this.props.ticket && this.props.ticket._id)
+      (pP.ticket && pP.ticket._id) !== (this.props.ticket && this.props.ticket._id)
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => (snapshot.shouldInitialize && this.props.action !== 'create'
-    ? this.props.initialize(this.props.ticket)
-    : '');
+  componentDidUpdate = (pP, pS, snapshot) => (snapshot.shouldInitialize && this.props.action !== 'create'
+    && this.props.initialize(this.props.ticket));
 
-  componentDidMount = () => (this.props.action === 'create' ? this.props.initialize(this.props.ticket) : '');
+  componentDidMount = () => (this.props.action === 'create' && this.props.initialize(this.props.ticket));
 
   ifTicketExists = (tD) => {
     this.props.tickets.filter(

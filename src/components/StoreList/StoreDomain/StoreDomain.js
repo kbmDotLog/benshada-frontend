@@ -28,11 +28,11 @@ export default class StoreDomain extends Component {
 
   getStore = (ID) => this.props.stores.filter(({ _id }) => _id === ID)[0];
 
-  getSnapshotBeforeUpdate = (prvP, prvS) => ({
-    shouldRerender: prvS._id !== this.state._id
+  getSnapshotBeforeUpdate = (pP, pS) => ({
+    shouldRerender: pS._id !== this.state._id
   });
 
-  componentDidUpdate = (prvP, prvS, snapshot) => {
+  componentDidUpdate = (pP, pS, snapshot) => {
     const ID = window.location.pathname.split('/')[2];
     if (snapshot.shouldRerender) {
       this.setState({ _id: ID, store: this.getStore(ID) });
