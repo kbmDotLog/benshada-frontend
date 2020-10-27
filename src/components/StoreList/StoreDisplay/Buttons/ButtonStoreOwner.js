@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import $ from 'jquery';
+import Modal from 'modal.js';
 import { shopUpdate, shopsOneSelected } from '../../../../redux/actions/stores.js';
 import StoreForm from '../StoreForm.js';
 import Loading from '../../../../assets/js/loading.js';
@@ -21,7 +22,6 @@ class ButtonStoreOwner extends React.Component {
 
   static propTypes = {
     store: PropTypes.object,
-    user: PropTypes.object,
     shopsOneSelected: PropTypes.func,
     shopUpdate: PropTypes.func
   };
@@ -56,18 +56,18 @@ class ButtonStoreOwner extends React.Component {
       .shopUpdate(_id, store)
       .then((response) => toast.success(
         (response && response.value && response.value.data && response.value.data.message)
-        || (response && response.statusText)
-        || 'Success'
+            || (response && response.statusText)
+            || 'Success'
       ))
       .catch((err) => toast.error(
         (err && err.response && err.response.data && err.response.data.message)
-              || (err
-                && err.response
-                && err.response.data
-                && err.response.data.message
-                && err.response.data.message.name)
-              || (err && err.response && err.response.statusText)
-              || 'Network error'
+            || (err
+              && err.response
+              && err.response.data
+              && err.response.data.message
+              && err.response.data.message.name)
+            || (err && err.response && err.response.statusText)
+            || 'Network error'
       ))
       .finally(() => {
         this.setState(this.INIT);
@@ -84,23 +84,9 @@ class ButtonStoreOwner extends React.Component {
         />
       </span>
 
-      {/* Modal */}
-      <div
-        className="modal fade"
-        id="storeEdit"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="modelTitleId"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-lg" role="document">
-        <div className="modal-content form-container">
-            <div className="modal-body form-container-holder">
-              <StoreForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal id="storeEdit">
+        <StoreForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
+      </Modal>
     </>
   );
 }

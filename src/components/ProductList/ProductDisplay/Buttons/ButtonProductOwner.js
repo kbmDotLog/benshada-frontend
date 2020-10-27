@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import $ from 'jquery';
 
 // Component imports
+import Modal from 'modal.js';
 import ProductForm from '../ProductForm.js';
 
 // Asset imports
@@ -60,7 +61,7 @@ class ButtonProductOwner extends React.Component {
         <button
           className="btn bg-white text-secondary rounded-circle pointer"
           data-toggle="modal"
-          data-target="#productEdit"
+          data-target={`#product-${product && product._id}-edit`}
         >
           <FontAwesomeIcon
             icon={faPencilAlt}
@@ -70,67 +71,22 @@ class ButtonProductOwner extends React.Component {
         <button
           className="btn bg-white text-danger rounded-circle pointer"
           data-toggle="modal"
-          data-target="#productDelete"
+          data-target={`#product-${product && product._id}-delete`}
         >
           <FontAwesomeIcon icon={faTrash} onClick={() => this.props.productsOneSelected(product)} />
         </button>
 
         {/* Modal */}
-        <div
-          className="modal fade"
-          id="productEdit"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="modelTitleId"
-          aria-hidden="true"
+        <Modal id={`product-${product && product._id}-edit`}>
+          <ProductForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
+        </Modal>
+        <Modal
+          id={`product-${product && product._id}-delete`}
+          title="Delete Product"
+          callback={() => this.props.productDelete(_id, 'Product deleted successfully')}
         >
-          <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content form-container">
-              <div className="modal-body form-container-holder">
-                <ProductForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="modal fade"
-          id="productDelete"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="modelTitleId"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Delete Product</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                Are you sure you want to delete <strong>{name}</strong>?
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => this.props.productDelete(_id, 'Product deleted successfully').finally(() => {
-                    this.setState(this.INIT);
-                    $('.modal-backdrop').remove();
-                  })
-                  }
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+          Are you sure you want to delete <strong>{name}</strong>?
+        </Modal>
       </>
     );
   };
