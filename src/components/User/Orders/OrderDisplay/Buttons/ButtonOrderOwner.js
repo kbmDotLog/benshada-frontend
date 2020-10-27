@@ -4,13 +4,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import $ from 'jquery';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Rave from 'react-flutterwave-rave';
 
 // Component imports
+import Modal from 'modal.js';
 import Image from '../../../../Image/Image.js';
 import Price from '../../../../ProductList/ProductDisplay/Price.js';
 import PackageDisplay from '../../../Packages/PackageDisplay/PackageDisplay.js';
@@ -21,7 +21,6 @@ import { transactionVerify } from '../../../../../redux/actions/transactions.js'
 
 class ButtonOrderOwner extends React.Component {
   INIT = {
-    btnCancelVal: 'Cancel',
     link: undefined
   };
 
@@ -47,7 +46,7 @@ class ButtonOrderOwner extends React.Component {
         <p>Online transaction</p>
         <h5 className="mt-3">Payment Details</h5>
         <p>
-          Items total: <Price price={(order.totalPrice) - deliveryCost} />
+          Items total: <Price price={order.totalPrice - deliveryCost} />
         </p>
         <p>
           Delivery fees: <Price price={deliveryCost} />
@@ -101,7 +100,7 @@ class ButtonOrderOwner extends React.Component {
         {order && order.status === 'unpaid' ? (
           <>
             <Rave
-              amount={((order.totalPrice) || '').toString()}
+              amount={(order.totalPrice || '').toString()}
               callback={(res) => this.callback(res, order, {
                 amount: order && order.totalPrice,
                 trxnRef: order && order.orderNumber,
@@ -123,77 +122,26 @@ class ButtonOrderOwner extends React.Component {
               pay_button_text="Pay With FlutterWave"
               ravePubKey={process.env.REACT_APP_RAVE_TEST_PUBKEY}
               redirect_url=""
-              txref={((order.orderNumber) || '').toString()}
+              txref={(order.orderNumber || '').toString()}
             />
             <span
               className="mx-2 px-2 pointer"
               data-toggle="modal"
-              data-target="#orderDelete"
+              data-target={`#order-${order && order._id}-delete`}
               onClick={() => this.props.ordersMultipleSelected([order])}
             >
               <FontAwesomeIcon icon={faTimes} />
             </span>
-            <div
-              className="modal text-secondary fade"
-              id="orderDelete"
-              tabIndex="-1"
-              role="dialog"
-              aria-labelledby="modelTitleId"
-              aria-hidden="true"
+            <Modal
+              id={`order-${order && order._id}-delete`}
+              title="Cancel Order"
+              dismissText="Go Back"
+              callback={() => this.props.orderDelete(selectedOrders[0], 'Order cancelled successfully')
+              }
+              callbackText="Cancel"
             >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header border-0">
-                    <h5 className="modal-title">Cancel Order</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Are you sure you want to cancel order <strong>{orderNumber}</strong>?
-                  </div>
-                  <div className="modal-footer border-0">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                      Go back
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      onClick={() => this.props
-                        .orderDelete(selectedOrders[0])
-                        .then((response) => toast.success(
-                          (response
-                                && response.value
-                                && response.value.data
-                                && response.value.data.message)
-                                || (response && response.statusText)
-                                || 'Success'
-                        ))
-                        .catch((err) => toast.error(
-                          (err
-                                && err.response
-                                && err.response.data
-                                && err.response.data.message)
-                                || (err
-                                  && err.response
-                                  && err.response.data
-                                  && err.response.data.message
-                                  && err.response.data.message.name)
-                                || (err && err.response && err.response.statusText)
-                                || 'Network error'
-                        ))
-                        .finally(() => {
-                          this.setState(this.INIT);
-                          $('.modal-backdrop').remove();
-                        })
-                      }
-                    >
-                      {this.state.btnCancelVal}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+              Are you sure you want to cancel order <strong>{orderNumber}</strong>?
+            </Modal>
           </>
         ) : (
           ''
@@ -202,84 +150,68 @@ class ButtonOrderOwner extends React.Component {
         <span
           className="mx-2 px-2 pointer"
           data-toggle="modal"
-          data-target="#orderView"
+          data-target={`#order-${order && order._id}-view`}
           onClick={() => this.props.ordersMultipleSelected([order])}
         >
           <FontAwesomeIcon icon={faEye} />
         </span>
 
         {/* Modal */}
-        <div
-          className="modal text-secondary fade"
-          id="orderView"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="modelTitleId"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-              <div className="modal-body">
-                <div className="container">
-                  <hgroup>
-                    <h4>Order No: {orderNumber}</h4>
-                    <h2>
-                      Total: <Price price={totalPrice} />
-                    </h2>
-                    <h5>Status: {status}</h5>
-                  </hgroup>
-                  <div className="text-left">
-                    <p>Placed on: {d.toLocaleString()}</p>
+        <Modal id={`order-${order && order._id}-view`}>
+          <div className="container">
+            <hgroup>
+              <h4>Order No: {orderNumber}</h4>
+              <h2>
+                Total: <Price price={totalPrice} />
+              </h2>
+              <h5>Status: {status}</h5>
+            </hgroup>
+            <div className="text-left">
+              <p>Placed on: {d.toLocaleString()}</p>
 
-                    <p className="text-uppercase mt-3">Product</p>
-                    <div className="d-flex">
-                      <Image
-                        name={product && product.name}
-                        image={product && product.image}
-                        type="product"
-                        size={6}
-                        id={product && product._id}
-                      />
-                      <div className="flex-grow-1 pl-2">
-                        <p>{product && product.name}</p>
-                        <p className="font-weight-bold">QTY: {count}</p>
-                        <Price
-                          price={(product && product.price) * count}
-                          discount={product && product.discountPercentage}
-                        />
-                      </div>
-                    </div>
+              <p className="text-uppercase mt-3">Product</p>
+              <div className="d-flex">
+                <Image
+                  name={product && product.name}
+                  image={product && product.image}
+                  type="product"
+                  size={6}
+                  id={product && product._id}
+                />
+                <div className="flex-grow-1 pl-2">
+                  <p>{product && product.name}</p>
+                  <p className="font-weight-bold">QTY: {count}</p>
+                  <Price
+                    price={(product && product.price) * count}
+                    discount={product && product.discountPercentage}
+                  />
+                </div>
+              </div>
 
-                    <div className="row mt-3">
-                      <div className="col-12 col-lg-6 border border-secondary py-3">
-                        <small className="text-uppercase mb-4 d-block">payment information</small>
-                        {this.renderPaymentMethod(
-                          selectedOrders[0],
-                          deliveryPackage && deliveryPackage.cost
-                        )}
-                      </div>
-                      <div className="col-12 col-lg-6 border border-secondary py-3">
-                        <small className="text-uppercase mb-4 d-block">delivery information</small>
-                        <h5>Delivery Package</h5>
-                        <PackageDisplay
-                          deliveryPackage={deliveryPackage}
-                          onPackageSelect={() => {}}
-                        />
+              <div className="row mt-3">
+                <div className="col-12 col-lg-6 border border-secondary py-3">
+                  <small className="text-uppercase mb-4 d-block">payment information</small>
+                  {this.renderPaymentMethod(
+                    selectedOrders[0],
+                    deliveryPackage && deliveryPackage.cost
+                  )}
+                </div>
+                <div className="col-12 col-lg-6 border border-secondary py-3">
+                  <small className="text-uppercase mb-4 d-block">delivery information</small>
+                  <h5>Delivery Package</h5>
+                  <PackageDisplay deliveryPackage={deliveryPackage} onPackageSelect={() => {}} />
 
-                        <h5 className="mt-3">Shipping Address</h5>
-                        <p>{details && details.name}</p>
-                        <p>
-                          {details && details.address},{details && details.state}
-                        </p>
-                        <p>{details && details.phone}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <h5 className="mt-3">Shipping Address</h5>
+                  <p>{details && details.name}</p>
+                  <p>
+                    {details && details.address},{details && details.state}
+                  </p>
+                  <p>{details && details.phone}</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Modal>
       </>
     );
   };

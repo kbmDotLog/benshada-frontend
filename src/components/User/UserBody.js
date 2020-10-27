@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import $ from 'jquery';
 
 // Component imports
+import Modal from 'modal.js';
 import Analytics from './Analytics/Analytics.js';
 import Transactions from './Transactions/Transactions.js';
 import Cart from './Cart.js';
@@ -89,8 +90,12 @@ class UserBody extends Component {
       buttonProduct: <Loading />
     });
 
-    if (!productData.get('shop')) { productData.append('shop', this.props.store && this.props.store._id); }
-    if (!productData.get('isBatch')) { productData.append('isBatch', this.props.user && this.props.user.type === 'UA'); }
+    if (!productData.get('shop')) {
+      productData.append('shop', this.props.store && this.props.store._id);
+    }
+    if (!productData.get('isBatch')) {
+      productData.append('isBatch', this.props.user && this.props.user.type === 'UA');
+    }
     productData.delete('_id');
 
     this.props
@@ -223,80 +228,41 @@ class UserBody extends Component {
 
     if (ifSeller(type)[0]) {
       all = (
-        <div
-          className="modal fade"
-          id="productModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="productModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-lg" role="document">
-          <div className="modal-content form-container">
-              <div className="modal-body form-container-holder">
-                <ProductForm
-                  action="create"
-                  buttonValue={this.state.buttonProduct}
-                  onSubmit={this.productSubmit}
-                  user={this.props.user}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Modal id="productModal">
+          <ProductForm
+            action="create"
+            buttonValue={this.state.buttonProduct}
+            onSubmit={this.productSubmit}
+            user={this.props.user}
+          />
+        </Modal>
       );
     }
 
     if (type === 'UDC') {
       all = (
-        <div
-          className="modal fade"
-          id="packageModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="packageModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-md" role="document">
-          <div className="modal-content form-container">
-              <div className="modal-body form-container-holder">
-                <PackageForm
-                  action="create"
-                  buttonValue={this.state.buttonPackage}
-                  onSubmit={this.packageSubmit}
-                  user={this.props.user}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Modal id="packageModal">
+          <PackageForm
+            action="create"
+            buttonValue={this.state.buttonPackage}
+            onSubmit={this.packageSubmit}
+            user={this.props.user}
+          />
+        </Modal>
       );
     }
 
     return (
       <>
         {all}
-        <div
-          className="modal fade"
-          id="ticketModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="ticketModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-lg" role="document">
-          <div className="modal-content form-container">
-              <div className="modal-body form-container-holder">
-                <TicketForm
-                  action="create"
-                  buttonValue={this.state.buttonTicket}
-                  onSubmit={this.ticketSubmit}
-                  user={this.props.user}
-                />{' '}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Modal id="ticketModal">
+          <TicketForm
+            action="create"
+            buttonValue={this.state.buttonTicket}
+            onSubmit={this.ticketSubmit}
+            user={this.props.user}
+          />
+        </Modal>
         <Plus handleNewItems={this.handleNewItems} newItems={newItems} user={this.props.user} />
       </>
     );
@@ -347,7 +313,7 @@ class UserBody extends Component {
 
   render() {
     const { user, list } = this.props;
-    const name = (user && user.name) || '';
+    const { name } = user;
     const firstName = name.includes(' ') ? name.split(' ')[0] : name;
 
     return (

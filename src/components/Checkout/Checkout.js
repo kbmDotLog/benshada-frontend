@@ -10,6 +10,7 @@ import _ from 'lodash';
 import { toast } from 'react-toastify';
 
 // Component imports
+import Modal from 'modal.js';
 import HrFr from '../HrFr/HrFr.js';
 import Price from '../ProductList/ProductDisplay/Price.js';
 import AuthRedirect from '../Auth/AuthRedirect.js';
@@ -39,12 +40,10 @@ class CheckOut extends Component {
   // Declare propTypes
   static propTypes = {
     user: PropTypes.object,
-    isSignedIn: PropTypes.bool,
     orders: PropTypes.array,
     stores: PropTypes.array,
     deliveryPackages: PropTypes.array,
     selectedDeliveryPackage: PropTypes.object,
-    deliveryPackagesOneSelected: PropTypes.func,
     orderAdd: PropTypes.func
   };
 
@@ -184,9 +183,7 @@ class CheckOut extends Component {
             <div className="row">
               <div className="col-12 col-lg">
                 <div className="row">
-                <div
-                    className="col-12 bg-sm-white shadow-sm p-0 mb-4 form-container"
-                  >
+                  <div className="col-12 bg-sm-white shadow-sm p-0 mb-4 form-container">
                     <div className="d-flex text-uppercase font-weight-bold lead border border-secondary border-left-0 border-right-0 border-top-0 p-3">
                       <div className="flex-grow-1 text-left">
                         <FontAwesomeIcon
@@ -197,7 +194,7 @@ class CheckOut extends Component {
                         />
                         1. Address Details
                       </div>
-                      {details && details.address ? (
+                      {details && details.address && (
                         <>
                           <div className="flex-grow-1 text-right text-primary-benshada">
                             <span
@@ -208,39 +205,11 @@ class CheckOut extends Component {
                               Change
                             </span>
                           </div>
-                          <div
-                            className="modal fade"
-                            id="addressModal"
-                            tabIndex="-1"
-                            role="dialog"
-                            aria-labelledby="modelTitleId"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog modal-lg" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <h5 className="modal-title">Change Address</h5>
-                                  <button
-                                    type="button"
-                                    className="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                                  >
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div className="modal-body p-0 form-container">
-                                  <div className="form-container-holder">
-                                    <AddressForm buttonValue="Save" onSubmit={this.submitAddress} />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <Modal id="addressModal" title="Change Address">
+                            <AddressForm buttonValue="Save" onSubmit={this.submitAddress} />
+                          </Modal>
                         </>
-                      ) : (
-                        ''
-                      )}{' '}
+                      )}
                     </div>
                     {this.renderAddress()}
                   </div>

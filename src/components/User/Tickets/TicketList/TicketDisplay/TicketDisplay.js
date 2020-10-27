@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 // Component imports
 import { faEye, faTimes, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'modal.js';
 import TicketDisplayButtons from './Buttons/TicketDisplayButtons.js';
 import TicketForm from '../../TicketForm.js';
 
@@ -28,7 +29,6 @@ import TicketResponseList from './TicketResponse/TicketResponseList/TicketRespon
 // Start Component
 class TicketDisplay extends Component {
   INIT = {
-    btnDelete: 'delete',
     btnUpdate: 'update',
     display: 'd-none',
     displayIcon: faEye,
@@ -163,21 +163,14 @@ class TicketDisplay extends Component {
   };
 
   render = () => {
-    const {
-      btnDelete, btnUpdate, display, btnResponse
-    } = this.state;
+    const { btnUpdate, display, btnResponse } = this.state;
     const {
       ticket, user, selectedTicket, users
     } = this.props;
     const _id = selectedTicket && selectedTicket._id;
-    const title = ticket && ticket.title;
-    const status = ticket && ticket.status;
-    const type = ticket && ticket.type;
-    const createdAt = ticket && ticket.createdAt;
-    const description = ticket && ticket.description;
-    const image = ticket && ticket.image;
-    const owner = ticket && ticket.owner;
-    const responses = ticket && ticket.responses;
+    const {
+      title, status, type, createdAt, description, image, owner, responses
+    } = ticket;
     const { name, email } = owner;
     const usersImage = users.filter((i) => i.email === email)[0].image;
     const d = new Date(createdAt);
@@ -244,62 +237,32 @@ class TicketDisplay extends Component {
               <Image image={image} />
             </div>
           </div>
-          <div className="responses"><TicketResponseList ticketUpdate={this.props.ticketUpdate} selectedTicket={selectedTicket} users={users} display={display} responses={responses} /></div>
+          <div className="responses">
+            <TicketResponseList
+              ticketUpdate={this.props.ticketUpdate}
+              selectedTicket={selectedTicket}
+              users={users}
+              display={display}
+              responses={responses}
+            />
+          </div>
         </div>
 
-        <div
-          className="modal fade"
+        <Modal
           id="ticketDeleteModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="ticketDeleteModalLabel"
-          aria-hidden="true"
+          title="Delete Ticket"
+          callback={() => this.ticketDelete(_id, 'Ticket deleted successfully')}
         >
-          <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Delete Ticket</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">Are you sure you want to delete ticket {_id}?</div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-danger text-capitalize"
-                  onClick={() => this.ticketDelete(_id)}
-                >
-                  {btnDelete}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+          Are you sure you want to delete ticket {_id}
+        </Modal>
 
-        <div
-          className="modal fade"
-          id="ticketEditModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="ticketModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-lg" role="document">
-          <div className="modal-content form-container">
-              <div className="modal-body form-container-holder">
-                <TicketForm
-                  buttonValue={btnUpdate}
-                  onSubmit={(ticketData) => this.ticketSubmit(_id, ticketData)}
-                  user={user}
-                />{' '}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Modal id="ticketEditModal">
+          <TicketForm
+            buttonValue={btnUpdate}
+            onSubmit={(ticketData) => this.ticketSubmit(_id, ticketData)}
+            user={user}
+          />
+        </Modal>
       </>
     );
   };

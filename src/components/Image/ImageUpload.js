@@ -2,7 +2,6 @@ import React from 'react';
 import '../../assets/css/imageupload.css';
 import ContainerDimensions from 'react-container-dimensions';
 import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
 import Image from './Image.js';
 
 class ImageUpload extends React.Component {
@@ -23,10 +22,6 @@ class ImageUpload extends React.Component {
 
     const reader = new FileReader();
     const file = e.target.files[0];
-
-    if (file.width / file.height < 0.9 || file.width / file.height > 1.1) {
-      return toast.error('Upload an image with equal width and height');
-    }
 
     reader.onloadend = () => {
       this.setState({

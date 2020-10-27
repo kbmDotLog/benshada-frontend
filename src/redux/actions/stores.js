@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-underscore-dangle */
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   STORES_ONE,
@@ -43,11 +44,23 @@ export const shopUpdate = (id, shopData) => (dispatch) => {
   return response.then(() => dispatch([shopsOne(id), shopsAll()]));
 };
 
-export const shopDelete = (id) => (dispatch) => {
+export const shopDelete = (id, message) => (dispatch) => {
   const response = dispatch({
     type: STORE_DELETE,
     payload: api.delete(`/shops/${id}`)
   });
 
-  return response.then(() => dispatch(shopsAll()));
+  return response
+    .then(() => dispatch(shopsAll()))
+    .then(() => (message && toast.success(message)))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };
