@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   ORDERS_ONE,
@@ -67,7 +68,7 @@ export const orderAdd = (orders) => (dispatch, getState) => {
   ]));
 };
 
-export const orderDelete = (order) => (dispatch, getState) => {
+export const orderDelete = (order, message) => (dispatch, getState) => {
   const { _id, product, count } = order;
   const stateProduct = getState().product.all.filter((item) => item._id === product)[0];
   const selectedOrders = getState().order.selected.filter(
@@ -80,9 +81,21 @@ export const orderDelete = (order) => (dispatch, getState) => {
     payload: api.delete(`/orders/${_id}`)
   });
 
-  return response.then(() => dispatch([
-    productUpdate(product, { quantity }),
-    ordersAll(),
-    ordersMultipleSelected(selectedOrders)
-  ]));
+  return response
+    .then(() => dispatch([
+      productUpdate(product, { quantity }),
+      ordersAll(),
+      ordersMultipleSelected(selectedOrders)
+    ]))
+    .then(() => message && toast.success(message))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   TICKETS_ALL,
@@ -35,13 +36,25 @@ export const ticketUpdate = (id, ticketData) => (dispatch) => {
   return response.then(() => dispatch([ticketsOne(id), ticketsAll()]));
 };
 
-export const ticketDelete = (id) => (dispatch) => {
+export const ticketDelete = (id, message) => (dispatch) => {
   const response = dispatch({
     type: TICKET_DELETE,
     payload: api.delete(`/tickets/${id}`)
   });
 
-  return response.then(() => dispatch(ticketsAll()));
+  return response
+    .then(() => dispatch(ticketsAll()))
+    .then(() => message && toast.success(message))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };
 
 export const ticketsOneSelected = (payload) => ({

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-underscore-dangle */
+import { toast } from 'react-toastify';
 import api from '../api/api.js';
 import {
   DELIVERY_PACKAGES_ALL,
@@ -21,10 +22,10 @@ export const deliveryPackagesAll = (isAuthed) => (dispatch, getState) => {
     }
     : {};
 
-  return ({
+  return {
     type: DELIVERY_PACKAGES_ALL,
     payload: api.get('/delivery-package', { headers })
-  });
+  };
 };
 
 export const deliveryPackagesAdd = (deliveryPackageData) => (dispatch) => {
@@ -45,11 +46,23 @@ export const deliveryPackageUpdate = (id, deliveryPackageData) => (dispatch) => 
   return response.then(() => dispatch(deliveryPackagesAll()));
 };
 
-export const deliveryPackageDelete = (id) => (dispatch) => {
+export const deliveryPackageDelete = (id, message) => (dispatch) => {
   const response = dispatch({
     type: DELIVERY_PACKAGE_DELETE,
     payload: api.delete(`/delivery-package/${id}`)
   });
 
-  return response.then(() => dispatch(deliveryPackagesAll()));
+  return response
+    .then(() => dispatch(deliveryPackagesAll()))
+    .then(() => message && toast.success(message))
+    .catch((err) => toast.error(
+      (err && err.response && err.response.data && err.response.data.message)
+          || (err
+            && err.response
+            && err.response.data
+            && err.response.data.message
+            && err.response.data.message.name)
+          || (err && err.response && err.response.statusText)
+          || 'Network error'
+    ));
 };
