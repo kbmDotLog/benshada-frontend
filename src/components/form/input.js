@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 // import FormIcon from './formIcon.js';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { BlockPicker } from 'react-color';
 import ValidateIcon from './validateIcon.js';
+import MultiColor from './multicolor/multicolor.js';
 
 export default class Input extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      colors: [],
       stateType: props.type
     };
   }
@@ -43,20 +44,29 @@ export default class Input extends Component {
     </div>
   );
 
+  updateColor = () => {
+    if (this.props.type === 'color') {
+      const passedValue = this.props.val || this.props.input.value;
+      const colors = ((passedValue && passedValue.split(',')) || []).filter(
+        (color) => color !== 'undefined'
+      );
+
+      this.setState(() => ({ colors }));
+    }
+  };
+
   renderInput = ({
     type, input, id, placeholder, disabled, val, maxLength
   }) => (type === 'color' ? (
-      <BlockPicker
-        {...input}
-        className="w-100"
+      <MultiColor
+        colors={this.state.colors}
+        onUpdateColors={(colors) => this.setState(() => ({ colors }))}
         id={id}
-        triangle="hide"
-        color={val || input.value}
+        input={input}
       />
   ) : (
       <input
         {...input}
-        component="input"
         type={this.state.stateType}
         className="form-control"
         placeholder={placeholder}
@@ -66,6 +76,19 @@ export default class Input extends Component {
         maxLength={maxLength}
       />
   ));
+
+  getSnapshotBeforeUpdate = (prevProps) => prevProps.input.value !== this.props.input.value && {
+    shouldUpdateColors: true
+  };
+
+  componentDidUpdate = (prevProps, prevState, snapshot) => {
+    if (this.props.type === 'color') {
+      return snapshot.shouldUpdateColors && this.updateColor();
+    }
+    return false;
+  };
+
+  componentDidMount = () => this.updateColor();
 
   render = () => {
     const {

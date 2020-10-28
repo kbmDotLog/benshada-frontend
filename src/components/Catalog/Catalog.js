@@ -190,18 +190,21 @@ class Catalog extends Component {
     const sizeArr = this.state.size;
 
     if (type === 'size') {
-      newValue = sizeArr.includes(value) ? sizeArr.filter((i) => i !== value) : [...sizeArr, value];
+      newValue = sizeArr.includes(value)
+        ? sizeArr.filter((i) => i !== value)
+        : [...sizeArr, value];
     }
 
     this.setOldOnes(type, newValue);
     this.setState({ [type]: newValue });
   };
 
-  getSnapshotBeforeUpdate = (pP, pS) => ({
-    shouldInitialize: pS.q !== qs.parse(window.location.search).q
+  getSnapshotBeforeUpdate = (prevProps, prevState) => ({
+    shouldInitialize: prevState.q !== qs.parse(window.location.search).q
   });
 
-  componentDidUpdate = (pP, pS, snapshot) => snapshot.shouldInitialize && this.setOldOnes();
+  componentDidUpdate = (prevProps, prevState, snapshot) => snapshot
+    .shouldInitialize && this.setOldOnes();
 
   componentDidMount = () => this.setOldOnes();
 
@@ -224,8 +227,9 @@ class Catalog extends Component {
           <div
             className="text-right d-lg-none"
             id="filterButton"
-            onClick={() => this
-              .setState(({ isFilterVisible }) => ({ isFilterVisible: !isFilterVisible }))
+            onClick={() => this.setState(({ isFilterVisible }) => ({
+              isFilterVisible: !isFilterVisible
+            }))
             }
           >
             <button className="btn btn-link">
@@ -261,6 +265,9 @@ class Catalog extends Component {
   }
 }
 
-const mapStateToProps = ({ product, store }) => ({ products: product.all, stores: store.all });
+const mapStateToProps = ({ product, store }) => ({
+  products: product.all,
+  stores: store.all
+});
 
 export default connect(mapStateToProps)(Catalog);
