@@ -21,15 +21,19 @@ class StoreForm extends Component {
     type: PropTypes.string
   };
 
-  getSnapshotBeforeUpdate = (pP) => ({
-    shouldInitialize: pP.store && pP.store._id !== this.props.store && this.props.store._id
+  getSnapshotBeforeUpdate = (prevProps) => ({
+    shouldInitialize:
+      prevProps.store
+      && prevProps.store._id !== this.props.store
+      && this.props.store._id
   });
 
-  componentDidUpdate = (pP, pS, snapshot) => (snapshot.shouldInitialize && this.props.type !== 'create' && this.props.type !== 'user'
-    && this.props.initialize(this.props.store)
-  );
+  componentDidUpdate = (prevProps, prevState, snapshot) => snapshot.shouldInitialize
+    && this.props.type !== 'create'
+    && this.props.type !== 'user'
+    && this.props.initialize(this.props.store);
 
-  componentDidMount = () => (this.props.type === 'user' && this.props.initialize(this.props.userStore));
+  componentDidMount = () => this.props.type === 'user' && this.props.initialize(this.props.userStore);
 
   render() {
     const { type, store } = this.props;
@@ -37,14 +41,16 @@ class StoreForm extends Component {
     return (
       <form
         onSubmit={this.props.handleSubmit}
-        className={`m-0 ${
-          this.props.type === 'user' ? '' : 'px-lg-5'
-        }`}
+        className={`m-0 ${this.props.type === 'user' ? '' : 'px-lg-5'}`}
         autoComplete="off"
       >
-        <h2 className="mb-0">{type === 'create' ? 'New store' : `Edit ${store && store.name}`}</h2>
+        <h2 className="mb-0">
+          {type === 'create' ? 'New store' : `Edit ${store && store.name}`}
+        </h2>
         <p>
-          {type === 'create' ? 'Create a new store' : 'Make changes to your store'}
+          {type === 'create'
+            ? 'Create a new store'
+            : 'Make changes to your store'}
         </p>
         <div className="form-row">
           <Field
@@ -123,7 +129,11 @@ class StoreForm extends Component {
               Logout
             </Link>
           ) : (
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-dismiss="modal"
+            >
               Done
             </button>
           )}

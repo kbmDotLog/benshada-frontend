@@ -39,12 +39,13 @@ class ProductForm extends Component {
     initialize: PropTypes.func
   };
 
-  getSnapshotBeforeUpdate = (pP) => ({
+  getSnapshotBeforeUpdate = (prevProps) => ({
     shouldInitialize:
-      (pP.product && pP.product._id) !== (this.props.product && this.props.product._id)
+      (prevProps.product && prevProps.product._id)
+      !== (this.props.product && this.props.product._id)
   });
 
-  componentDidUpdate = (pP, pS, snapshot) => snapshot
+  componentDidUpdate = (prevProps, prevState, snapshot) => snapshot
     .shouldInitialize && this.props.initialize(this.props.product);
 
   componentDidMount = () => this.props.initialize(this.props.product);
@@ -87,7 +88,7 @@ class ProductForm extends Component {
       price,
       discountPercentage,
       quantity,
-      color: color.hex,
+      color,
       category,
       gender,
       mainMaterial,
@@ -97,38 +98,53 @@ class ProductForm extends Component {
       batchQuality: batchQuality || 0
     };
 
+    console.log(productData);
+
     Object.entries(productData).forEach(
       ([key, value]) => !data.get(key) && data.append(key, value)
     );
 
-    if (image.length > 0 && !data.has('image')) {
-      const blob = await this.getBlob(image[0]);
+    if (image) {
+      if (image.length > 0 && !data.has('image')) {
+        const blob = await this.getBlob(image[0]);
 
-      const date = new Date(updatedAt); // some mock date
-      const lastModified = date.getTime();
-      const existingImage = new File([blob], image, {
-        type: blob.type,
-        lastModified
-      });
+        const date = new Date(updatedAt); // some mock date
+        const lastModified = date.getTime();
+        const existingImage = new File([blob], image, {
+          type: blob.type,
+          lastModified
+        });
 
-      data.append('image', existingImage);
+        data.append('image', existingImage);
+      }
+    } else if (!data.has('image')) {
+      return toast.error('Do select an image');
     }
 
-    return !data.has('image') ? toast.error('Do select an image') : this.props.onSubmit(data);
+    return this.props.onSubmit(data);
   };
 
   getSizes = (sizesArray, category) => ({ shoes: sizesArray[1] }[category] || sizesArray[0]);
 
   render = () => {
     const {
-      action, buttonValue, formData, product, products, user
+      action,
+      buttonValue,
+      formData,
+      product,
+      products,
+      user
     } = this.props;
     const mainMaterials = products.map((item) => item && item.mainMaterial);
 
     return (
       <>
-        <h2 className="mb-0 px-3 pt-4">{action ? 'Upload Product' : 'Edit Product'}</h2>
-        <p className="px-3 pb-4 text-danger font-weight-bold lead">Image must be a square</p>
+        <h2 className="mb-0 px-3 pt-4">
+          {action ? 'Upload Product' : 'Edit Product'}
+        </h2>
+        <p className="px-3 pb-4 text-danger font-weight-bold lead">
+          Image must be a square
+        </p>
         <div
           className="position-absolute w-100 text-center item-upload"
           id="productUpload"
@@ -325,7 +341,11 @@ class ProductForm extends Component {
             <button className="btn btn-primary" type="submit">
               {buttonValue}
             </button>
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-dismiss="modal"
+            >
               Close
             </button>
           </div>

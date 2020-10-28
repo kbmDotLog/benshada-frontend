@@ -1,0 +1,23 @@
+.multi-color .form-control {
+  opacity: 0;
+}
+
+.color-list {
+  list-style: none;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top: -30px;
+}
+
+.color-list li {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.color-list li:nth-last-child(1) {
+  margin-right: 0;
+}
