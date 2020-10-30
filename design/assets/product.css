@@ -79,6 +79,16 @@
   height: 100px;
 }
 
+#app #shopShowcase .productShowcase .d-flex {
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+#app #shopShowcase .productShowcase .d-flex .product {
+  margin-bottom: 30px;
+}
+
 /**************************************************************
 ***************************************************************
 ************************* MEDIA QUERY *************************
@@ -87,6 +97,13 @@
 @media (min-width: 356px) {
   #app .productShowcase .product {
     flex-basis: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 364px) {
+  #app #shopShowcase .productShowcase .d-flex .product {
+    flex-basis: 154px;
+    margin: 0px 0px 30px;
   }
 }
 
@@ -99,6 +116,14 @@
 @media (min-width: 992px) {
   #app .productShowcase .product {
     flex-basis: calc(25% - 12px);
+  }
+
+  #app #shopShowcase .productShowcase .d-flex {
+    justify-content: flex-start;
+  }
+
+  #app #shopShowcase .productShowcase .product {
+    margin-left: 0;
   }
 }
 

@@ -25,10 +25,11 @@ export default class FilterList extends Component {
     let active = '';
 
     if (type !== 'size') {
-      active = item
-          === (this.props.active
-            || item === Number(this.props.active)
-            || (item && item.name) === this.props.active) && 'filter-active';
+      active = item === this.props.active
+        || item === Number(this.props.active)
+        || (item && item.name) === this.props.active
+        ? 'filter-active'
+        : '';
     }
     return active;
   };
@@ -66,7 +67,7 @@ export default class FilterList extends Component {
                     className="form-check-input pointer"
                     type="checkbox"
                     value={item}
-                    checked={(type === 'size' && this.props.active).includes(item)}
+                    checked={(type === 'size' ? this.props.active : '').includes(item)}
                     id={`product-${type}-${i}`}
                     onChange={() => this.props.onClick(item, type)}
                   />
@@ -95,9 +96,7 @@ export default class FilterList extends Component {
     const { type, products, list } = this.props;
     const array = { gender: genders, category: categories }[type] || list;
 
-    return array.length < 1 ? (
-      ''
-    ) : (
+    return array.length > 0 && (
       <div className="col-12 mb-4 text-capitalize">
         <h5>{toSplittedString(type)}</h5>
         <nav className="nav flex-column">{this.renderDisplay(array, products, type)}</nav>

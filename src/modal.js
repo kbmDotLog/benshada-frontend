@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 // Asset imports
 import 'assets/css/form.css';
+import 'assets/css/modal.min.css';
 import Loading from 'assets/js/loading';
 
 /**
@@ -52,7 +53,7 @@ export default class Modal extends Component {
 
   /**
    * Returns Modal UI
-   * @return {object} The UI DOM object
+   * @return {Obj} The UI DOM object
    */
   render() {
     const {

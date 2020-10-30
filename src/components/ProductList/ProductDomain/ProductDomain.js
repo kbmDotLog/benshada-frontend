@@ -1,281 +1,145 @@
 /* eslint-disable no-underscore-dangle */
-// Module imports
+/**  Module imports */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-// Component imports
-import Image from '../../Image/Image.js';
-import ProductsBanner from './ProductsBanner.js';
+/**  Component imports */
+import ProductBanner from './ProductBanner.js';
 import ProductList from '../ProductList.js';
-import ButtonProductOwner from '../ProductDisplay/Buttons/ButtonProductOwner.js';
-import ButtonProductBuyer from '../ProductDisplay/Buttons/ButtonProductBuyer.js';
-import Review from './Review/Review.js';
 import Reviews from './Review/Reviews.js';
-import Price from '../ProductDisplay/Price.js';
 import HrFr from '../../HrFr/HrFr.js';
+import ProductHouse from './ProductHouse.js';
 
-export default class ProductDomain extends Component {
-  constructor(props) {
-    super(props);
+/**  Asset imports */
+import 'assets/css/domain.min.css';
 
-    this.state = {
-      _id: null,
-      product: {}
-    };
-  }
+/**
+ * Displays single product page
+ * @constructor
+ */
+class ProductDomain extends Component {
+  /** Component state */
+  state = {
+    product: {},
+    productExists: false,
+    productID: ''
+  };
 
+  /** Component propTypes */
   static propTypes = {
+    location: PropTypes.object,
     products: PropTypes.array,
     user: PropTypes.object
   };
 
-  renderActionButtons = () => {
-    const { product } = this.state;
-    const { user } = this.props;
-    const shops = (user && user.shops) || [];
-    const { shop, isBatch } = product;
-
-    if (
-      shops.map((item) => item && item._id).includes(shop && shop._id)
-      || (user && user.type === 'ADMIN')
-    ) {
-      return <ButtonProductOwner product={product} user={user} />;
+  /**
+   * Fetches product based on ID
+   * @param {string} productID Desired product ID
+   * @param {Obj} products List of products
+   * @return {Obj} The desired product
+   */
+  fetchProduct = (productID, products) => this.setState(
+    () => ({ productID }),
+    () => {
+      const product = products.find(({ _id }) => _id === productID);
+      this.setState(
+        () => ({ productExists: product && true, product }),
+        () => !this.state.productExists && <Redirect to="/" />
+      );
     }
+  );
 
-    if (isBatch && (user && user.type) === 'UB') {
-      return <ButtonProductBuyer product={product} user={user} />;
-    }
-
-    if (!isBatch && (user && user.type) === 'UC') {
-      return <ButtonProductBuyer product={product} user={user} />;
-    }
-
-    return user && user._id === undefined ? (
-      <ButtonProductBuyer product={product} user={user} />
-    ) : (
-      ''
-    );
-  };
-
-  getProduct = (ID) => this.props.products.filter(({ _id }) => _id === ID)[0];
-
+  /**
+   * Gets component snapshot before update
+   * @param {Obj} prevProps
+   * @param {Obj} prevState
+   * @return {Obj} Snapshot
+   */
   getSnapshotBeforeUpdate = (prevProps, prevState) => ({
-    shouldRerender: prevState._id !== this.state._id
+    shouldFetchProduct: prevState.productID !== this.state.productID
   });
 
-  componentDidUpdate = (prevProps, prevState, snapshot) => {
-    const ID = window.location.pathname.split('/')[2];
-    if (snapshot.shouldRerender) {
-      this.setState({ _id: ID, product: this.getProduct(ID) });
-    }
-  };
+  /**
+   * Runs after component updates
+   * @param {Obj} prevProps
+   * @param {Obj} prevState
+   * @param {Obj} snapshot
+   */
+  componentDidUpdate = (prevProps, prevState, snapshot) => snapshot.shouldFetchProduct
+    && this.fetchProduct(
+      this.props.location.pathname.split('/')[2],
+      this.props.products
+    );
 
-  componentDidMount = () => {
-    const ID = window.location.pathname.split('/')[2];
-    this.setState({ _id: ID, product: this.getProduct(ID) });
-  };
+  /**
+   * Runs after the component has been mounted
+   */
+  componentDidMount = () => this.fetchProduct(
+    this.props.location.pathname.split('/')[2],
+    this.props.products
+  );
 
+  /**
+   * Returns ProductDomain UI
+   * @return {Obj} the UI DOM object
+   */
   render() {
-    const { product } = this.state;
-    const category = product && product.category;
-    const image = product && product.image;
-    const name = product && product.name;
-    const _id = product && product._id;
-    const gender = product && product.gender;
-    const discountPercentage = product && product.discountPercentage;
-    const shortDescription = product && product.shortDescription;
-    const shop = product && product.shop;
-    const guarantee = product && product.category;
-    const sizes = product && product.sizes;
-    const color = product && product.color;
-    const mainMaterial = product && product.mainMaterial;
-    const reviews = product && product.reviews;
-    const inStock = product && product.inStock;
-    const price = product && product.price;
-    const longDescription = product && product.longDescription;
-    const productionCountry = product && product.productionCountry;
+    const { product, productExists } = this.state;
+    const { products } = this.props;
 
-    return !product ? <Redirect to="/" /> : (
+    return (
       <HrFr>
-          <ProductsBanner
-            headers={[
-              { name: 'category', value: category },
-              { name: 'q', value: name }
-            ]}
-          />
+        {productExists && (
+          <>
+            <section id="productDomain" className="section">
+              <h1 className="d-none">Product Domain</h1>
+              <ProductBanner product={product} />
+              <ProductHouse product={product} />
+              <Reviews reviews={product.reviews} />
+            </section>
 
-          <div className="bg-white my-0 py-0">
-            <div className="container">
-              <div className="row py-4">
-                <div className="col-12 col-md-6 mb-3 mb-md-0 border border-light px-5 py-3 product-gallery">
-                  <div className="product-gallery-active-image rounded" style={{ height: '350px', overflow: 'hidden' }}>
-                    <Image name={name} image={image} type="product" size={6} id={_id} />
-                  </div>
-                </div>
-                <div className="col-12 col-md-6 p-3">
-                  <div className="clear"></div>
-                  <h4>{name}</h4>
-                  <Review i={0} product={product} />
-                  <p>{shortDescription}</p>
-
-                  <div className="row">
-                    <div className="col-6 my-1">
-                      <strong>Shop</strong>{' '}
-                    </div>
-                    <div className="col-6 my-1">
-                      <Link to={`/stores/${shop && shop._id}`} className="text-primary-benshada">
-                        {shop && shop.name}
-                      </Link>
-                    </div>
-                    <div className="col-6 my-1">
-                      <strong>Guarantee</strong>{' '}
-                    </div>
-                    <div className="col-6 my-1">
-                      <strong>{guarantee || 0}</strong> days
-                    </div>
-                    <div className="col-6 my-1">
-                      <strong>Availability</strong>{' '}
-                    </div>
-                    <div className="col-6 my-1">
-                      {inStock ? (
-                        <strong className="text-success">In Stock</strong>
-                      ) : (
-                        <strong className="text-danger">Out of Stock</strong>
-                      )}
-                    </div>
-                  </div>
-                  <p className="mt-3">{this.renderActionButtons()}</p>
-                  <h3 className="float-right">
-                    <Price price={price} discount={discountPercentage} />
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="container py-4">
-            <div className="row justify-content-between">
-              <div className="col-12 col-md-7">
-                <div className="row text-uppercase">
-                  <div className="col-12 pb-3">
-                    <h5>Description</h5>
-                    <p>{longDescription}</p>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-12 pb-3 text-uppercase">
-                    <h5>Specifications</h5>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Gender</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{gender}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Sizes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{sizes && sizes[0] && sizes[0].value}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Color</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><span className='py-2 px-5 rounded' style={{ background: color }}></span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Main Material</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{mainMaterial}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Weight</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{sizes && sizes[0] && sizes[0].value}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Production Country</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{productionCountry}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-4">
-                <div className="row p-3 shadow-sm">
-                <h5>Reviews</h5>
-                <Reviews reviews={reviews} />
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="container py-4">
-            <ProductList
-              products={this.props.products}
-              type={{ name: 'category', value: category }}
-              title="Similar Category"
-              count={4}
-            />
-          </div>
-          <div className="container py-4">
-            <ProductList
-              products={this.props.products}
-              type={{ name: 'gender', value: gender }}
-              title='Similar Gender'
-              count={4}
-            />
-          </div>
-          <div className="container py-4">
-            <ProductList
-              products={this.props.products}
-              type={{ name: 'discountPercentage', value: discountPercentage }}
-              title="Similar Discount"
-              count={4}
-            />
-          </div>
+            <section className="productShowcase section">
+              <ProductList
+                title="Other Products From This Seller"
+                isFlex={true}
+                products={products.filter((item) => {
+                  const id = product.shop && product.shop._id;
+                  return item.shop && item.shop._id === id;
+                })}
+                count={12}
+              />
+            </section>
+            <section className="productShowcase section">
+              <ProductList
+                title="Related Products"
+                isFlex={true}
+                products={products.filter(
+                  (item) => item.discountPercentage === product.discountPercentage
+                    || item.price === product.price
+                    || item.category === product.category
+                    || item.gender === product.gender
+                )}
+                count={12}
+              />
+            </section>
+          </>
+        )}
       </HrFr>
     );
   }
 }
+
+/**
+ * Maps Redux store state to component props
+ * @param {Obj} state
+ * @return {Obj} Extra component props
+ */
+const mapStateToProps = ({ product, user }) => ({
+  products: product.all,
+  user: user.selected
+});
+
+/** Export component */
+export default connect(mapStateToProps)(ProductDomain);

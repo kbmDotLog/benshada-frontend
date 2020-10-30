@@ -7,6 +7,9 @@ import ProductDisplay from './ProductDisplay/ProductDisplay.js';
 import NotFound from '../NotFound/NotFound.js';
 import { filterList } from '../../assets/js/filter.js';
 
+// Asset imports
+import 'assets/css/product.min.css';
+
 // Start Component
 export default class ProductList extends Component {
   static propTypes = {
@@ -15,7 +18,8 @@ export default class ProductList extends Component {
     type: PropTypes.object,
     count: PropTypes.number,
     title: PropTypes.string,
-    action: PropTypes.string
+    action: PropTypes.string,
+    wrap: PropTypes.bool
   };
 
   renderProductList = (products, filterType, filterValue) => {
@@ -24,7 +28,7 @@ export default class ProductList extends Component {
     return filteredProducts.length > 0 ? (
       <div className={this.props.isFlex && 'd-flex'}>
         {filteredProducts.slice(0, this.props.count).map((product, key) => (
-          <ProductDisplay key={`productList${key}`} product={product} action={this.props.action} />
+          <ProductDisplay key={`productList${key}`} product={product} />
         ))}
       </div>
     ) : (
@@ -33,12 +37,14 @@ export default class ProductList extends Component {
   };
 
   render() {
-    const { products, type, title } = this.props;
+    const {
+      products, type, title, wrap
+    } = this.props;
     const filterType = type && type.name;
     const filterValue = type && type.value;
 
     return (
-      <section className="productShowcase mt-4 section">
+      <section className={`productShowcase mt-4 section ${wrap && 'wrap'}`}>
         <h2 className="d-none">{title}</h2>
         {this.renderProductList(products, filterType, filterValue)}
       </section>

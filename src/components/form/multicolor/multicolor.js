@@ -45,7 +45,7 @@ export default class MultiColor extends Component {
 
   /**
    * Returns MultiColor UI
-   * @return {obj} The UI DOM object
+   * @return {Obj} The UI DOM object
    */
   render() {
     const {

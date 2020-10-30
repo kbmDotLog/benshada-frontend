@@ -9,17 +9,17 @@ import $ from 'jquery';
 
 // Component imports
 import Modal from 'modal.js';
-import ProductForm from '../ProductForm.js';
+import ProductForm from 'components/ProductList/ProductDisplay/ProductForm';
 
 // Asset imports
-import Loading from '../../../../assets/js/loading.js';
+import Loading from 'assets/js/loading';
 
 // Action imports
 import {
   productDelete,
   productUpdate,
   productsOneSelected
-} from '../../../../redux/actions/products.js';
+} from 'redux/actions/products';
 
 class ButtonProductOwner extends React.Component {
   INIT = {
@@ -32,11 +32,15 @@ class ButtonProductOwner extends React.Component {
   }
 
   static propTypes = {
+    isSignedIn: PropTypes.bool,
     product: PropTypes.object,
     selectedProduct: PropTypes.object,
     productDelete: PropTypes.func,
     productsOneSelected: PropTypes.func,
-    productUpdate: PropTypes.func
+    productUpdate: PropTypes.func,
+    shops: PropTypes.array,
+    shop: PropTypes.object,
+    user: PropTypes.object
   };
 
   submit = (product) => {
@@ -46,54 +50,79 @@ class ButtonProductOwner extends React.Component {
 
     const _id = product.get('_id');
 
-    this.props.productUpdate(_id, product, 'Product updated successfully').finally(() => {
-      this.setState(this.INIT);
-      $('.modal-backdrop').remove();
-    });
+    this.props
+      .productUpdate(_id, product, 'Product updated successfully')
+      .finally(() => {
+        this.setState(this.INIT);
+        $('.modal-backdrop').remove();
+      });
   };
 
   render = () => {
-    const { product, selectedProduct } = this.props;
+    const {
+      isSignedIn,
+      product,
+      selectedProduct,
+      shops,
+      user,
+      shop
+    } = this.props;
     const { _id, name } = selectedProduct;
 
     return (
-      <>
-        <button
-          className="btn bg-white text-secondary rounded-circle pointer"
-          data-toggle="modal"
-          data-target={`#product-${product && product._id}-edit`}
-        >
-          <FontAwesomeIcon
-            icon={faPencilAlt}
-            onClick={() => this.props.productsOneSelected(product)}
-          />
-        </button>
-        <button
-          className="btn bg-white text-danger rounded-circle pointer"
-          data-toggle="modal"
-          data-target={`#product-${product && product._id}-delete`}
-        >
-          <FontAwesomeIcon icon={faTrash} onClick={() => this.props.productsOneSelected(product)} />
-        </button>
+      isSignedIn
+      && (shops.map((item) => item && item._id).includes(shop && shop._id)
+        || (user && user.type === 'ADMIN')) && (
+        <>
+          <button
+            className="btn bg-white text-secondary rounded-circle pointer"
+            data-toggle="modal"
+            data-target={`#product-${product && product._id}-edit`}
+          >
+            <FontAwesomeIcon
+              icon={faPencilAlt}
+              onClick={() => this.props.productsOneSelected(product)}
+            />
+          </button>
+          <button
+            className="btn bg-white text-danger rounded-circle pointer"
+            data-toggle="modal"
+            data-target={`#product-${product && product._id}-delete`}
+          >
+            <FontAwesomeIcon
+              icon={faTrash}
+              onClick={() => this.props.productsOneSelected(product)}
+            />
+          </button>
 
-        {/* Modal */}
-        <Modal id={`product-${product && product._id}-edit`}>
-          <ProductForm buttonValue={this.state.buttonValue} onSubmit={this.submit} />
-        </Modal>
-        <Modal
-          id={`product-${product && product._id}-delete`}
-          title="Delete Product"
-          callback={() => this.props.productDelete(_id, 'Product deleted successfully')}
-        >
-          Are you sure you want to delete <strong>{name}</strong>?
-        </Modal>
-      </>
+          {/* Modal */}
+          <Modal id={`product-${product && product._id}-edit`}>
+            <ProductForm
+              buttonValue={this.state.buttonValue}
+              onSubmit={this.submit}
+            />
+          </Modal>
+          <Modal
+            id={`product-${product && product._id}-delete`}
+            title="Delete Product"
+            callback={() => this.props.productDelete(_id, 'Product deleted successfully')
+            }
+          >
+            Are you sure you want to delete <strong>{name}</strong>?
+          </Modal>
+        </>
+      )
     );
   };
 }
 
-const mapStateToProps = ({ product }) => ({ selectedProduct: product.selected });
+const mapStateToProps = ({ auth, product }) => ({
+  isSignedIn: auth.isSignedIn,
+  selectedProduct: product.selected
+});
 
-export default connect(mapStateToProps, { productDelete, productUpdate, productsOneSelected })(
-  ButtonProductOwner
-);
+export default connect(mapStateToProps, {
+  productDelete,
+  productUpdate,
+  productsOneSelected
+})(ButtonProductOwner);

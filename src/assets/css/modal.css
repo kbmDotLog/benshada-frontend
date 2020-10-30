@@ -1,0 +1,30 @@
+#app .benshada-modal {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+}
+
+#app .benshada-modal.benshada-modal-transparent {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#app .benshada-modal.benshada-modal-white,
+#app .benshada-modal .modal-content-white {
+  background: #fff;
+}
+
+#app .benshada-modal.benshada-modal-right {
+  justify-content: flex-end;
+}
+
+#app .benshada-modal .modal-content {
+  padding: 50px 20px;
+  width: fit-content
+}
+
+#app .benshada-modal .modal-content.modal-content-vertical {
+  min-height: 100vh;
+}

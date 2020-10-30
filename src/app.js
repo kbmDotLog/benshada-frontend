@@ -75,12 +75,18 @@ class App extends React.Component {
       this.props
         .userOne(email)
         .then((response) => toast.success(
-          (response && response.value && response.value.data && response.value.data.message)
+          (response
+              && response.value
+              && response.value.data
+              && response.value.data.message)
               || (response && response.statusText)
               || 'Success'
         ))
         .catch((err) => toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
+          (err
+              && err.response
+              && err.response.data
+              && err.response.data.message)
               || (err
                 && err.response
                 && err.response.data
@@ -99,7 +105,14 @@ class App extends React.Component {
 
   render = () => {
     const {
-      isSignedIn, loading, products, stores, testimonials, user, users, orders
+      isSignedIn,
+      loading,
+      products,
+      stores,
+      testimonials,
+      user,
+      users,
+      orders
     } = this.props;
 
     return loading ? (
@@ -133,24 +146,25 @@ class App extends React.Component {
               />
               <Route
                 path="/checkout"
-                component={(component) => <Checkout {...component} user={user} />}
+                component={(component) => (
+                  <Checkout {...component} user={user} />
+                )}
               />
               <Route path="/login" component={Login} exact />
               <Route path="/logout" component={Logout} exact />
               <Route
                 path="/onboarding"
-                component={(component) => <Onboarding {...component} user={user} />}
+                component={(component) => (
+                  <Onboarding {...component} user={user} />
+                )}
                 exact
               />
-              <Route
-                path="/products"
-                component={(component) => (
-                  <ProductDomain {...component} user={user} products={products} />
-                )}
-              />
+              <Route path="/products" render={() => <ProductDomain />} />
               <Route
                 path="/register"
-                component={(component) => <Register {...component} users={users} />}
+                component={(component) => (
+                  <Register {...component} users={users} />
+                )}
                 exact
               />
               <Route
@@ -165,7 +179,10 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path="/user" component={(component) => <User {...component} user={user} />} />
+              <Route
+                path="/user"
+                component={(component) => <User {...component} user={user} />}
+              />
             </Switch>
           </Router>
         </div>
@@ -187,7 +204,13 @@ class App extends React.Component {
 // End Component
 
 const mapStateToProps = ({
-  auth, user, product, store, testimonial, loading, order
+  auth,
+  user,
+  product,
+  store,
+  testimonial,
+  loading,
+  order
 }) => ({
   isSignedIn: auth && auth.isSignedIn,
   loading: loading && loading.pending,

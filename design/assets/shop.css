@@ -69,25 +69,8 @@
   font-size: unset;
 }
 
-#app #shopShowcase .productShowcase .d-flex {
-  flex-wrap: wrap;
-  overflow: unset;
-  justify-content: space-between;
-}
-
-#app #shopShowcase .productShowcase .d-flex .product {
-  margin-bottom: 30px;
-}
-
 #app #shopStats .stat {
   flex: 1 0 40%;
-}
-
-@media (max-width: 364px) {
-  #app #shopShowcase .productShowcase .d-flex .product {
-    flex-basis: 154px;
-    margin: 0px 0px 30px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -136,14 +119,6 @@
   #app #shopShowcase li:nth-child(4) a.active {
     color: rgb(220, 53, 69);
     background: unset;
-  }
-
-  #app #shopShowcase .productShowcase .d-flex {
-    justify-content: flex-start;
-  }
-
-  #app #shopShowcase .productShowcase .product {
-    margin-left: 0;
   }
 
   #app #shopStats .stat {
