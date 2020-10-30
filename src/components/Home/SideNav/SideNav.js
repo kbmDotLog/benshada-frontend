@@ -37,7 +37,7 @@ const SideNav = ({ list, variant }) => (
 /** Component propTypes */
 SideNav.propTypes = {
   list: PropTypes.array,
-  variant: PropTypes.string.isRequired
+  variant: PropTypes.string
 };
 
 /** Export component */

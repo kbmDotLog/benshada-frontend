@@ -27,7 +27,7 @@ export const deliveryCompaniesAll = (isAuthed) => (dispatch, getState) => {
     payload: api.get('/delivery-company/', { headers })
   });
 
-  return response.then(() => dispatch(deliveryPackagesAll(!getState().auth.isSigned)));
+  return response.then(() => dispatch(deliveryPackagesAll(!getState().auth.isSignedIn)));
 };
 
 export const deliveryCompaniesAdd = (deliveryCompanyData) => (dispatch) => {

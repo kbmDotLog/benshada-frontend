@@ -41,7 +41,7 @@ const Jumbotron = ({
           <Link
             to={`/products/${_id}`}
             className={`carousel-item bg-secondary-gradient h-100 ${
-              i === 0 && 'active'
+              i === 0 ? 'active' : ''
             }`}
             key={_id}
             style={{
@@ -53,7 +53,7 @@ const Jumbotron = ({
           <Link
             to={`/catalog?a=p&category=${name}`}
             className={`carousel-item bg-secondary-gradient h-100 ${
-              i === 0 && 'active'
+              i === 0 ? 'active' : ''
             }`}
             key={name}
           ></Link>
@@ -112,7 +112,7 @@ const Jumbotron = ({
                     <li
                       data-target="#carouselId"
                       data-slide-to={i}
-                      className={i === 0 && 'active'}
+                      className={i === 0 ? 'active' : ''}
                       key={`link-${str}`}
                     ></li>
                   ))}
@@ -162,7 +162,7 @@ Jumbotron.propTypes = {
   description: PropTypes.bool,
   isSignedIn: PropTypes.bool.isRequired,
   storeProducts: PropTypes.array,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.element,
   title: PropTypes.string.isRequired
 };
 

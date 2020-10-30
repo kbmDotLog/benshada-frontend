@@ -98,8 +98,6 @@ class ProductForm extends Component {
       batchQuality: batchQuality || 0
     };
 
-    console.log(productData);
-
     Object.entries(productData).forEach(
       ([key, value]) => !data.get(key) && data.append(key, value)
     );

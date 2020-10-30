@@ -18,7 +18,7 @@ export default class CategoryCarousel extends Component {
     { src: banner4, to: 'accessories' }
   ].map(({ src, to }, i) => (
       <div
-        className={`carousel-item ${i === 0 && 'active'}`}
+        className={`carousel-item ${i === 0 ? 'active' : ''}`}
         key={i}
         style={{ height: '60vh' }}
       >

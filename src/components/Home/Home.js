@@ -254,7 +254,7 @@ class Home extends Component {
 const mapStateToProps = ({
   auth, order, product, store
 }) => ({
-  isSignedIn: auth.isSigned,
+  isSignedIn: auth.isSignedIn,
   orders: order.all,
   products: product.all,
   stores: store.all
