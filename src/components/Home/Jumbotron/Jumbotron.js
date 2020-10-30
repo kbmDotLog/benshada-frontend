@@ -1,67 +1,103 @@
-// Module imports
-import React, { Component } from 'react';
+/** Module imports */
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// Component Imports
-import Sidenav from '../SideNav/SideNav.js';
+/** Component imports */
+import SideNav from 'components/Home/SideNav/SideNav.js';
 
-// Asset imports
-import '../../../assets/css/jumbo.min.css';
+/** Asset imports */
+import categories from 'assets/js/categories.js';
+import 'assets/css/jumbo.min.css';
 
-// Start Component
-export default class Jumbotron extends Component {
-  static propTypes = {
-    isSignedIn: PropTypes.bool
-  }
-
-  renderCreateShop = (isSignedIn) => (!isSignedIn ? (
+/**
+ * Displays Jumbotron
+ * @param {Obj} props
+ * @return The UI DOM object
+ */
+const Jumbotron = ({
+  description,
+  isSignedIn,
+  storeProducts,
+  subTitle,
+  title
+}) => {
+  /**
+   * Renders action button to create shop
+   */
+  const renderCreateShop = () => !isSignedIn && (
       <p>
         <Link to="/register" className="btn btn-primary-benshada py-4 w-100">
           Create Your Shop
         </Link>
       </p>
-  ) : (
-    ''
-  ));
+  );
 
-  render = () => (
+  /**
+   * Lists Jumbo images
+   */
+  const listJumboImages = () => (description
+    ? storeProducts.splice(0, 4).map(({ image, _id }, i) => (
+          <Link
+            to={`/products/${_id}`}
+            className={`carousel-item bg-secondary-gradient h-100 ${
+              i === 0 ? 'active' : ''
+            }`}
+            key={_id}
+            style={{
+              background: `url(${image[0]}) no-repeat bottom left/cover`
+            }}
+          ></Link>
+    ))
+    : categories.map(({ name }, i) => (
+          <Link
+            to={`/catalog?a=p&category=${name}`}
+            className={`carousel-item bg-secondary-gradient h-100 ${
+              i === 0 ? 'active' : ''
+            }`}
+            key={name}
+          ></Link>
+    )));
+
+  /** Address for shop now button */
+  const shopNowAddress = description
+    ? { hash: '#shopProductShowcase' }
+    : '/catalog?a=p';
+
+  return (
     <>
-      <section id="jumbo" className="jumbo jumbo-home position-relative rounded-0">
+      <section
+        id="jumbo"
+        className={`jumbo ${!description && 'jumbo-home'} position-relative`}
+      >
         <h2 className="d-none">Jumbo</h2>
         <article className="jumbotron jumbotron-fluid bg-white py-0 h-100">
           <div className="container-fluid h-100">
             <div className="row h-100 align-items-center">
               <div className="col-12 col-xl p-4 d-none d-xl-block">
                 <div className="intro">
-                  <h4 className="year text-uppercase position-relative">2020</h4>
+                  <h4 className="year text-uppercase position-relative">
+                    {title}
+                  </h4>
                   <hgroup className="my-4 my-xl-5 pl-xl-5">
-                    <h4 className="display-4">
-                      Latest
-                      <br />
-                      Collection
-                    </h4>
-                    <h6 className="d-none">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor quia
-                      laudantium culpa quam totam voluptas facere repudiandae nemo itaque libero
-                      numquam sit deserunt alias, doloribus inventore quod pariatur eveniet at!
-                    </h6>
+                    <h4 className="display-4">{subTitle}</h4>
+                    {description && <h6>{description}</h6>}
                   </hgroup>
                   <p className="lead">
                     <Link
-                      to="/catalog/?a=p"
+                      to={shopNowAddress}
                       className="btn btn-primary d-xl-none rounded-0"
                       role="button"
                     >
-                      See More
+                      Shop Now
                     </Link>
 
                     <Link
                       className="btn btn-primary d-none d-xl-inline-block rounded-0"
-                      to="/catalog/?a=p"
+                      to={shopNowAddress}
                       role="button"
                     >
-                      See More
+                      Shop Now
                     </Link>
                   </p>
                 </div>
@@ -72,28 +108,17 @@ export default class Jumbotron extends Component {
                 data-ride="carousel"
               >
                 <ol className="carousel-indicators">
-                  <li data-target="#carouselId" data-slide-to="0" className="active"></li>
-                  <li data-target="#carouselId" data-slide-to="1"></li>
-                  <li data-target="#carouselId" data-slide-to="2"></li>
-                  <li data-target="#carouselId" data-slide-to="3"></li>
+                  {Array.from('link').map((str, i) => (
+                    <li
+                      data-target="#carouselId"
+                      data-slide-to={i}
+                      className={i === 0 ? 'active' : ''}
+                      key={`link-${str}`}
+                    ></li>
+                  ))}
                 </ol>
                 <div className="carousel-inner h-100" role="listbox">
-                  <Link
-                    to="/catalog?a=p&category=accessories"
-                    className="carousel-item bg-secondary-gradient h-100 active"
-                  ></Link>
-                  <Link
-                    to="/catalog?a=p&category=bags"
-                    className="carousel-item bg-secondary-gradient h-100"
-                  ></Link>
-                  <Link
-                    to="/catalog?a=p&category=clothes"
-                    className="carousel-item bg-secondary-gradient h-100"
-                  ></Link>
-                  <Link
-                    to="/catalog?a=p&category=shoes"
-                    className="carousel-item bg-secondary-gradient h-100"
-                  ></Link>
+                  {listJumboImages(description, storeProducts)}
                 </div>
                 <a
                   className="carousel-control-prev v-child"
@@ -101,7 +126,10 @@ export default class Jumbotron extends Component {
                   role="button"
                   data-slide="prev"
                 >
-                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
                   <span className="sr-only">Previous</span>
                 </a>
                 <a
@@ -110,17 +138,33 @@ export default class Jumbotron extends Component {
                   role="button"
                   data-slide="next"
                 >
-                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
                   <span className="sr-only">Next</span>
                 </a>
               </div>
             </div>
           </div>
         </article>
-        <Sidenav list={['Accessories', 'Bags', 'Shoes']} />
+        <SideNav list={['Accessories', 'Bags', 'Shoes']} />
       </section>
-      {this.renderCreateShop(this.props.isSignedIn)}
+      {renderCreateShop(isSignedIn)}
     </>
   );
-}
-// End Component
+};
+
+/**
+ * Component propTypes
+ */
+Jumbotron.propTypes = {
+  description: PropTypes.bool,
+  isSignedIn: PropTypes.bool.isRequired,
+  storeProducts: PropTypes.array,
+  subTitle: PropTypes.element,
+  title: PropTypes.string.isRequired
+};
+
+/** Export component */
+export default Jumbotron;

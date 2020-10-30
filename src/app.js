@@ -105,14 +105,7 @@ class App extends React.Component {
 
   render = () => {
     const {
-      isSignedIn,
-      loading,
-      products,
-      stores,
-      testimonials,
-      user,
-      users,
-      orders
+      loading, products, stores, user, users, orders
     } = this.props;
 
     return loading ? (
@@ -129,21 +122,7 @@ class App extends React.Component {
           <Router basename="/">
             <Switch>
               <Route path="/catalog" component={Catalog} />
-              <Route
-                path="/"
-                component={(component) => (
-                  <Home
-                    {...component}
-                    isSignedIn={isSignedIn}
-                    products={products}
-                    stores={stores}
-                    orders={orders}
-                    testimonials={testimonials}
-                    user={user}
-                  />
-                )}
-                exact
-              />
+              <Route path="/" component={Home} exact />
               <Route
                 path="/checkout"
                 component={(component) => (
@@ -159,7 +138,7 @@ class App extends React.Component {
                 )}
                 exact
               />
-              <Route path="/products" render={() => <ProductDomain />} />
+              <Route path="/products" component={ProductDomain} />
               <Route
                 path="/register"
                 component={(component) => (

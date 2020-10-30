@@ -1,29 +1,44 @@
-// Module imports
-import React, { Component } from 'react';
+/** Module imports */
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class Sidenav extends Component {
-  static propTypes = {
-    list: PropTypes.array,
-    variant: PropTypes.string
-  };
+/** Asset imports */
+import categories from 'assets/js/categories';
 
-  render = () => (
-    <div className={`side-nav side-nav-${this.props.variant} d-none d-xl-block`}>
-      <ul className="v-child">
-        {this.props.list.map((item, i) => (
-          <li key={`side-nav-list-${i}`}>
-            <Link
-              to={`/catalog/?a=p&${
-                item.length ? `category=${item.toLowerCase()}` : `discount=${item}`
-              }`}
-            >
-              {item.length ? item : `${item}% & above`}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+/**
+ * Displays sidenav
+ * @constructor
+ * @param {Obj} props
+ * @return The UI DOM object
+ */
+const SideNav = ({ list, variant }) => (
+  <div className={`side-nav side-nav-${variant} d-none d-xl-block`}>
+    <ul className="v-child">
+      {(
+        list || categories.filter((item, i) => i !== 0).map(({ name }) => name)
+      ).map((item, i) => (
+        <li key={`side-nav-list-${i}`}>
+          <Link
+            to={`/catalog/?a=p&${
+              item.length
+                ? `category=${item.toLowerCase()}`
+                : `discount=${item}`
+            }`}
+          >
+            {item.length ? item : `${item}% & above`}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+/** Component propTypes */
+SideNav.propTypes = {
+  list: PropTypes.array,
+  variant: PropTypes.string
+};
+
+/** Export component */
+export default SideNav;
