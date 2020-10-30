@@ -55,11 +55,15 @@ export default class StoreDomain extends Component {
     const sP = products.filter((p) => p.shop && p.shop._id === _id);
     const sO = orders.filter((o) => sP.map((p) => p && p._id).includes(o && o.product));
 
-    return !store ? <Redirect to="/" /> : (
+    return !store ? (
+      <Redirect to="/" />
+    ) : (
       <HrFr>
         <div className="container bg-white shadow-sm pt-5 mt-5">
           <div className="row">
-            <div style={{ width: '200px', height: '200px', overflow: 'hidden' }}>
+            <div
+              style={{ width: '200px', height: '200px', overflow: 'hidden' }}
+            >
               <Image name={name} image={image} type="store" size={6} id={_id} />
             </div>
             <div className="col">
@@ -175,11 +179,17 @@ export default class StoreDomain extends Component {
             products={sP}
             type={{ name: 'discountPercentage', value: 0 }}
             title={`Discounts from ${name}`}
-            count={4}
+            count={12}
+            isFlex={true}
           />
         </div>
         <div className="container py-4">
-          <ProductList products={sP} title={`More Products from ${name}`} count={4} />
+          <ProductList
+            products={sP}
+            title={`More Products from ${name}`}
+            count={12}
+            isFlex={true}
+          />
         </div>
       </HrFr>
     );

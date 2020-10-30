@@ -2,7 +2,11 @@
 // Mosule imports
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBag, faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faShoppingBag,
+  faHeart,
+  faCartPlus
+} from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartAlt } from '@fortawesome/free-regular-svg-icons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -19,7 +23,9 @@ const ButtonProductBuyer = (props) => {
   const ifInCart = (productID, cart) => cart.map(({ _id }) => _id).includes(productID);
 
   const INIT = {
-    save: ifSaved(props.product._id, (props.user && props.user.saved) || []) ? faHeart : faHeartAlt,
+    save: ifSaved(props.product._id, (props.user && props.user.saved) || [])
+      ? faHeart
+      : faHeartAlt,
     cart: ifInCart(props.product._id, (props.user && props.user.cart) || [])
       ? faShoppingBag
       : faCartPlus
@@ -44,7 +50,9 @@ const ButtonProductBuyer = (props) => {
   };
 
   const shouldAddToCart = (id, product, cart, email) => {
-    const newCart = ifInCart(id, cart) ? cart.filter(({ _id }) => _id !== id) : [...cart, product];
+    const newCart = ifInCart(id, cart)
+      ? cart.filter(({ _id }) => _id !== id)
+      : [...cart, product];
     const successMessage = ifInCart(id, cart)
       ? 'Product removed from cart'
       : 'Product added to cart';
@@ -56,47 +64,74 @@ const ButtonProductBuyer = (props) => {
       .finally(() => setCartIcon(INIT.cart));
   };
 
-  const { product, user, isSignedIn } = props;
+  const {
+    product, user, isSignedIn, isBatch
+  } = props;
   const saved = (user && user.saved) || [];
   const cart = (user && user.cart) || [];
   const email = user && user.email;
 
-  const { _id, quantity } = product;
+  const { _id } = product;
   const history = useHistory();
 
-  return quantity > 0 ? (
-    <>
-      <button
-        className={`btn bg-white text-${
-          ifInCart(_id, cart) ? 'primary-benshada' : 'secondary'
-        } rounded-circle pointer`}
-        onClick={() => (!isSignedIn ? history.push('/login') : shouldAddToCart(_id, product, cart, email))
-        }
-      >
-        {cartIcon === INIT.cart ? <FontAwesomeIcon icon={cartIcon} /> : cartIcon}
-      </button>
-      <button
-        className={`btn bg-white text-${
-          ifSaved(_id, saved) ? 'danger' : 'secondary'
-        } rounded-circle pointer`}
-        onClick={() => (!isSignedIn ? history.push('/login') : shouldWishlist(_id, product, saved, email))
-        }
-      >
-        {saveIcon === INIT.save ? <FontAwesomeIcon icon={saveIcon} /> : saveIcon}
-      </button>
-    </>
-  ) : (
-    ''
+  return (
+    ((isBatch && (user && user.type) === 'UB')
+      || (!isBatch && (user && user.type) === 'UC')
+      || (user && user._id === undefined))
+    && product.quantity > 0 && (
+      <>
+        <button
+          className={`btn bg-white text-${
+            ifInCart(_id, cart) ? 'primary-benshada' : 'secondary'
+          } rounded-circle pointer`}
+          onClick={() => (!isSignedIn
+            ? history.push('/login')
+            : shouldAddToCart(_id, product, cart, email))
+          }
+        >
+          {cartIcon === INIT.cart ? (
+            <FontAwesomeIcon icon={cartIcon} />
+          ) : (
+            cartIcon
+          )}
+        </button>
+        <button
+          className={`btn bg-white text-${
+            ifSaved(_id, saved) ? 'danger' : 'secondary'
+          } rounded-circle pointer`}
+          onClick={() => (!isSignedIn
+            ? history.push('/login')
+            : shouldWishlist(_id, product, saved, email))
+          }
+        >
+          {saveIcon === INIT.save ? (
+            <FontAwesomeIcon icon={saveIcon} />
+          ) : (
+            saveIcon
+          )}
+        </button>
+      </>
+    )
   );
 };
 
+/**
+ * Maps Redux store state to props
+ * @param {Obj} state
+ * @return {Obj} Extra props
+ */
 const mapStateToProps = ({ auth }) => ({ isSignedIn: auth.isSignedIn });
 
+/**
+ * Component propTypes
+ */
 ButtonProductBuyer.propTypes = {
   product: PropTypes.object,
   user: PropTypes.object,
   userUpdate: PropTypes.func,
+  isBatch: PropTypes.bool,
   isSignedIn: PropTypes.bool
 };
 
+/** Export component */
 export default connect(mapStateToProps, { userUpdate })(ButtonProductBuyer);

@@ -8,13 +8,13 @@ import qs from 'query-string';
 // Component imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { sortNumAsc, unique } from 'assets/js/prototypes.js';
 import HrFr from '../HrFr/HrFr.js';
 import ProductList from '../ProductList/ProductList.js';
 import Filter from './Filter/Filter.js';
 
 // Asset imports
-import '../../assets/css/catalog.css';
-import { sortNumAsc, unique } from '../../assets/js/prototypes.js';
+import 'assets/css/catalog.min.css';
 
 class Catalog extends Component {
   constructor(props) {
@@ -53,7 +53,9 @@ class Catalog extends Component {
     }
 
     if (discount) {
-      rP = rP.filter(({ discountPercentage }) => discountPercentage >= Number(discount));
+      rP = rP.filter(
+        ({ discountPercentage }) => discountPercentage >= Number(discount)
+      );
     }
 
     if (this.state.gender !== '') {
@@ -65,7 +67,9 @@ class Catalog extends Component {
     }
 
     if (Number(min) > 0) {
-      rP = rP.filter(({ price }) => price >= Number(min) && price <= Number(max));
+      rP = rP.filter(
+        ({ price }) => price >= Number(min) && price <= Number(max)
+      );
     }
 
     if (q) {
@@ -83,13 +87,18 @@ class Catalog extends Component {
     const x1 = parseInt(target.max, 2);
     const x2 = parseInt(target.min, 2);
 
-    return (100 / (x1 - x2)) * parseInt(target.value, 2) - (100 / (x1 - x2)) * x2;
+    return (
+      (100 / (x1 - x2)) * parseInt(target.value, 2) - (100 / (x1 - x2)) * x2
+    );
   };
 
   priceFilter1 = (e) => {
     const { target } = e;
 
-    target.value = Math.min(target.value, target.parentNode.childNodes[2].value - 1);
+    target.value = Math.min(
+      target.value,
+      target.parentNode.childNodes[2].value - 1
+    );
 
     const value = this.filterValue(target);
 
@@ -108,7 +117,10 @@ class Catalog extends Component {
   priceFilter2 = (e) => {
     const { target } = e;
 
-    target.value = Math.max(target.value, target.parentNode.childNodes[1].value - -1);
+    target.value = Math.max(
+      target.value,
+      target.parentNode.childNodes[1].value - -1
+    );
     const value = this.filterValue(target);
 
     const children = target.parentNode.childNodes[0].childNodes;
@@ -143,11 +155,15 @@ class Catalog extends Component {
       if (!['min', 'max'].includes(i[0])) {
         this.setState(({ size }) => (i[0] === 'size'
           ? {
-            [i[0]]: size.concat((typeof i[1] === 'string' ? i[1] : i[1].join(',')).split(','))
+            [i[0]]: size.concat(
+              (typeof i[1] === 'string' ? i[1] : i[1].join(',')).split(',')
+            )
           }
           : { [i[0]]: i[1] }));
       }
-      return i[0] === 'size' ? searchParams.append(i[0], i[1]) : searchParams.set(i[0], i[1]);
+      return i[0] === 'size'
+        ? searchParams.append(i[0], i[1])
+        : searchParams.set(i[0], i[1]);
     });
 
     // Set new one
@@ -168,7 +184,8 @@ class Catalog extends Component {
       this.setState({
         price: { min: newMin, max: newMax },
         products: initProd,
-        q: qO.q ? qO.q : undefined
+        q: qO.q ? qO.q : undefined,
+        url: window.location.href
       });
       searchParams.set('min', newMin);
       searchParams.set('max', newMax);
@@ -200,7 +217,8 @@ class Catalog extends Component {
   };
 
   getSnapshotBeforeUpdate = (prevProps, prevState) => ({
-    shouldInitialize: prevState.q !== qs.parse(window.location.search).q
+    shouldInitialize:
+      prevState.q !== qs.parse(window.location.search).q
   });
 
   componentDidUpdate = (prevProps, prevState, snapshot) => snapshot
@@ -256,7 +274,12 @@ class Catalog extends Component {
               isVisible={this.state.isFilterVisible}
             />
             <div className="col-12 col-md">
-              <ProductList products={this.filterProducts(initProd)} title="Products" />
+              <ProductList
+                products={this.filterProducts(initProd)}
+                wrap={true}
+                isFlex={true}
+                title="Products"
+              />
             </div>
           </div>
         </div>

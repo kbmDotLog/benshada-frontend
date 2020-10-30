@@ -5,15 +5,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
 
 // Component imports
-import ifSeller from 'assets/js/ifSeller.js';
 import Price from './Price.js';
 // import Rating from '../../Rating/Rating.js';
 // import Returns from '../../Returns/Returns.js';
 import ButtonProductBuyer from './Buttons/ButtonProductBuyer.js';
 import ButtonProductOwner from './Buttons/ButtonProductOwner.js';
+import ProductSales from './ProductSales.js';
+import ProductShopType from './ProductShopType.js';
 
 // Asset imports
 import 'assets/css/product.min.css';
@@ -32,37 +33,18 @@ class ProductDisplay extends Component {
     const shops = (user && user.shops) || [];
     const { shop, isBatch } = product;
 
-    if (
-      shops.map((item) => item && item._id).includes(shop && shop._id)
-      || (user && user.type === 'ADMIN')
-    ) {
-      return <ButtonProductOwner product={product} user={user} />;
-    }
-
-    if (
-      (isBatch && (user && user.type) === 'UB')
-      || (!isBatch && (user && user.type) === 'UC')
-      || (user && user._id === undefined)
-    ) {
-      return <ButtonProductBuyer product={product} user={user} />;
-    }
-
-    return false;
+    return (
+      <>
+        <ButtonProductOwner
+          shops={shops}
+          shop={shop}
+          product={product}
+          user={user}
+        />
+        <ButtonProductBuyer isBatch={isBatch} product={product} user={user} />
+      </>
+    );
   };
-
-  shopType = ({ shop }) => {
-    const { users, stores } = this.props;
-    const shopID = shop && shop._id;
-    const shopFull = stores.filter(({ _id }) => _id === shopID)[0];
-    const shopOwner = shopFull && shopFull.user;
-    const shopOwnerID = shopOwner && shopOwner._id;
-    const shopOwnerFull = users.filter(({ _id }) => _id === shopOwnerID)[0];
-    const shopOwnerType = shopOwnerFull && shopOwnerFull.type;
-
-    return ifSeller(shopOwnerType)[1];
-  };
-
-  getSales = ({ _id }, orders) => orders.filter(({ product, status }) => product === _id && status === 'paid').length;
 
   render() {
     const { product } = this.props;
@@ -83,7 +65,6 @@ class ProductDisplay extends Component {
         background: `url(${image[0]}) no-repeat bottom left/cover`
       }
       : {};
-    const shopType = this.shopType(product);
 
     return (
       <>
@@ -100,7 +81,10 @@ class ProductDisplay extends Component {
       </div>
     </div> */}
         <article className="product shadow">
-          <div className="img-holder position-relative text-center" style={imgHolderStyle}>
+          <div
+            className="img-holder position-relative text-center"
+            style={imgHolderStyle}
+          >
             <div className="product-actions position-absolute p-3">
               {this.renderActionButtons(product)}
             </div>
@@ -112,16 +96,12 @@ class ProductDisplay extends Component {
           </div>
           <div className="position-relative mb-3 product-info py-2 px-3">
             <div className="product-type">
-              <span
-                className={`badge badge-${
-                  shopType === 'Manufacturer' ? 'primary-benshada' : 'primary'
-                } text-white font-weight-bold`}
-                role="contentinfo"
-              >
-                {shopType}
-              </span>
+              <ProductShopType product={product} />
             </div>
-            <Link to={`/products/${_id}`} className="name text-capitalize text-truncate">
+            <Link
+              to={`/products/${_id}`}
+              className="name text-capitalize text-truncate"
+            >
               {name}
             </Link>
             <h4 className="product-price">
@@ -129,15 +109,17 @@ class ProductDisplay extends Component {
             </h4>
             <div className="product-actions justify-content-start">
               <span className="mr-3" role="contentinfo">
-                <FontAwesomeIcon icon={faStar} className="text-primary-benshada" /> {overallRating}
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className="text-primary-benshada"
+                />{' '}
+                {overallRating}
               </span>
               <span className="mr-3" role="contentinfo">
-                <FontAwesomeIcon icon={faUndo} className="text-danger" /> {returns}
+                <FontAwesomeIcon icon={faUndo} className="text-danger" />{' '}
+                {returns}
               </span>
-              <span role="contentinfo">
-                <FontAwesomeIcon icon={faCheck} className="text-success" />{' '}
-                {this.getSales(product, this.props.orders)}
-              </span>
+              <ProductSales prod={product} />
             </div>
             <p
               className={`text-${
