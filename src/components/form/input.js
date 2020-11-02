@@ -1,10 +1,17 @@
+/** Asset imports */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import IntlTelInput from 'react-intl-tel-input';
 // import FormIcon from './formIcon.js';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+/** Component imports */
 import ValidateIcon from './validateIcon.js';
 import MultiColor from './multicolor/multicolor.js';
+
+/** Asset imports */
+import 'react-intl-tel-input/dist/main.css';
 
 export default class Input extends Component {
   constructor(props) {
@@ -57,14 +64,31 @@ export default class Input extends Component {
 
   renderInput = ({
     type, input, id, placeholder, disabled, val, maxLength
-  }) => (type === 'color' ? (
-      <MultiColor
-        colors={this.state.colors}
-        onUpdateColors={(colors) => this.setState(() => ({ colors }))}
-        id={id}
-        input={input}
-      />
-  ) : (
+  }) => ({
+    color: (
+        <MultiColor
+          colors={this.state.colors}
+          onUpdateColors={(colors) => this.setState(() => ({ colors }))}
+          id={id}
+          input={input}
+        />
+    ),
+    tel: (
+        <IntlTelInput
+          {...input}
+          containerClassName="intl-tel-input"
+          inputClassName="form-control"
+          preferredCountries={['ng']}
+          defaultCountry="ng"
+          onlyCountries={['ng', 'gh']}
+          autoHideDialCode={false}
+          nationalMode={false}
+          onPhoneNumberChange={(a, value) => input.onChange(value)}
+          onPhoneNumberBlur={(a, value) => input.onBlur(value)}
+          onPhoneNumberFocus={() => input.onFocus()}
+        />
+    )
+  }[type] || (
       <input
         {...input}
         type={this.state.stateType}

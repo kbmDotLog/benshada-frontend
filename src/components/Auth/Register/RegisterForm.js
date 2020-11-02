@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/** Module imports */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -9,10 +10,14 @@ import {
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { registerValidate as validate } from '../../../assets/js/validate.js';
 
-import '../../../assets/css/form.css';
-import FormField from '../../form/formField.js';
+/** Component imports */
+import FormField from 'components/form/formField.js';
+import FormHeader from 'components/form/formHeader.js';
+
+/** Asset imports */
+import { registerValidate as validate } from 'assets/js/validate.js';
+import 'assets/css/form.css';
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -27,10 +32,7 @@ class RegisterForm extends Component {
       className="m-0 px-lg-5"
       autoComplete="off"
     >
-      <Link to="/" className="navbar-brand w-100 text-left">
-        <i className="font-weight-bold">benshada</i>
-      </Link>
-      <h2 className="mb-4">Register on Benshada Place</h2>
+      <FormHeader title="Register on Benshada Place" />
 
       <div className="form-row">
         <Field
