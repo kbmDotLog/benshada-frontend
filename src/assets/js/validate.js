@@ -1,3 +1,6 @@
+/** Module imports */
+import { verifyPhoneNumber } from 'nigerian-phone-number-validator';
+
 // Asset imports
 import states from '../data/states.json';
 import types from '../data/types.json';
@@ -6,7 +9,11 @@ import genders from './genders.js';
 import ticketTypes from './ticketTypes.js';
 
 export const addressValidate = ({
-  firstName, familyName, address, phone, state
+  firstName,
+  familyName,
+  address,
+  phone,
+  state
 }) => {
   const errors = {};
 
@@ -20,8 +27,14 @@ export const addressValidate = ({
 
   if (!phone) {
     errors.phone = 'What is your phone number?';
-  } else if (!/^[234]\d{12}$/i.test(phone)) {
-    errors.phone = 'A valid Nigerian phone number starting with 234 is required';
+  } else if (
+    !(
+      phone.replace(/ /g, '').startsWith('+233')
+      || (phone.replace(/ /g, '').startsWith('+234')
+      && verifyPhoneNumber(phone.replace(/ /g, '')))
+    )
+  ) {
+    errors.phone = 'Please enter a valid Nigerian or Ghanian phone number';
   }
 
   if (!address) {
@@ -59,14 +72,24 @@ export const deliveryCompanyValidate = ({
 
   if (!email) {
     errors.email = "What is your company's email address?";
-  } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(email)) {
+  } else if (
+    !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(
+      email
+    )
+  ) {
     errors.email = 'The email provided is not valid';
   }
 
   if (!phone) {
-    errors.phone = "What is your company's contact phone number?";
-  } else if (!/^[234]\d{12}$/i.test(phone)) {
-    errors.phone = 'A valid Nigerian phone number starting with 234 is required';
+    errors.phone = 'What is your phone number?';
+  } else if (
+    !(
+      phone.replace(/ /g, '').startsWith('+233')
+      || (phone.replace(/ /g, '').startsWith('+234')
+      && verifyPhoneNumber(phone.replace(/ /g, '')))
+    )
+  ) {
+    errors.phone = 'Please enter a valid Nigerian or Ghanian phone number';
   }
 
   if (!headOffice) {
@@ -81,7 +104,11 @@ export const loginValidate = ({ email, password }) => {
 
   if (!email) {
     errors.email = 'What is your email address?';
-  } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(email)) {
+  } else if (
+    !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(
+      email
+    )
+  ) {
     errors.email = 'The email provided is not valid';
   }
 
@@ -113,7 +140,11 @@ export const packageValidate = (packageData) => {
   }
 
   if (method === 'pickup') {
-    const { pickupStationName, pickupStationAddress, pickupStationState } = packageData;
+    const {
+      pickupStationName,
+      pickupStationAddress,
+      pickupStationState
+    } = packageData;
 
     if (!pickupStationName) {
       errors.pickupStationName = 'What is the name for the pickup station or a place nearby for this package?';
@@ -125,7 +156,9 @@ export const packageValidate = (packageData) => {
 
     if (!pickupStationState) {
       errors.pickupStationState = 'Required';
-    } else if (!states.map((store) => store.name).includes(pickupStationState)) {
+    } else if (
+      !states.map((store) => store.name).includes(pickupStationState)
+    ) {
       errors.pickupStationState = 'Please select a Nigerian state';
     }
   }
@@ -274,8 +307,14 @@ export const profileValidate = (profileData) => {
 
   if (!phone) {
     errors.phone = 'What is your phone number?';
-  } else if (!/^[234]\d{12}$/i.test(phone)) {
-    errors.phone = 'A valid Nigerian phone number starting with 234 is required';
+  } else if (
+    !(
+      phone.replace(/ /g, '').startsWith('+233')
+      || (phone.replace(/ /g, '').startsWith('+234')
+      && verifyPhoneNumber(phone.replace(/ /g, '')))
+    )
+  ) {
+    errors.phone = 'Please enter a valid Nigerian or Ghanian phone number';
   }
 
   if (!address) {
@@ -322,14 +361,24 @@ export const registerValidate = ({
 
   if (!email) {
     errors.email = 'What is your email address?';
-  } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(email)) {
+  } else if (
+    !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(
+      email
+    )
+  ) {
     errors.email = 'The email provided is not valid';
   }
 
   if (!phone) {
     errors.phone = 'What is your phone number?';
-  } else if (!/^[234]\d{12}$/i.test(phone)) {
-    errors.phone = 'A valid Nigerian phone number starting with 234 is required';
+  } else if (
+    !(
+      phone.replace(/ /g, '').startsWith('+233')
+      || (phone.replace(/ /g, '').startsWith('+234')
+      && verifyPhoneNumber(phone.replace(/ /g, '')))
+    )
+  ) {
+    errors.phone = 'Please enter a valid Nigerian or Ghanian phone number';
   }
 
   if (!password) {
@@ -381,9 +430,15 @@ export const storeValidate = ({
   }
 
   if (!phone) {
-    errors.phone = 'What is the contact number for your store?';
-  } else if (!/^[234]\d{12}$/i.test(phone)) {
-    errors.phone = 'A valid Nigerian contact number starting with 234 is required';
+    errors.phone = 'What is your phone number?';
+  } else if (
+    !(
+      phone.replace(/ /g, '').startsWith('+233')
+      || (phone.replace(/ /g, '').startsWith('+234')
+      && verifyPhoneNumber(phone.replace(/ /g, '')))
+    )
+  ) {
+    errors.phone = 'Please enter a valid Nigerian or Ghanian phone number';
   }
 
   return errors;

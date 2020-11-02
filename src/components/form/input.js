@@ -78,8 +78,14 @@ export default class Input extends Component {
           {...input}
           containerClassName="intl-tel-input"
           inputClassName="form-control"
-          preferredCountries={['ng', 'gh']}
+          preferredCountries={['ng']}
           defaultCountry="ng"
+          onlyCountries={['ng', 'gh']}
+          autoHideDialCode={false}
+          nationalMode={false}
+          onPhoneNumberChange={(a, value) => input.onChange(value)}
+          onPhoneNumberBlur={(a, value) => input.onBlur(value)}
+          onPhoneNumberFocus={() => input.onFocus()}
         />
     )
   }[type] || (

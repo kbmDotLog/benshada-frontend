@@ -1,12 +1,17 @@
 /* eslint-disable no-underscore-dangle */
+/** Module imports */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { loginValidate as validate } from '../../../assets/js/validate.js';
 
-import '../../../assets/css/form.css';
-import FormField from '../../form/formField.js';
+/** Component imports */
+import FormHeader from 'components/form/formHeader.js';
+import FormField from 'components/form/formField.js';
+
+/** Asset imports */
+import { loginValidate as validate } from 'assets/js/validate.js';
+import 'assets/css/form.css';
 
 class LoginForm extends Component {
   static propTypes = {
@@ -21,10 +26,7 @@ class LoginForm extends Component {
       className="m-0 px-lg-5"
       autoComplete="off"
     >
-      <Link to="/" className="navbar-brand w-100 text-left">
-        <i className="font-weight-bold">benshada</i>
-      </Link>
-      <h2 className="mb-4">Login to Benshada Place</h2>
+      <FormHeader title="Login to Benshada Place" />
 
       <div className="form-row">
         <Field

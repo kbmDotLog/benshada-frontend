@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/** Module impports */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -9,10 +10,14 @@ import {
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 import { Field, reduxForm } from 'redux-form';
-import { typeValidate as validate } from '../../assets/js/validate.js';
 
-import '../../assets/css/form.css';
-import FormField from '../form/formField.js';
+/** Component imports */
+import FormHeader from 'components/form/formHeader.js';
+import FormField from 'components/form/formField.js';
+
+/** Asset imports */
+import { typeValidate as validate } from 'assets/js/validate.js';
+import 'assets/css/form.css';
 
 class TypeForm extends Component {
   constructor(props) {
@@ -35,12 +40,7 @@ class TypeForm extends Component {
         className="m-0 px-lg-5"
         autoComplete="off"
       >
-        <Link to="/" className="navbar-brand w-100 text-left">
-          <i className="font-weight-bold">benshada</i>
-        </Link>
-        <h2 className="mb-4">
-          What do you want to do on Benshada Place?
-        </h2>
+        <FormHeader title="What do you want to do on Benshada Place?" />
 
         <small className="section-header">I want to</small>
         <div className="form-row align-items-center">

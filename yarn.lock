@@ -8162,6 +8162,11 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
+nigerian-phone-number-validator@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nigerian-phone-number-validator/-/nigerian-phone-number-validator-1.0.0.tgz#05e0e82f3d3c4f24f0df880ff9e63022449edb7a"
+  integrity sha512-YKetZfGGtbAUV3M+zW9jfwS7kuwTm3PTH4iWpoUk/K/hOukm8wwlVdhqSnS68l1jclP99umUo0TL3KTRCAbm7w==
+
 no-case@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.3.tgz#c21b434c1ffe48b39087e86cfb4d2582e9df18f8"
