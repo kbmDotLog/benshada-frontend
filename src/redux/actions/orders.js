@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-import { toast } from 'react-toastify';
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   ORDERS_ONE,
   ORDERS_MULTIPLE_SELECTED,
@@ -8,23 +10,44 @@ import {
   ORDER_UPDATE,
   ORDER_DELETE,
   ORDER_ADD
-} from './types/orderTypes.js';
-import { userUpdate } from './users.js';
-import { productUpdateMultiple, productUpdate } from './products.js';
-import { notificationsAll } from './notifications.js';
+} from 'redux/actions/types/orderTypes';
 
-export const ordersAll = () => ({ type: ORDERS_ALL, payload: api.get('/orders/') });
+/** Action imports */
+import { userUpdate } from 'redux/actions/users';
+import { productUpdateMultiple, productUpdate } from 'redux/actions/products';
+import { notificationsAll } from 'redux/actions/notifications';
 
+/**
+ *Select multiple orders
+ * @param {[]} orders
+ */
+export const ordersMultipleSelected = (orders) => ({
+  type: ORDERS_MULTIPLE_SELECTED,
+  payload: orders
+});
+
+/**
+ *Fetch single order
+ * @param {string} id
+ */
 export const ordersOne = (id) => ({
   type: ORDERS_ONE,
   payload: api.get(`/orders/${id}`)
 });
 
-export const ordersMultipleSelected = (payload) => ({
-  type: ORDERS_MULTIPLE_SELECTED,
-  payload
+/**
+ * Fetch all orders
+ */
+export const ordersAll = () => ({
+  type: ORDERS_ALL,
+  payload: api.get('/orders/')
 });
 
+/**
+ *Update single order
+ * @param {string} id
+ * @param {object} orderData
+ */
 export const orderUpdate = (id, orderData) => (dispatch) => {
   const response = dispatch({
     type: ORDER_UPDATE,
@@ -34,6 +57,10 @@ export const orderUpdate = (id, orderData) => (dispatch) => {
   return response.then(() => dispatch([ordersOne(id), ordersAll(), notificationsAll()]));
 };
 
+/**
+ *Add multiple orders
+ * @param {array} orders
+ */
 export const orderAdd = (orders) => (dispatch, getState) => {
   // Dispatch orders
   const orderRequests = [];
@@ -68,9 +95,15 @@ export const orderAdd = (orders) => (dispatch, getState) => {
   ]));
 };
 
-export const orderDelete = (order, message) => (dispatch, getState) => {
+/**
+ *Delete single order
+ * @param {object} order
+ */
+export const orderDelete = (order) => (dispatch, getState) => {
   const { _id, product, count } = order;
-  const stateProduct = getState().product.all.filter((item) => item._id === product)[0];
+  const stateProduct = getState().product.all.filter(
+    (item) => item._id === product
+  )[0];
   const selectedOrders = getState().order.selected.filter(
     (item) => item && item.product && item.product._id !== product
   );
@@ -81,21 +114,9 @@ export const orderDelete = (order, message) => (dispatch, getState) => {
     payload: api.delete(`/orders/${_id}`)
   });
 
-  return response
-    .then(() => dispatch([
-      productUpdate(product, { quantity }),
-      ordersAll(),
-      ordersMultipleSelected(selectedOrders)
-    ]))
-    .then(() => message && toast.success(message))
-    .catch((err) => toast.error(
-      (err && err.response && err.response.data && err.response.data.message)
-          || (err
-            && err.response
-            && err.response.data
-            && err.response.data.message
-            && err.response.data.message.name)
-          || (err && err.response && err.response.statusText)
-          || 'Network error'
-    ));
+  return response.then(() => dispatch([
+    productUpdate(product, { quantity }),
+    ordersAll(),
+    ordersMultipleSelected(selectedOrders)
+  ]));
 };

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
 import StoreForm from '../../StoreList/StoreDisplay/StoreForm.js';
 import { shopUpdate } from '../../../redux/actions/stores.js';
@@ -54,21 +53,6 @@ class Store extends Component {
 
     this.props
       .shopUpdate(_id, store)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -82,25 +66,6 @@ class Store extends Component {
 
     this.props
       .shopUpdate(this.props.store._id, fd)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => {
-        this.setState(this.INIT);
-
-        toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-        );
-      })
       .finally(() => this.setState(this.INIT));
   };
 

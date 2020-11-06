@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 /**
  * Displays product page product images
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 const ProductImage = ({ image, name }) => (
   <div className="product-image-showcase" role="none">

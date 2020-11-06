@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 /**
  * Dsiplays FormHeader UI
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 const FormHeader = ({ title }) => (
   <nav>

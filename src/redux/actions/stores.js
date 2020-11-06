@@ -1,7 +1,9 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-underscore-dangle */
-import { toast } from 'react-toastify';
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   STORES_ONE,
   STORES_ONE_SELECTED,
@@ -9,16 +11,38 @@ import {
   STORE_UPDATE,
   STORE_DELETE,
   STORES_ADD
-} from './types/storeTypes.js';
-import { userUpdate } from './users.js';
+} from 'redux/actions/types/storeTypes';
 
-export const shopsAll = () => ({ type: STORES_ALL, payload: api.get('/shops/') });
+/** Action imports */
+import { userUpdate } from 'redux/actions/users';
 
+/**
+ * Select single shop
+ * @param {object} shop
+ */
+export const shopsOneSelected = (shop) => ({
+  type: STORES_ONE_SELECTED,
+  payload: shop
+});
+
+/**
+ *Fetch single shop
+ * @param {string} id
+ */
 export const shopsOne = (id) => ({
   type: STORES_ONE,
   payload: api.get(`/shops/${id}`)
 });
 
+/**
+ * Fetch all shops
+ */
+export const shopsAll = () => ({ type: STORES_ALL, payload: api.get('/shops/') });
+
+/**
+ *Add single shop
+ * @param {object} shopData
+ */
 export const shopAdd = (shopData) => (dispatch, getState) => {
   const response = dispatch({
     type: STORES_ADD,
@@ -30,11 +54,11 @@ export const shopAdd = (shopData) => (dispatch, getState) => {
     .then((res) => dispatch([userUpdate(email, { shops: [res.value.data.data._id] }), shopsAll()]));
 };
 
-export const shopsOneSelected = (payload) => ({
-  type: STORES_ONE_SELECTED,
-  payload
-});
-
+/**
+ *Update single shop
+ * @param {string} id
+ * @param {object} shopData
+ */
 export const shopUpdate = (id, shopData) => (dispatch) => {
   const response = dispatch({
     type: STORE_UPDATE,
@@ -44,23 +68,16 @@ export const shopUpdate = (id, shopData) => (dispatch) => {
   return response.then(() => dispatch([shopsOne(id), shopsAll()]));
 };
 
-export const shopDelete = (id, message) => (dispatch) => {
+/**
+ * Delete single shop
+ * @param {string} id
+ */
+export const shopDelete = (id) => (dispatch) => {
   const response = dispatch({
     type: STORE_DELETE,
     payload: api.delete(`/shops/${id}`)
   });
 
   return response
-    .then(() => dispatch(shopsAll()))
-    .then(() => (message && toast.success(message)))
-    .catch((err) => toast.error(
-      (err && err.response && err.response.data && err.response.data.message)
-          || (err
-            && err.response
-            && err.response.data
-            && err.response.data.message
-            && err.response.data.message.name)
-          || (err && err.response && err.response.statusText)
-          || 'Network error'
-    ));
+    .then(() => dispatch(shopsAll()));
 };

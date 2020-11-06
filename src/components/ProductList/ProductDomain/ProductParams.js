@@ -21,7 +21,7 @@ class ProductParams extends Component {
 
   /**
    * Returns ProductParams UI
-   * @return {Obj} The UI DOM object
+   * @return {object} The UI DOM object
    */
   render() {
     const { color, sizes } = this.props;

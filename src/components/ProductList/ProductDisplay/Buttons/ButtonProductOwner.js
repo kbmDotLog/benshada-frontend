@@ -51,7 +51,7 @@ class ButtonProductOwner extends React.Component {
     const _id = product.get('_id');
 
     this.props
-      .productUpdate(_id, product, 'Product updated successfully')
+      .productUpdate(_id, product)
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -105,7 +105,7 @@ class ButtonProductOwner extends React.Component {
           <Modal
             id={`product-${product && product._id}-delete`}
             title="Delete Product"
-            callback={() => this.props.productDelete(_id, 'Product deleted successfully')
+            callback={() => this.props.productDelete(_id)
             }
           >
             Are you sure you want to delete <strong>{name}</strong>?

@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import $ from 'jquery';
-import { toast } from 'react-toastify';
 
 // Component imports
 import { faEye, faTimes, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -67,21 +66,6 @@ class TicketDisplay extends Component {
 
     return this.props
       .ticketUpdate(_id, { responses: [...responses, { ...ticketData, _id: hex, createdAt }] })
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
       });
@@ -92,21 +76,6 @@ class TicketDisplay extends Component {
 
     return this.props
       .ticketUpdate(id, ticketData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -118,21 +87,6 @@ class TicketDisplay extends Component {
 
     return this.props
       .ticketDelete(id)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -251,7 +205,7 @@ class TicketDisplay extends Component {
         <Modal
           id="ticketDeleteModal"
           title="Delete Ticket"
-          callback={() => this.ticketDelete(_id, 'Ticket deleted successfully')}
+          callback={() => this.ticketDelete(_id)}
         >
           Are you sure you want to delete ticket {_id}
         </Modal>

@@ -9,7 +9,7 @@ import SideNav from 'components/Home/SideNav/SideNav.js';
 /**
  * Displays store lookbook
  * @constructor
- * @param {Obj} props
+ * @param {object} props
  * @return The UI DOM object
  */
 const LookBook = ({

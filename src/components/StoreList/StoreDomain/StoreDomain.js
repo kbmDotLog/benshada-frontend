@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 
 // Component imports
+import { connect } from 'react-redux';
 import ProductList from '../../ProductList/ProductList.js';
 import HrFr from '../../HrFr/HrFr.js';
 import Image from '../../Image/Image.js';
 
-export default class StoreDomain extends Component {
+class StoreDomain extends Component {
   constructor(props) {
     super(props);
 
@@ -195,3 +196,14 @@ export default class StoreDomain extends Component {
     );
   }
 }
+
+const mapStateToProps = ({
+  order, product, store, user
+}) => ({
+  orders: order.all,
+  products: product.all,
+  stores: store.all,
+  user: user.selected
+});
+
+export default connect(mapStateToProps)(StoreDomain);

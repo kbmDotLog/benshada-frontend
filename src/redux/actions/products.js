@@ -1,5 +1,7 @@
-import { toast } from 'react-toastify';
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   PRODUCTS_ONE,
   PRODUCTS_ONE_SELECTED,
@@ -8,41 +10,50 @@ import {
   PRODUCT_DELETE,
   PRODUCT_ADD,
   PRODUCT_UPDATE_MULTIPLE
-} from './types/productTypes.js';
+} from 'redux/actions/types/productTypes';
 
-export const productsAll = () => ({ type: PRODUCTS_ALL, payload: api.get('/products/') });
+/**
+ * Select single product
+ * @param {object} product
+ */
+export const productsOneSelected = (product) => ({
+  type: PRODUCTS_ONE_SELECTED,
+  payload: product
+});
 
+/**
+ *Fetch single product
+ * @param {string} id
+ */
 export const productsOne = (id) => ({
   type: PRODUCTS_ONE,
   payload: api.get(`/products/${id}`)
 });
 
-export const productsOneSelected = (payload) => ({
-  type: PRODUCTS_ONE_SELECTED,
-  payload
-});
+/**
+ * Fetch allproducts
+ */
+export const productsAll = () => ({ type: PRODUCTS_ALL, payload: api.get('/products/') });
 
-export const productUpdate = (id, productData, message) => (dispatch) => {
+/**
+ *Update single product
+ * @param {string} id
+ * @param {object} productData
+ */
+export const productUpdate = (id, productData) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_UPDATE,
     payload: api.put(`/products/${id}`, productData)
   });
 
   return response
-    .then(() => dispatch([productsOne(id), productsAll()]))
-    .then(() => message && toast.success(message))
-    .catch((err) => toast.error(
-      (err && err.response && err.response.data && err.response.data.message)
-          || (err
-            && err.response
-            && err.response.data
-            && err.response.data.message
-            && err.response.data.message.name)
-          || (err && err.response && err.response.statusText)
-          || 'Network error'
-    ));
+    .then(() => dispatch([productsOne(id), productsAll()]));
 };
 
+/**
+ *Update multiple products
+ * @param {*} productRequests
+ */
 export const productUpdateMultiple = (productRequests) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_UPDATE_MULTIPLE,
@@ -52,10 +63,14 @@ export const productUpdateMultiple = (productRequests) => (dispatch) => {
   return response.then(() => dispatch(productsAll()));
 };
 
-export const productAdd = (data) => (dispatch) => {
+/**
+ *Add single product
+ * @param {object} product
+ */
+export const productAdd = (product) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_ADD,
-    payload: api.post('/products', data, {
+    payload: api.post('/products', product, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
   });
@@ -63,23 +78,16 @@ export const productAdd = (data) => (dispatch) => {
   return response.then(() => dispatch(productsAll()));
 };
 
-export const productDelete = (id, message) => (dispatch) => {
+/**
+ *Delete single product
+ * @param {string} id
+ */
+export const productDelete = (id) => (dispatch) => {
   const response = dispatch({
     type: PRODUCT_DELETE,
     payload: api.delete(`/products/${id}`)
   });
 
   return response
-    .then(() => dispatch(productsAll()))
-    .then(() => message && toast.success(message))
-    .catch((err) => toast.error(
-      (err && err.response && err.response.data && err.response.data.message)
-          || (err
-            && err.response
-            && err.response.data
-            && err.response.data.message
-            && err.response.data.message.name)
-          || (err && err.response && err.response.statusText)
-          || 'Network error'
-    ));
+    .then(() => dispatch(productsAll()));
 };

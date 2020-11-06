@@ -1,43 +1,61 @@
 /* eslint-disable no-underscore-dangle */
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   NOTIFICATIONS_ONE_SELECTED,
   NOTIFICATIONS_ALL,
   NOTIFICATION_MARK_AS_READ,
   NOTIFICATION_DELETE
-} from './types/notificationTypes.js';
+} from 'redux/actions/types/notificationTypes';
 
-export const notificationsAll = () => (dispatch, getState) => {
+/**
+ *Select single notification
+ * @param {object} notification
+ */
+export const notificationsOneSelected = (notification) => ({
+  type: NOTIFICATIONS_ONE_SELECTED,
+  payload: notification
+});
+
+/**
+ * Fetch all notifications
+ */
+export const notificationsAll = (notification) => (dispatch, getState) => {
   const uID = getState().user.selected._id;
-  return dispatch({
+  const response = dispatch({
     type: NOTIFICATIONS_ALL,
     payload: api.get(`/notifications/${uID}`)
   });
+
+  return notification
+    ? response.then(() => dispatch(notificationsOneSelected(notification)))
+    : response;
 };
 
-export const notificationsOneSelected = (payload) => ({
-  type: NOTIFICATIONS_ONE_SELECTED,
-  payload
-});
-
-export const notificationMarkAsRead = (notification) => (dispatch, getState) => {
+/**
+ *Mark single notification as read
+ * @param {object} notification
+ */
+export const notificationMarkAsRead = (notification) => (dispatch) => {
   const response = dispatch({
     type: NOTIFICATION_MARK_AS_READ,
     payload: api.post(`/notifications/read/${notification._id}`, notification)
   });
 
-  return response
-    .then(() => dispatch(notificationsAll(getState().user.selected._id)))
-    .then(() => dispatch(notificationsOneSelected(notification)));
+  return response.then(() => dispatch(notificationsAll(notification)));
 };
 
-export const notificationDelete = (notification) => (dispatch, getState) => {
+/**
+ *Delete single notification
+ * @param {object} notification
+ */
+export const notificationDelete = (notification) => (dispatch) => {
   const response = dispatch({
     type: NOTIFICATION_DELETE,
     payload: api.delete(`/notifications/${notification._id}`)
   });
 
-  return response
-    .then(() => dispatch(notificationsAll(getState().user.selected._id)))
-    .then(() => dispatch(notificationsOneSelected(notification)));
+  return response.then(() => dispatch(notificationsAll(notification)));
 };

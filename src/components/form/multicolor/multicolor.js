@@ -21,7 +21,7 @@ export default class MultiColor extends Component {
 
   /**
    * Updates selected colors
-   * @param {obj} hex - Hex value of new color
+   * @param {object} hex - Hex value of new color
    * @param {[]} colors - Array of selected colors
    * @callback  onUpdateColors
    */
@@ -45,7 +45,7 @@ export default class MultiColor extends Component {
 
   /**
    * Returns MultiColor UI
-   * @return {Obj} The UI DOM object
+   * @return {object} The UI DOM object
    */
   render() {
     const {

@@ -53,7 +53,7 @@ export default class Modal extends Component {
 
   /**
    * Returns Modal UI
-   * @return {Obj} The UI DOM object
+   * @return {object} The UI DOM object
    */
   render() {
     const {

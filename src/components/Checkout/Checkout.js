@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { toast } from 'react-toastify';
 
 // Component imports
 import Modal from 'modal.js';
@@ -124,21 +123,6 @@ class CheckOut extends Component {
 
     this.props
       .orderAdd(finalOrder)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState({ btnOrder: this.INIT.btnOrder }));
   };
 
@@ -271,14 +255,15 @@ class CheckOut extends Component {
 }
 
 const mapStateToProps = ({
-  cart, auth, store, deliveryPackage, order
+  cart, auth, store, deliveryPackage, order, user
 }) => ({
   cart,
   isSignedIn: auth.isSignedIn,
   stores: store.all,
   deliveryPackages: deliveryPackage.all,
   selectedDeliveryPackage: deliveryPackage.selected,
-  orders: order.all
+  orders: order.all,
+  user: user.selected
 });
 
 export default connect(mapStateToProps, { deliveryPackagesOneSelected, orderAdd })(CheckOut);

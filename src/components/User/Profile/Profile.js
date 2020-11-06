@@ -54,21 +54,6 @@ class Profile extends Component {
 
     return this.props
       .userUpdate(this.props.user.email, user)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState(this.INIT));
   };
 
@@ -84,21 +69,6 @@ class Profile extends Component {
       this.setState(this.INIT))
       : this.props
         .userChangePassword(data)
-        .then((response) => toast.success(
-          (response && response.value && response.value.data && response.value.data.message)
-                || (response && response.statusText)
-                || 'Success'
-        ))
-        .catch((err) => toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
-                || (err
-                  && err.response
-                  && err.response.data
-                  && err.response.data.message
-                  && err.response.data.message.name)
-                || (err && err.response && err.response.statusText)
-                || 'Network error'
-        ))
         .finally(() => this.setState(this.INIT));
   };
 
@@ -109,25 +79,6 @@ class Profile extends Component {
 
     this.props
       .userUpdate(this.props.user.email, fd)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => {
-        this.setState(this.INIT);
-
-        toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-        );
-      })
       .finally(() => this.setState(this.INIT));
   };
 

@@ -12,8 +12,8 @@ import ProductShopType from '../ProductDisplay/ProductShopType.js';
 /**
  * Displays product details on Product page
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 const ProductHouse = ({ product }) => {
   const {

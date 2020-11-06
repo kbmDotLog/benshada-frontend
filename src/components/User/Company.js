@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import { deliveryCompanyUpdate } from '../../redux/actions/deliveryCompanies.js';
 import ImageUpload from '../Image/ImageUpload.js';
 import DeliveryCompanyForm from '../Onboarding/DeliveryCompanyForm.js';
@@ -43,21 +42,6 @@ class Company extends Component {
 
     this.props
       .deliveryCompanyUpdate(_id, company)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState(this.INIT));
   };
 
@@ -68,25 +52,6 @@ class Company extends Component {
 
     this.props
       .deliveryCompanyUpdate(this.props.deliveryCompany._id, fd)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => {
-        this.setState(this.INIT);
-
-        toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-        );
-      })
       .finally(() => this.setState(this.INIT));
   };
 

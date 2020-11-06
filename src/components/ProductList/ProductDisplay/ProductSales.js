@@ -8,7 +8,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 /**
  * Displays number of sales for a product
  * @constructor
- * @param {Obj} props
+ * @param {object} props
  * @return The UI DOM object
  */
 const ProductSales = ({ prod, orders }) => {
@@ -31,7 +31,7 @@ ProductSales.propTypes = {
 
 /**
  * Maps redux state to props
- * @param {Obj} state
+ * @param {object} state
  * @return
  */
 const mapStateToProps = ({ order }) => ({ orders: order.all });

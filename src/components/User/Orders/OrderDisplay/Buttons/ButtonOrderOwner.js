@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -58,21 +57,6 @@ class ButtonOrderOwner extends React.Component {
 
   callback = (res, order, transactionData) => this.props
     .transactionVerify(res, order, transactionData)
-    .then((response) => toast.success(
-      (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-    ))
-    .catch((err) => toast.error(
-      (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-    ))
     .finally(() => this.setState(this.INIT));
 
   render = () => {
@@ -136,7 +120,7 @@ class ButtonOrderOwner extends React.Component {
               id={`order-${order && order._id}-delete`}
               title="Cancel Order"
               dismissText="Go Back"
-              callback={() => this.props.orderDelete(selectedOrders[0], 'Order cancelled successfully')
+              callback={() => this.props.orderDelete(selectedOrders[0])
               }
               callbackText="Cancel"
             >

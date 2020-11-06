@@ -38,14 +38,11 @@ const ButtonProductBuyer = (props) => {
     const newSaved = ifSaved(id, saved)
       ? saved.filter(({ _id }) => _id !== id)
       : [...saved, product];
-    const successMessage = ifSaved(id, saved)
-      ? 'Product removed from saved items'
-      : 'Product added to saved items';
 
     setSaveIcon(<Loading variant="primary-benshada" />);
 
     props
-      .userUpdate(email, { saved: newSaved }, successMessage)
+      .userUpdate(email, { saved: newSaved })
       .finally(() => setSaveIcon(INIT.save));
   };
 
@@ -53,14 +50,11 @@ const ButtonProductBuyer = (props) => {
     const newCart = ifInCart(id, cart)
       ? cart.filter(({ _id }) => _id !== id)
       : [...cart, product];
-    const successMessage = ifInCart(id, cart)
-      ? 'Product removed from cart'
-      : 'Product added to cart';
 
     setCartIcon(<Loading variant="primary-benshada" />);
 
     props
-      .userUpdate(email, { cart: newCart }, successMessage)
+      .userUpdate(email, { cart: newCart })
       .finally(() => setCartIcon(INIT.cart));
   };
 
@@ -117,8 +111,8 @@ const ButtonProductBuyer = (props) => {
 
 /**
  * Maps Redux store state to props
- * @param {Obj} state
- * @return {Obj} Extra props
+ * @param {object} state
+ * @return {object} Extra props
  */
 const mapStateToProps = ({ auth }) => ({ isSignedIn: auth.isSignedIn });
 

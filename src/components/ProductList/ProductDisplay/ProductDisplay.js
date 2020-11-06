@@ -37,7 +37,7 @@ class ProductDisplay extends Component {
       <>
         <ButtonProductOwner
           shops={shops}
-          shop={shop}
+          shop={shops.find(({ _id }) => _id === shop)}
           product={product}
           user={user}
         />

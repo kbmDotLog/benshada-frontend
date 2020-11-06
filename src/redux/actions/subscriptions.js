@@ -1,27 +1,25 @@
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   SUBSCRIPTIONS_ALL,
   SUBSCRIPTION_ADD,
   SUBSCRIPTION_REMOVE
-} from './types/subscriptionTypes.js';
+} from 'redux/actions/types/subscriptionTypes';
 
-export const subscriptionsAll = (isAuthed) => () => {
-  const headers = isAuthed
-    ? {
-      Authorization: `Bearer ${process.env.REACT_APP_DEF_AUTH}`
-    }
-    : {};
+/**
+ * Fetch all subscriptions
+ */
+export const subscriptionsAll = () => ({
+  type: SUBSCRIPTIONS_ALL,
+  payload: api.get('/subscriptions')
+});
 
-  // console.log('Running subscriptions with these headers...', headers);
-
-  return {
-    type: SUBSCRIPTIONS_ALL,
-    payload: api.get('/subscriptions', {
-      headers
-    })
-  };
-};
-
+/**
+ *Add single subscription
+ * @param {object} userData
+ */
 export const subscriptionAdd = (userData) => (dispatch) => {
   const response = dispatch({
     type: SUBSCRIPTION_ADD,
@@ -31,6 +29,10 @@ export const subscriptionAdd = (userData) => (dispatch) => {
   return response.then(() => dispatch(subscriptionsAll()));
 };
 
+/**
+ *Remove single subscription
+ * @param {object} userData
+ */
 export const subscriptionRemove = (userData) => (dispatch) => {
   const response = dispatch({
     type: SUBSCRIPTION_REMOVE,

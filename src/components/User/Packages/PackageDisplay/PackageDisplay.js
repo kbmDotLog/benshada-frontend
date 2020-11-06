@@ -90,7 +90,7 @@ class PackageDisplay extends Component {
                 <Price price={cost} />
               </h2>
               {this.renderActionButtons(deliveryPackage)}
-            </div>
+             </div>
 
             <div className="p-3">
               <div>

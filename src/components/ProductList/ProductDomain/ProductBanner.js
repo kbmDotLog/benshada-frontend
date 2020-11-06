@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 /**
  *  Displays product page banner
  * @constructor
- * @param {Obj} props - Component props
- * @return {Obj} The UI DOM object
+ * @param {object} props - Component props
+ * @return {object} The UI DOM object
  */
 const ProductBanner = ({ product }) => {
   const { category, gender, name } = product;

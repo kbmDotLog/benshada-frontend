@@ -1,4 +1,7 @@
-import api from '../api/api.js';
+/** API imports */
+import api from 'redux/api/api';
+
+/** Type imports */
 import {
   TESTIMONIALS_ONE,
   TESTIMONIALS_ONE_SELECTED,
@@ -6,33 +9,52 @@ import {
   TESTIMONIALS_ALL,
   TESTIMONIAL_UPDATE,
   TESTIMONIAL_DELETE
-} from './types/testimonialTypes.js';
+} from 'redux/actions/types/testimonialTypes';
 
-export const testimonialsAll = () => ({
-  type: TESTIMONIALS_ALL,
-  payload: api.get('/testimonials/')
+/**
+ * Select single testimonial
+ * @param {object} testimonial
+ */
+export const testimonialsOneSelected = (testimonial) => ({
+  type: TESTIMONIALS_ONE_SELECTED,
+  payload: testimonial
 });
 
+/**
+ *Fetch single testimonial
+ * @param {string} id
+ */
 export const testimonialsOne = (id) => ({
   type: TESTIMONIALS_ONE,
   payload: api.get(`/testimonials/${id}`)
 });
 
-export const testimonialsOneSelected = (payload) => ({
-  type: TESTIMONIALS_ONE_SELECTED,
-  payload
+/**
+ * Fetch all testimonies
+ */
+export const testimonialsAll = () => ({
+  type: TESTIMONIALS_ALL,
+  payload: api.get('/testimonials/')
 });
 
+/**
+ *Update single testimonial
+ * @param {string} id
+ * @param {object} testimonialData
+ */
 export const testimonialUpdate = (id, testimonialData) => (dispatch) => {
   const response = dispatch({
     type: TESTIMONIAL_UPDATE,
     payload: api.put(`/testimonials/${id}`, testimonialData)
   });
 
-  return response
-    .then(() => dispatch([testimonialsOne(id), testimonialsAll()]));
+  return response.then(() => dispatch([testimonialsOne(id), testimonialsAll()]));
 };
 
+/**
+ *Add single testimonial
+ * @param {object} testimonial
+ */
 export const testimonialAdd = (testimonial) => (dispatch) => {
   const response = dispatch({
     type: TESTIMONIAL_ADD,
@@ -42,6 +64,10 @@ export const testimonialAdd = (testimonial) => (dispatch) => {
   return response.then(() => dispatch(testimonialsAll()));
 };
 
+/**
+ *Delete single testimonial
+ * @param {object} testimonial
+ */
 export const testimonialDelete = ({ _id }) => (dispatch) => {
   const response = dispatch({
     type: TESTIMONIAL_DELETE,

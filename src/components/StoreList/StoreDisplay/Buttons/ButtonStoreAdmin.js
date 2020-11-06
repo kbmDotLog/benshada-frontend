@@ -24,7 +24,7 @@ class ButtonStoreAdmin extends React.Component {
         <Modal
           id={`store-${_id}-delete`}
           title="Delete Store"
-          callback={() => this.props.shopDelete(_id, 'Shop deleted successfully ')}
+          callback={() => this.props.shopDelete(_id)}
         >
           Are you sure you want to delete <strong>{name}</strong>?
         </Modal>

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { faStream } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
 
 // Component imports
@@ -100,21 +99,6 @@ class UserBody extends Component {
 
     this.props
       .productAdd(productData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -163,21 +147,6 @@ class UserBody extends Component {
 
     this.props
       .deliveryPackagesAdd(deliveryPackage)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -196,21 +165,6 @@ class UserBody extends Component {
 
     return this.props
       .ticketAdd(ticketData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
       });

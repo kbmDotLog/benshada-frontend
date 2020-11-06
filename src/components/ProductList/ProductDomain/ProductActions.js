@@ -14,8 +14,8 @@ import { faStar, faUndo } from '@fortawesome/free-solid-svg-icons';
 /**
  * Displays action users can take on the product on the Product page
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 const ProductActions = ({ product, user, shops }) => {
   const {

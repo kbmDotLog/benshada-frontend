@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
 import Modal from 'modal.js';
 import {
@@ -42,21 +41,6 @@ class ButtonPackageOwner extends React.Component {
 
     this.props
       .deliveryPackageUpdate(_id, deliveryPackage)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -96,7 +80,7 @@ class ButtonPackageOwner extends React.Component {
         <Modal
           id={`delivery-package-${_id}-delete`}
           title="Delete Delivery Package"
-          callback={() => this.props.deliveryPackageDelete(_id, 'Delivery package deleted successfully')
+          callback={() => this.props.deliveryPackageDelete(_id)
           }
         >
           Are you sure you want to delete this delivery package?

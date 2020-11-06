@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import AuthRedirect from '../Auth/AuthRedirect.js';
 import navUA from '../../assets/js/navUA.js';
 import navUB from '../../assets/js/navUB.js';
@@ -61,4 +62,6 @@ class User extends Component {
   };
 }
 
-export default User;
+const mapStateToProps = ({ user }) => ({ user: user.selected });
+
+export default connect(mapStateToProps)(User);

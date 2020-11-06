@@ -32,7 +32,7 @@ class Home extends Component {
   };
 
   /**
-   * @param {Obj} product
+   * @param {object} product
    * @return {number} No of sales for a particular product
    */
   getSales = ({ _id }) => this.props.orders.filter(
@@ -180,7 +180,7 @@ class Home extends Component {
 
   /**
    * Displays Home UI
-   * @return {Obj} The UI DOM object
+   * @return {object} The UI DOM object
    */
   render = () => {
     const { products, stores, isSignedIn } = this.props;
@@ -248,8 +248,8 @@ class Home extends Component {
 
 /**
  * Component mapStateToProps
- * @param {Obj} state
- * @return {Obj} Extra component props
+ * @param {object} state
+ * @return {object} Extra component props
  */
 const mapStateToProps = ({
   auth, order, product, store

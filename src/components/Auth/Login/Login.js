@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import Auth from '../Auth.js';
 import LoginForm from './LoginForm.js';
@@ -28,21 +27,6 @@ class Login extends Component {
 
     return this.props
       .authLogin(loginData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState(this.INIT));
   };
 

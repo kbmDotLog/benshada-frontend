@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
 import Modal from 'modal.js';
 import { shopUpdate, shopsOneSelected } from '../../../../redux/actions/stores.js';
@@ -54,21 +53,6 @@ class ButtonStoreOwner extends React.Component {
 
     this.props
       .shopUpdate(_id, store)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();

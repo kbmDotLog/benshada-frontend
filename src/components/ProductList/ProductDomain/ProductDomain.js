@@ -37,8 +37,8 @@ class ProductDomain extends Component {
   /**
    * Fetches product based on ID
    * @param {string} productID Desired product ID
-   * @param {Obj} products List of products
-   * @return {Obj} The desired product
+   * @param {object} products List of products
+   * @return {object} The desired product
    */
   fetchProduct = (productID, products) => this.setState(
     () => ({ productID }),
@@ -53,9 +53,9 @@ class ProductDomain extends Component {
 
   /**
    * Gets component snapshot before update
-   * @param {Obj} prevProps
-   * @param {Obj} prevState
-   * @return {Obj} Snapshot
+   * @param {object} prevProps
+   * @param {object} prevState
+   * @return {object} Snapshot
    */
   getSnapshotBeforeUpdate = (prevProps, prevState) => ({
     shouldFetchProduct: prevState.productID !== this.state.productID
@@ -63,9 +63,9 @@ class ProductDomain extends Component {
 
   /**
    * Runs after component updates
-   * @param {Obj} prevProps
-   * @param {Obj} prevState
-   * @param {Obj} snapshot
+   * @param {object} prevProps
+   * @param {object} prevState
+   * @param {object} snapshot
    */
   componentDidUpdate = (prevProps, prevState, snapshot) => snapshot.shouldFetchProduct
     && this.fetchProduct(
@@ -83,7 +83,7 @@ class ProductDomain extends Component {
 
   /**
    * Returns ProductDomain UI
-   * @return {Obj} the UI DOM object
+   * @return {object} the UI DOM object
    */
   render() {
     const { product, productExists } = this.state;
@@ -133,8 +133,8 @@ class ProductDomain extends Component {
 
 /**
  * Maps Redux store state to component props
- * @param {Obj} state
- * @return {Obj} Extra component props
+ * @param {object} state
+ * @return {object} Extra component props
  */
 const mapStateToProps = ({ product, user }) => ({
   products: product.all,

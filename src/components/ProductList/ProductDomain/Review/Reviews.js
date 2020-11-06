@@ -10,8 +10,8 @@ import 'assets/css/review.min.css';
 /**
  * Displays product rreviews
  * @constructor
- * @param {Obj} param0
- * @return {Obj} Returns the UI DOM object
+ * @param {object} param0
+ * @return {object} Returns the UI DOM object
  */
 const Reviews = ({ reviews }) => (reviews || []) && (
     <article>

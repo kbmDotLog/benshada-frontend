@@ -12,7 +12,7 @@ import 'assets/css/jumbo.min.css';
 
 /**
  * Displays Jumbotron
- * @param {Obj} props
+ * @param {object} props
  * @return The UI DOM object
  */
 const Jumbotron = ({

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import Auth from '../Auth.js';
 import RegisterForm from './RegisterForm.js';
@@ -18,8 +17,7 @@ class Register extends Component {
   }
 
   static propTypes = {
-    authSignup: PropTypes.func,
-    users: PropTypes.array
+    authSignup: PropTypes.func
   };
 
   submit = (registerData) => {
@@ -35,26 +33,9 @@ class Register extends Component {
     delete user.familyName;
     delete user.confirmPassword;
 
-    return this.props.users.filter(({ email }) => email === registerData.email).length > 0
-      ? (this.setState(this.INIT), toast.warn('You have already registered'))
-      : this.props
-        .authSignup(user)
-        .then((response) => toast.success(
-          (response && response.value && response.value.data && response.value.data.message)
-                || (response && response.statusText)
-                || 'Success'
-        ))
-        .catch((err) => toast.error(
-          (err && err.response && err.response.data && err.response.data.message)
-                || (err
-                  && err.response
-                  && err.response.data
-                  && err.response.data.message
-                  && err.response.data.message.name)
-                || (err && err.response && err.response.statusText)
-                || 'Network error'
-        ))
-        .finally(() => this.setState(this.INIT));
+    return this.props
+      .authSignup(user)
+      .finally(() => this.setState(this.INIT));
   };
 
   render = () => (

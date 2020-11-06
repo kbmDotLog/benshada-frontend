@@ -9,7 +9,7 @@ import categories from 'assets/js/categories';
 /**
  * Displays sidenav
  * @constructor
- * @param {Obj} props
+ * @param {object} props
  * @return The UI DOM object
  */
 const SideNav = ({ list, variant }) => (

@@ -16,6 +16,7 @@ import orderReducer from './orderReducer.js';
 import ticketReducer from './ticketReducer.js';
 import transactionReducer from './transactionReducer.js';
 import notificationReducer from './notificationReducer.js';
+import toastReducer from './toastReducer.js';
 
 export default combineReducers({
   auth: authReducer,
@@ -30,6 +31,7 @@ export default combineReducers({
   subscription: subscriptionReducer,
   testimonial: testimonialReducer,
   ticket: ticketReducer,
+  toast: toastReducer,
   transaction: transactionReducer,
   user: userReducer
 });

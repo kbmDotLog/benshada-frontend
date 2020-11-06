@@ -18,14 +18,14 @@ class Price extends React.Component {
 
   /**
    * Returns Price UI
-   * @return {Obj} The UI DOM object
+   * @return {object} The UI DOM object
    */
   render() {
     const { price, discount } = this.props;
 
     return (
       <>
-        <strong className="mr-2">&#8358; {addComma(price)}</strong>
+        <strong className="mr-2">&#8358; {price && addComma(price)}</strong>
         {discount > 0 && (
           <span className="product-discount" role="contentinfo">
             &#8358; {addComma(price * (1 - discount / 100))}

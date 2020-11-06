@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 /**
  * Displays product page product info
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 const ProductInfo = ({
   category, gender, name, shop

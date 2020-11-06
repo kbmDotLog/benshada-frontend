@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
 import $ from 'jquery';
 import TypeForm from './TypeForm.js';
 import Auth from '../Auth/Auth.js';
@@ -49,21 +48,6 @@ class Onboarding extends Component {
 
     this.props
       .userUpdate(this.props.user.email, typeData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -85,21 +69,6 @@ class Onboarding extends Component {
 
     this.props
       .shopAdd(storeData)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState(this.INIT));
   };
 
@@ -109,11 +78,6 @@ class Onboarding extends Component {
         <Loading />
       )
     });
-
-    if (userData.categories.length < 1) {
-      this.setState(this.INIT);
-      return toast.warn('Do select at least one preferred category');
-    }
 
     Object.keys(userData).forEach((key) => {
       if (
@@ -131,21 +95,6 @@ class Onboarding extends Component {
 
     return this.props
       .userUpdate(this.props.user.email, user)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => {
         this.setState(this.INIT);
         $('.modal-backdrop').remove();
@@ -171,21 +120,6 @@ class Onboarding extends Component {
 
     return this.props
       .deliveryCompaniesAdd(company)
-      .then((response) => toast.success(
-        (response && response.value && response.value.data && response.value.data.message)
-            || (response && response.statusText)
-            || 'Success'
-      ))
-      .catch((err) => toast.error(
-        (err && err.response && err.response.data && err.response.data.message)
-            || (err
-              && err.response
-              && err.response.data
-              && err.response.data.message
-              && err.response.data.message.name)
-            || (err && err.response && err.response.statusText)
-            || 'Network error'
-      ))
       .finally(() => this.setState(this.INIT));
   };
 
@@ -239,7 +173,8 @@ class Onboarding extends Component {
 }
 
 const mapStateToProps = ({ user, deliveryCompany }) => ({
-  deliveryCompany: getDeliveryCompany(user, deliveryCompany)
+  deliveryCompany: getDeliveryCompany(user, deliveryCompany),
+  user: user.selected
 });
 
 export default connect(mapStateToProps, {

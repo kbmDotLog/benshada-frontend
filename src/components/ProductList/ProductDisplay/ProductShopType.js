@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 /**
  * Displays What type of shop user is buying from
  * @constructor
- * @param {Obj} props
- * @return {Obj} The UI DOM object
+ * @param {object} props
+ * @return {object} The UI DOM object
  */
 
 const ProductShopType = ({ product, users, stores }) => {
