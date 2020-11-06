@@ -22,10 +22,17 @@ class DeliveryCompanyForm extends Component {
     type: PropTypes.string
   };
 
-  componentDidMount = () => this.props.initialize({
-    ...this.props.deliveryCompany,
-    states: this.props.deliveryCompany.states.map((value) => ({ value, label: value }))
-  });
+  componentDidMount = () => {
+    if (this.props.deliveryCompany) {
+      this.props.initialize({
+        ...this.props.deliveryCompany,
+        states: this.props.deliveryCompany.states.map((value) => ({
+          value,
+          label: value
+        }))
+      });
+    }
+  }
 
   render() {
     const { user, type } = this.props;
