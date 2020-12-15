@@ -331,7 +331,7 @@ class ProductForm extends Component {
               component={FormField}
               label="Available Sizes"
               className="col-12"
-              options={this.getSizes(productSizes, formData.category)}
+              options={formData ? this.getSizes(productSizes, formData.category) : []}
             />
           </div>
 

@@ -85,13 +85,13 @@ class ProductDisplay extends Component {
             className="img-holder position-relative text-center"
             style={imgHolderStyle}
           >
-            <div className="product-actions position-absolute p-3">
-              {this.renderActionButtons(product)}
-            </div>
             <div className="img-holder-cover bg-secondary-gradient position-absolute w-100 h-100 v-parent ">
               <p className="v-child p-3 px-5 h-50 d-none d-lg-block product-description text-white">
                 {longDescription}
               </p>
+            </div>
+            <div className="product-actions position-absolute p-3">
+              {this.renderActionButtons(product)}
             </div>
           </div>
           <div className="position-relative mb-3 product-info py-2 px-3">

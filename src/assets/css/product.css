@@ -27,7 +27,7 @@
 }
 
 #app .productShowcase .product {
-  flex: 0 0 calc(100% - 12px);
+  flex: 0 0 calc(100% - 6px);
   margin: 0px 5px 30px;
   height: fit-content;
   background: #fff;
@@ -57,7 +57,7 @@
   left: 0;
   display: flex;
   justify-content: space-between;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 #app .productShowcase .product .img-holder .btn {
@@ -98,7 +98,7 @@
 ***************************************************************/
 @media (min-width: 356px) {
   #app .productShowcase .product {
-    flex-basis: calc(50% - 12px);
+    flex-basis: calc(50% - 6px);
   }
 }
 
@@ -111,14 +111,14 @@
 
 @media (min-width: 576px) {
   #app .productShowcase .product {
-    flex-basis: calc(33.3% - 12px);
+    flex-basis: calc(33.3% - 6px);
   }
 }
 
 @media (min-width: 992px) {
 
   #app .productShowcase .product {
-    flex-basis: calc(25% - 12px);
+    flex-basis: calc(25% - 6px);
   }
 
   #app .productShowcase.wrap .d-flex {
@@ -132,6 +132,6 @@
 
 @media (min-width: 1198px) {
   #app .productShowcase .product {
-    flex-basis: calc(20% - 12px);
+    flex-basis: calc(20% - 6px);
   }
 }

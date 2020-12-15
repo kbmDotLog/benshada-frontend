@@ -128,12 +128,141 @@
 }
 
 #app .user-dashboard-stats.user-dashboard-stats-products .header-icon,
-#app .user-notifications-list .user-notification.user-notification-product .user-notification-icon {
+#app
+  .user-notifications-list
+  .user-notification.user-notification-product
+  .user-notification-icon {
   color: #007bff;
 }
 
+#app .user-orders-list .user-order-product .img-holder {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+#app .user-orders-list .user-order-container {
+  position: relative;
+}
+
+#app .user-orders-list .user-order-container .user-order-product .img-holder {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+#app .user-orders-list .user-order-status {
+  text-align: right;
+}
+
+#app .user-orders-list .user-order-number {
+  border-bottom: 1px solid #aaa;
+  margin: 0 -6.2%;
+}
+
+#app .user-orders-list .user-order-info {
+  border-top: 1px solid #aaa;
+}
+
+#app .user-orders-list .user-order-track .img-holder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#app .user-orders-list .order-status-list {
+  padding: 0;
+  margin: 15px 0;
+}
+
+#app .user-orders-list .user-orders-list-item {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+#app .user-orders-list .user-orders-list-item .user-orders-list-item-animation {
+  padding: 5px;
+  border-radius: 50%;
+  position: relative;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation::before {
+  position: absolute;
+  content: '';
+  width: 3px;
+  height: 650%;
+  left: 3.5px;
+  top: 5px;
+  background-color: #dedede;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation.bg-primary::before {
+  background-color: #007bff;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation.bg-primary-benshada::before {
+  background-color: #ef932e;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation.bg-success::before {
+  background-color: #28a745;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation.bg-dark::before {
+  background-color: #343a40;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item
+  .user-orders-list-item-animation.bg-danger::before {
+  background-color: #dc3545;
+}
+
+#app
+  .user-orders-list
+  .user-orders-list-item:nth-last-child(1)
+  .user-orders-list-item-animation::before {
+  height: unset;
+}
+
+#app .user-orders-list .user-orders-list-item-icon {
+  padding: 10px;
+  font-size: 1.4rem;
+}
+
+#app .user-orders-list .user-orders-list-item-icon .badge {
+  padding: 10px;
+  border-radius: 50%;
+}
+
+#app .user-orders-list .user-orders-list-item-info {
+  flex-grow: 1;
+}
+
 #app .user-dashboard-stats.user-dashboard-stats-orders .header-icon,
-#app .user-notifications-list .user-notification.user-notification-order .user-notification-icon,
+#app
+  .user-notifications-list
+  .user-notification.user-notification-order
+  .user-notification-icon,
 #app .user-transactions-list .user-transaction .user-transaction-icon {
   color: #28a745;
 }
@@ -143,7 +272,10 @@
 }
 
 #app .user-dashboard-stats.user-dashboard-stats-saved .header-icon,
-#app .user-notifications-list .user-notification.user-notification-saved .user-notification-icon,
+#app
+  .user-notifications-list
+  .user-notification.user-notification-saved
+  .user-notification-icon,
 #app .user-transactions-list .user-transaction-debit .user-transaction-icon {
   color: #dc3545;
 }
@@ -155,23 +287,33 @@
   width: 100%;
 }
 
-#app .user-dashboard-stats.user-dashboard-stats-sales .user-dashboard-stat-count {
+#app
+  .user-dashboard-stats.user-dashboard-stats-sales
+  .user-dashboard-stat-count {
   border-color: #ef932e;
 }
 
-#app .user-dashboard-stats.user-dashboard-stats-products .user-dashboard-stat-count {
+#app
+  .user-dashboard-stats.user-dashboard-stats-products
+  .user-dashboard-stat-count {
   border-color: #007bff;
 }
 
-#app .user-dashboard-stats.user-dashboard-stats-orders .user-dashboard-stat-count {
+#app
+  .user-dashboard-stats.user-dashboard-stats-orders
+  .user-dashboard-stat-count {
   border-color: #28a745;
 }
 
-#app .user-dashboard-stats.user-dashboard-stats-cart .user-dashboard-stat-count {
+#app
+  .user-dashboard-stats.user-dashboard-stats-cart
+  .user-dashboard-stat-count {
   border-color: #fff;
 }
 
-#app .user-dashboard-stats.user-dashboard-stats-saved .user-dashboard-stat-count {
+#app
+  .user-dashboard-stats.user-dashboard-stats-saved
+  .user-dashboard-stat-count {
   border-color: #dc3545;
 }
 
@@ -205,7 +347,7 @@
 }
 
 #app .user-cart-item {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #aaa;
 }
 
 #app .user-cart-item:nth-child(1) {
@@ -260,6 +402,23 @@
   #app #v-pills-products .productShowcase .d-flex {
     justify-content: flex-start;
   }
+
+  #app #v-pills-products .productShowcase .d-flex .product:nth-child(2n + 1),
+  #app #v-pills-products .productShowcase .d-flex .product:nth-child(3n + 1) {
+    margin-left: 0;
+  }
+
+  #app #v-pills-products .productShowcase .d-flex .product:nth-child(2n) {
+    margin-right: 8px;
+  }
+
+  #app #v-pills-products .productShowcase .d-flex .product:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  #app .user-orders-list .user-order-number {
+    margin: 0 -2%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -303,6 +462,32 @@
 
   .user-cart-item-main ~ div {
     display: flex;
+  }
+
+  #app #v-pills-products .productShowcase .d-flex .product:nth-child(3n) {
+    margin-right: 8px;
+  }
+
+  #app .user-orders-list .user-order {
+    display: flex;
+    align-items: center;
+  }
+
+  #app .user-orders-list .user-order-number {
+    border-bottom: unset;
+    margin: unset;
+    text-align: center;
+  }
+
+  #app .user-orders-list .user-order-container .user-order-product .img-holder {
+    width: 50px;
+    height: 50px;
+    position: unset;
+  }
+
+  #app .user-orders-list .user-order-status {
+    width: 100px;
+    text-align: left;
   }
 }
 
